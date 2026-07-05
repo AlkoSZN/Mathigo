@@ -1,0 +1,23 @@
+# Dépendances
+node_modules/
+
+# Build
+dist/
+
+# Environnement — ne jamais committer de clés
+.env
+.env.local
+.env.*.local
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/
+
+# Logs et divers
+*.log
+.DS_Store
+Thumbs.db
+
+# Pipeline de génération
+scripts/generation/rejected.jsonl
+scripts/generation/__pycache__/
