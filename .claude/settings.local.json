@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "PowerShell(npx -y skills add https://github.com/delphi-ai/animate-skill --skill animate)",
-      "PowerShell(npx -y skills add https://github.com/199-biotechnologies/motion-dev-animations-skill)"
-    ]
-  }
-}

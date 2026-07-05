@@ -13,6 +13,9 @@ dist/
 supabase/.branches/
 supabase/.temp/
 
+# Réglages locaux Claude Code
+.claude/settings.local.json
+
 # Logs et divers
 *.log
 .DS_Store
