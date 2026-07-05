@@ -1,3 +1,52 @@
-/* Design tokens Mathigo — remplis à l'étape design */
+/* ---------------------------------------------------------------------------
+   Mathigo — design tokens
+   DA « cahier de brouillon augmenté » : papier quadrillé, encre, surligneur.
+   4 familles de couleurs maximum : papier, encre, menthe, rouge.
+--------------------------------------------------------------------------- */
 :root {
+  /* Papier — blanc cassé froid, à peine teinté */
+  --papier: #fcfbf8;
+  --papier-creuse: #f4f2ec; /* zones en retrait (fonds de jauges, inputs) */
+
+  /* Encre — bleu-nuit structurant */
+  --encre: #1b2a4a;
+  --encre-70: rgba(27, 42, 74, 0.7); /* texte secondaire */
+  --encre-30: rgba(27, 42, 74, 0.3); /* bordures appuyées, éléments désactivés */
+  --encre-12: rgba(27, 42, 74, 0.12); /* filets, bordures de cartes */
+  --grille: rgba(27, 42, 74, 0.045); /* lignes du quadrillage */
+
+  /* Menthe — accent unique : succès, CTA, surlignage */
+  --menthe: #1dbe8d;
+  --menthe-fonce: #0d8261; /* texte menthe lisible sur papier */
+  --menthe-halo: rgba(29, 190, 141, 0.18); /* trait de surligneur, fonds de succès */
+
+  /* Rouge doux — erreurs et marge du cahier */
+  --rouge: #c74e5b;
+  --rouge-halo: rgba(199, 78, 91, 0.14);
+  --marge: rgba(199, 78, 91, 0.35); /* ligne de marge Séyès */
+
+  /* Typographie
+     Le contraste display moderne (Clash) / Computer Modern (KaTeX) est
+     l'identité du produit : ne jamais appliquer Clash aux maths. */
+  --fonte-display: 'Clash Display', 'Public Sans Variable', sans-serif;
+  --fonte-corps: 'Public Sans Variable', system-ui, sans-serif;
+
+  --taille-hero: clamp(2.2rem, 1.4rem + 3.5vw, 3.6rem);
+  --taille-titre: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --taille-sous-titre: 1.2rem;
+  --taille-corps: 1rem;
+  --taille-petit: 0.85rem;
+
+  /* Grille de mise en page */
+  --pas: 24px; /* pas du quadrillage, unité de rythme vertical */
+  --largeur-contenu: 1040px;
+  --rayon: 10px;
+
+  /* Ombre dure « papier posé » — jamais d'ombre floue */
+  --ombre-papier: 3px 3px 0 var(--encre-12);
+  --ombre-papier-active: 1px 1px 0 var(--encre-12);
+
+  /* Mouvement */
+  --ressort-rapide: 150ms cubic-bezier(0.3, 1.2, 0.4, 1);
+  --transition-douce: 200ms ease;
 }

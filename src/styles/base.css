@@ -1,1 +1,232 @@
-/* Styles de base Mathigo — remplis à l'étape design */
+/* ---------------------------------------------------------------------------
+   Mathigo — styles de base et coquille d'application
+--------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  font-family: var(--fonte-corps);
+  font-size: var(--taille-corps);
+  line-height: 1.6;
+  color: var(--encre);
+  background-color: var(--papier);
+  /* Quadrillage du cahier, calé sur le pas de 24px */
+  background-image:
+    linear-gradient(var(--grille) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grille) 1px, transparent 1px);
+  background-size: var(--pas) var(--pas);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Le quadrillage disparaît sur mobile pour la lisibilité */
+@media (max-width: 640px) {
+  body {
+    background-image: none;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 calc(var(--pas) / 2);
+}
+
+h1 {
+  font-size: var(--taille-titre);
+}
+
+h2 {
+  font-size: var(--taille-sous-titre);
+}
+
+p {
+  margin: 0 0 calc(var(--pas) / 2);
+}
+
+a {
+  color: var(--encre);
+  text-decoration-color: var(--menthe);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+::selection {
+  background: var(--menthe-halo);
+}
+
+:focus-visible {
+  outline: 2px solid var(--encre);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- Coquille d'application ------------------------------------------------ */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pas);
+  padding: calc(var(--pas) / 2) var(--pas);
+  border-bottom: 1px solid var(--encre-12);
+  background: var(--papier);
+}
+
+.app-logo {
+  font-family: var(--fonte-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+/* Le point sur le i de Mathigo, en menthe */
+.app-logo em {
+  font-style: normal;
+  color: var(--menthe-fonce);
+}
+
+.app-nav {
+  display: flex;
+  gap: calc(var(--pas) / 2);
+}
+
+.app-nav a {
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: var(--rayon);
+  font-size: var(--taille-petit);
+  font-weight: 600;
+  color: var(--encre-70);
+}
+
+.app-nav a[aria-current='page'] {
+  color: var(--encre);
+  background: var(--menthe-halo);
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--largeur-contenu);
+  margin: 0 auto;
+  padding: var(--pas);
+}
+
+/* Marge de cahier Séyès à gauche du contenu (desktop uniquement) */
+@media (min-width: 900px) {
+  .app-main {
+    border-left: 1px solid var(--marge);
+    padding-left: calc(var(--pas) * 1.5);
+  }
+}
+
+/* --- Éléments communs ------------------------------------------------------ */
+
+.btn {
+  font-family: var(--fonte-corps);
+  font-size: var(--taille-corps);
+  font-weight: 600;
+  color: var(--papier);
+  background: var(--encre);
+  border: 1px solid var(--encre);
+  border-radius: var(--rayon);
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: var(--ombre-papier);
+  transition:
+    transform var(--ressort-rapide),
+    box-shadow var(--ressort-rapide);
+}
+
+.btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--encre-12);
+}
+
+.btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: var(--ombre-papier-active);
+}
+
+.btn:disabled {
+  background: var(--encre-30);
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
+  cursor: default;
+}
+
+.btn--menthe {
+  background: var(--menthe);
+  border-color: var(--menthe);
+  color: var(--encre);
+}
+
+.carte {
+  background: var(--papier);
+  border: 1px solid var(--encre-12);
+  border-radius: var(--rayon);
+  padding: var(--pas);
+}
+
+.champ {
+  font-family: var(--fonte-corps);
+  font-size: var(--taille-corps);
+  color: var(--encre);
+  background: var(--papier-creuse);
+  border: 1px solid var(--encre-12);
+  border-radius: var(--rayon);
+  padding: 10px 14px;
+  width: 100%;
+}
+
+.champ::placeholder {
+  color: var(--encre-30);
+}
+
+.note-erreur {
+  color: var(--rouge);
+  background: var(--rouge-halo);
+  border-radius: var(--rayon);
+  padding: 8px 12px;
+  font-size: var(--taille-petit);
+}
+
+.note-succes {
+  color: var(--menthe-fonce);
+  background: var(--menthe-halo);
+  border-radius: var(--rayon);
+  padding: 8px 12px;
+  font-size: var(--taille-petit);
+}
