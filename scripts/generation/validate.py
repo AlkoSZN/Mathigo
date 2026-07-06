@@ -6,6 +6,7 @@
 #   scripts/generation/rejected.jsonl             (exercices rejetés + motif, pour revue)
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -38,6 +39,16 @@ ESPACE = {
 }
 
 ERREURS_TYPES_REQUIS = 3  # nombre de distracteurs devant porter un error_type
+
+RE_DELIMITEURS_DOLLAR = re.compile(r"^(\${1,2})([\s\S]*)\1$")
+
+
+def nettoyer_delimiteurs(latex):
+    """Retire un $...$ ou $$...$$ englobant : choices[].latex attend du LaTeX
+    nu (rendu direct par KaTeX), pas des délimiteurs Markdown-style — sinon le
+    "$" littéral casse le parsing et KaTeX affiche la source brute en rouge."""
+    m = RE_DELIMITEURS_DOLLAR.match(latex.strip())
+    return m.group(2).strip() if m else latex
 
 
 def parser(expression):
@@ -90,6 +101,8 @@ def valider_exercice(ex):
         return None, f"{len(choix)} choix au lieu de 4"
     if not all(isinstance(c, dict) and isinstance(c.get("latex"), str) for c in choix):
         return None, "choix mal formé (objet {latex, correct, ...} attendu)"
+    for c in choix:
+        c["latex"] = nettoyer_delimiteurs(c["latex"])
     corrects = [c for c in choix if c.get("correct") is True]
     if len(corrects) != 1:
         return None, f"{len(corrects)} choix corrects au lieu de 1"

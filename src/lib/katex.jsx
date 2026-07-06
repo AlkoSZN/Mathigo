@@ -9,9 +9,18 @@ import katex from 'katex'
 // retrouver un rendu textuel normal.
 const RE_COMMANDE_MATH = /\\[a-zA-Z]+|[\^_{}]/
 const RE_DEUX_MOTS = /[a-zà-öø-ÿ]{2,}\s+[a-zà-öø-ÿ]{2,}/i
+// La génération produit parfois des choix entourés de $...$ (délimiteurs
+// Markdown-style) alors que ce champ attend du LaTeX nu : KaTeX est déjà en
+// mode maths, donc le "$" littéral casse le parsing et affiche la source
+// brute en rouge. On retire ces délimiteurs avant rendu.
+const RE_DELIMITEURS = /^(\${1,2})([\s\S]*)\1$/
 
 function proteger(latex) {
-  return RE_DEUX_MOTS.test(latex) && !RE_COMMANDE_MATH.test(latex) ? `\\text{${latex}}` : latex
+  const chaine = String(latex).trim()
+  const nettoyee = RE_DELIMITEURS.test(chaine) ? chaine.replace(RE_DELIMITEURS, '$2').trim() : chaine
+  return RE_DEUX_MOTS.test(nettoyee) && !RE_COMMANDE_MATH.test(nettoyee)
+    ? `\\text{${nettoyee}}`
+    : nettoyee
 }
 
 /**
