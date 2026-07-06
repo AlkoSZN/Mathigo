@@ -1,0 +1,244 @@
+{
+  "branch": "analyse-1",
+  "title": "Analyse 1",
+  "chapters": [
+    {
+      "id": "suites",
+      "title": "Suites numériques",
+      "skills": [
+        {
+          "id": "ana1-suites-01",
+          "title": "Premiers termes et modes de définition",
+          "description": "Suites explicites et récurrentes : calculer des termes, reconnaître le mode de définition, indices et notation $(u_n)$.",
+          "position": 1,
+          "prereq_ids": [],
+          "icon": "(u_n)"
+        },
+        {
+          "id": "ana1-suites-02",
+          "title": "Monotonie et bornes",
+          "description": "Étudier le sens de variation (différence, quotient), majorants, minorants, suites bornées.",
+          "position": 2,
+          "prereq_ids": ["ana1-suites-01"],
+          "icon": "u_{n+1} \\geq u_n"
+        },
+        {
+          "id": "ana1-suites-03",
+          "title": "Limite d'une suite",
+          "description": "Définition de la convergence, limites usuelles ($q^n$, $1/n^\\alpha$), divergence vers $\\pm\\infty$.",
+          "position": 3,
+          "prereq_ids": ["ana1-suites-02"],
+          "icon": "\\lim u_n"
+        },
+        {
+          "id": "ana1-suites-04",
+          "title": "Opérations et comparaison",
+          "description": "Opérations sur les limites, formes indéterminées, théorème des gendarmes et comparaisons.",
+          "position": 4,
+          "prereq_ids": ["ana1-suites-03"],
+          "icon": "\\leq"
+        },
+        {
+          "id": "ana1-suites-05",
+          "title": "Convergence monotone et suites adjacentes",
+          "description": "Théorème de la limite monotone, suites adjacentes, application aux encadrements.",
+          "position": 5,
+          "prereq_ids": ["ana1-suites-04"],
+          "icon": "\\nearrow"
+        },
+        {
+          "id": "ana1-suites-06",
+          "title": "Suites récurrentes",
+          "description": "Suites $u_{n+1} = f(u_n)$ : point fixe, intervalle stable, convergence par monotonie.",
+          "position": 6,
+          "prereq_ids": ["ana1-suites-04"],
+          "icon": "f(u_n)"
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "title": "Limites de fonctions",
+      "skills": [
+        {
+          "id": "ana1-limites-01",
+          "title": "Limite en un point et à l'infini",
+          "description": "Limites finies et infinies, limites à gauche et à droite, lecture graphique.",
+          "position": 7,
+          "prereq_ids": ["ana1-suites-03"],
+          "icon": "\\lim_{x \\to a}"
+        },
+        {
+          "id": "ana1-limites-02",
+          "title": "Opérations et formes indéterminées",
+          "description": "Somme, produit, quotient de limites ; lever les formes indéterminées par factorisation ou quantité conjuguée.",
+          "position": 8,
+          "prereq_ids": ["ana1-limites-01"],
+          "icon": "\\tfrac{0}{0}"
+        },
+        {
+          "id": "ana1-limites-03",
+          "title": "Composition et encadrement",
+          "description": "Limite d'une composée, théorème d'encadrement et comparaisons pour les fonctions.",
+          "position": 9,
+          "prereq_ids": ["ana1-limites-02"],
+          "icon": "f \\circ g"
+        },
+        {
+          "id": "ana1-limites-04",
+          "title": "Croissances comparées",
+          "description": "Hiérarchie $\\ln x \\ll x^\\alpha \\ll e^x$ en $+\\infty$, limites usuelles associées.",
+          "position": 10,
+          "prereq_ids": ["ana1-limites-02"],
+          "icon": "\\tfrac{e^x}{x^n}"
+        },
+        {
+          "id": "ana1-limites-05",
+          "title": "Asymptotes",
+          "description": "Asymptotes horizontales, verticales et obliques ; position relative de la courbe.",
+          "position": 11,
+          "prereq_ids": ["ana1-limites-04"],
+          "icon": "y = ax + b"
+        }
+      ]
+    },
+    {
+      "id": "continuite",
+      "title": "Continuité",
+      "skills": [
+        {
+          "id": "ana1-cont-01",
+          "title": "Continuité en un point et sur un intervalle",
+          "description": "Définition, continuité des fonctions usuelles, opérations et composition.",
+          "position": 12,
+          "prereq_ids": ["ana1-limites-01"],
+          "icon": "\\mathcal{C}^0"
+        },
+        {
+          "id": "ana1-cont-02",
+          "title": "Prolongement par continuité",
+          "description": "Reconnaître et construire un prolongement par continuité en un point.",
+          "position": 13,
+          "prereq_ids": ["ana1-cont-01", "ana1-limites-02"],
+          "icon": "\\tilde{f}"
+        },
+        {
+          "id": "ana1-cont-03",
+          "title": "Théorème des valeurs intermédiaires",
+          "description": "TVI et son corollaire pour les fonctions strictement monotones ; existence et unicité de solutions de $f(x) = k$.",
+          "position": 14,
+          "prereq_ids": ["ana1-cont-01"],
+          "icon": "f(c) = k"
+        },
+        {
+          "id": "ana1-cont-04",
+          "title": "Image d'un segment",
+          "description": "Théorème des bornes atteintes, image d'un segment par une fonction continue.",
+          "position": 15,
+          "prereq_ids": ["ana1-cont-03"],
+          "icon": "f([a,b])"
+        }
+      ]
+    },
+    {
+      "id": "derivation",
+      "title": "Dérivation",
+      "skills": [
+        {
+          "id": "ana1-deriv-01",
+          "title": "Nombre dérivé et tangente",
+          "description": "Taux d'accroissement, dérivabilité en un point, équation de la tangente, lien avec la continuité.",
+          "position": 16,
+          "prereq_ids": ["ana1-limites-02", "ana1-cont-01"],
+          "icon": "f'(a)"
+        },
+        {
+          "id": "ana1-deriv-02",
+          "title": "Dérivées usuelles",
+          "description": "Dérivées de $x^n$, $\\sqrt{x}$, $e^x$, $\\ln x$, fonctions trigonométriques.",
+          "position": 17,
+          "prereq_ids": ["ana1-deriv-01"],
+          "icon": "(x^n)'"
+        },
+        {
+          "id": "ana1-deriv-03",
+          "title": "Opérations sur les dérivées",
+          "description": "Dérivée d'un produit, d'un quotient, d'une composée ; dérivées successives.",
+          "position": 18,
+          "prereq_ids": ["ana1-deriv-02"],
+          "icon": "(uv)'"
+        },
+        {
+          "id": "ana1-deriv-04",
+          "title": "Dérivée et sens de variation",
+          "description": "Signe de $f'$ et monotonie, tableau de variations, résolution d'inéquations $f'(x) \\geq 0$.",
+          "position": 19,
+          "prereq_ids": ["ana1-deriv-03"],
+          "icon": "f' \\geq 0"
+        },
+        {
+          "id": "ana1-deriv-05",
+          "title": "Extrema locaux",
+          "description": "Condition nécessaire $f'(x_0) = 0$, changement de signe de $f'$, extrema sur un segment.",
+          "position": 20,
+          "prereq_ids": ["ana1-deriv-04"],
+          "icon": "f' = 0"
+        },
+        {
+          "id": "ana1-deriv-06",
+          "title": "Rolle et accroissements finis",
+          "description": "Théorème de Rolle, égalité et inégalité des accroissements finis, applications.",
+          "position": 21,
+          "prereq_ids": ["ana1-deriv-04"],
+          "icon": "\\tfrac{f(b)-f(a)}{b-a}"
+        }
+      ]
+    },
+    {
+      "id": "etudes",
+      "title": "Études de fonctions",
+      "skills": [
+        {
+          "id": "ana1-etude-01",
+          "title": "Domaine, parité, périodicité",
+          "description": "Ensemble de définition, parité, imparité, périodicité et réduction du domaine d'étude.",
+          "position": 22,
+          "prereq_ids": ["ana1-cont-01"],
+          "icon": "\\mathcal{D}_f"
+        },
+        {
+          "id": "ana1-etude-02",
+          "title": "Tableau de variations complet",
+          "description": "Construire un tableau de variations complet : dérivée, signe, limites aux bornes, valeurs remarquables.",
+          "position": 23,
+          "prereq_ids": ["ana1-deriv-04", "ana1-etude-01"],
+          "icon": "\\nearrow\\!\\searrow"
+        },
+        {
+          "id": "ana1-etude-03",
+          "title": "Convexité et points d'inflexion",
+          "description": "Signe de $f''$, convexité, concavité, points d'inflexion, position par rapport aux tangentes.",
+          "position": 24,
+          "prereq_ids": ["ana1-deriv-04"],
+          "icon": "f'' > 0"
+        },
+        {
+          "id": "ana1-etude-04",
+          "title": "Étude complète avec asymptotes",
+          "description": "Plan d'étude complet d'une fonction : domaine, variations, asymptotes, tracé de la courbe.",
+          "position": 25,
+          "prereq_ids": ["ana1-etude-02", "ana1-limites-05"],
+          "icon": "\\mathcal{C}_f"
+        },
+        {
+          "id": "ana1-etude-05",
+          "title": "Fonctions réciproques",
+          "description": "Bijection continue strictement monotone, fonction réciproque, courbes symétriques par rapport à $y = x$.",
+          "position": 26,
+          "prereq_ids": ["ana1-etude-02", "ana1-cont-03"],
+          "icon": "f^{-1}"
+        }
+      ]
+    }
+  ]
+}

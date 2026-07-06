@@ -25,7 +25,7 @@ magiques) sont capturés par Mailpit : http://127.0.0.1:54324.
 ## État d'avancement
 
 - [x] Phase 1 — Fondations (scaffold, schéma + RLS, KaTeX, design tokens, auth)
-- [ ] Phase 2 — Arbre Analyse 1
+- [x] Phase 2 — Arbre Analyse 1 (skill-tree.json, seed, rendu avec états)
 - [ ] Phase 3 — Pipeline de contenu
 - [ ] Phase 4 — Boucle de session
 - [ ] Phase 5 — FSRS
