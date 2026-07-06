@@ -367,6 +367,21 @@ a {
   font-weight: 600;
 }
 
+.noeud-lien {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--rayon);
+  transition: transform var(--ressort-rapide);
+}
+
+.noeud-lien:hover {
+  transform: translateY(-2px);
+}
+
 /* Verrouillé : construction au crayon, en pointillés estompés */
 .noeud--verrouillee .noeud-trace {
   stroke: var(--encre-30);
@@ -376,6 +391,215 @@ a {
 .noeud--verrouillee .noeud-icone,
 .noeud--verrouillee .noeud-titre {
   opacity: 0.45;
+}
+
+/* --- Session de quiz --------------------------------------------------------- */
+
+.session {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.session-entete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--pas);
+}
+
+.session-titre {
+  font-size: var(--taille-sous-titre);
+  margin-bottom: 2px;
+}
+
+.session-avancement {
+  font-size: var(--taille-petit);
+  color: var(--encre-70);
+}
+
+.session-quitter {
+  font-size: var(--taille-petit);
+  color: var(--encre-70);
+  white-space: nowrap;
+}
+
+.session-barre {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--papier-creuse);
+  border: 1px solid var(--encre-12);
+  margin-bottom: var(--pas);
+  overflow: hidden;
+}
+
+.session-barre-remplie {
+  height: 100%;
+  background: var(--menthe);
+  border-radius: 3px;
+  transition: width var(--transition-douce);
+}
+
+.question-enonce {
+  font-size: 1.1rem;
+  margin-bottom: var(--pas);
+}
+
+.question-choix {
+  list-style: none;
+  margin: 0 0 var(--pas);
+  padding: 0;
+  display: grid;
+  gap: calc(var(--pas) / 2);
+}
+
+.choix {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  font-family: var(--fonte-corps);
+  font-size: var(--taille-corps);
+  color: var(--encre);
+  background: var(--papier);
+  border: 1px solid var(--encre-30);
+  border-radius: var(--rayon);
+  padding: 12px 16px;
+  cursor: pointer;
+  box-shadow: var(--ombre-papier);
+  transition:
+    transform var(--ressort-rapide),
+    border-color var(--ressort-rapide);
+}
+
+.choix:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  border-color: var(--encre);
+}
+
+.choix:disabled {
+  cursor: default;
+  box-shadow: none;
+}
+
+/* Trait de surligneur : couche menthe qui balaie le choix correct */
+.choix-surligneur {
+  position: absolute;
+  inset: 4px 6px;
+  background: var(--menthe-halo);
+  border-radius: 4px;
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.choix--bonne {
+  border-color: var(--menthe-fonce);
+}
+
+.choix--fausse {
+  border-color: var(--rouge);
+  background: var(--rouge-halo);
+}
+
+.choix-contenu {
+  position: relative;
+}
+
+.question-indices {
+  display: grid;
+  gap: calc(var(--pas) / 2);
+  justify-items: start;
+}
+
+.indice {
+  margin: 0;
+  padding: 8px 12px;
+  border-left: 3px solid var(--marge);
+  background: var(--papier-creuse);
+  border-radius: 0 var(--rayon) var(--rayon) 0;
+  font-size: var(--taille-petit);
+}
+
+.btn-indice {
+  font-family: var(--fonte-corps);
+  font-size: var(--taille-petit);
+  font-weight: 600;
+  color: var(--encre-70);
+  background: none;
+  border: 1px dashed var(--encre-30);
+  border-radius: var(--rayon);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.btn-indice:hover {
+  color: var(--encre);
+  border-color: var(--encre);
+}
+
+.feedback {
+  border-radius: var(--rayon);
+  padding: var(--pas);
+  display: grid;
+  gap: calc(var(--pas) / 2);
+  justify-items: start;
+}
+
+.feedback--bonne {
+  background: var(--menthe-halo);
+}
+
+.feedback--fausse {
+  background: var(--rouge-halo);
+}
+
+.feedback-titre {
+  font-weight: 600;
+  margin: 0;
+}
+
+.feedback-solution {
+  margin: 0;
+}
+
+.feedback-note {
+  margin: 0;
+  font-size: var(--taille-petit);
+  color: var(--encre-70);
+}
+
+/* --- Fin de session ----------------------------------------------------------- */
+
+.fin-session {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: calc(var(--pas) / 2);
+}
+
+.fin-xp {
+  margin: 0;
+  font-size: var(--taille-petit);
+  color: var(--encre-70);
+}
+
+.fin-xp-valeur {
+  font-family: var(--fonte-display);
+  font-weight: 700;
+  font-size: var(--taille-hero);
+  color: var(--menthe-fonce);
+  display: block;
+  line-height: 1;
+}
+
+.fin-detail,
+.fin-streak {
+  margin: 0;
+}
+
+.fin-streak {
+  font-weight: 600;
 }
 
 .note-erreur {

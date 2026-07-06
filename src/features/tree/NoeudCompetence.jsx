@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'motion/react'
 import { Math as Formule } from '../../lib/katex'
 
@@ -19,8 +20,8 @@ export default function NoeudCompetence({ skill, maitrise, deverrouillee, index 
   const libelle =
     etat === 'verrouillee' ? 'Verrouillé' : etat === 'disponible' ? 'Disponible' : `${pourcentage} %`
 
-  return (
-    <li className={`noeud noeud--${etat}`} title={skill.description}>
+  const cercle = (
+    <>
       <div className="noeud-cercle" aria-hidden="true">
         <svg viewBox="0 0 76 76">
           {deverrouillee ? (
@@ -58,6 +59,18 @@ export default function NoeudCompetence({ skill, maitrise, deverrouillee, index 
       </div>
       <p className="noeud-titre">{skill.title}</p>
       <p className="noeud-libelle">{libelle}</p>
+    </>
+  )
+
+  return (
+    <li className={`noeud noeud--${etat}`} title={skill.description}>
+      {deverrouillee ? (
+        <Link className="noeud-lien" to={`/session/${skill.id}`}>
+          {cercle}
+        </Link>
+      ) : (
+        cercle
+      )}
     </li>
   )
 }
