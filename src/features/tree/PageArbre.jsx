@@ -20,8 +20,8 @@ export default function PageArbre() {
       .then(({ data, error }) => {
         if (annule) return
         if (error) setErreur(error.message)
-        // Maîtrise vivante : rétrievabilité FSRS à maintenant, qui décroît
-        // avec le temps sans révision (les compétences « se fissurent »).
+        // Maîtrise = taux de bonnes réponses de la dernière session,
+        // constante jusqu'à la prochaine (pas de décroissance dans le temps).
         setMaitrises(
           new Map((data ?? []).map((r) => [r.skill_id, maitriseCourante(r.fsrs_state)])),
         )

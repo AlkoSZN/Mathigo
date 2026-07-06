@@ -59,25 +59,19 @@ export function reviser(fsrsState, note, qualiteSession, quand = new Date()) {
   return {
     carte: carteAvecQualite,
     dueAt: card.due.toISOString(),
-    maitrise: maitriseCourante(carteAvecQualite, quand),
+    maitrise: maitriseCourante(carteAvecQualite),
   }
 }
 
 /**
- * Maîtrise vivante d'une compétence : qualité de la dernière session
- * (taux de bonnes réponses, fixé à la fin de chaque session — pas de plafond
- * artificiel : 90 % de bonnes réponses donnent 90 % de maîtrise dès la fin
- * de la session) multipliée par la rétrievabilité FSRS à l'instant t, qui
- * DÉCROÎT naturellement avec le temps sans révision (juste après la session,
- * t=0, la rétrievabilité vaut 1 : la maîtrise affichée est alors exactement
- * la qualité de la session).
+ * Maîtrise d'une compétence : qualité de la dernière session (taux de bonnes
+ * réponses, fixé à la fin de chaque session — pas de plafond artificiel :
+ * 90 % de bonnes réponses donnent 90 % de maîtrise). Reste constante tant
+ * que la compétence n'est pas retravaillée : aucune décroissance dans le
+ * temps (décision explicite — pas de dégradation façon Duolingo).
  * @param {object|null} fsrsState carte jsonb, ou null si jamais révisée
  * @returns {number} 0..1
  */
-export function maitriseCourante(fsrsState, quand = new Date()) {
-  if (!fsrsState || !fsrsState.last_review) return 0
-  const carte = fsrsState.due instanceof Date ? fsrsState : hydrater(fsrsState)
-  const retrievabilite = planificateur.get_retrievability(carte, quand, false)
-  const qualite = fsrsState.qualite_session ?? 1
-  return retrievabilite * qualite
+export function maitriseCourante(fsrsState) {
+  return fsrsState?.qualite_session ?? 0
 }

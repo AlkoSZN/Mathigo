@@ -134,9 +134,9 @@ friendships (user_id uuid, friend_id uuid, status text,
 - **Vies** : NON. Pas de système de vies (anti-pattern pour un outil perso).
 - **Streak** : jours consécutifs avec ≥ 1 session complétée. Affiché en permanence.
 - **XP** : 10 par bonne réponse, bonus de fin de session, bonus sans-faute.
-- **Maîtrise par compétence** : jauge 0-100 % pilotée par FSRS (stabilité mémoire),
-  qui DÉCROÎT visuellement avec le temps sans révision (comme Duolingo : les
-  compétences "se fissurent").
+- **Maîtrise par compétence** : jauge 0-100 % = taux de bonnes réponses de la
+  dernière session sur cette compétence. Constante entre les sessions, aucune
+  décroissance dans le temps (pas de dégradation façon Duolingo).
 - **Arbre** : une compétence se déverrouille quand tous ses prérequis sont ≥ 60 %.
 - **Leaderboard** : hebdomadaire, entre amis uniquement, basé sur l'XP de la semaine.
 - **Indices** : 2 indices gradués par exercice, consommer un indice divise l'XP par 2.
