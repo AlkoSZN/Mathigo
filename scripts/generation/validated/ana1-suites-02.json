@@ -53,33 +53,33 @@
       "skill_id": "ana1-suites-02",
       "format": "qcm",
       "difficulty": 2,
-      "statement_latex": "La suite $(v_n)$ est donnée par $v_1=4$ et $v_{n+1}=\\sqrt{5+v_n}$ pour $n\\ge1$. Parmi les affirmations suivantes, laquelle est vraie concernant la borne supérieure de $(v_n)$ ?",
+      "statement_latex": "La suite $(v_n)$ est donnée par $v_1=4$ et $v_{n+1}=\\sqrt{5+v_n}$ pour $n\\ge1$. Parmi les affirmations suivantes, laquelle est vraie concernant la borne inférieure de $(v_n)$ ?",
       "hints": [
         "Supposons que la suite converge vers $\\ell$ et utilisez l'équation $\\ell=\\sqrt{5+\\ell}$.",
-        "Une fois $\\ell$ trouvé, comparez $v_n$ à $\\ell$ en étudiant le signe de $v_{n+1}-\\ell$."
+        "Comparez $v_1$ à $\\ell$, puis étudiez le signe de $v_{n+1}-\\ell$ pour voir de quel côté la suite reste : est-elle majorée ou minorée par $\\ell$ ?"
       ],
-      "solution_latex": "Si $(v_n)$ converge, on a $\\ell=\\sqrt{5+\\ell}$, donc $\\ell^2-\\ell-5=0$. Les solutions sont $\\ell=\\dfrac{1\\pm\\sqrt{21}}{2}$. Comme les termes sont positifs, $\\ell=\\dfrac{1+\\sqrt{21}}{2}\\approx2.79$. On montre par récurrence que $v_n<\\ell$ pour tout $n$, donc $\\ell$ est une borne supérieure atteinte à la limite. Ainsi la borne supérieure de $(v_n)$ est $\\dfrac{1+\\sqrt{21}}{2}$.",
+      "solution_latex": "Si $(v_n)$ converge, on a $\\ell=\\sqrt{5+\\ell}$, donc $\\ell^2-\\ell-5=0$. Les solutions sont $\\ell=\\dfrac{1\\pm\\sqrt{21}}{2}$. Comme les termes sont positifs, $\\ell=\\dfrac{1+\\sqrt{21}}{2}\\approx2.79$. Or $v_1=4>\\ell$, et $t\\mapsto\\sqrt{5+t}$ étant croissante avec $\\ell$ pour unique point fixe positif, on montre par récurrence que $v_n>\\ell$ pour tout $n$ : la suite est strictement décroissante et minorée par $\\ell$, sans jamais l'atteindre. Ainsi la borne inférieure de $(v_n)$ est $\\dfrac{1+\\sqrt{21}}{2}$.",
       "choices": [
         {
-          "latex": "$\\dfrac{1+\\sqrt{21}}{2}$",
+          "latex": "\\dfrac{1+\\sqrt{21}}{2}",
           "sympy": "(1+sqrt(21))/2",
           "correct": true,
-          "error_type": ""
+          "error_type": null
         },
         {
-          "latex": "$\\dfrac{1-\\sqrt{21}}{2}$",
+          "latex": "\\dfrac{1-\\sqrt{21}}{2}",
           "sympy": "(1-sqrt(21))/2",
           "correct": false,
           "error_type": "negative_root_confusion"
         },
         {
-          "latex": "$\\sqrt{5}$",
+          "latex": "\\sqrt{5}",
           "sympy": "sqrt(5)",
           "correct": false,
           "error_type": "ignoring_fixed_point_equation"
         },
         {
-          "latex": "$5$",
+          "latex": "5",
           "sympy": "5",
           "correct": false,
           "error_type": "misreading_recurrence"
