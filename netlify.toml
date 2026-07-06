@@ -1,0 +1,10 @@
+# Déploiement Netlify — SPA Vite
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# React Router gère les routes côté client
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

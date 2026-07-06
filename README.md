@@ -22,6 +22,25 @@ npm run dev
 L'app tourne sur http://localhost:5173. Les e-mails de connexion (liens
 magiques) sont capturés par Mailpit : http://127.0.0.1:54324.
 
+## Déploiement (Netlify + Supabase cloud)
+
+1. Créer un projet Supabase dédié sur [supabase.com](https://supabase.com), puis y
+   pousser le schéma et le contenu :
+   ```sh
+   npx supabase link --project-ref <ref-du-projet>
+   npx supabase db push          # applique supabase/migrations/
+   node scripts/seed-skills.js   # régénère supabase/seed.sql
+   # seed des skills + exercices : renseigner SUPABASE_URL/SUPABASE_SERVICE_KEY
+   # de production dans scripts/generation/.env puis
+   node --env-file=scripts/generation/.env scripts/generation/insert.js
+   ```
+2. Sur [netlify.com](https://netlify.com) : nouveau site depuis ce dépôt
+   (`netlify.toml` fournit build et redirections SPA). Variables d'environnement
+   à définir : `VITE_SUPABASE_URL` et `VITE_SUPABASE_ANON_KEY` (valeurs du
+   projet Supabase cloud, section API).
+3. Dans Supabase : Auth → URL Configuration → ajouter l'URL Netlify au
+   `Site URL` et aux `Redirect URLs` (liens magiques).
+
 ## État d'avancement
 
 - [x] Phase 1 — Fondations (scaffold, schéma + RLS, KaTeX, design tokens, auth)
