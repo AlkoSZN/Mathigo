@@ -18,14 +18,27 @@ function libelleErreur(errorType) {
 }
 
 /**
- * Vue d'une question : énoncé, 4 choix mélangés, indices, puis panneau de
- * feedback (surlignage de la bonne réponse, solution après erreur).
+ * Rend le contenu d'un choix : LaTeX pur (banque calculatoire, sans $) ou
+ * texte français mêlé de segments $...$ (QCM théoriques).
+ */
+export function ContenuChoix({ latex }) {
+  return latex.includes('$') ? (
+    <MathText as="span">{latex}</MathText>
+  ) : (
+    <Formule latex={latex} />
+  )
+}
+
+/**
+ * Vue d'une question QCM (calculatoire ou théorique) : énoncé, 4 choix
+ * mélangés, indices, puis panneau de feedback (surlignage de la bonne
+ * réponse, solution après erreur).
  * @param {{
  *   question: { payload: object, choixMelanges: Array<object> },
  *   phase: 'question' | 'feedback',
  *   choisi: number | null,
  *   indicesOuverts: number,
- *   onRepondre: (index: number) => void,
+ *   onRepondre: (action: {correct: boolean, chosenErrorType: ?string, detail: number}) => void,
  *   onIndice: () => void,
  *   onContinuer: () => void,
  * }} props
@@ -63,7 +76,13 @@ export default function Question({
                   (estChoisi && !choix.correct ? ' choix--fausse' : '')
                 }
                 disabled={enFeedback}
-                onClick={() => onRepondre(i)}
+                onClick={() =>
+                  onRepondre({
+                    correct: choix.correct === true,
+                    chosenErrorType: choix.correct ? null : (choix.error_type ?? null),
+                    detail: i,
+                  })
+                }
               >
                 {/* Trait de surligneur animé sur la bonne réponse */}
                 {estBonne && (
@@ -76,7 +95,7 @@ export default function Question({
                   />
                 )}
                 <span className="choix-contenu">
-                  <Formule latex={choix.latex.replaceAll('$', '')} />
+                  <ContenuChoix latex={choix.latex} />
                 </span>
               </button>
             </li>

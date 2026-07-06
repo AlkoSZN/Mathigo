@@ -568,5 +568,186 @@
         "expected_sympy": "1"
       }
     }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel est le type de définition de la suite $(u_n)$ donnée par $u_n=\\dfrac{1}{n+1}$ pour $n\\in\\mathbb{N}$ ?",
+      "hints": [
+        "Identifier si la formule donne directement chaque terme en fonction de $n$.",
+        "Si chaque terme s’obtient sans faire intervenir un terme précédent, la définition est explicite."
+      ],
+      "solution_latex": "La formule $u_n=\\dfrac{1}{n+1}$ exprime chaque terme uniquement en fonction de $n$, donc la suite est définie de façon explicite.",
+      "choices": [
+        {
+          "latex": "Suite définie explicitement",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Suite définie récursivement",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Suite définie par une suite auxiliaire",
+          "correct": false,
+          "error_type": "confusion_def_auxiliaire"
+        },
+        {
+          "latex": "Suite définie de façon implicite",
+          "correct": false,
+          "error_type": "confusion_implicite"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour la suite $(v_n)$ définie par $v_{0}=2$ et $v_{n+1}=5v_{n}-3$, quelle affirmation est vraie ?",
+      "hints": [
+        "Regarder la forme de la relation : elle exprime $v_{n+1}$ en fonction d’un terme antérieur.",
+        "Une définition qui indique comment obtenir le terme suivant à partir du précédent est récursive."
+      ],
+      "solution_latex": "La définition indique $v_{n+1}$ en fonction de $v_{n}$, donc il s’agit d’une définition récursive de la suite $(v_n)$.",
+      "choices": [
+        {
+          "latex": "La suite est définie de façon explicite",
+          "correct": false,
+          "error_type": "confusion_explicit_vs_recursive"
+        },
+        {
+          "latex": "La suite est définie de façon récursive",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "La suite est définie implicitement par une équation fonctionnelle",
+          "correct": false,
+          "error_type": "confusion_implicite"
+        },
+        {
+          "latex": "La suite n’est pas correctement définie car il manque la valeur de $v_{1}$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Dans la notation $(w_n)_{n\\geqslant 1}$, quel est le premier indice possible pour la suite $(w_n)$ ?",
+      "hints": [
+        "Le symbole $\\geqslant$ indique la borne inférieure de l’ensemble des indices.",
+        "Chercher la plus petite valeur entière qui satisfait cette inégalité."
+      ],
+      "solution_latex": "L’indice minimal autorisé est $n=1$, donc le premier terme de la suite est $w_{1}$.",
+      "choices": [
+        {
+          "latex": "$w_{0}$",
+          "correct": false,
+          "error_type": "indice_incorrect"
+        },
+        {
+          "latex": "$w_{1}$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$w_{2}$",
+          "correct": false,
+          "error_type": "indice_incorrect"
+        },
+        {
+          "latex": "$w_{-1}$",
+          "correct": false,
+          "error_type": "indice_incorrect"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstituez l'énoncé complet du théorème définissant la suite arithmétique explicitement à partir de son premier terme et de sa raison.",
+      "hints": [
+        "Commencez par repérer les deux données essentielles d'une suite arithmétique : le premier terme $u_0$ et la raison $r$.",
+        "L'énoncé doit exprimer $u_n$ en fonction de $n$, $u_0$ et $r$ sous la forme $u_n = u_0 + n\\,r$."
+      ],
+      "solution_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite arithmétique de premier terme $u_0$ et de raison $r$. Alors, pour tout entier $n\\ge 0$, on a $$u_n = u_0 + n\\,r.$$",
+      "fragments": [
+        "Alors, pour tout entier $n\\ge 0$, on a $$u_n = u_0 + n\\,r.$$",
+        "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite arithmétique de premier terme $u_0$ et de raison $r$.",
+        "Cette suite est dite arithmétique.",
+        "Le premier terme de la suite est $u_0$ et la différence constante entre deux termes consécutifs est $r$."
+      ],
+      "distracteurs": [
+        "Alors, pour tout entier $n\\ge 0$, on a $$u_n = u_0\\,r^{,n}.$$",
+        "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite géométrique de premier terme $u_0$ et de raison $r$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstituez l'énoncé complet du théorème qui donne la forme explicite d'une suite arithmético-géométrique de raison $q\\neq1$ et de différence constante $d$.",
+      "hints": [
+        "Repérez les deux parties de la formule : la partie géométrique en $q^{n}$ et la partie arithmétique en $n$.",
+        "L'énoncé doit contenir le terme initial $u_0$, le coefficient $d$ et la raison $q$ sous la forme $u_n = q^{n}u_0 + d\\dfrac{q^{n}-1}{q-1}$."
+      ],
+      "solution_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite définie par la relation $$u_{n+1}=q\\,u_n+d,$$ avec $q\\neq1$, $d\\in\\mathbb{R}$ et un terme initial $u_0$. Alors, pour tout $n\\ge0$, on a $$u_n = q^{\\,n}u_0 + d\\,\\dfrac{q^{\\,n}-1}{q-1}.$$",
+      "fragments": [
+        "Alors, pour tout $n\\ge0$, on a $$u_n = q^{\\,n}u_0 + d\\,\\dfrac{q^{\\,n}-1}{q-1}.$$",
+        "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite définie par la relation $$u_{n+1}=q\\,u_n+d,$$ avec $q\\neq1$, $d\\in\\mathbb{R}$ et un terme initial $u_0$.",
+        "La suite est dite arithmético-géométrique.",
+        "La constante $d$ représente la différence ajoutée à chaque itération."
+      ],
+      "distracteurs": [
+        "Alors, pour tout $n\\ge0$, on a $$u_n = q^{\\,n}u_0 + d\\,n.$$",
+        "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite définie par $u_n = q^{n}+d$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
   }
 ]

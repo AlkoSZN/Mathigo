@@ -22,19 +22,53 @@ export function melanger(tableau) {
   return t
 }
 
+/** Format d'un exercice ('qcm' par défaut pour la banque historique). */
+export function formatDe(exercice) {
+  return exercice.payload.format ?? 'qcm'
+}
+
+/** Quotas de formats par session : un peu de chaque quand la banque le permet. */
+const QUOTAS = [
+  ['remise_en_ordre', 2],
+  ['qcm_theorique', 2],
+]
+
+/** Prépare un exercice à l'affichage : mélange des choix ou des fragments. */
+function preparer(exercice) {
+  if (formatDe(exercice) === 'remise_en_ordre') {
+    const { fragments, distracteurs = [] } = exercice.payload
+    return { ...exercice, fragmentsMelanges: melanger([...fragments, ...distracteurs]) }
+  }
+  return { ...exercice, choixMelanges: melanger(exercice.payload.choices) }
+}
+
 /**
  * Crée l'état initial d'une session.
  * @param {Array<{id: string, payload: object}>} banque exercices de la compétence,
- *   déjà ordonnés par priorité (ratés, puis jamais vus, puis le reste) : la
- *   session prend les TAILLE_SESSION premiers, la réserve sert au rattrapage.
+ *   déjà ordonnés par priorité (ratés, puis jamais vus, puis le reste). La session
+ *   respecte les QUOTAS par format puis complète en QCM de calcul ; la réserve
+ *   sert au rattrapage.
  * @returns l'état initial de la machine
  */
 export function creerSession(banque) {
-  const tires = melanger(banque.slice(0, TAILLE_SESSION))
+  const tires = []
+  const prendre = (source, n) => {
+    for (const ex of source) {
+      if (n <= 0) break
+      if (!tires.includes(ex)) {
+        tires.push(ex)
+        n--
+      }
+    }
+  }
+  for (const [format, quota] of QUOTAS) prendre(banque.filter((e) => formatDe(e) === format), quota)
+  prendre(banque.filter((e) => formatDe(e) === 'qcm'), TAILLE_SESSION - tires.length)
+  prendre(banque, TAILLE_SESSION - tires.length) // complément toutes catégories
+
   return {
     phase: 'question', // 'question' | 'feedback' | 'fin'
-    file: tires.map((ex) => ({ ...ex, choixMelanges: melanger(ex.payload.choices) })),
-    reserve: banque.slice(TAILLE_SESSION), // variantes pour le rattrapage
+    file: melanger(tires).map(preparer),
+    reserve: banque.filter((ex) => !tires.includes(ex)), // variantes pour le rattrapage
     index: 0,
     indicesOuverts: 0, // indices consommés sur la question courante
     choisi: null, // choix cliqué pendant la phase feedback
@@ -67,20 +101,22 @@ export function reducteur(etat, action) {
     }
 
     case 'REPONDRE': {
+      // action : { correct, chosenErrorType, detail } — detail est propre au
+      // format (index du choix pour un QCM, fragments choisis pour une remise
+      // en ordre) et sert à l'affichage du feedback.
       if (etat.phase !== 'question') return etat
       const question = questionCourante(etat)
-      const choix = question.choixMelanges[action.index]
       const reponse = {
         exercise_id: question.id,
-        correct: choix.correct === true,
-        chosen_error_type: choix.correct ? null : (choix.error_type ?? null),
+        correct: action.correct === true,
+        chosen_error_type: action.correct ? null : (action.chosenErrorType ?? null),
         duration_ms: Date.now() - etat.debutQuestion,
         indices: etat.indicesOuverts,
       }
       return {
         ...etat,
         phase: 'feedback',
-        choisi: action.index,
+        choisi: action.detail,
         reponses: [...etat.reponses, reponse],
       }
     }
@@ -99,7 +135,7 @@ export function reducteur(etat, action) {
         if (!dejaEnRattrapage) {
           const variante = reserve[0] ?? question
           reserve = reserve.slice(1)
-          file = [...file, { ...variante, choixMelanges: melanger(variante.payload.choices) }]
+          file = [...file, preparer(variante)]
         }
       }
 

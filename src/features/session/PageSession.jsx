@@ -13,6 +13,7 @@ import {
   TAILLE_SESSION,
 } from './machine'
 import Question from './Question'
+import QuestionOrdre from './QuestionOrdre'
 import FinSession from './FinSession'
 
 const skills = new Map(arbre.chapters.flatMap((c) => c.skills.map((s) => [s.id, s])))
@@ -216,15 +217,28 @@ function Session({ skill, banque }) {
           exit={mouvementReduit ? undefined : { x: -48, opacity: 0 }}
           transition={{ duration: 0.22, ease: 'easeOut' }}
         >
-          <Question
-            question={question}
-            phase={etat.phase}
-            choisi={etat.choisi}
-            indicesOuverts={etat.indicesOuverts}
-            onRepondre={(index) => envoyer({ type: 'REPONDRE', index })}
-            onIndice={() => envoyer({ type: 'INDICE' })}
-            onContinuer={() => envoyer({ type: 'CONTINUER' })}
-          />
+          {(question.payload.format ?? 'qcm') === 'remise_en_ordre' ? (
+            <QuestionOrdre
+              key={question.id}
+              question={question}
+              phase={etat.phase}
+              choisi={etat.choisi}
+              indicesOuverts={etat.indicesOuverts}
+              onRepondre={(action) => envoyer({ type: 'REPONDRE', ...action })}
+              onIndice={() => envoyer({ type: 'INDICE' })}
+              onContinuer={() => envoyer({ type: 'CONTINUER' })}
+            />
+          ) : (
+            <Question
+              question={question}
+              phase={etat.phase}
+              choisi={etat.choisi}
+              indicesOuverts={etat.indicesOuverts}
+              onRepondre={(action) => envoyer({ type: 'REPONDRE', ...action })}
+              onIndice={() => envoyer({ type: 'INDICE' })}
+              onContinuer={() => envoyer({ type: 'CONTINUER' })}
+            />
+          )}
         </motion.div>
       </AnimatePresence>
     </section>

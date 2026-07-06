@@ -27,7 +27,12 @@ export function Math({ latex, block = false }) {
  * @param {{ children: string, as?: string, className?: string }} props
  */
 export function MathText({ children, as: Tag = 'p', className }) {
-  const parts = useMemo(() => String(children).split(/\$([^$]+)\$/g), [children])
+  // Normalise le display math $$...$$ (parfois produit par la génération)
+  // vers l'inline $...$ avant découpage.
+  const parts = useMemo(
+    () => String(children).replaceAll('$$', '$').split(/\$([^$]+)\$/g),
+    [children],
+  )
 
   return (
     <Tag className={className}>

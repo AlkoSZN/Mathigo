@@ -572,5 +572,186 @@
         "expected_sympy": "2*sin(x)*cos(x)**2 - sin(x)**3"
       }
     }
+  },
+  {
+    "skill_id": "ana1-deriv-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-03",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel théorème décrit la dérivation du produit de deux fonctions $u$ et $v$ définies et dérivables sur un intervalle $I$?",
+      "hints": [
+        "Pense aux règles de dérivation classiques appliquées à une combinaison de deux fonctions.",
+        "Le résultat s'exprime en fonction de $u$, $v$, $u'$ et $v'$, sans termes de second ordre."
+      ],
+      "solution_latex": "Il s'agit du **théorème du produit** : si $u$ et $v$ sont dérivables sur $I$, alors $(uv)'=u'v+uv'$.",
+      "choices": [
+        {
+          "latex": "Théorème du produit : $(uv)'=u'v+uv'$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Théorème du quotient : $(\\frac{u}{v})'=\\frac{u'v-uv'}{v^{2}}$",
+          "correct": false,
+          "error_type": "confusion_quotient_product"
+        },
+        {
+          "latex": "Règle de la chaîne : $(f\\circ g)'=f'(g)\\,g'$",
+          "correct": false,
+          "error_type": "confusion_chain_product"
+        },
+        {
+          "latex": "Théorème de Rolle : si $f(a)=f(b)$ alors il existe $c$ avec $f'(c)=0$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-03",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour deux fonctions $u$ et $v$ non nulles, quelle condition supplémentaire est indispensable pour appliquer la règle de dérivation du quotient $\\bigl(\\frac{u}{v}\\bigr)'$?",
+      "hints": [
+        "Regarde le dénominateur dans la formule du quotient.",
+        "Il faut garantir que l'expression reste définie sur l'intervalle considéré."
+      ],
+      "solution_latex": "Il faut que $v(x)\\neq0$ pour tout $x$ de l'intervalle étudié, afin que le quotient soit bien défini et que la formule $\\bigl(\\frac{u}{v}\\bigr)'=\\frac{u'v-uv'}{v^{2}}$ soit applicable.",
+      "choices": [
+        {
+          "latex": "$v$ doit être dérivable sur l'intervalle",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$v$ doit être strictement positive sur l'intervalle",
+          "correct": false,
+          "error_type": "confusion_positivite"
+        },
+        {
+          "latex": "$v$ ne doit jamais s'annuler sur l'intervalle",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$u$ doit être croissante sur l'intervalle",
+          "correct": false,
+          "error_type": "hypothese_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-03",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Si $f$ est deux fois différentiable sur $I$, quelle affirmation est vraie concernant la dérivée seconde $f''$?",
+      "hints": [
+        "Pense à la continuité de la dérivée première.",
+        "La dérivée seconde mesure la variation de la dérivée première."
+      ],
+      "solution_latex": "La dérivée seconde $f''$ existe sur $I$, mais elle n'est pas forcément continue ; cependant, si $f\\in C^{2}(I)$ alors $f''$ est continue. Parmi les propositions, seule celle qui affirme l'existence de $f''$ sans garantir sa continuité est correcte.",
+      "choices": [
+        {
+          "latex": "$f''$ est toujours continue sur $I$",
+          "correct": false,
+          "error_type": "confusion_continuite"
+        },
+        {
+          "latex": "L'existence de $f''$ implique que $f'$ est strictement croissante",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        },
+        {
+          "latex": "$f''$ existe sur $I$ mais peut être discontinue",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Si $f''$ existe alors $f$ est nécessairement convexe sur $I$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-03",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème de dérivation d'un produit de deux fonctions $u$ et $v$ définies et dérivables sur un intervalle $I$.",
+      "hints": [
+        "Pense à la forme générale de la dérivée d'un produit.",
+        "Rappelle que $(uv)'=u'v+uv'$, en précisant les hypothèses sur $u$ et $v$."
+      ],
+      "solution_latex": "\\textbf{Théorème (règle du produit).}\\quad Soient $u$ et $v$ deux fonctions réelles définies sur un intervalle $I$ et supposées dérivables sur $I$. Alors le produit $uv$ est dérivable sur $I$ et, pour tout $x\\in I$, on a \\[ (uv)'(x)=u'(x)v(x)+u(x)v'(x). \\]",
+      "fragments": [
+        "Soient $u$ et $v$ deux fonctions réelles définies sur un intervalle $I$ et supposées dérivables sur $I$.",
+        "Alors le produit $uv$ est dérivable sur $I$.",
+        "Pour tout $x\\in I$, on a",
+        "$(uv)'(x)=u'(x)v(x)+u(x)v'(x)."
+      ],
+      "distracteurs": [
+        "Si $u$ et $v$ sont continues sur $I$, alors $(uv)'=u'v'+uv$.",
+        "Le produit $uv$ est dérivable uniquement si $u$ ou $v$ est constante."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-03",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé complet de la règle de dérivation d'un quotient $\\dfrac{u}{v}$ pour deux fonctions $u$ et $v$ dérivables sur un intervalle $I$ avec $v\\neq0$.",
+      "hints": [
+        "Commence par rappeler la condition $v(x)\\neq0$ sur $I$.",
+        "La formule s'écrit $(\\frac{u}{v})' = \\frac{u'v-uv'}{v^{2}}$, indique bien le domaine de validité."
+      ],
+      "solution_latex": "\\textbf{Théorème (règle du quotient).}\\quad Soient $u$ et $v$ deux fonctions réelles dérivables sur un intervalle $I$ et supposées vérifient $v(x)\\neq0$ pour tout $x\\in I$. Alors la fonction $\\frac{u}{v}$ est dérivable sur $I$ et, pour tout $x\\in I$, \\[\\left(\\frac{u}{v}\\right)'(x)=\\frac{u'(x)v(x)-u(x)v'(x)}{\\bigl(v(x)\\bigr)^{2}}.\\]",
+      "fragments": [
+        "Soient $u$ et $v$ deux fonctions réelles dérivables sur un intervalle $I$",
+        "et supposées vérifient $v(x)\\neq0$ pour tout $x\\in I$.",
+        "Alors la fonction $\\frac{u}{v}$ est dérivable sur $I$ et, pour tout $x\\in I$,",
+        "\\[\\left(\\frac{u}{v}\\right)'(x)=\\frac{u'(x)v(x)-u(x)v'(x)}{\\bigl(v(x)\\bigr)^{2}}.\\]"
+      ],
+      "distracteurs": [
+        "Si $v$ s'annule en un point, la règle du quotient reste valable.",
+        "La formule du quotient est $(\\frac{u}{v})' = \\frac{u'v+uv'}{v^{2}}$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
   }
 ]

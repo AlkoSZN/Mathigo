@@ -533,5 +533,157 @@
         "expected_sympy": "-2"
       }
     }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel théorème permet de transformer une limite du type $\\displaystyle\\lim_{x\\to a}\\dfrac{f(x)-f(a)}{x-a}$ afin d'éviter la forme indéterminée $\\frac{0}{0}$ ?",
+      "hints": [
+        "Identifier la forme $\\frac{0}{0}$ typique d'un quotient de différences.",
+        "Utiliser le théorème qui relie le quotient de différences à la dérivée de $f$ en $a$."
+      ],
+      "solution_latex": "Le théorème utilisé est le **théorème de la limite du quotient de différences**, qui affirme que si $f$ est dérivable en $a$, alors $\\displaystyle\\lim_{x\\to a}\\dfrac{f(x)-f(a)}{x-a}=f'(a)$.",
+      "choices": [
+        {
+          "latex": "Théorème des valeurs intermédiaires",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Théorème de l'Hôpital",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Théorème de la limite du quotient de différences",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Théorème de la dérivée d'un produit",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour la limite $\\displaystyle\\lim_{x\\to 0}\\dfrac{\\sqrt{1+2x}-1}{x}$, quelle opération algébrique classique permet de lever la forme indéterminée $\\frac{0}{0}$ ?",
+      "hints": [
+        "Chercher une identité qui élimine le radical dans le numérateur.",
+        "Multiplier par un terme conjugué qui rend le numérateur rationnel."
+      ],
+      "solution_latex": "On multiplie le numérateur et le dénominateur par le conjugué $\\sqrt{1+2x}+1$, ce qui donne $\\displaystyle\\frac{(\\sqrt{1+2x}-1)(\\sqrt{1+2x}+1)}{x(\\sqrt{1+2x}+1)}=\\frac{2x}{x(\\sqrt{1+2x}+1)}=\\frac{2}{\\sqrt{1+2x}+1}$, puis on passe à la limite.",
+      "choices": [
+        {
+          "latex": "Factoriser $\\sqrt{1+2x}-1$ comme $2x$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Multiplier par le conjugué $\\sqrt{1+2x}+1$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Appliquer la formule de Taylor au premier ordre",
+          "correct": false,
+          "error_type": "confusion_taylor"
+        },
+        {
+          "latex": "Utiliser la règle de l'Hôpital directement",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 4,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "format": "qcm_theorique",
+      "difficulty": 4,
+      "statement_latex": "Dans le cadre du théorème d l'Hôpital, laquelle des assertions suivantes est **fausse** concernant les hypothèses nécessaires ?",
+      "hints": [
+        "Relire les conditions de validité du théorème d l'Hôpital pour les formes $\\frac{0}{0}$ ou $\\frac{\\infty}{\\infty}$.",
+        "Comparer chaque affirmation avec les exigences sur la différentiabilité et les limites des dérivées."
+      ],
+      "solution_latex": "L'assertion fausse est : « Il suffit que $\\displaystyle\\lim_{x\\to a}f(x)=\\lim_{x\\to a}g(x)=0$ pour appliquer l'Hôpital, même si $f$ et $g$ ne sont pas différentiables près de $a$ ». En effet, $f$ et $g$ doivent être différentiables sur un voisinage de $a$ (sauf peut‑être en $a$) et $g'(x)$ ne doit pas s'annuler près de $a$.",
+      "choices": [
+        {
+          "latex": "Il faut que $f$ et $g$ soient différentiables sur un intervalle ouvert contenant $a$, sauf éventuellement en $a$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Il faut que $\\lim_{x\\to a}f(x)=\\lim_{x\\to a}g(x)=0$ ou $\\pm\\infty$",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Il suffit que $f$ et $g$ tendent vers $0$ sans aucune condition de différentiabilité",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Il faut que $g'(x)\\neq0$ sur un voisinage de $a$ (sauf éventuellement en $a$)",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème de factorisation permettant de lever la forme indéterminée $\\frac{0}{0}$ pour un quotient de polynômes.",
+      "hints": [
+        "Cherche l'hypothèse principale concernant la factorisation du numérateur et du dénominateur autour du point $a$.",
+        "Utilise le fait que si $P(a)=Q(a)=0$ alors $P(x)= (x-a)\\,\\tilde P(x)$ et $Q(x)= (x-a)\\,\\tilde Q(x)$ avec $\\tilde Q(a)\\neq0$, ce qui donne $\\lim_{x\\to a}\\frac{P(x)}{Q(x)}=\\frac{\\tilde P(a)}{\\tilde Q(a)}$."
+      ],
+      "solution_latex": "Théorème (factorisation). Soit $P$ et $Q$ deux polynômes tels que $P(a)=0$ et $Q(a)=0$ avec $Q'(a)\\neq0$. Alors il existe des fonctions polynomiales $\\tilde P$ et $\\tilde Q$ vérifiant $P(x)=(x-a)\\tilde P(x)$, $Q(x)=(x-a)\\tilde Q(x)$ et $\\tilde Q(a)\\neq0$. La limite du quotient est alors $$\\lim_{x\\to a}\\frac{P(x)}{Q(x)}=\\frac{\\tilde P(a)}{\\tilde Q(a)}.$$",
+      "fragments": [
+        "Soit $P$ et $Q$ deux polynômes tels que $P(a)=0$ et $Q(a)=0$.",
+        "Il existe des fonctions polynomiales $\\tilde P$ et $\\tilde Q$ telles que $P(x)=(x-a)\\tilde P(x)$ et $Q(x)=(x-a)\\tilde Q(x)$.",
+        "On suppose de plus que $\\tilde Q(a)\\neq0$.",
+        "Alors la limite du quotient vaut $\\displaystyle\\lim_{x\\to a}\\frac{P(x)}{Q(x)}=\\frac{\\tilde P(a)}{\\tilde Q(a)}$."
+      ],
+      "distracteurs": [
+        "Si $\\tilde Q(a)=0$, la limite vaut toujours $0$.",
+        "Le théorème s'applique même si $P$ et $Q$ ne sont pas polynômes mais seulement continues."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
   }
 ]

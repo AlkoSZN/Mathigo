@@ -57,6 +57,19 @@ def egaux(a, b):
 
 def valider_exercice(ex):
     """Renvoie (verdict, motif) : verdict 'auto', 'manual' ou None si rejet."""
+    if len(ex.get("hints", [])) != 2:
+        return None, "il faut exactement 2 indices"
+    if not ex.get("statement_latex") or not ex.get("solution_latex"):
+        return None, "énoncé ou solution vide"
+    if not isinstance(ex.get("difficulty"), int) or not 1 <= ex["difficulty"] <= 5:
+        return None, "difficulty hors de [1, 5]"
+
+    fmt = ex.get("format", "qcm")
+    if fmt == "remise_en_ordre":
+        return valider_remise_en_ordre(ex)
+    if fmt not in ("qcm", "qcm_theorique"):
+        return None, f"format inconnu : {fmt}"
+
     choix = ex.get("choices", [])
     if len(choix) != 4:
         return None, f"{len(choix)} choix au lieu de 4"
@@ -66,12 +79,6 @@ def valider_exercice(ex):
     incorrects = [c for c in choix if not c.get("correct")]
     if sum(1 for c in incorrects if c.get("error_type")) < ERREURS_TYPES_REQUIS:
         return None, "error_type manquant sur un distracteur"
-    if len(ex.get("hints", [])) != 2:
-        return None, "il faut exactement 2 indices"
-    if not ex.get("statement_latex") or not ex.get("solution_latex"):
-        return None, "énoncé ou solution vide"
-    if not isinstance(ex.get("difficulty"), int) or not 1 <= ex["difficulty"] <= 5:
-        return None, "difficulty hors de [1, 5]"
 
     # Unicité visuelle : deux choix affichant le même LaTeX rendent le QCM ambigu
     for i in range(4):
@@ -82,7 +89,7 @@ def valider_exercice(ex):
                 return None, f"deux choix affichent le même LaTeX : {choix[i]['latex']}"
 
     check = ex.get("check") or {}
-    if check.get("kind") != "value":
+    if ex.get("format", "qcm") == "qcm_theorique" or check.get("kind") != "value":
         # Question de cours / conceptuelle : les champs sympy n'ont pas de sens,
         # l'exercice part en file de relecture humaine.
         return "manual", None
@@ -116,6 +123,23 @@ def valider_exercice(ex):
             f"la réponse recalculée {attendu} ne correspond pas au choix correct {bonne}"
         )
     return "auto", None
+
+
+def valider_remise_en_ordre(ex):
+    """Contrôles structurels d'une remise en ordre (toujours validation manual)."""
+    fragments = ex.get("fragments", [])
+    distracteurs = ex.get("distracteurs", [])
+    if not 3 <= len(fragments) <= 8:
+        return None, f"{len(fragments)} fragments (attendu 3 à 8)"
+    if len(distracteurs) > 3:
+        return None, f"{len(distracteurs)} distracteurs (maximum 3)"
+    tous = fragments + distracteurs
+    if any(not isinstance(f, str) or not f.strip() for f in tous):
+        return None, "fragment vide ou non textuel"
+    normalises = [f.replace("$", "").replace(" ", "") for f in tous]
+    if len(set(normalises)) != len(normalises):
+        return None, "fragments ou distracteurs en double"
+    return "manual", None
 
 
 def valider_fichier(chemin, rejets):

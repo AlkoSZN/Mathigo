@@ -566,6 +566,74 @@ a {
   color: var(--encre-70);
 }
 
+/* --- Remise en ordre ------------------------------------------------------------ */
+
+.ordre-reponse {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+  padding: 10px;
+  border-bottom: 2px solid var(--encre-30);
+  margin-bottom: var(--pas);
+}
+
+.ordre-reponse--bonne {
+  border-bottom-color: var(--menthe-fonce);
+  background: var(--menthe-halo);
+  border-radius: var(--rayon) var(--rayon) 0 0;
+}
+
+.ordre-reponse--fausse {
+  border-bottom-color: var(--rouge);
+  background: var(--rouge-halo);
+  border-radius: var(--rayon) var(--rayon) 0 0;
+}
+
+.ordre-consigne {
+  color: var(--encre-30);
+  font-size: var(--taille-petit);
+}
+
+.ordre-banc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--pas);
+}
+
+.fragment {
+  font-family: var(--fonte-corps);
+  font-size: var(--taille-petit);
+  color: var(--encre);
+  background: var(--papier);
+  border: 1px solid var(--encre-30);
+  border-radius: var(--rayon);
+  padding: 8px 12px;
+  cursor: pointer;
+  box-shadow: var(--ombre-papier);
+  transition: transform var(--ressort-rapide);
+}
+
+.fragment:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  border-color: var(--encre);
+}
+
+.fragment--choisi {
+  background: var(--papier-creuse);
+}
+
+.fragment:disabled {
+  cursor: default;
+  box-shadow: none;
+}
+
+.fragment .math {
+  pointer-events: none;
+}
+
 /* --- Révisions du jour --------------------------------------------------------- */
 
 .revisions-liste {
