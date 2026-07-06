@@ -1,6 +1,19 @@
 import { useMemo } from 'react'
 import katex from 'katex'
 
+// Filet de sécurité : une chaîne de prose (plusieurs mots) sans aucune
+// commande LaTeX ne devrait jamais être rendue en mode maths pur — KaTeX y
+// écrase les espaces entre mots et rend mal les caractères accentués. Ça
+// arrive quand un exercice conceptuel est mal étiqueté "calculatoire" par le
+// pipeline de génération ; on l'enveloppe alors dans \text{...} pour
+// retrouver un rendu textuel normal.
+const RE_COMMANDE_MATH = /\\[a-zA-Z]+|[\^_{}]/
+const RE_DEUX_MOTS = /[a-zà-öø-ÿ]{2,}\s+[a-zà-öø-ÿ]{2,}/i
+
+function proteger(latex) {
+  return RE_DEUX_MOTS.test(latex) && !RE_COMMANDE_MATH.test(latex) ? `\\text{${latex}}` : latex
+}
+
 /**
  * Rend une expression LaTeX pure avec KaTeX.
  * @param {{ latex: string, block?: boolean }} props
@@ -9,7 +22,7 @@ import katex from 'katex'
 export function Math({ latex, block = false }) {
   const html = useMemo(
     () =>
-      katex.renderToString(latex, {
+      katex.renderToString(proteger(latex), {
         displayMode: block,
         throwOnError: false,
         strict: false,

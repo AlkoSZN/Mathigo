@@ -2,7 +2,7 @@ import { useEffect, useReducer, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { supabase } from '../../lib/supabase'
-import { maitriseCourante, noteDepuisSession, reviser } from '../../lib/fsrs'
+import { noteDepuisTaux, reviser, tauxReussite } from '../../lib/fsrs'
 import arbre from '../../../content/skill-tree.json'
 import {
   creerSession,
@@ -54,14 +54,15 @@ async function terminerSession(xpGagne, skillId, reponses) {
   const userId = auth.user.id
 
   // Carte FSRS : notée sur les questions initiales (rattrapage exclu)
-  const note = noteDepuisSession(reponses.slice(0, TAILLE_SESSION))
+  const taux = tauxReussite(reponses.slice(0, TAILLE_SESSION))
+  const note = noteDepuisTaux(taux)
   const { data: revue } = await supabase
     .from('reviews')
     .select('fsrs_state')
     .eq('user_id', userId)
     .eq('skill_id', skillId)
     .maybeSingle()
-  const { carte, dueAt, maitrise } = reviser(revue?.fsrs_state ?? null, note)
+  const { carte, dueAt, maitrise } = reviser(revue?.fsrs_state ?? null, note, taux)
   const { error: erreurRevue } = await supabase.from('reviews').upsert({
     user_id: userId,
     skill_id: skillId,

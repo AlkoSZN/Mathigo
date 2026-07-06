@@ -20,14 +20,22 @@ function hydrater(fsrsState) {
 }
 
 /**
- * Note FSRS d'une session à partir des réponses aux questions initiales
- * (le rattrapage ne compte pas) : taux de bonnes réponses.
+ * Taux de bonnes réponses aux questions initiales d'une session (le
+ * rattrapage ne compte pas) — sert à la fois de note FSRS et de qualité de
+ * session pour la maîtrise affichée.
  * @param {Array<{correct: boolean}>} reponsesInitiales
+ * @returns {number} 0..1
+ */
+export function tauxReussite(reponsesInitiales) {
+  return reponsesInitiales.filter((r) => r.correct).length / Math.max(reponsesInitiales.length, 1)
+}
+
+/**
+ * Note FSRS d'une session à partir du taux de bonnes réponses.
+ * @param {number} taux 0..1
  * @returns {number} Rating.Again | Hard | Good | Easy
  */
-export function noteDepuisSession(reponsesInitiales) {
-  const taux =
-    reponsesInitiales.filter((r) => r.correct).length / Math.max(reponsesInitiales.length, 1)
+export function noteDepuisTaux(taux) {
   if (taux < 0.5) return Rating.Again
   if (taux < 0.75) return Rating.Hard
   if (taux < 1) return Rating.Good
@@ -37,34 +45,32 @@ export function noteDepuisSession(reponsesInitiales) {
 /**
  * Révise la carte d'une compétence (ou en crée une au premier passage).
  * @param {object|null} fsrsState carte jsonb existante, ou null
- * @param {number} note Rating de la session
+ * @param {number} note Rating de la session (calibre l'espacement des futures
+ *   révisions et la vitesse de décroissance, via ts-fsrs)
+ * @param {number} qualiteSession taux de bonnes réponses 0..1, stocké dans la
+ *   carte : c'est lui qui fixe la maîtrise juste après la session
  * @param {Date} [quand]
  * @returns {{ carte: object, dueAt: string, maitrise: number }}
- *   `carte` à stocker dans fsrs_state, `dueAt` ISO pour due_at,
- *   `maitrise` (rétrievabilité juste après révision, 0..1) pour mastery.
  */
-export function reviser(fsrsState, note, quand = new Date()) {
+export function reviser(fsrsState, note, qualiteSession, quand = new Date()) {
   const carte = fsrsState ? hydrater(fsrsState) : createEmptyCard(quand)
   const { card } = planificateur.next(carte, quand, note)
+  const carteAvecQualite = { ...card, qualite_session: qualiteSession }
   return {
-    carte: card,
+    carte: carteAvecQualite,
     dueAt: card.due.toISOString(),
-    maitrise: maitriseCourante(card, quand),
+    maitrise: maitriseCourante(carteAvecQualite, quand),
   }
 }
 
 /**
- * Point de bascule de la maturité : stabilité (en jours) donnant 50 % de
- * maturité. Une session parfaite (Easy, stabilité ≈ 8 j) donne ≈ 62 % —
- * juste au-dessus du seuil de déverrouillage de l'arbre.
- */
-const STABILITE_REF = 5
-
-/**
- * Maîtrise vivante d'une compétence : rétrievabilité FSRS à l'instant t
- * (qui DÉCROÎT naturellement avec le temps sans révision) pondérée par la
- * maturité de la stabilité mémoire — juste après une première session la
- * rétrievabilité vaut 1, seule la stabilité distingue un souvenir installé.
+ * Maîtrise vivante d'une compétence : qualité de la dernière session
+ * (taux de bonnes réponses, fixé à la fin de chaque session — pas de plafond
+ * artificiel : 90 % de bonnes réponses donnent 90 % de maîtrise dès la fin
+ * de la session) multipliée par la rétrievabilité FSRS à l'instant t, qui
+ * DÉCROÎT naturellement avec le temps sans révision (juste après la session,
+ * t=0, la rétrievabilité vaut 1 : la maîtrise affichée est alors exactement
+ * la qualité de la session).
  * @param {object|null} fsrsState carte jsonb, ou null si jamais révisée
  * @returns {number} 0..1
  */
@@ -72,6 +78,6 @@ export function maitriseCourante(fsrsState, quand = new Date()) {
   if (!fsrsState || !fsrsState.last_review) return 0
   const carte = fsrsState.due instanceof Date ? fsrsState : hydrater(fsrsState)
   const retrievabilite = planificateur.get_retrievability(carte, quand, false)
-  const maturite = carte.stability / (carte.stability + STABILITE_REF)
-  return retrievabilite * maturite
+  const qualite = fsrsState.qualite_session ?? 1
+  return retrievabilite * qualite
 }

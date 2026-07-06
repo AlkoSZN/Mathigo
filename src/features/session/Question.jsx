@@ -18,14 +18,20 @@ function libelleErreur(errorType) {
 }
 
 /**
- * Rend le contenu d'un choix : LaTeX pur (banque calculatoire, sans $) ou
- * texte français mêlé de segments $...$ (QCM théoriques).
+ * Rend le contenu d'un choix selon le format de l'exercice : LaTeX pur pour
+ * le QCM calculatoire (aucun $, toute la chaîne est une expression), texte
+ * français mêlé de segments $...$ pour le QCM théorique (y compris quand il
+ * n'y a aucune formule : un choix 100 % texte doit rester du texte, jamais
+ * passer en mode maths KaTeX qui écrase les espaces et les accents).
  */
-export function ContenuChoix({ latex }) {
-  return latex.includes('$') ? (
-    <MathText as="span">{latex}</MathText>
-  ) : (
+export function ContenuChoix({ latex, format }) {
+  // Les exercices générés avant l'introduction des formats n'ont pas de
+  // champ "format" : ils sont tous calculatoires (comme formatDe() dans
+  // machine.js), donc l'absence de valeur se traite comme 'qcm'.
+  return (format ?? 'qcm') === 'qcm' ? (
     <Formule latex={latex} />
+  ) : (
+    <MathText as="span">{latex}</MathText>
   )
 }
 
@@ -95,7 +101,7 @@ export default function Question({
                   />
                 )}
                 <span className="choix-contenu">
-                  <ContenuChoix latex={choix.latex} />
+                  <ContenuChoix latex={choix.latex} format={payload.format} />
                 </span>
               </button>
             </li>
