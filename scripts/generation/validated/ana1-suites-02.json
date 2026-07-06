@@ -1,0 +1,325 @@
+[
+  {
+    "skill_id": "ana1-suites-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-02",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Considérez la fonction $f\\colon[0,+\\infty[\\to\\mathbb{R}$, $f(x)=\\dfrac{\\ln(1+2x)}{x}$ pour $x>0$ et $f(0)=2$. Quelle est la borne supérieure de $f$ sur $[0,+\\infty[$ ?",
+      "hints": [
+        "Étudiez le signe de $f'(x)$ en différenciant $\\ln(1+2x)/x$ et en simplifiant.",
+        "Le maximum possible se produit là où $f'(x)=0$ ou aux limites de l'intervalle; examinez $\\lim_{x\\to0^+}f(x)$ et $\\lim_{x\\to+\\infty}f(x)$."
+      ],
+      "solution_latex": "On dérive pour $x>0$ :\n$$f'(x)=\\dfrac{\\frac{2}{1+2x}\\,x-\\ln(1+2x)}{x^2}=\\dfrac{2x-(1+2x)\\ln(1+2x)}{x^2(1+2x)}.$$ \nL'équation $f'(x)=0$ conduit à $2x=(1+2x)\\ln(1+2x)$, soit $\\ln(1+2x)=\\dfrac{2x}{1+2x}$. Cette égalité n'est satisfaite que pour $x=0$. En étudiant le signe de $f'(x)$ on trouve $f'(x)<0$ pour $x>0$, donc $f$ décroît sur $(0,+\\infty)$. Les limites sont \n$$\\lim_{x\\to0^+}f(x)=2,\\qquad \\lim_{x\\to+\\infty}f(x)=0.$$ \nAinsi la borne supérieure sur $[0,+\\infty[$ est $\\boxed{2}$.",
+      "choices": [
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$\\ln 2$",
+          "sympy": "log(2)",
+          "correct": false,
+          "error_type": "confusing_limit_at_zero"
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "ignoring_derivative_sign"
+        },
+        {
+          "latex": "$+\\infty$",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "missing_asymptotic_behavior"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "2"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "La suite $(v_n)$ est donnée par $v_1=4$ et $v_{n+1}=\\sqrt{5+v_n}$ pour $n\\ge1$. Parmi les affirmations suivantes, laquelle est vraie concernant la borne supérieure de $(v_n)$ ?",
+      "hints": [
+        "Supposons que la suite converge vers $\\ell$ et utilisez l'équation $\\ell=\\sqrt{5+\\ell}$.",
+        "Une fois $\\ell$ trouvé, comparez $v_n$ à $\\ell$ en étudiant le signe de $v_{n+1}-\\ell$."
+      ],
+      "solution_latex": "Si $(v_n)$ converge, on a $\\ell=\\sqrt{5+\\ell}$, donc $\\ell^2-\\ell-5=0$. Les solutions sont $\\ell=\\dfrac{1\\pm\\sqrt{21}}{2}$. Comme les termes sont positifs, $\\ell=\\dfrac{1+\\sqrt{21}}{2}\\approx2.79$. On montre par récurrence que $v_n<\\ell$ pour tout $n$, donc $\\ell$ est une borne supérieure atteinte à la limite. Ainsi la borne supérieure de $(v_n)$ est $\\dfrac{1+\\sqrt{21}}{2}$.",
+      "choices": [
+        {
+          "latex": "$\\dfrac{1+\\sqrt{21}}{2}$",
+          "sympy": "(1+sqrt(21))/2",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$\\dfrac{1-\\sqrt{21}}{2}$",
+          "sympy": "(1-sqrt(21))/2",
+          "correct": false,
+          "error_type": "negative_root_confusion"
+        },
+        {
+          "latex": "$\\sqrt{5}$",
+          "sympy": "sqrt(5)",
+          "correct": false,
+          "error_type": "ignoring_fixed_point_equation"
+        },
+        {
+          "latex": "$5$",
+          "sympy": "5",
+          "correct": false,
+          "error_type": "misreading_recurrence"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "(1+sqrt(21))/2"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Considérez la fonction $h\\colon[0,2]\\to\\mathbb{R}$ donnée par $h(x)=x^{3}-6x^{2}+9x+1$. Parmi les propositions suivantes, laquelle donne correctement la borne inférieure de $h$ sur $[0,2]$ ?",
+      "hints": [
+        "Calculez $h'(x)$ et trouvez les points critiques dans $[0,2]$.",
+        "Évaluez $h$ aux bornes et aux points critiques pour déterminer le minimum."
+      ],
+      "solution_latex": "On a $h'(x)=3x^{2}-12x+9=3(x^{2}-4x+3)=3(x-1)(x-3)$. Sur $[0,2]$, les points où $h'$ s'annule sont $x=1$ (car $x=3$ est hors intervalle). Le signe de $h'$ montre que $h$ décroît sur $[0,1]$ puis croît sur $[1,2]$. Ainsi le minimum est atteint en $x=1$. On calcule $h(1)=1-6+9+1=5$. Donc la borne inférieure de $h$ sur $[0,2]$ vaut $5$.",
+      "choices": [
+        {
+          "latex": "$\\inf_{[0,2]} h =5$",
+          "sympy": "5",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$\\inf_{[0,2]} h =1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "confusing_value_at_zero"
+        },
+        {
+          "latex": "$\\inf_{[0,2]} h =0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "ignoring_critical_point"
+        },
+        {
+          "latex": "$\\inf_{[0,2]} h =-2$",
+          "sympy": "-2",
+          "correct": false,
+          "error_type": "sign_error_evaluation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "5"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-02",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-02",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Considérez la fonction $f\\colon\\mathbb{R}\\to\\mathbb{R}$ définie par $f(x)=\\dfrac{x}{1+x^{2}}$. Quelle est la borne supérieure de $f$ sur $\\mathbb{R}$ ?",
+      "hints": [
+        "Étudier le signe de $f'(x)$ pour connaître les extrema locaux.",
+        "Résoudre $f'(x)=0$, on obtient $x=\\pm 1$ ; en évaluant $f(1)$ on trouve la valeur maximale."
+      ],
+      "solution_latex": "On dérive $f$: $f'(x)=\\dfrac{1+x^{2}-2x^{2}}{(1+x^{2})^{2}}=\\dfrac{1-x^{2}}{(1+x^{2})^{2}}$. Ainsi $f'(x)=0 \\iff x=\\pm1$. Le signe de $f'$ montre que $f$ augmente sur $(-1,1)$ puis diminue. Donc le maximum global est $f(1)=\\dfrac{1}{2}$. La borne supérieure de $f$ sur $\\mathbb{R}$ est $\\boxed{\\dfrac{1}{2}}$.",
+      "choices": [
+        {
+          "latex": "$\\dfrac{1}{2}$",
+          "sympy": "Rational(1,2)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "ignore_denominator"
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "assume_odd_function_zero"
+        },
+        {
+          "latex": "$\\dfrac{1}{\\sqrt{2}}$",
+          "sympy": "1/sqrt(2)",
+          "correct": false,
+          "error_type": "derivative_miscalculation"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-02",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-02",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel est le critère nécessaire et suffisant pour qu'une fonction $f$ définie sur un intervalle $I$ soit monotone croissante sur $I$ ?",
+      "hints": [
+        "Pensez aux variations locales de $f$ entre deux points quelconques de $I$.",
+        "Utilisez la définition de la monotonie : $\\forall x,y\\in I,\\;x<y \\implies f(x)\\le f(y)$. Cela conduit à la condition sur le signe de la dérivée lorsque $f$ est dérivable."
+      ],
+      "solution_latex": "Pour qu'une fonction $f$ soit monotone croissante sur un intervalle $I$, il faut et il suffit que, pour tout $x\\in I$ où $f$ est dérivable, on ait $f'(x)\\ge 0$. En effet, si $f'(x)\\ge0$ sur $I$, alors $f$ est non décroissante sur $I$ (théorème de la dérivée). Réciproquement, si $f$ est croissante sur $I$ et dérivable, alors $f'(x)\\ge0$ pour tout $x\\in I$.",
+      "choices": [
+        {
+          "latex": "$\\forall x\\in I,\\;f'(x)\\ge 0$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$\\forall x\\in I,\\;f'(x)>0$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$\\exists x\\in I,\\;f'(x)\\ge 0$",
+          "correct": false,
+          "error_type": "confusion_necessite_suffisance"
+        },
+        {
+          "latex": "$\\forall x\\in I,\\;f(x)\\ge 0$",
+          "correct": false,
+          "error_type": "condition_non_pertinente"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-02",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-02",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Soit $(u_n)$ une suite réelle. Parmi les propositions suivantes, laquelle caractérise exactement la borne supérieure $\\sup\\{u_n\\}$ de la suite ?",
+      "hints": [
+        "Rappelez la définition formelle de la borne supérieure d'un ensemble de réels.",
+        "Cherchez la condition qui doit être satisfaite à la fois par toutes les valeurs de la suite et par les valeurs arbitrairement proches de la borne supérieure."
+      ],
+      "solution_latex": "La borne supérieure $M=\\sup\\{u_n\\}$ vérifie deux propriétés : (i) $\\forall n\\in\\mathbb{N},\\;u_n\\le M$ (c'est un majorant) et (ii) $\\forall \\varepsilon>0,\\;\\exists n\\in\\mathbb{N}$ tel que $u_n> M-\\varepsilon$ (aucun nombre strictement plus petit que $M$ n'est un majorant). Cette double condition caractérise exactement $\\sup\\{u_n\\}$.",
+      "choices": [
+        {
+          "latex": "$M$ est un majorant de la suite et, pour tout $\\varepsilon>0$, il existe $n$ tel que $u_n> M-\\varepsilon$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$M$ est un majorant de la suite et, pour tout $\\varepsilon>0$, il existe $n$ tel que $u_n\\ge M-\\varepsilon$",
+          "correct": false,
+          "error_type": "confusion_inegalite_faible"
+        },
+        {
+          "latex": "$M$ est un majorant strict de la suite, c'est‑à‑dire $u_n<M$ pour tout $n$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$M$ vérifie $\\forall n,\\;u_n\\le M$ et $\\exists N$ tel que $\\forall n\\ge N,\\;u_n\\ge M$",
+          "correct": false,
+          "error_type": "condition_non_suffisante"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-02",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-02",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du critère de monotonie d'une fonction définie sur un intervalle.",
+      "hints": [
+        "Pense à la condition à vérifier sur la différence $f(x)-f(y)$ lorsque $x<y$.",
+        "Utilise la propriété : $f$ est croissante sur $I$ iff $\\forall x,y\\in I$, $x<y \\Rightarrow f(x)\\le f(y)$."
+      ],
+      "solution_latex": "Soit $I$ un intervalle de $\\mathbb{R}$ et $f\\colon I\\to\\mathbb{R}$. \\textbf{Critère de monotonie croissante :} $f$ est croissante sur $I$ si et seulement si, pour tous $x,y\\in I$ tels que $x<y$, on a $f(x)\\le f(y)$. De même, $f$ est strictement croissante si $x<y$ implique $f(x)<f(y)$.",
+      "fragments": [
+        "Soit $I$ un intervalle de $\\mathbb{R}$ et $f\\colon I\\to\\mathbb{R}$.",
+        "$f$ est croissante sur $I$ si et seulement si, pour tous $x,y\\in I$ tels que $x<y$,",
+        "on a $f(x)\\le f(y)$.",
+        "De même, $f$ est strictement croissante si $x<y$ implique $f(x)<f(y)$."
+      ],
+      "distracteurs": [
+        "$f$ est croissante sur $I$ si $\\exists x<y$ tels que $f(x)<f(y)$.",
+        "$f$ est croissante sur $I$ si $\\forall x,y\\in I$, $f(x)\\le f(y)$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-02",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-02",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé du théorème donnant les bornes d'une suite définie par récurrence contractive.",
+      "hints": [
+        "Regarde la forme $u_{n+1}=\\phi(u_n)$ avec $\\phi$ croissante et bornée.",
+        "Le théorème affirme l'existence d'une limite qui sert de borne supérieure et inférieure."
+      ],
+      "solution_latex": "Soit $(u_n)_{n\\ge 1}$ une suite définie par $u_{n+1}=\\phi(u_n)$ où $\\phi\\colon [a,b]\\to[a,b]$ est croissante. Alors $(u_n)$ est bornée, croissante (ou décroissante) et converge vers le point fixe $\\ell\\in[a,b]$ de $\\phi$, qui constitue à la fois la borne supérieure et la borne inférieure de la suite.\\newline En particulier, $\\forall n\\ge 1$, $a\\le u_n\\le b$ et $\\lim_{n\\to\\infty}u_n=\\ell$.",
+      "fragments": [
+        "Soit $(u_n)_{n\\ge 1}$ une suite définie par $u_{n+1}=\\phi(u_n)$ où $\\phi\\colon [a,b]\\to[a,b]$ est croissante.",
+        "Alors $(u_n)$ est bornée, croissante (ou décroissante) et converge vers le point fixe $\\ell\\in[a,b]$ de $\\phi$,",
+        "qui constitue à la fois la borne supérieure et la borne inférieure de la suite.",
+        "En particulier, $\\forall n\\ge 1$, $a\\le u_n\\le b$ et $\\lim_{n\\to\\infty}u_n=\\ell$."
+      ],
+      "distracteurs": [
+        "Si $\\phi$ est contractive alors $(u_n)$ diverge vers $+\\infty$.",
+        "Le point fixe $\\ell$ n'est pas nécessairement une borne de la suite."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

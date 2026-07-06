@@ -1,0 +1,465 @@
+[
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite suivante : $\\displaystyle \\lim_{x\\to 0}\\frac{\\sin(5x)}{3x}$",
+      "hints": [
+        "Utiliser le fait connu $\\lim_{u\\to0}\\frac{\\sin u}{u}=1$.",
+        "Mettre la fraction sous la forme $\\frac{\\sin(5x)}{5x}\\times\\frac{5}{3}$ puis appliquer la limite."
+      ],
+      "solution_latex": "On écrit $\\displaystyle \\frac{\\sin(5x)}{3x}=\\frac{\\sin(5x)}{5x}\\times\\frac{5}{3}$. Comme $\\lim_{x\\to0}\\frac{\\sin(5x)}{5x}=1$, la limite vaut $\\frac{5}{3}$. Ainsi $\\displaystyle \\lim_{x\\to0}\\frac{\\sin(5x)}{3x}=\\frac{5}{3}$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{5}{3}",
+          "sympy": "Rational(5,3)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\dfrac{1}{3}",
+          "sympy": "Rational(1,3)",
+          "correct": false,
+          "error_type": "forgot_factor_5"
+        },
+        {
+          "latex": "\\dfrac{5}{1}",
+          "sympy": "5",
+          "correct": false,
+          "error_type": "misapplied_limit_sin_over_u"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "incorrect_assumption_numerator_goes_to_zero"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(5,3)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Déterminer $\\displaystyle \\lim_{n\\to+\\infty}\\left(1+\\frac{2}{n}\\right)^{n}$",
+      "hints": [
+        "Rappeler la limite fondamentale $\\lim_{n\\to\\infty}\\left(1+\\frac{a}{n}\\right)^{n}=e^{a}$.",
+        "Identifier $a$ dans l'expression donnée puis appliquer la formule."
+      ],
+      "solution_latex": "L'expression est de la forme $\\left(1+\\frac{a}{n}\\right)^{n}$ avec $a=2$. La limite vaut donc $e^{2}$. Ainsi $\\displaystyle \\lim_{n\\to+\\infty}\\left(1+\\frac{2}{n}\\right)^{n}=e^{2}$.",
+      "choices": [
+        {
+          "latex": "e^{2}",
+          "sympy": "exp(2)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "e",
+          "sympy": "exp(1)",
+          "correct": false,
+          "error_type": "forgot_coefficient_2"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "misunderstood_limit_as_1"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "thought_limit_diverges"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "exp(2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "qcm",
+      "difficulty": 4,
+      "statement_latex": "Soit $f(x)=x^{2}\\sin\\!\\left(\\frac{1}{x}\\right)$ pour $x\\neq0$ et $f(0)=0$.\\newline Utiliser le théorème des gendarmes pour montrer que $\\displaystyle \\lim_{x\\to0}f(x)=0$.",
+      "hints": [
+        "Encadrer $\\sin\\left(\\frac{1}{x}\\right)$ entre $-1$ et $1$.",
+        "Multiplier ces inégalités par $x^{2}$ puis passer à la limite."
+      ],
+      "solution_latex": "On sait que $-1\\le \\sin\\left(\\frac{1}{x}\\right)\\le 1$ pour tout $x\\neq0$. En multipliant par $x^{2}\\ge0$, on obtient $-x^{2}\\le x^{2}\\sin\\left(\\frac{1}{x}\\right)\\le x^{2}$. Les deux fonctions $-x^{2}$ et $x^{2}$ ont pour limite $0$ en $0$. Par le théorème des gendarmes, $\\lim_{x\\to0}x^{2}\\sin\\left(\\frac{1}{x}\\right)=0$. Ainsi $\\displaystyle \\lim_{x\\to0}f(x)=0$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\dfrac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "confused_with_average_of_bounds"
+        },
+        {
+          "latex": "\\text{n'existe pas}",
+          "sympy": "None",
+          "correct": false,
+          "error_type": "incorrect_assumption_of_oscillation"
+        },
+        {
+          "latex": "\\pm\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "misapplied_gendarmes_to_unbounded"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "0"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite suivante : $\\displaystyle \\lim_{x\\to 0}\\frac{e^{2x}-1}{x}$.",
+      "hints": [
+        "Utiliser le développement limité de $e^{t}$ à l'ordre 1 autour de $0$.",
+        "Appliquer $e^{t}=1+t+o(t)$ puis simplifier le quotient."
+      ],
+      "solution_latex": "On développe $e^{2x}=1+2x+o(x)$ lorsque $x\\to0$. Ainsi \\[\\frac{e^{2x}-1}{x}=\\frac{2x+o(x)}{x}=2+\\frac{o(x)}{x}\\longrightarrow2.\\] La limite vaut $2$.",
+      "choices": [
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "forgot_factor_2"
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "ignored_numerator"
+        },
+        {
+          "latex": "$\\infty$",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "misinterpreted_as_divergent"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((exp(2*x)-1)/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $g(x)=\\frac{x^3}{1+x^2}$ pour $x\\ge0$. Utiliser le théorème des gendarmes pour déterminer $\\displaystyle \\lim_{x\\to+\\infty}g(x)$.",
+      "hints": [
+        "Comparer $g(x)$ avec des fonctions simples dont les limites sont connues.",
+        "Pour $x\\ge0$, on a $0\\le \\frac{x^3}{1+x^2}\\le x$."
+      ],
+      "solution_latex": "Pour $x\\ge0$, on a $0\\le \\frac{x^3}{1+x^2}=x\\cdot\\frac{x^2}{1+x^2}\\le x\\cdot1=x$. Ainsi $0\\le g(x)\\le x$. Or $\\lim_{x\\to+\\infty}0=0$ et $\\lim_{x\\to+\\infty}x=+\\infty$, les deux fonctions ne bornent pas $g$ vers une même valeur, il faut donc une meilleure majoration. On remarque que $\\frac{x^3}{1+x^2}=x-\\frac{x}{1+x^2}$, donc $g(x)=x-\\frac{x}{1+x^2}$. Le second terme tend vers $0$, ainsi $g(x)\\sim x$ et la limite est $+\\infty$.",
+      "choices": [
+        {
+          "latex": "$+\\infty$",
+          "sympy": "oo",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "confused_lower_bound"
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "incorrect_normalisation"
+        },
+        {
+          "latex": "$\\frac12$",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "mistaken_constant_limit"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(x**3/(1+x**2), x, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "\\displaystyle \\lim_{x\\to 0}\\frac{\\tan(3x)-\\sin(2x)}{x}",
+      "hints": [
+        "Utilisez un développement limité au premier ordre des fonctions trigonométriques autour de 0.",
+        "Développez \\tan(3x) et \\sin(2x) jusqu'au terme d'ordre 3, simplifiez puis divisez par \\,x\\, pour obtenir la valeur limite."
+      ],
+      "solution_latex": "On développe au voisinage de $0$ : $\\tan(3x)=3x+\\dfrac{(3x)^3}{3}+o(x^3)=3x+9x^3+o(x^3)$ et $\\sin(2x)=2x-\\dfrac{(2x)^3}{6}+o(x^3)=2x-\\dfrac{4}{3}x^3+o(x^3)$. Ainsi $$\\tan(3x)-\\sin(2x)=x+\\left(9+\\dfrac{4}{3}\\right)x^3+o(x^3)=x+\\dfrac{31}{3}x^3+o(x^3).$$ En divisant par $x$, $$\\frac{\\tan(3x)-\\sin(2x)}{x}=1+\\dfrac{31}{3}x^2+o(x^2)$$ et en faisant tendre $x$ vers $0$, on obtient $$\\lim_{x\\to0}\\frac{\\tan(3x)-\\sin(2x)}{x}=1.$$",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "confuse_tan_limit"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "omit_sin_term"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "use_derivative_on_each_term_separately"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((tan(3*x)-sin(2*x))/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "\\displaystyle \\lim_{n\\to +\\infty} n\\Bigl\\{\\Bigl(1+\\frac{1}{n}\\Bigr)^{n}-e\\Bigr\\}",
+      "hints": [
+        "Rappelez‑vous le développement asymptotique de $(1+1/n)^{n}$ autour de $\\infty$.",
+        "Utilisez la formule $(1+1/n)^{n}=e\\left(1-\\frac{1}{2n}+\\frac{11}{24n^{2}}+o\\left(\\frac1{n^{2}}\\right)\\right)$ puis multipliez par $n$. "
+      ],
+      "solution_latex": "On a le développement bien connu $$\\left(1+\\frac{1}{n}\\right)^{n}=e\\left(1-\\frac{1}{2n}+\\frac{11}{24n^{2}}+o\\left(\\frac1{n^{2}}\\right)\\right).$$ En soustrayant $e$ et en multipliant par $n$ : $$n\\Bigl\\{\\Bigl(1+\\frac{1}{n}\\Bigr)^{n}-e\\Bigr\\}=n\\,e\\left(-\\frac{1}{2n}+\\frac{11}{24n^{2}}+o\\left(\\frac1{n^{2}}\\right)\\right) = -\\frac{e}{2}+\\frac{11e}{24n}+o\\left(\\frac1{n}\\right).$$ En faisant $n\\to+\\infty$, les termes en $1/n$ disparaissent et il reste $$\\lim_{n\\to+\\infty} n\\Bigl\\{\\Bigl(1+\\frac{1}{n}\\Bigr)^{n}-e\\Bigr\\}= -\\frac{e}{2}.$$",
+      "choices": [
+        {
+          "latex": "-\\dfrac{e}{2}",
+          "sympy": "-E/2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "-e",
+          "sympy": "-E",
+          "correct": false,
+          "error_type": "forget_factor_one_half"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "assume_convergence_to_e"
+        },
+        {
+          "latex": "-\\dfrac{e}{4}",
+          "sympy": "-E/4",
+          "correct": false,
+          "error_type": "miscalculate_coefficient"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(n*((1+1/n)**n - E), n, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quelle est la condition n\\'écessaire et suffisante pour pouvoir appliquer le théorème des gendarmes afin de conclure que \\(\\lim_{x\\to a}f(x)=L\\) lorsqu'on sait que \\(g(x)\\leqslant f(x)\\leqslant h(x)\\) près de \\(a\\) ?",
+      "hints": [
+        "Identifier les hypothèses essentielles du théorème des gendarmes.",
+        "Vérifier que \\(\\lim_{x\\to a}g(x)=\\lim_{x\\to a}h(x)=L\\) et que les inégalités sont valables sur un intervalle supprimant \\(a\\)."
+      ],
+      "solution_latex": "Pour appliquer le théorème des gendarmes, il faut que \\(g(x)\\leqslant f(x)\\leqslant h(x)\\) pour tout \\(x\\) dans un voisinage punctué de \\(a\\) et que les deux fonctions de comparaison aient la même limite : \\(\\lim_{x\\to a}g(x)=\\lim_{x\\to a}h(x)=L\\). Sous ces deux conditions, on conclut \\(\\lim_{x\\to a}f(x)=L\\).",
+      "choices": [
+        {
+          "latex": "Il suffit que \\(g(x)\\leqslant f(x)\\leqslant h(x)\\) près de \\(a\\).",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Il faut que \\(\\lim_{x\\to a}g(x)=\\lim_{x\\to a}h(x)\\) existent, même si elles sont différentes.",
+          "correct": false,
+          "error_type": "confusion_limites_differentes"
+        },
+        {
+          "latex": "Il faut que \\(\\lim_{x\\to a}g(x)=\\lim_{x\\to a}h(x)=L\\) et que les inégalités tiennent sur un voisinage punctué de \\(a\\).",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Il suffit que \\(f\\) soit continue en \\(a\\) et que \\(g\\leqslant h\\) près de \\(a\\).",
+          "correct": false,
+          "error_type": "condition_inutile"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour comparer les suites \\(u_n=\\dfrac{\\ln n}{\\sqrt{n}}\\) et \\(v_n=\\dfrac{1}{n^{1/4}}\\) quand \\(n\\to\\infty\\), quel critère de comparaison est le plus adapté ?",
+      "hints": [
+        "Examiner le rapport \\(\\dfrac{u_n}{v_n}\\) lorsque \\(n\\) tend vers l'infini.",
+        "Si le rapport tend vers une constante strictement positive, les deux suites ont le même comportement asymptotique."
+      ],
+      "solution_latex": "On calcule \\(\\dfrac{u_n}{v_n}=\\dfrac{\\ln n}{\\sqrt{n}}\\cdot n^{1/4}=\\dfrac{\\ln n}{n^{1/4}}\\). Comme \\(\\displaystyle\\lim_{n\\to\\infty}\\dfrac{\\ln n}{n^{1/4}}=0\\), le rapport tend vers $0$. Ainsi, $u_n$ est négligeable devant $v_n$ et on utilise le critère de comparaison : si $0\\leqslant u_n\\leqslant C\\,v_n$ pour $n$ grand, alors $u_n$ tend vers $0$ comme $v_n$ le fait. Ici, la comparaison directe avec $v_n$ montre que $u_n$ converge plus rapidement vers $0$.",
+      "choices": [
+        {
+          "latex": "Le critère de la limite du rapport $\\lim_{n\\to\\infty}\\dfrac{u_n}{v_n}$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Le critère de la suite croissante et majorée",
+          "correct": false,
+          "error_type": "condition_inappropriee"
+        },
+        {
+          "latex": "Le critère des suites adjacentes",
+          "correct": false,
+          "error_type": "confusion_suites_adjacentes"
+        },
+        {
+          "latex": "Le critère de la monotonie de $\\ln n$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème des gendarmes (ou des deux côtés).",
+      "hints": [
+        "Commence par identifier les hypothèses principales : fonctions bornées et égales au point limite.",
+        "Ensuite, rappelle la conclusion qui lie les limites des fonctions extrêmes à celle de la fonction au milieu."
+      ],
+      "solution_latex": "Soit $f,g,h$ trois fonctions définies sur un intervalle $I$ contenant $a$, à l'exception éventuelle de $a$ lui-même. Supposons que, pour tout $x\\in I$, $g(x)\\le f(x)\\le h(x)$. Si les limites $\\displaystyle\\lim_{x\\to a}g(x)$ et $\\displaystyle\\lim_{x\\to a}h(x)$ existent et sont égales à $L$, alors la fonction $f$ admet également la limite $\\displaystyle\\lim_{x\\to a}f(x)=L$.",
+      "fragments": [
+        "Soit $f,g,h$ trois fonctions définies sur un intervalle $I$ contenant $a$, à l'exception éventuelle de $a$ lui-même.",
+        "Supposons que, pour tout $x\\in I$, $g(x)\\le f(x)\\le h(x)$.",
+        "Si les limites $\\displaystyle\\lim_{x\\to a}g(x)$ et $\\displaystyle\\lim_{x\\to a}h(x)$ existent et sont égales à $L$,",
+        "alors la fonction $f$ admet également la limite $\\displaystyle\\lim_{x\\to a}f(x)=L$."
+      ],
+      "distracteurs": [
+        "Si les limites $\\displaystyle\\lim_{x\\to a}g(x)$ et $\\displaystyle\\lim_{x\\to a}h(x)$ existent et sont finies, alors $f$ est bornée près de $a$.",
+        "On ne nécessite que $\\displaystyle\\lim_{x\\to a}g(x)=L$ et $\\displaystyle\\lim_{x\\to a}h(x)=M$ avec $L\\le M$ pour conclure $\\displaystyle\\lim_{x\\to a}f(x)$ existante."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-04",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-04",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé du critère de comparaison des suites (ou séries) à termes positifs.",
+      "hints": [
+        "Identifie d'abord la condition de domination entre deux suites à termes positifs.",
+        "Ensuite, rappelle ce que l'on peut déduire des limites ou de la convergence de la plus grande suite sur la plus petite."
+      ],
+      "solution_latex": "Soient $(u_n)$ et $(v_n)$ deux suites de nombres réels strictement positifs. Si, à partir d'un rang $n_0$, on a $0\\le u_n\\le v_n$ pour tout $n\\ge n_0$, alors :\\newline • Si $\\displaystyle\\lim_{n\\to\\infty}v_n=0$, il s'ensuit $\\displaystyle\\lim_{n\\to\\infty}u_n=0$.\\newline • Si la série $\\sum v_n$ converge, la série $\\sum u_n$ converge également.\\newline • Inversement, si $\\sum u_n$ diverge, alors $\\sum v_n$ diverge.",
+      "fragments": [
+        "Soient $(u_n)$ et $(v_n)$ deux suites de nombres réels strictement positifs.",
+        "Il existe un rang $n_0$ tel que $0\\le u_n\\le v_n$ pour tout $n\\ge n_0$.",
+        "Alors, si $\\displaystyle\\lim_{n\\to\\infty}v_n=0$, on a $\\displaystyle\\lim_{n\\to\\infty}u_n=0$.",
+        "De plus, si la série $\\sum v_n$ converge, alors $\\sum u_n$ converge également.",
+        "Inversement, si $\\sum u_n$ diverge, alors $\\sum v_n$ diverge."
+      ],
+      "distracteurs": [
+        "Si $u_n\\le v_n$ seulement pour un nombre fini de $n$, le critère s'applique toujours.",
+        "On peut remplacer $0\\le u_n\\le v_n$ par $|u_n|\\le |v_n|$ sans changer la conclusion."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

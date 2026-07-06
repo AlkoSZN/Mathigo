@@ -1,0 +1,366 @@
+[
+  {
+    "skill_id": "ana1-cont-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit la fonction \\[f(x)=\\begin{cases}x^{2}&\\text{si }x<1,\\\\2x-1&\\text{si }x\\ge 1.\\end{cases}\\]Déterminer si $f$ est continue en $x=1$.",
+      "hints": [
+        "Comparer la limite à gauche et à droite de $x=1$.",
+        "Calculer $\\lim_{x\\to1^-}x^{2}$, $\\lim_{x\\to1^+}(2x-1)$ puis vérifier que cela coïncide avec $f(1)$. "
+      ],
+      "solution_latex": "On a $\\lim_{x\\to1^-}x^{2}=1$ et $\\lim_{x\\to1^+}(2x-1)=1$. De plus $f(1)=2\\cdot1-1=1$. Les deux limites existent, sont égales et égales à $f(1)$, donc $f$ est continue en $x=1$.",
+      "choices": [
+        {
+          "latex": "$f$ est continue en $x=1$",
+          "sympy": "True",
+          "correct": true
+        },
+        {
+          "latex": "$f$ est discontinue en $x=1$ car la limite à gauche diffère de celle à droite",
+          "sympy": "False",
+          "correct": false,
+          "error_type": "left_right_mismatch"
+        },
+        {
+          "latex": "$f$ est discontinue en $x=1$ car $f(1)$ n'est pas définie",
+          "sympy": "False",
+          "correct": false,
+          "error_type": "undefined_value"
+        },
+        {
+          "latex": "$f$ est continue en $x=1$ mais non dérivable",
+          "sympy": "True",
+          "correct": false,
+          "error_type": "derivative_confusion"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Quelle est l'ensemble de continuité de la fonction $g(x)=\\dfrac{1}{x-2}$ ?",
+      "hints": [
+        "Identifier les points où le dénominateur s'annule.",
+        "Le reste de la droite réelle, où le dénominateur ne s'annule pas, constitue le domaine de continuité."
+      ],
+      "solution_latex": "Le dénominateur $x-2$ s'annule en $x=2$, où la fonction est indéfinie. Ainsi $g$ est continue sur $(-\\infty,2)\\cup(2,\\infty)$.",
+      "choices": [
+        {
+          "latex": "$(-\\infty,2)\\cup(2,\\infty)$",
+          "sympy": "Interval.open(-oo,2).union(Interval.open(2,oo))",
+          "correct": true
+        },
+        {
+          "latex": "$(-\\infty,2]\\cup[2,\\infty)$",
+          "sympy": "Interval(-oo,2).union(Interval(2,oo))",
+          "correct": false,
+          "error_type": "include_singularity"
+        },
+        {
+          "latex": "$(-\\infty,2)$",
+          "sympy": "Interval.open(-oo,2)",
+          "correct": false,
+          "error_type": "missing_right_interval"
+        },
+        {
+          "latex": "$(2,\\infty)$",
+          "sympy": "Interval.open(2,oo)",
+          "correct": false,
+          "error_type": "missing_left_interval"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval.open(-oo,2).union(Interval.open(2,oo))"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit la fonction $f:\\mathbb{R}\\to\\mathbb{R}$ définie par $f(x)=\\sqrt{x+3}\\,\\sin x$. Parmi les propositions suivantes, laquelle décrit correctement le domaine de continuité de $f$ ?",
+      "hints": [
+        "Le domaine de continuité d’une fonction est l’intersection des domaines de continuité de chaque facteur.",
+        "Le radical impose $x+3\\ge0$, le sinus est continu sur $\\mathbb{R}$, et la racine carrée est continue sur $[0,+\\infty)$."
+      ],
+      "solution_latex": "Le facteur $\\sin x$ est continu sur $\\mathbb{R}$. La fonction $x\\mapsto\\sqrt{x+3}$ est définie et continue dès que $x+3\\ge0$, c’est‑à‑dire sur $[-3,+\\infty)$. Le produit de deux fonctions continues est continu sur l’intersection de leurs domaines. Ainsi $f$ est continue sur $[-3,+\\infty)$.",
+      "choices": [
+        {
+          "latex": "$(-\\infty,-3)$",
+          "sympy": "Interval.open(-oo, -3)",
+          "correct": false,
+          "error_type": "domain_out_of_range"
+        },
+        {
+          "latex": "$[-3,+\\infty)$",
+          "sympy": "Interval(-3, oo)",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$(-3,+\\infty)$",
+          "sympy": "Interval.open(-3, oo)",
+          "correct": false,
+          "error_type": "missing_endpoint"
+        },
+        {
+          "latex": "$\\mathbb{R}$",
+          "sympy": "Interval(-oo, oo)",
+          "correct": false,
+          "error_type": "ignoring_radical_restriction"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval(-3, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-01",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-01",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Considérons la fonction $g:\\mathbb{R}\\to\\mathbb{R}$, $g(x)=\\dfrac{x^2-4}{x-2}$. Quelle est la nature de la continuité de $g$ en $x=2$ ?",
+      "hints": [
+        "Simplifiez l’expression algébrique avant d’étudier la continuité.",
+        "Vérifiez la valeur limite lorsque $x\\to2$ et comparez‑la à la valeur éventuelle de $g(2)$."
+      ],
+      "solution_latex": "On factorise $x^2-4=(x-2)(x+2)$, donc pour $x\\neq2$ on a $g(x)=x+2$. La fonction $x\\mapsto x+2$ est continue partout. La limite quand $x\\to2$ vaut $2+2=4$. Or $g$ n’est pas définie en $2$ (division par zéro). Ainsi $g$ a une *discontinuité évitable* en $2$ : la limite existe mais $g(2)$ n’est pas défini.",
+      "choices": [
+        {
+          "latex": "Continue",
+          "sympy": "True",
+          "correct": false,
+          "error_type": "ignoring_undefined_point"
+        },
+        {
+          "latex": "Discontinuité de type saut",
+          "sympy": "False",
+          "correct": false,
+          "error_type": "confusing_with_jump"
+        },
+        {
+          "latex": "Discontinuité évitable (point isolé)",
+          "sympy": "False",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "Discontinuité essentielle",
+          "sympy": "False",
+          "correct": false,
+          "error_type": "overgeneralization"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "La fonction $h(x)=\\ln\\bigl(\\tfrac{1}{x}\\bigr)$ est étudiée sur son ensemble de continuité. Quelle affirmation est correcte ?",
+      "hints": [
+        "Le logarithme naturel est défini pour des arguments strictement positifs.",
+        "Analysez le signe de $\\tfrac{1}{x}$ selon les intervalles de $x$."
+      ],
+      "solution_latex": "Le domaine du logarithme nécessite $\\tfrac{1}{x}>0$, ce qui équivaut à $x>0$. Ainsi $h$ est définie (et donc continue) sur l’intervalle $]0,+\\infty[$. Aucun autre intervalle ne satisfait la condition. Donc $h$ est continue exactement sur $]0,+\\infty[$.",
+      "choices": [
+        {
+          "latex": "$(-\\infty,0)$",
+          "sympy": "Interval.open(-oo,0)",
+          "correct": false,
+          "error_type": "sign_misinterpretation"
+        },
+        {
+          "latex": "$]0,+\\infty[$",
+          "sympy": "Interval.open(0, oo)",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$\\mathbb{R}\\setminus\\{0\\}$",
+          "sympy": "Interval.open(-oo,0).union(Interval.open(0,oo))",
+          "correct": false,
+          "error_type": "forgetting_log_condition"
+        },
+        {
+          "latex": "$[0,+\\infty[$",
+          "sympy": "Interval(0, oo)",
+          "correct": false,
+          "error_type": "including_zero"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval.open(0, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-01",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quelle est la condition nécessaire et suffisante pour que la somme $f+g$ de deux fonctions $f$ et $g$ soit continue en un point $a$ ?",
+      "hints": [
+        "Rappeler la définition de continuité en un point pour chaque fonction.",
+        "Utiliser le fait que la limite de la somme est la somme des limites lorsque les deux limites existent."
+      ],
+      "solution_latex": "Pour que $f+g$ soit continue en $a$, il faut et il suffit que $f$ soit continue en $a$ et que $g$ soit continue en $a$. En effet, si $\\lim\\limits_{x\\to a}f(x)=f(a)$ et $\\lim\\limits_{x\\to a}g(x)=g(a)$, alors $\\lim\\limits_{x\\to a}(f+g)(x)=\\lim\\limits_{x\\to a}f(x)+\\lim\\limits_{x\\to a}g(x)=f(a)+g(a)=(f+g)(a)$. La réciproque est immédiate : si $f+g$ est continue en $a$, alors les limites de $f$ et $g$ existent et coïncident avec leurs valeurs en $a$, ce qui impose la continuité de chacune.",
+      "choices": [
+        {
+          "latex": "$f$ et $g$ sont continues en $a$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$f$ est continue en $a$ ou $g$ est continue en $a$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$\\lim\\limits_{x\\to a}f(x)$ et $\\lim\\limits_{x\\to a}g(x)$ existent (sans égale à leurs valeurs)",
+          "correct": false,
+          "error_type": "confusion_limite_valeur"
+        },
+        {
+          "latex": "$f\\cdot g$ est continue en $a$",
+          "correct": false,
+          "error_type": "distracteur_operateur"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-01",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-01",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Parmi les affirmations suivantes, laquelle décrit correctement la continuité de la fonction $\\displaystyle f(x)=\\frac{\\sin x}{x}$ sur $\\mathbb{R}$ (en posant $f(0)=1$) ?",
+      "hints": [
+        "Analyser le comportement de $\\frac{\\sin x}{x}$ lorsqu'$x\\to0$ grâce à la limite bien connue.",
+        "Vérifier que la fonction est continue en tout autre point où le dénominateur ne s'annule pas."
+      ],
+      "solution_latex": "On sait que $\\displaystyle \\lim\\limits_{x\\to0}\\frac{\\sin x}{x}=1$. En définissant $f(0)=1$, on obtient $\\lim\\limits_{x\\to0}f(x)=f(0)$, donc $f$ est continue en $0$. Pour $x\\neq0$, le quotient de deux fonctions continues (\\`a savoir $\\sin x$ et $x$) est continu tant que le dénominateur ne s'annule pas, ce qui est le cas. Ainsi $f$ est continue sur tout $\\mathbb{R}$.",
+      "choices": [
+        {
+          "latex": "$f$ est continue sur $\\mathbb{R}$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$f$ est continue sur $\\mathbb{R}\\setminus\\{0\\}$ mais discontinue en $0$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$f$ est continue uniquement sur les intervalles $(-\\infty,0)$ et $(0,\\infty)$",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "$f$ admet une discontinuité de première espèce en $0$",
+          "correct": false,
+          "error_type": "distracteur_type_discontinuite"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-01",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème sur la continuité de la somme de fonctions.",
+      "hints": [
+        "Pense à ce qui se passe pour chaque fonction séparément au point considéré.",
+        "Utilise le fait que la limite de la somme vaut la somme des limites lorsque les deux limites existent."
+      ],
+      "solution_latex": "\\textbf{Théorème (continuité de la somme).}\\quad Soient $f$ et $g$ deux fonctions définies sur un voisinage de $a$ (ou sur un intervalle contenant $a$). Si $f$ est continue en $a$ et $g$ est continue en $a$, alors la fonction $h$ définie par $h(x)=f(x)+g(x)$ est continue en $a$.",
+      "fragments": [
+        "Si $f$ est continue en $a$ et $g$ est continue en $a$,",
+        "alors la fonction $h$ définie par $h(x)=f(x)+g(x)$ est continue en $a$.",
+        "Soient $f$ et $g$ deux fonctions définies sur un voisinage de $a$ (ou sur un intervalle contenant $a$)."
+      ],
+      "distracteurs": [
+        "Si $f$ est continue en $a$ ou $g$ est continue en $a$, alors $h$ est continue en $a$.",
+        "Si $f$ et $g$ sont continues sur $mathbb{R}$, alors $h$ est continue sur $mathbb{R}$ sans condition supplémentaire."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-01",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-01",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé du critère de continuité d'une fonction composée.",
+      "hints": [
+        "Rappelle-toi comment se compose la limite d'une fonction composée.",
+        "Il faut que la fonction intérieure atteigne le point où la fonction extérieure est continue."
+      ],
+      "solution_latex": "\\textbf{Théorème (continuité de la composition).}\\quad Soient $f$ et $g$ deux fonctions telles que $f$ soit continue en $a$ et $g$ soit continue en $f(a)$. Alors la fonction $h$ définie par $h(x)=g\\bigl(f(x)\\bigr)$ est continue en $a$.",
+      "fragments": [
+        "Soient $f$ et $g$ deux fonctions telles que $f$ soit continue en $a$ et $g$ soit continue en $f(a)$.",
+        "Alors la fonction $h$ définie par $h(x)=g\\bigl(f(x)\\bigr)$ est continue en $a$.",
+        "\\textbf{Théorème (continuité de la composition).}"
+      ],
+      "distracteurs": [
+        "Si $f$ est continue en $a$ et $g$ est continue en $a$, alors $g\\circ f$ est continue en $a$.",
+        "Si $g$ est continue en $f(a)$, alors $g\\circ f$ est continue en $a$ quel que soit $f$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

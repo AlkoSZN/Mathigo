@@ -1,0 +1,366 @@
+[
+  {
+    "skill_id": "ana1-cont-03",
+    "difficulty": 1,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-03",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Soit $f\\colon\\mathbb{R}\\to\\mathbb{R}$, $f(x)=e^{x}$. Cette fonction est strictement croissante sur $\\mathbb{R}$. Quelle est la solution unique de l'équation $f(x)=5$ ?",
+      "hints": [
+        "Écrire l'équation $e^{x}=5$ sous forme logarithmique.",
+        "Utiliser la fonction logarithme népérien : $x=\\ln(5)$."
+      ],
+      "solution_latex": "L'équation $e^{x}=5$ équivaut à $x=\\ln 5$. Comme $e^{x}$ est strictement croissante, cette solution est unique.",
+      "choices": [
+        {
+          "latex": "$\\ln(5)$",
+          "sympy": "log(5)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$\\ln(4)$",
+          "sympy": "log(4)",
+          "correct": false,
+          "error_type": "wrong_value"
+        },
+        {
+          "latex": "$\\ln(6)$",
+          "sympy": "log(6)",
+          "correct": false,
+          "error_type": "off_by_one"
+        },
+        {
+          "latex": "$5$",
+          "sympy": "5",
+          "correct": false,
+          "error_type": "identity_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "log(5)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f$ une fonction continue sur $[-1,3]$ telle que $f(-1)=-2$ et $f(3)=4$. Que peut‑on affirmer concernant l'équation $f(x)=0$ ?",
+      "hints": [
+        "Le théorème des valeurs intermédiaires s'applique parce que $f$ est continue sur $[-1,3]$.",
+        "Comme $-2<0<4$, il existe au moins un $c\\in[-1,3]$ tel que $f(c)=0$."
+      ],
+      "solution_latex": "Par le TVI, il existe au moins un $c\\in[-1,3]$ tel que $f(c)=0$. On ne peut pas conclure à l'unicité ni au nombre exact de solutions sans hypothèses supplémentaires.",
+      "choices": [
+        {
+          "latex": "Il existe au moins une solution dans $[-1,3]$.",
+          "sympy": "True",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "Il n'existe aucune solution dans $[-1,3]$.",
+          "sympy": "False",
+          "correct": false,
+          "error_type": "existence_error"
+        },
+        {
+          "latex": "Il existe exactement deux solutions dans $[-1,3]$.",
+          "sympy": "False",
+          "correct": false,
+          "error_type": "multiplicity_error"
+        },
+        {
+          "latex": "Il existe une solution unique dans $[-1,3]$.",
+          "sympy": "False",
+          "correct": false,
+          "error_type": "uniqueness_error"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-03",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-03",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f\\colon (0,\\infty)\\to\\mathbb{R}$, $f(x)=-\\ln(x)$. La fonction $f$ est strictement décroissante sur son domaine. Quelle est la solution unique de l'équation $f(x)=1$ ?",
+      "hints": [
+        "Écrire l'équation en fonction du logarithme naturel.",
+        "Isoler $x$ en exponentiant les deux membres."
+      ],
+      "solution_latex": "L'équation $-\\ln(x)=1$ équivaut à $\\ln(x)=-1$. En exponentiant, on obtient $x=e^{-1}=\\dfrac{1}{e}$. Comme $f$ est strictement décroissante, cette solution est unique.",
+      "choices": [
+        {
+          "latex": "$x=e$",
+          "sympy": "E",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "$x=\\dfrac{1}{e}$",
+          "sympy": "1/E",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$x=1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "algebraic_misstep"
+        },
+        {
+          "latex": "$x=\\ln( -1)$ (non réel)",
+          "sympy": "log(-1)",
+          "correct": false,
+          "error_type": "domain_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "1/E"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-03",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f\\colon (0,\\frac{\\pi}{2})\\to\\mathbb{R}$, $f(x)=\\tan x$. La fonction $f$ est strictement croissante sur son domaine. Quelle est la solution unique de l'équation $f(x)=1$ ?",
+      "hints": [
+        "Utiliser la définition de la fonction tangente pour repérer l'angle dont la tangente vaut $1$.",
+        "Résoudre $\\tan x =1$ sur l'intervalle donné en rappelant que $\\tan$ est injective là‑bas."
+      ],
+      "solution_latex": "Comme $f$ est strictement croissante sur $(0,\\frac{\\pi}{2})$, l'équation $\\tan x =1$ admet une unique solution dans cet intervalle. On sait que $\\tan\\left(\\frac{\\pi}{4}\\right)=1$, donc la solution est $x=\\frac{\\pi}{4}$.",
+      "choices": [
+        {
+          "latex": "$\\frac{\\pi}{4}$",
+          "sympy": "pi/4",
+          "correct": true
+        },
+        {
+          "latex": "$\\frac{\\pi}{6}$",
+          "sympy": "pi/6",
+          "correct": false,
+          "error_type": "wrong_angle_value"
+        },
+        {
+          "latex": "$\\frac{\\pi}{3}$",
+          "sympy": "pi/3",
+          "correct": false,
+          "error_type": "wrong_angle_value"
+        },
+        {
+          "latex": "$\\frac{\\pi}{2}$",
+          "sympy": "pi/2",
+          "correct": false,
+          "error_type": "boundary_inclusion_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "pi/4"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-03",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f\\colon[-2,2]\\to\\mathbb{R}$, $f(x)=x^{5}-5x+3$. La fonction $f$ est continue sur $[-2,2]$ avec $f(-2)=-19$ et $f(2)=25$. Que peut‑on affirmer concernant l'équation $f(x)=0$ sur $[-2,2]$ ?",
+      "hints": [
+        "Calculer les valeurs de $f$ aux extrémités de l'intervalle pour connaître leurs signes.",
+        "Appliquer le théorème des valeurs intermédiaires qui garantit l'existence d'une racine quand les signes sont opposés."
+      ],
+      "solution_latex": "On a $f(-2)=-19<0$ et $f(2)=25>0$. La fonction étant continue sur $[-2,2]$, le théorème des valeurs intermédiaires assure qu'il existe au moins un $c\\in[-2,2]$ tel que $f(c)=0$. On ne peut pas garantir l'unicité car $f$ n'est pas monotone sur cet intervalle.",
+      "choices": [
+        {
+          "latex": "Il existe au moins une solution de $f(x)=0$ dans $[-2,2]$.",
+          "sympy": "True",
+          "correct": true
+        },
+        {
+          "latex": "Il existe exactement une solution de $f(x)=0$ dans $[-2,2]$.",
+          "sympy": "True",
+          "correct": false,
+          "error_type": "uniqueness_assumed_without_monotonicity"
+        },
+        {
+          "latex": "Il n'existe aucune solution de $f(x)=0$ dans $[-2,2]$.",
+          "sympy": "False",
+          "correct": false,
+          "error_type": "signs_misinterpreted"
+        },
+        {
+          "latex": "Toutes les valeurs de $x\\in[-2,2]$ vérifient $f(x)=0$.",
+          "sympy": "True",
+          "correct": false,
+          "error_type": "overgeneralization"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-03",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel énoncé décrit exactement les hypothèses du théorème des valeurs intermédiaires (TVI) pour une fonction $f$ définie sur un intervalle $[a,b]$ ?",
+      "hints": [
+        "Identifier les deux propriétés essentielles que doit vérifier $f$ sur $[a,b]$.",
+        "Le TVI nécessite la continuité de $f$ sur tout l'intervalle et l'appartenance des points d'extrémité à $[a,b]$."
+      ],
+      "solution_latex": "Le TVI s'énonce ainsi : si $f$ est continue sur l'intervalle fermé $[a,b]$ et si $f(a)$ et $f(b)$ sont de signes opposés (ou plus généralement si $k$ est entre $f(a)$ et $f(b)$), alors il existe $c\\in (a,b)$ tel que $f(c)=k$. Ainsi les hypothèses requises sont la continuité sur $[a,b]$ et la prise de valeurs de part et d'autre de $k$ aux extrémités.",
+      "choices": [
+        {
+          "latex": "$f$ est continue sur $[a,b]$ et $f(a)<k<f(b)$ ou $f(b)<k<f(a)$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$f$ est dérivable sur $[a,b]$ et $f(a)\\neq f(b)$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$f$ est monotone sur $[a,b]$ et $f(a)\\leq k\\leq f(b)$",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "$f$ est continue sur $(a,b)$ et $f(a)\\cdot f(b)>0$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-03",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour une fonction strictement monotone $f$ continue sur $[a,b]$, quel est le corollaire du TVI concernant l'équation $f(x)=k$ lorsqu $k$ appartient à $f([a,b])$ ?",
+      "hints": [
+        "Penser à l'unicité de la solution lorsqu'une fonction est strictement monotone.",
+        "Le corollaire affirme l'existence d'une solution et, grâce à la stricte monotonie, son unicité."
+      ],
+      "solution_latex": "Si $f$ est strictement croissante (ou strictement décroissante) et continue sur $[a,b]$, alors pour tout $k$ appartenant à l'intervalle $[f(a),f(b)]$ (ou $[f(b),f(a)]$), l'équation $f(x)=k$ admet exactement une solution $c\\in [a,b]$. L'existence provient du TVI, l'unicité du caractère strictement monotone de $f$.",
+      "choices": [
+        {
+          "latex": "Il existe exactement une solution $c\\in[a,b]$ à $f(c)=k$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Il existe au moins une solution, mais aucune garantie d'unicité",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        },
+        {
+          "latex": "Il n'existe aucune solution si $k\\neq f(a)$ ou $f(b)$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Il existe une solution unique seulement si $f$ est dérivable sur $[a,b]$",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-03",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème des valeurs intermédiaires (TVI).",
+      "hints": [
+        "Identifie les hypothèses essentielles : continuité sur un segment fermé et valeurs de part et d'autre de k.",
+        "Rappelle que le résultat garantit l'existence d'un point où f prend la valeur intermédiaire k."
+      ],
+      "solution_latex": "Soit $f$ une fonction continue sur un intervalle fermé $[a,b]$ et soit $k$ un réel vérifiant $f(a)\\le k \\le f(b)$ ou $f(b)\\le k \\le f(a)$. Alors il existe $c\\in[a,b]$ tel que $f(c)=k$.",
+      "fragments": [
+        "Soit $f$ une fonction continue sur un intervalle fermé $[a,b]$",
+        "et soit $k$ un réel vérifiant $f(a)\\le k \\le f(b)$ ou $f(b)\\le k \\le f(a)$",
+        "Alors il existe $c\\in[a,b]$ tel que $f(c)=k$"
+      ],
+      "distracteurs": [
+        "Si $f$ est dérivable sur $[a,b]$, alors il existe $c\\in(a,b)$ tel que $f'(c)=0$",
+        "Pour tout $k$ compris entre $f(a)$ et $f(b)$, il existe exactement deux points $c$ avec $f(c)=k$"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-03",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue le corollaire du TVI pour les fonctions strictement monotones.",
+      "hints": [
+        "Commence par rappeler que la stricte monotonie implique l'injectivité sur l'intervalle considéré.",
+        "Ensuite, précise ce qu'impose le TVI sur l'existence d'une solution de $f(x)=k$ quand $k$ appartient à l'image de l'intervalle."
+      ],
+      "solution_latex": "Si $f$ est strictement monotone (croissante ou décroissante) et continue sur $[a,b]$, alors pour tout $k$ appartenant à $f([a,b])$ il existe un unique $c\\in[a,b]$ tel que $f(c)=k$.",
+      "fragments": [
+        "Si $f$ est strictement monotone (croissante ou décroissante) et continue sur $[a,b]",
+        "alors pour tout $k$ appartenant à $f([a,b])",
+        "il existe un unique $c\\in[a,b]$ tel que $f(c)=k$"
+      ],
+      "distracteurs": [
+        "Si $f$ est strictement monotone sur $[a,b]$, alors $f([a,b])$ est toujours $\\mathbb{R}$",
+        "Pour $k\\notin f([a,b])$, il existe quand même un $c\\in[a,b]$ tel que $f(c)=k$"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

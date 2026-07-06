@@ -48,4 +48,6 @@ magiques) sont capturés par Mailpit : http://127.0.0.1:54324.
 - [x] Phase 3 — Pipeline de contenu (génération Groq + validation SymPy, 38 exercices pilotes)
 - [x] Phase 4 — Boucle de session (QCM, indices, feedback, rattrapage, XP, streak)
 - [x] Phase 5 — FSRS (reviews, maîtrise vivante avec décroissance, révisions du jour)
-- [ ] Phase 6 — Polish + social
+- [x] Phase 6 — Polish + social (formats théorique/remise en ordre, classement
+  amis, profil, banque complète 279 exercices ; déploiement : suivre le guide
+  ci-dessus)

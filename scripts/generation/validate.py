@@ -11,9 +11,10 @@ from pathlib import Path
 
 import sympy
 from sympy import (
-    E, Abs, Rational, Sum, cos, diff, exp, factorial, integrate, limit, log,
-    oo, pi, simplify, sin, sqrt, symbols, tan,
+    E, Abs, FiniteSet, Interval, Rational, Sum, Union, cos, diff, exp,
+    factorial, integrate, limit, log, oo, pi, simplify, sin, sqrt, symbols, tan,
 )
+from sympy.sets.sets import Set
 
 RACINE = Path(__file__).resolve().parent
 DOSSIER_OUT = RACINE / "out"
@@ -29,8 +30,11 @@ ESPACE = {
     "sin": sin, "cos": cos, "tan": tan, "Abs": Abs,
     "pi": pi, "oo": oo, "E": E,
     "Rational": Rational, "factorial": factorial,
+    # réponses ensemblistes (image d'un segment, ensembles de solutions)
+    "Interval": Interval, "Union": Union, "FiniteSet": FiniteSet,
     # autorisés uniquement dans expected_sympy, inoffensifs dans les choix
     "diff": diff, "limit": limit, "Sum": Sum, "integrate": integrate,
+    "solveset": sympy.solveset, "imageset": sympy.imageset,
 }
 
 ERREURS_TYPES_REQUIS = 3  # nombre de distracteurs devant porter un error_type
@@ -42,7 +46,18 @@ def parser(expression):
 
 
 def egaux(a, b):
-    """Égalité symbolique robuste : equals() puis simplify de la différence."""
+    """Égalité symbolique robuste : ensembles, puis equals(), puis simplify."""
+    est_ensemble_a = isinstance(a, Set)
+    est_ensemble_b = isinstance(b, Set)
+    if est_ensemble_a != est_ensemble_b:
+        return False
+    if est_ensemble_a:
+        if a == b:
+            return True
+        try:
+            return a.symmetric_difference(b).is_empty is True
+        except Exception:
+            return False
     try:
         r = a.equals(b)
         if r is not None:
@@ -73,6 +88,8 @@ def valider_exercice(ex):
     choix = ex.get("choices", [])
     if len(choix) != 4:
         return None, f"{len(choix)} choix au lieu de 4"
+    if not all(isinstance(c, dict) and isinstance(c.get("latex"), str) for c in choix):
+        return None, "choix mal formé (objet {latex, correct, ...} attendu)"
     corrects = [c for c in choix if c.get("correct") is True]
     if len(corrects) != 1:
         return None, f"{len(corrects)} choix corrects au lieu de 1"

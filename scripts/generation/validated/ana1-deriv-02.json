@@ -1,0 +1,434 @@
+[
+  {
+    "skill_id": "ana1-deriv-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la dérivée de $f(x)=x^{5}$ en $x=2$.",
+      "hints": [
+        "Utiliser la règle de dérivation de la puissance $x^n$ : $\\frac{d}{dx}x^{n}=n x^{n-1}$.",
+        "Appliquer la formule puis remplacer $x$ par $2$ pour obtenir la valeur numérique."
+      ],
+      "solution_latex": "On a $f'(x)=5x^{4}$. En $x=2$, $f'(2)=5\\times 2^{4}=5\\times 16=80$.",
+      "choices": [
+        {
+          "latex": "80",
+          "sympy": "80",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "32",
+          "sympy": "32",
+          "correct": false,
+          "error_type": "forgot_factor_n"
+        },
+        {
+          "latex": "160",
+          "sympy": "160",
+          "correct": false,
+          "error_type": "misapplied_exponent"
+        },
+        {
+          "latex": "40",
+          "sympy": "40",
+          "correct": false,
+          "error_type": "incorrect_power_substitution"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "diff(x**5,x).subs(x,2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la dérivée de $g(x)=\\sqrt{x}$ en $x=4$.",
+      "hints": [
+        "Rappeler que $\\sqrt{x}=x^{1/2}$ et appliquer la règle $\\frac{d}{dx}x^{\\alpha}=\\alpha x^{\\alpha-1}$.",
+        "Évaluer ensuite $\\frac{1}{2\\sqrt{x}}$ en $x=4$."
+      ],
+      "solution_latex": "On écrit $g(x)=x^{1/2}$. Ainsi $g'(x)=\\frac12 x^{-1/2}=\\frac{1}{2\\sqrt{x}}$. En $x=4$, $g'(4)=\\frac{1}{2\\times 2}=\\frac{1}{4}$.",
+      "choices": [
+        {
+          "latex": "\\frac{1}{4}",
+          "sympy": "Rational(1,4)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\frac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "forgot_sqrt_in_denominator"
+        },
+        {
+          "latex": "\\frac{1}{8}",
+          "sympy": "Rational(1,8)",
+          "correct": false,
+          "error_type": "mis_evaluated_denominator"
+        },
+        {
+          "latex": "-\\frac{1}{4}",
+          "sympy": "-Rational(1,4)",
+          "correct": false,
+          "error_type": "sign_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "diff(sqrt(x),x).subs(x,4)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-02",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Calculer la dérivée de $h(x)=\\ln(\\sin x)$ en $x=\\frac{\\pi}{6}$.",
+      "hints": [
+        "Utiliser la règle de dérivation $\\frac{d}{dx}\\ln u =\\frac{u'}{u}$.",
+        "Calculer $\\frac{\\cos x}{\\sin x}$ puis évaluer en $x=\\pi/6$."
+      ],
+      "solution_latex": "On a $h'(x)=\\frac{\\cos x}{\\sin x}=\\cot x$. En $x=\\pi/6$, $\\sin(\\pi/6)=\\frac12$ et $\\cos(\\pi/6)=\\frac{\\sqrt{3}}{2}$, donc $h'(\\pi/6)=\\frac{\\sqrt{3}/2}{1/2}=\\sqrt{3}$.",
+      "choices": [
+        {
+          "latex": "\\sqrt{3}",
+          "sympy": "sqrt(3)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\frac{1}{\\sqrt{3}}",
+          "sympy": "1/sqrt(3)",
+          "correct": false,
+          "error_type": "reciprocal_error"
+        },
+        {
+          "latex": "\\frac{\\sqrt{3}}{2}",
+          "sympy": "sqrt(3)/2",
+          "correct": false,
+          "error_type": "missing_factor_half"
+        },
+        {
+          "latex": "-\\sqrt{3}",
+          "sympy": "-sqrt(3)",
+          "correct": false,
+          "error_type": "sign_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "diff(log(sin(x)),x).subs(x,pi/6)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la dérivée de $f(x)=3x^{4}-7x$ en $x=1$.",
+      "hints": [
+        "Utiliser la règle de dérivation de chaque terme séparément.",
+        "Appliquer $\\dfrac{d}{dx}x^{n}=n x^{n-1}$ puis évaluer en $x=1$."
+      ],
+      "solution_latex": "On dérive terme à terme : $f'(x)=3\\cdot4x^{3}-7=12x^{3}-7$. En $x=1$, $f'(1)=12\\cdot1^{3}-7=5$.",
+      "choices": [
+        {
+          "latex": "5",
+          "sympy": "5",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "-5",
+          "sympy": "-5",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "12",
+          "sympy": "12",
+          "correct": false,
+          "error_type": "forgot_constant_term"
+        },
+        {
+          "latex": "-12",
+          "sympy": "-12",
+          "correct": false,
+          "error_type": "sign_and_constant_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "12*1**3-7"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-02",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Calculer la dérivée de $g(x)=\\dfrac{1}{\\sqrt{x}}$ en $x=9$.",
+      "hints": [
+        "Réécrire la fonction sous forme de puissance négative.",
+        "Utiliser la formule $\\dfrac{d}{dx}x^{n}=n x^{n-1}$ puis substituer $x=9$."
+      ],
+      "solution_latex": "On écrit $g(x)=x^{-1/2}$. Donc $g'(x)=(-\\tfrac12)x^{-3/2}= -\\dfrac{1}{2\\,x^{3/2}}$. En $x=9$, $g'(9)= -\\dfrac{1}{2\\,9^{3/2}}= -\\dfrac{1}{2\\cdot27}= -\\dfrac{1}{54}$.",
+      "choices": [
+        {
+          "latex": "-\\dfrac{1}{54}",
+          "sympy": "-Rational(1,54)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\dfrac{1}{54}",
+          "sympy": "Rational(1,54)",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "-\\dfrac{1}{27}",
+          "sympy": "-Rational(1,27)",
+          "correct": false,
+          "error_type": "miscalculate_exponent"
+        },
+        {
+          "latex": "\\dfrac{1}{27}",
+          "sympy": "Rational(1,27)",
+          "correct": false,
+          "error_type": "sign_and_exponent_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "-Rational(1,54)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la dérivée de $h(x)=\\sin(x)\\,e^{x}$ en $x=0$.",
+      "hints": [
+        "Utiliser la règle du produit $ (uv)'=u'v+uv'$.",
+        "Dériver $\\sin x$ et $e^{x}$ séparément puis évaluer en $x=0$."
+      ],
+      "solution_latex": "On pose $u(x)=\\sin x$, $v(x)=e^{x}$. Alors $h'(x)=\\cos x\\,e^{x}+\\sin x\\,e^{x}=e^{x}(\\cos x+\\sin x)$. En $x=0$, $h'(0)=e^{0}(\\cos0+\\sin0)=1\\times(1+0)=1$.",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "forgot_cos_term"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "added_sin_term_twice"
+        },
+        {
+          "latex": "e",
+          "sympy": "E",
+          "correct": false,
+          "error_type": "evaluated_e_not_product"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "1"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-02",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Calculer la dérivée de $g(x)=\\ln\\bigl(x^{2}+1\\bigr)$ en $x=1$.",
+      "hints": [
+        "Rappel : $\\dfrac{d}{dx}\\ln(u)=\\dfrac{u'}{u}$.",
+        "Déterminer $u'(x)$ pour $u(x)=x^{2}+1$, puis substituer $x=1$."
+      ],
+      "solution_latex": "On pose $u(x)=x^{2}+1$, alors $u'(x)=2x$. Ainsi $g'(x)=\\dfrac{2x}{x^{2}+1}$. En $x=1$, $g'(1)=\\dfrac{2\\cdot1}{1^{2}+1}=\\dfrac{2}{2}=1$.",
+      "choices": [
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": true
+        },
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "forgot_division_by_denominator"
+        },
+        {
+          "latex": "$\\dfrac{2}{3}$",
+          "sympy": "Rational(2,3)",
+          "correct": false,
+          "error_type": "incorrect_evaluation_of_denominator"
+        },
+        {
+          "latex": "$\\dfrac{1}{2}$",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "inverse_fraction_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "1"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-02",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-02",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel est le théorème qui justifie que, pour toute fonction $f$ différentiable sur un intervalle ouvert $I$, la dérivée de la fonction puissance $x\\mapsto (f(x))^{n}$, où $n\\in\\mathbb{N}$, est donnée par $\\dfrac{d}{dx}\\bigl(f(x)^{n}\\bigr)=n\\,f(x)^{n-1}\\,f'(x)$ ?",
+      "hints": [
+        "Identifier la règle de dérivation qui s'applique aux fonctions composées sous forme de puissance.",
+        "Utiliser le théorème de dérivation du produit itéré ou la règle de chaîne appliquée à $u\\mapsto u^{n}$. "
+      ],
+      "solution_latex": "Il s'agit du \\textbf{théorème de la règle de chaîne} (ou règle de composition) appliqué à la fonction $u\\mapsto u^{n}$, combiné avec le fait que la dérivée de $u^{n}$ vaut $n u^{n-1}$. Ainsi, si $f$ est différentiable, $\\dfrac{d}{dx}\\bigl(f(x)^{n}\\bigr)=n f(x)^{n-1} f'(x)$.",
+      "choices": [
+        {
+          "latex": "Théorème de la règle de chaîne",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Théorème des valeurs intermédiaires",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Théorème de Rolle",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Théorème de la moyenne (Lagrange)",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-02",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-02",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour la fonction $f(x)=\\ln(\\cos x)$, quelle condition doit être vérifiée sur $x$ afin que la formule $f'(x)=\\dfrac{-\\sin x}{\\cos x}$ soit valable ?",
+      "hints": [
+        "Regarder le domaine de définition de $\\ln$ appliqué à $\\cos x$.",
+        "S'assurer que le dénominateur de la fraction obtenue n'est pas nul. "
+      ],
+      "solution_latex": "La fonction $\\ln(\\cos x)$ n'est définie que lorsque $\\cos x>0$. Ainsi, la formule $f'(x)=\\dfrac{-\\sin x}{\\cos x}$ est valable uniquement pour les $x$ tels que $\\cos x>0$, c'est‑à‑dire $x\\in\\bigl(-\\tfrac{\\pi}{2}+2k\\pi,\\tfrac{\\pi}{2}+2k\\pi\\bigr)$ avec $k\\in\\mathbb{Z}$. De plus, $\\cos x\\neq0$ évite la division par zéro, ce qui revient à la même condition.",
+      "choices": [
+        {
+          "latex": "$\\cos x>0$ (c’est le domaine de $\\ln$)",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$\\sin x>0$ (pour que le numérateur soit positif)",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$x\\neq \\tfrac{\\pi}{2}+k\\pi$ (pour éviter les points où $\\cos x=0$)",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Aucune condition, la dérivée vaut toujours $-\\tan x$",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-02",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-02",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème donnant la dérivée de la fonction puissance $x\\mapsto x^{n}$ pour $n\\in\\mathbb{R}$.",
+      "hints": [
+        "Commence par identifier les hypothèses nécessaires sur la fonction considérée et sur l'exposant $n$.",
+        "Rappelle que la dérivée s'obtient en appliquant la règle de dérivation de la fonction puissance : $\\dfrac{\\mathrm d}{\\mathrm d x}x^{n}=n x^{n-1}$."
+      ],
+      "solution_latex": "Théorème (dérivée de la fonction puissance). Soit $n\\in\\mathbb{R}$ et $f$ la fonction $f\\colon x\\mapsto x^{n}$ définie sur l'intervalle $I=(0,+\\infty)$ si $n$ n'est pas entier, ou sur tout intervalle contenant $0$ si $n$ est un entier positif. Alors $f$ est de classe $C^{1}$ sur $I$ et, pour tout $x\\in I$, on a $$f'(x)=n\\,x^{n-1}.$$",
+      "fragments": [
+        "Soit $n\\in\\mathbb{R}$ et $f$ la fonction $f\\colon x\\mapsto x^{n}$ définie sur l'intervalle $I$ approprié.",
+        "Si $n$ n'est pas entier, $I$ est $(0,+\\infty)$ ; si $n$ est entier positif, $I$ peut contenir $0$.",
+        "Alors $f$ est de classe $C^{1}$ sur $I$.",
+        "Pour tout $x\\in I$, on a $f'(x)=n\\,x^{,n-1}\\,$."
+      ],
+      "distracteurs": [
+        "Le théorème vaut uniquement pour $n\\in\\mathbb{N}$.",
+        "La dérivée est $f'(x)=\\dfrac{1}{n}\\,x^{n-1}$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

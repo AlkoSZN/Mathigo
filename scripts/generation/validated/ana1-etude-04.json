@@ -1,0 +1,463 @@
+[
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f(x) = \\dfrac{x^2-1}{x-1}$. Quelle est l'asymptote verticale de $f$ ?",
+      "hints": [
+        "Factoriser le numérateur pour simplifier la fonction",
+        "Identifier la valeur de $x$ qui fait la fonction indéfinie"
+      ],
+      "solution_latex": "L'asymptote verticale est en $x=1$ car c'est la valeur qui rend la fonction indéfinie.",
+      "choices": [
+        {
+          "latex": "x=0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "asymptote_horizontale_confondue"
+        },
+        {
+          "latex": "x=1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "x=2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "valeur_arbitraire"
+        },
+        {
+          "latex": "x=-1",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "signe_incorrect"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "1"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $g(x) = \\dfrac{x+1}{x^2-4}$. Quelle est l'asymptote horizontale de $g$ ?",
+      "hints": [
+        "Analyser le comportement de la fonction lorsque $x$ tend vers l'infini",
+        "Comparer les degrés du numérateur et du dénominateur pour déterminer l'asymptote horizontale"
+      ],
+      "solution_latex": "L'asymptote horizontale est $y=0$ car le degré du dénominateur est supérieur à celui du numérateur.",
+      "choices": [
+        {
+          "latex": "y=0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "y=1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "ordonnee_at_zero"
+        },
+        {
+          "latex": "y=-1",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "signe_incorrect"
+        },
+        {
+          "latex": "y=\\dfrac{1}{x}",
+          "sympy": "1/x",
+          "correct": false,
+          "error_type": "fonction_non_asymptote"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "0"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 1,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Soit $h(x) = \\dfrac{1}{x}$. Quelle est l'asymptote horizontale de $h$ ?",
+      "hints": [
+        "Reconnaître que $h(x)$ est la fonction réciproque de $x$",
+        "Déterminer le comportement de $h(x)$ lorsque $x$ tend vers l'infini"
+      ],
+      "solution_latex": "L'asymptote horizontale est $y=0$ car lorsque $x$ tend vers l'infini, $h(x)$ tend vers 0.",
+      "choices": [
+        {
+          "latex": "y=0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "y=1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "fonction_constante_confondue"
+        },
+        {
+          "latex": "y=x",
+          "sympy": "x",
+          "correct": false,
+          "error_type": "fonction_lineaire_confondue"
+        },
+        {
+          "latex": "y=\\dfrac{1}{x^2}",
+          "sympy": "1/x**2",
+          "correct": false,
+          "error_type": "fonction_quadratique_confondue"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "0"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f(x) = \\dfrac{x^3-2x^2+x-2}{x^2-4}$. Quelle est l'asymptote horizontale de $f$ ?",
+      "hints": [
+        "Étudiez le comportement de la fonction lorsque $x$ tend vers l'infini.",
+        "Effectuez une division longue ou utilisez les règles de puissances pour simplifier l'expression de $f(x)$."
+      ],
+      "solution_latex": "L'asymptote horizontale est $y = x - 2$.",
+      "choices": [
+        {
+          "latex": "y = x + 2",
+          "sympy": "x + 2",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "y = x - 2",
+          "sympy": "x - 2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "y = 2x - 1",
+          "sympy": "2*x - 1",
+          "correct": false,
+          "error_type": "coefficient_error"
+        },
+        {
+          "latex": "y = -x + 1",
+          "sympy": "-x + 1",
+          "correct": false,
+          "error_type": "asymptote_neglect"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 1,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Soit $h(x) = \\dfrac{1}{x^2}$. Quelle est l'asymptote horizontale de $h$ ?",
+      "hints": [
+        "Pensez au comportement de la fonction lorsque $x$ tend vers l'infini ou vers moins l'infini.",
+        "Utilisez les propriétés des puissances pour analyser la limite de $h(x)$."
+      ],
+      "solution_latex": "L'asymptote horizontale est $y = 0$.",
+      "choices": [
+        {
+          "latex": "y = 0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "y = 1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "non_zero_asymptote"
+        },
+        {
+          "latex": "y = -1",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "non_zero_asymptote"
+        },
+        {
+          "latex": "y = x",
+          "sympy": "x",
+          "correct": false,
+          "error_type": "linear_instead_constant"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(1/x**2, x, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f(x) = \\dfrac{x^3+2x^2+x+2}{x^2+4}$. Quelle est l'asymptote horizontale de $f$ ?",
+      "hints": [
+        "Lorsque la variable $x$ tend vers $\\pm \\infty$, les termes les plus importants dans le num\\'erateur et le d\\'enominateur sont les termes de plus haut degr\\'e.",
+        "Il faut comparer les degr\\'es du num\\'erateur et du d\\'enominateur pour d\\'eterminer l'asymptote horizontale."
+      ],
+      "solution_latex": "L'asymptote horizontale de $f$ est $y = \\dfrac{1}{1} = 1$.",
+      "choices": [
+        {
+          "latex": "$y = 0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "oubli_de_division"
+        },
+        {
+          "latex": "$y = 1$",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$y = x$",
+          "sympy": "x",
+          "correct": false,
+          "error_type": "confusion_avec_tangente"
+        },
+        {
+          "latex": "$y = -1$",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "signe_incorrect"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f(x) = \\dfrac{x^2-4}{x-2}$. Quelle est l'asymptote verticale de $f$ ?",
+      "hints": [
+        "Il faut factoriser le num\\'erateur pour simplifier la fonction.",
+        "L'asymptote verticale correspond aux valeurs de $x$ qui font que le d\\'enominateur est nul."
+      ],
+      "solution_latex": "L'asymptote verticale de $f$ est $x = 2$.",
+      "choices": [
+        {
+          "latex": "$x = 0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "origine_confondue_avec_asymptote"
+        },
+        {
+          "latex": "$x = 1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "valeur_arbitraire"
+        },
+        {
+          "latex": "$x = 2$",
+          "sympy": "2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$x = -2$",
+          "sympy": "-2",
+          "correct": false,
+          "error_type": "signe_incorrect"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quelle est la condition nécessaire et suffisante pour qu'une fonction rationnelle $f(x) = \\dfrac{P(x)}{Q(x)}$ ait une asymptote verticale en $x=a$ ?",
+      "hints": [
+        "Réfléchir au comportement de la fonction lorsque $x$ tend vers $a$.",
+        "Utiliser la définition d'une asymptote verticale pour obtenir la condition nécessaire et suffisante."
+      ],
+      "solution_latex": "La condition nécessaire et suffisante pour qu'une fonction rationnelle $f(x) = \\dfrac{P(x)}{Q(x)}$ ait une asymptote verticale en $x=a$ est que $Q(a)=0$ et $P(a) \\neq 0$. Cela signifie que le dénominateur s'annule en $x=a$, mais que le numérateur ne s'annule pas.",
+      "choices": [
+        {
+          "latex": "Il faut que $P(a) = 0$ et $Q(a) \\neq 0$.",
+          "correct": false,
+          "error_type": "condition_asymptote_horizontale"
+        },
+        {
+          "latex": "Il faut que $Q(a) = 0$ et $P(a) \\neq 0$.",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Il faut que $P(a) = 0$ et $Q(a) = 0$.",
+          "correct": false,
+          "error_type": "point_singulier"
+        },
+        {
+          "latex": "Il faut que $P(a) \\neq 0$ et $Q(a) \\neq 0$.",
+          "correct": false,
+          "error_type": "condition_asymptote_absente"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Quelle est la différence entre une asymptote verticale et un trou d'une fonction rationnelle ?",
+      "hints": [
+        "Penser à la définition d'une asymptote verticale et d'un trou.",
+        "Considérer l'exemple de la fonction $f(x) = \\dfrac{x^2-1}{x-1}$ pour illustrer la différence."
+      ],
+      "solution_latex": "Une asymptote verticale est une droite verticale $x=a$ telle que la fonction tend vers l'infini positif ou négatif lorsque $x$ tend vers $a$. Un trou est un point $x=a$ où la fonction n'est pas définie, mais où la fonction a une limite finie when $x$ tends vers $a$. Par exemple, pour la fonction $f(x) = \\dfrac{x^2-1}{x-1}$, la droite $x=1$ est un trou car $f(x)$ tend vers $2$ lorsque $x$ tend vers $1$. En revanche, pour la fonction $g(x) = \\dfrac{1}{x}$, la droite $x=0$ est une asymptote verticale car $g(x)$ tend vers l'infini lorsque $x$ tend vers $0$.",
+      "choices": [
+        {
+          "latex": "Une asymptote verticale est un point où la fonction est définie, tandis qu'un trou est un point où la fonction n'est pas définie.",
+          "correct": false,
+          "error_type": "definition_incorrecte"
+        },
+        {
+          "latex": "Une asymptote verticale est une droite où la fonction tend vers l'infini, tandis qu'un trou est un point où la fonction a une limite finie.",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Une asymptote verticale est un point où la fonction a une limite finie, tandis qu'un trou est un point où la fonction n'a pas de limite.",
+          "correct": false,
+          "error_type": "confusion_asymptote_trou"
+        },
+        {
+          "latex": "Une asymptote verticale et un trou sont la même chose.",
+          "correct": false,
+          "error_type": "confusion_complete"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème sur l'asymptote horizontale d'une fonction rationnelle $f(x) = \\dfrac{P(x)}{Q(x)}$.",
+      "hints": [
+        "Il faut comparer les degrés des polynômes $P(x)$ et $Q(x)$.",
+        "Si le degré de $P(x)$ est inférieur à celui de $Q(x)$, alors l'asymptote horizontale est $y=0$. Sinon, il faut considérer le quotient de la division euclidienne de $P(x)$ par $Q(x)$."
+      ],
+      "solution_latex": "Soit $f(x) = \\dfrac{P(x)}{Q(x)}$. Si le degré de $P(x)$ est inférieur à celui de $Q(x)$, alors $f(x)$ a pour asymptote horizontale $y=0$. Sinon, si le degré de $P(x)$ est égal à celui de $Q(x)$, alors $f(x)$ a pour asymptote horizontale $y=\\dfrac{a}{b}$, où $a$ et $b$ sont les coefficients dominants de $P(x)$ et $Q(x)$ respectivement.",
+      "fragments": [
+        "Soit $f(x) = \\dfrac{P(x)}{Q(x)}$.",
+        "Si le degré de $P(x)$ est inférieur à celui de $Q(x)$, alors $f(x)$ a pour asymptote horizontale $y=0$.",
+        "Sinon, si le degré de $P(x)$ est égal à celui de $Q(x)$, alors $f(x)$ a pour asymptote horizontale $y=\\dfrac{a}{b}$, où $a$ et $b$ sont les coefficients dominants de $P(x)$ et $Q(x)$ respectivement.",
+        " Dans le cas où le degré de $P(x)$ est supérieur à celui de $Q(x)$, il faut considérer le quotient de la division euclidienne de $P(x)$ par $Q(x)$.",
+        "Le quotient ainsi obtenu donne l'asymptote horizontale de $f(x)$."
+      ],
+      "distracteurs": [
+        "Si le degré de $P(x)$ est supérieur à celui de $Q(x)$, alors $f(x)$ a pour asymptote horizontale $y=0$.",
+        "L'asymptote horizontale de $f(x)$ est toujours $y=1$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-04",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-04",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé du théorème sur les asymptotes verticales d'une fonction rationnelle $f(x) = \\dfrac{P(x)}{Q(x)}$.",
+      "hints": [
+        "Il faut trouver les racines du dénominateur $Q(x)$.",
+        "Une racine $x=a$ du dénominateur $Q(x)$ est une asymptote verticale de $f(x)$ si et seulement si $x=a$ n'est pas une racine du numérateur $P(x)$. Sinon, il y a un trou en $x=a$."
+      ],
+      "solution_latex": "Soit $f(x) = \\dfrac{P(x)}{Q(x)}$. Les asymptotes verticales de $f(x)$ sont les racines $x=a$ du dénominateur $Q(x)$ telles que $x=a$ n'est pas une racine du numérateur $P(x)$. Si $x=a$ est une racine commune au numérateur et au dénominateur, alors il y a un trou en $x=a$.",
+      "fragments": [
+        "Soit $f(x) = \\dfrac{P(x)}{Q(x)}$.",
+        "Les racines du dénominateur $Q(x)$ sont les valeurs de $x$ pour lesquelles $Q(x)=0$.",
+        "Une racine $x=a$ du dénominateur $Q(x)$ est une asymptote verticale de $f(x)$ si et seulement si $x=a$ n'est pas une racine du numérateur $P(x)$.",
+        "Si $x=a$ est une racine commune au numérateur et au dénominateur, alors il y a un trou en $x=a$.",
+        "Les asymptotes verticales de $f(x)$ sont donc les racines $x=a$ du dénominateur $Q(x)$ qui ne sont pas des racines du numérateur $P(x)$. "
+      ],
+      "distracteurs": [
+        "Toutes les racines du dénominateur $Q(x)$ sont des asymptotes verticales de $f(x)$. ",
+        "Si $x=a$ est une racine du numérateur $P(x)$, alors $f(x)$ a une asymptote horizontale en $x=a$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

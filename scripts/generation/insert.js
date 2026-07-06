@@ -1,7 +1,8 @@
 // Insertion des exercices validés dans Supabase (clé service, hors app React).
-// Usage : node --env-file=scripts/generation/.env scripts/generation/insert.js [--replace]
+// Usage : node --env-file=scripts/generation/.env scripts/generation/insert.js [skill_id ...] [--replace]
+//   skill_id ... : n'insérer que ces compétences (défaut : tout validated/)
 //   --replace : supprime d'abord les exercices existants des compétences concernées
-//               (re-génération d'une banque ; refuse si des tentatives y sont liées).
+//               (re-génération d'une banque ; les tentatives liées partent en cascade).
 
 import { readFileSync, readdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
@@ -21,9 +22,12 @@ const entetes = {
 }
 
 const remplacer = process.argv.includes('--replace')
+const cibles = process.argv.slice(2).filter((a) => !a.startsWith('--'))
 
-const fichiers = readdirSync(dossier).filter((f) => f.endsWith('.json'))
-if (fichiers.length === 0) throw new Error('aucun fichier dans scripts/generation/validated/')
+const fichiers = readdirSync(dossier).filter(
+  (f) => f.endsWith('.json') && (cibles.length === 0 || cibles.includes(f.replace('.json', ''))),
+)
+if (fichiers.length === 0) throw new Error('aucun fichier correspondant dans scripts/generation/validated/')
 
 const lignes = fichiers.flatMap((f) =>
   JSON.parse(readFileSync(join(dossier, f), 'utf8')),

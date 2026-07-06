@@ -1,0 +1,188 @@
+[
+  {
+    "skill_id": "ana1-deriv-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "La fonction $f(x)=\\dfrac{x}{x+1}$ est continue en $x=0$. Quelle est la valeur de son taux d\\'accroissement moyen entre $x=0$ et $x=2$ ?",
+      "hints": [
+        "Le taux d\\'accroissement moyen entre $a$ et $b$ est $\\dfrac{f(b)-f(a)}{b-a}$.",
+        "Calculez $f(0)$ et $f(2)$ puis appliquez la formule."
+      ],
+      "solution_latex": "On calcule $f(0)=0$ et $f(2)=\\dfrac{2}{3}$. Le taux moyen vaut $\\dfrac{\\frac{2}{3}-0}{2-0}=\\dfrac{2}{3}\\times\\dfrac{1}{2}=\\dfrac{1}{3}$.",
+      "choices": [
+        {
+          "latex": "$\\dfrac{1}{3}$",
+          "sympy": "Rational(1,3)",
+          "correct": true
+        },
+        {
+          "latex": "$\\dfrac{2}{3}$",
+          "sympy": "Rational(2,3)",
+          "error_type": "forgot_denominator_subtraction"
+        },
+        {
+          "latex": "$\\dfrac{1}{2}$",
+          "sympy": "Rational(1,2)",
+          "error_type": "misapplied_average_formula"
+        },
+        {
+          "latex": "$\\dfrac{3}{2}$",
+          "sympy": "Rational(3,2)",
+          "error_type": "inverted_fraction"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(1,3)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-01",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-01",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "La fonction $f(x)=\\dfrac{x^{2}+1}{x+1}$ est continue sur $\\mathbb{R}\\setminus\\{-1\\}$. Quel est son taux d\\'accroissement moyen entre $x=0$ et $x=3$ ?",
+      "hints": [
+        "Le taux moyen s\\'exprime $\\dfrac{f(b)-f(a)}{b-a}$ avec $a=0$, $b=3$.",
+        "Calculez $f(0)$ et $f(3)$ puis effectuez la différence et la division."
+      ],
+      "solution_latex": "On calcule $f(0)=\\frac{0^{2}+1}{0+1}=1$ et $f(3)=\\frac{3^{2}+1}{3+1}=\\frac{10}{4}=\\frac{5}{2}$. Le taux moyen vaut $\\dfrac{\\frac{5}{2}-1}{3-0}=\\dfrac{\\frac{3}{2}}{3}=\\frac{1}{2}$.",
+      "choices": [
+        {
+          "latex": "$\\dfrac{1}{2}$",
+          "sympy": "Rational(1,2)",
+          "correct": true
+        },
+        {
+          "latex": "$\\dfrac{3}{2}$",
+          "sympy": "Rational(3,2)",
+          "correct": false,
+          "error_type": "forgot_divide_by_interval_length"
+        },
+        {
+          "latex": "$\\dfrac{5}{6}$",
+          "sympy": "Rational(5,6)",
+          "correct": false,
+          "error_type": "miscomputed_f_of_3"
+        },
+        {
+          "latex": "$\\dfrac{1}{3}$",
+          "sympy": "Rational(1,3)",
+          "correct": false,
+          "error_type": "used_wrong_denominator"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(1,2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-01",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel énoncé décrit exactement la condition nécessaire et suffisante pour qu'une fonction $f$ soit dérivable en un point $a$ ?",
+      "hints": [
+        "Considérez la définition de la dérivée comme limite du taux d'accroissement.",
+        "Cherchez la formulation qui combine l'existence de la limite du quotient différentiel et la continuité en $a$."
+      ],
+      "solution_latex": "La fonction $f$ est dérivable en $a$ si et seulement si la limite $\\displaystyle \\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$ existe (et est finie). Cette condition implique automatiquement que $f$ est continue en $a$.",
+      "choices": [
+        {
+          "latex": "$f$ est dérivable en $a$ si $\\displaystyle \\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$ existe.",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$f$ est dérivable en $a$ si $f$ est continue en $a$.",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$f$ est dérivable en $a$ si $\\displaystyle \\lim_{x\\to a}\\dfrac{f(x)-f(a)}{x-a}=0$.",
+          "correct": false,
+          "error_type": "confusion_limite_zero"
+        },
+        {
+          "latex": "$f$ est dérivable en $a$ si $\\displaystyle \\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$ existe et $f$ est bornée près de $a$.",
+          "correct": false,
+          "error_type": "hypothese_supplémentaire"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-01",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème liant dérivabilité et continuité en un point.",
+      "hints": [
+        "Pense à ce qui se passe quand la dérivée existe en $a$.",
+        "Rappelle la définition de la dérivée comme limite du taux d'accroissement et utilise le théorème des valeurs limites."
+      ],
+      "solution_latex": "\\textbf{Théorème.} Soit $f$ une fonction définie sur un intervalle contenant $a$. Si $f$ est dérivable en $a$, alors $f$ est continue en $a$. Autrement dit, l'existence de $f'(a)=\\lim\\limits_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$ implique $\\lim\\limits_{x\\to a}f(x)=f(a)$.",
+      "fragments": [
+        "Si $f$ est dérivable en $a$, alors $f'(a)$ existe.",
+        "L'existence de $f'(a)$ signifie $\\lim\\limits_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$ existe et est finie.",
+        "Par conséquent, $\\lim\\limits_{x\\to a}f(x)=f(a)$, c'est-à-dire que $f$ est continue en $a$.",
+        "Cette implication ne nécessite aucune hypothèse supplémentaire sur $f$."
+      ],
+      "distracteurs": [
+        "Si $f$ est continue en $a$, alors $f$ est dérivable en $a$.",
+        "L'existence de la limite $\\lim\\limits_{x\\to a}\\dfrac{f(x)-f(a)}{x-a}$ garantit $f$ est strictement monotone près de $a$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-01",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-01",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé du critère de dérivabilité à l'aide du taux d'accroissement moyen.",
+      "hints": [
+        "Commence par rappeler la définition du taux d'accroissement moyen sur $[a,a+h]$.",
+        "Pense à la condition de convergence de ces taux lorsque $h\\to0$."
+      ],
+      "solution_latex": "\\textbf{Critère de dérivabilité.} Soit $f$ définie sur un intervalle contenant $a$. La fonction $f$ est dérivable en $a$ si et seulement si la suite des taux d'accroissement moyen $\\dfrac{f(a+h)-f(a)}{h}$ converge lorsque $h\\to0$. Dans ce cas, la limite vaut $f'(a)$.",
+      "fragments": [
+        "$f$ est dérivable en $a$ si la limite $\\lim\\limits_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$ existe.",
+        "Le quotient $\\dfrac{f(a+h)-f(a)}{h}$ représente le taux d'accroissement moyen sur $[a,a+h]$.",
+        "Lorsque $h\\to0$, la convergence de ces taux assure l'existence de la dérivée en $a$.",
+        "Dans ce cas, la valeur limite est le nombre dérivé $f'(a)$."
+      ],
+      "distracteurs": [
+        "$f$ est dérivable en $a$ dès que le taux d'accroissement moyen est constant sur un voisinage de $a$.",
+        "Si $\\dfrac{f(a+h)-f(a)}{h}$ est borné pour $h$ petit, alors $f$ est dérivable en $a$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

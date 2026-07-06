@@ -1,0 +1,450 @@
+[
+  {
+    "skill_id": "ana1-cont-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f:[0,2]\\to\\mathbb{R}$, $f(x)=3x^2-4x+1$.\\newline Quel est l'image $f([0,2])$ du segment $[0,2]$ ?",
+      "hints": [
+        "Tracer rapidement la parabole ou étudier le signe de $f'(x)$ sur $[0,2]$.",
+        "Utiliser le théorème des bornes atteintes : $f$ atteint son minimum et son maximum aux points critiques ou aux extrémités du segment."
+      ],
+      "solution_latex": "On calcule $f'(x)=6x-4$. $f'(x)=0$ donne $x=\\frac23\\in[0,2]$.\\\n$f\\bigl(\\frac23\\bigr)=3\\left(\\frac23\\right)^2-4\\left(\\frac23\\right)+1=\\frac{4}{3}-\\frac{8}{3}+1=-\\frac{1}{3}$.\\\n$f(0)=1$, $f(2)=3\\cdot4-8+1=5$.\\\nLe minimum est $-\\frac13$, le maximum $5$. Donc $f([0,2])=[-\\frac13,5]$.",
+      "choices": [
+        {
+          "latex": "\\left[-\\frac{1}{3},\\,5\\right]",
+          "sympy": "Interval(Rational(-1,3),5)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\left[-\\frac{1}{3},\\,6\\right]",
+          "sympy": "Interval(Rational(-1,3),6)",
+          "correct": false,
+          "error_type": "max_at_endpoint_missed"
+        },
+        {
+          "latex": "\\left[0,\\,5\\right]",
+          "sympy": "Interval(0,5)",
+          "correct": false,
+          "error_type": "min_wrong_sign"
+        },
+        {
+          "latex": "\\left[-1,\\,5\\right]",
+          "sympy": "Interval(-1,5)",
+          "correct": false,
+          "error_type": "critical_point_value_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval(Rational(-1,3),5)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-04",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-04",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $g:[-1,3]\\to\\mathbb{R}$ définie par $g(x)=\\dfrac{1}{2}x^3-x^2+2$.\\newline Quelle est l'image $g([-1,3])$ ?",
+      "hints": [
+        "Calculer $g'(x)$ et repérer les points où $g'$ s'annule sur l'intervalle considéré.",
+        "Appliquer le théorème des bornes atteintes : comparer les valeurs de $g$ aux points critiques et aux extrémités du segment."
+      ],
+      "solution_latex": "$g'(x)=\\frac{3}{2}x^2-2x=\\frac{1}{2}x(3x-4)$.\\\nDonc $g'(x)=0$ pour $x=0$ et $x=\\frac{4}{3}\\in[-1,3]$.\\\nValeurs : $g(-1)= -\\frac12-1+2=\\frac12$, $g(0)=2$, $g\\bigl(\\frac{4}{3}\\bigr)=\\frac12\\left(\\frac{64}{27}\\right)-\\frac{16}{9}+2=\\frac{32}{27}-\\frac{48}{27}+\\frac{54}{27}=\\frac{38}{27}$, $g(3)=\\frac12\\cdot27-9+2=13.5-9+2=6.5$.\\\nLe minimum est $\\frac12$, le maximum $6.5$. Ainsi $g([-1,3])=\\left[\\frac12,\\,\\frac{13}{2}\\right]$.",
+      "choices": [
+        {
+          "latex": "\\left[\\frac{1}{2},\\,\\frac{13}{2}\\right]",
+          "sympy": "Interval(Rational(1,2),Rational(13,2))",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\left[0,\\,\\frac{13}{2}\\right]",
+          "sympy": "Interval(0,Rational(13,2))",
+          "correct": false,
+          "error_type": "min_at_zero_wrong"
+        },
+        {
+          "latex": "\\left[\\frac{1}{2},\\,7\\right]",
+          "sympy": "Interval(Rational(1,2),7)",
+          "correct": false,
+          "error_type": "max_miscalculated"
+        },
+        {
+          "latex": "\\left[\\frac{1}{2},\\,\\frac{5}{2}\\right]",
+          "sympy": "Interval(Rational(1,2),Rational(5,2))",
+          "correct": false,
+          "error_type": "critical_point_value_omitted"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval(Rational(1,2),Rational(13,2))"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $h:[2,5]\\to\\mathbb{R}$, $h(x)=\\sqrt{x}+\\dfrac{1}{x}$.\\newline Déterminez l'image $h([2,5])$.",
+      "hints": [
+        "Étudier la dérivée $h'(x)=\\dfrac{1}{2\\sqrt{x}}-\\dfrac{1}{x^2}$ pour connaître les variations sur $[2,5]$.",
+        "Comparer les valeurs de $h$ aux points critiques et aux extrémités du segment afin d'identifier le minimum et le maximum."
+      ],
+      "solution_latex": "$h'(x)=\\frac{1}{2\\sqrt{x}}-\\frac{1}{x^{2}}$.\\\nOn résout $h'(x)=0$ : $\\frac{1}{2\\sqrt{x}}=\\frac{1}{x^{2}}\\Longrightarrow x^{2}=2\\sqrt{x}\\Longrightarrow x^{4}=4x\\Longrightarrow x^{3}=4\\Longrightarrow x=\\sqrt[3]{4}\\approx1.587$, qui n'appartient pas à $[2,5]$.\\\nDonc $h$ est croissante sur $[2,5]$.\\\nValeurs aux extrémités : $h(2)=\\sqrt{2}+\\frac12$, $h(5)=\\sqrt{5}+\\frac15$.\\\nAinsi $h([2,5])=\\left[\\sqrt{2}+\\frac12,\\,\\sqrt{5}+\\frac15\\right]$.",
+      "choices": [
+        {
+          "latex": "\\left[\\sqrt{2}+\\frac12,\\,\\sqrt{5}+\\frac15\\right]",
+          "sympy": "Interval(sqrt(2)+Rational(1,2),sqrt(5)+Rational(1,5))",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\left[\\sqrt{2},\\,\\sqrt{5}+\\frac15\\right]",
+          "sympy": "Interval(sqrt(2),sqrt(5)+Rational(1,5))",
+          "correct": false,
+          "error_type": "missing_constant_term"
+        },
+        {
+          "latex": "\\left[\\sqrt{2}+\\frac12,\\,\\sqrt{5}\\right]",
+          "sympy": "Interval(sqrt(2)+Rational(1,2),sqrt(5))",
+          "correct": false,
+          "error_type": "max_constant_term_omitted"
+        },
+        {
+          "latex": "\\left[\\frac12,\\,\\frac15\\right]",
+          "sympy": "Interval(Rational(1,2),Rational(1,5))",
+          "correct": false,
+          "error_type": "complete_misinterpretation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval(sqrt(2)+Rational(1,2),sqrt(5)+Rational(1,5))"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f:[-2,1]\\to\\mathbb{R}$, $f(x)=x^3-3x$.\\\\Quelle est l'image $f([-2,1])$ du segment $[-2,1]$ ?",
+      "hints": [
+        "Cherchez les points où $f$ admet un extremum sur $[-2,1]$ (dérivée nulle).",
+        "Calculez $f$ aux bornes du segment et aux points critiques, puis choisissez le minimum et le maximum obtenus."
+      ],
+      "solution_latex": "On calcule $f'(x)=3x^2-3=3(x^2-1)$. Donc $f'(x)=0\\iff x=\\pm1$. Sur $[-2,1]$ les points critiques sont $x=-1$ et $x=1$.\\\nOn évalue : $f(-2)=(-2)^3-3(-2)=-8+6=-2$, $f(-1)=(-1)^3-3(-1)=-1+3=2$, $f(1)=1-3=-2$. Le minimum est $-2$ et le maximum $2$, donc $f([-2,1])=[-2,2]$.",
+      "choices": [
+        {
+          "latex": "$[-2,2]$",
+          "sympy": "Interval(-2,2)",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$[-2,0]$",
+          "sympy": "Interval(-2,0)",
+          "correct": false,
+          "error_type": "missing_maximum"
+        },
+        {
+          "latex": "$[-1,2]$",
+          "sympy": "Interval(-1,2)",
+          "correct": false,
+          "error_type": "wrong_evaluation_at_-2"
+        },
+        {
+          "latex": "$[ -2,1]$",
+          "sympy": "Interval(-2,1)",
+          "correct": false,
+          "error_type": "confusing_range_with_domain"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval(-2,2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-04",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-04",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $g:[0,\\pi]\\to\\mathbb{R}$, $g(x)=\\sin x+\\cos 2x$.\\\\Déterminez l'image $g([0,\\pi])$.",
+      "hints": [
+        "Utilisez $\\cos 2x=1-2\\sin^2 x$ pour réécrire $g$ en fonction de $\\sin x$ puis dérivez.",
+        "Résolvez $g'(x)=0$, étudiez les valeurs aux points critiques et aux extrémités du segment."
+      ],
+      "solution_latex": "On écrit $g(x)=\\sin x+1-2\\sin^2 x$. Posons $u=\\sin x\\in[0,0]$ sur $[0,\\pi]$, donc $u\\in[0,0]$ (en fait $\\sin x\\in[0,0]$). En dérivant $g$, $g'(x)=\\cos x-2\\sin 2x=\\cos x-4\\sin x\\cos x=\\cos x(1-4\\sin x)$. Ainsi $g'(x)=0$ donne $\\cos x=0$ ou $\\sin x=\\tfrac14$. Sur $[0,\\pi]$, $\\cos x=0$ à $x=\\tfrac{\\pi}{2}$ et $\\sin x=\\tfrac14$ à $x=\\arcsin\\tfrac14$ et $x=\\pi-\\arcsin\\tfrac14$. On calcule : $g(0)=0+1=1$, $g(\\pi)=0+1=1$, $g(\\tfrac{\\pi}{2})=1+\\cos\\pi=0$, $g(\\arcsin\\tfrac14)=\\tfrac14+\\cos(2\\arcsin\\tfrac14)=\\tfrac14+ (1-2\\cdot\\tfrac{1}{16})=\\tfrac14+\\tfrac{7}{8}=\\tfrac{9}{8}$, $g(\\pi-\\arcsin\\tfrac14)=\\tfrac14+\\cos(2\\pi-2\\arcsin\\tfrac14)=\\tfrac14+\\cos(2\\arcsin\\tfrac14)=\\tfrac{9}{8}$. Le maximum est $\\tfrac{9}{8}$, le minimum $0$. Donc $g([0,\\pi])=[0,\\tfrac{9}{8}]$.",
+      "choices": [
+        {
+          "latex": "$[0,\\tfrac{9}{8}]$",
+          "sympy": "Interval(0,Rational(9,8))",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$[-1,\\tfrac{9}{8}]$",
+          "sympy": "Interval(-1,Rational(9,8))",
+          "correct": false,
+          "error_type": "forgot_absolute_minimum"
+        },
+        {
+          "latex": "$[0,1]$",
+          "sympy": "Interval(0,1)",
+          "correct": false,
+          "error_type": "ignoring_critical_points"
+        },
+        {
+          "latex": "$[\\tfrac{1}{2},\\tfrac{9}{8}]$",
+          "sympy": "Interval(Rational(1,2),Rational(9,8))",
+          "correct": false,
+          "error_type": "misidentifying_minimum"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval(0,Rational(9,8))"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $h:[1,4]\\to\\mathbb{R}$, $h(x)=\\dfrac{1}{x}+\\ln x$.\\\\Quel est l'ensemble image $h([1,4])$ ?",
+      "hints": [
+        "Calculez $h'(x)$ pour repérer les extrema sur $[1,4]$.",
+        "Évaluez $h$ aux bornes et au point où $h'(x)=0$, puis choisissez le plus petit et le plus grand des valeurs obtenues."
+      ],
+      "solution_latex": "On a $h'(x)=-\\dfrac{1}{x^2}+\\dfrac{1}{x}=\\dfrac{-1+x}{x^2}=\\dfrac{x-1}{x^2}$. Ainsi $h'(x)=0\\iff x=1$. Sur $[1,4]$ $h$ est croissant pour $x>1$. Donc le minimum est $h(1)=1+0=1$ et le maximum $h(4)=\\dfrac{1}{4}+\\ln4=\\dfrac{1}{4}+2\\ln2$. L'image est $[1,\\dfrac{1}{4}+2\\ln2]$.",
+      "choices": [
+        {
+          "latex": "$[1,\\dfrac{1}{4}+2\\ln2]$",
+          "sympy": "Interval(1, Rational(1,4)+2*log(2))",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$[0,\\dfrac{1}{4}+2\\ln2]$",
+          "sympy": "Interval(0, Rational(1,4)+2*log(2))",
+          "correct": false,
+          "error_type": "incorrect_minimum"
+        },
+        {
+          "latex": "$[1,\\ln4]$",
+          "sympy": "Interval(1, log(4))",
+          "correct": false,
+          "error_type": "omitting_the\\_fraction_term"
+        },
+        {
+          "latex": "$[\\dfrac{1}{4},\\dfrac{1}{4}+2\\ln2]$",
+          "sympy": "Interval(Rational(1,4), Rational(1,4)+2*log(2))",
+          "correct": false,
+          "error_type": "wrong_value_at_lower_bound"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval(1, Rational(1,4)+2*log(2))"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f:[0,5]\\to\\mathbb{R}$ définie par $f(x)=-x^{2}+4x+3$.\\newline Déterminez l'image $f([0,5])$ du segment $[0,5]$.",
+      "hints": [
+        "Tracer rapidement la parabole ou calculer $f'(x)$ pour localiser les points critiques.",
+        "Utiliser $f'(x)=-2x+4=0\\Rightarrow x=2$, puis comparer $f(0),f(2),f(5)$ pour obtenir les valeurs extrêmes."
+      ],
+      "solution_latex": "On calcule $f'(x)=-2x+4$, donc $f'(x)=0\\Longleftrightarrow x=2\\in[0,5]$.\\\nValeurs aux points d'intérêt : $f(0)=3$, $f(2)= -4+8+3=7$, $f(5)= -25+20+3=-2$.\\\nLe minimum est $-2$ (atteint en $x=5$) et le maximum est $7$ (atteint en $x=2$).\\\nAinsi $f([0,5])=[-2,7]$.",
+      "choices": [
+        {
+          "latex": "\\left[-2,7\\right]",
+          "sympy": "Interval(-2,7)",
+          "correct": true
+        },
+        {
+          "latex": "\\left[-2,3\\right]",
+          "sympy": "Interval(-2,3)",
+          "correct": false,
+          "error_type": "forgot_maximum"
+        },
+        {
+          "latex": "\\left[-5,7\\right]",
+          "sympy": "Interval(-5,7)",
+          "correct": false,
+          "error_type": "incorrect_minimum_value"
+        },
+        {
+          "latex": "\\left[-2,8\\right]",
+          "sympy": "Interval(-2,8)",
+          "correct": false,
+          "error_type": "arithmetic_error_on_max"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval(-2,7)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-04",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-04",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $g:[0,2]\\to\\mathbb{R}$ définie par $g(x)=e^{x}-x$.\\newline Quelle est l'image $g([0,2])$ du segment $[0,2]$ ?",
+      "hints": [
+        "Étudier le signe de $g'(x)=e^{x}-1$ pour savoir si $g$ est croissante ou décroissante.",
+        "Évaluer $g$ aux extrémités du segment et au point où $g'(x)=0$ (s'il existe) pour obtenir les bornes de l'image."
+      ],
+      "solution_latex": "On a $g'(x)=e^{x}-1$.\\\nSur $[0,2]$, $g'(x)=0\\iff e^{x}=1\\iff x=0$. Pour $x>0$, $e^{x}>1$ donc $g'(x)>0$ ; $g$ est donc croissante sur $]0,2]$.\\\nValeurs aux points d'intérêt : $g(0)=1-0=1$, $g(2)=e^{2}-2$.\\\nLe minimum est $1$ (en $x=0$) et le maximum $e^{2}-2$ (en $x=2$).\\\nDonc $g([0,2])=[1,\\,e^{2}-2]$.",
+      "choices": [
+        {
+          "latex": "\\left[1,\\,e^{2}-2\\right]",
+          "sympy": "Interval(1,exp(2)-2)",
+          "correct": true
+        },
+        {
+          "latex": "\\left[0,\\,e^{2}-2\\right]",
+          "sympy": "Interval(0,exp(2)-2)",
+          "correct": false,
+          "error_type": "forgot_minimum_value"
+        },
+        {
+          "latex": "\\left[1,\\,e^{2}\\right]",
+          "sympy": "Interval(1,exp(2))",
+          "correct": false,
+          "error_type": "incorrect_maximum_expression"
+        },
+        {
+          "latex": "\\left[1,\\,e^{2}-1\\right]",
+          "sympy": "Interval(1,exp(2)-1)",
+          "correct": false,
+          "error_type": "off_by_one_error_on_max"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval(1,exp(2)-2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-04",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-04",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel énoncé correspond exactement au théorème des bornes atteintes pour une fonction continue sur un segment $[a,b]$ ?",
+      "hints": [
+        "Rappelez‑vous que le théorème affirme l'existence de valeurs extrémales sur un intervalle fermé.",
+        "Identifiez les deux propriétés : continuité sur $[a,b]$ et existence d'un minimum et d'un maximum réels atteints dans $[a,b]$."
+      ],
+      "solution_latex": "Le théorème des bornes atteintes affirme que si $f$ est continue sur le segment compact $[a,b]$, alors il existe $x_{\\min},x_{\\max}\\in[a,b]$ tels que $f(x_{\\min})\\le f(x)\\le f(x_{\\max})$ pour tout $x\\in[a,b]$. Ainsi $f([a,b])$ est un segment $[m,M]$ où $m=f(x_{\\min})$ et $M=f(x_{\\max})$.",
+      "choices": [
+        {
+          "latex": "Si $f$ est continue sur $[a,b]$, alors $f([a,b])$ est un intervalle fermé $[m,M]$ où $m$ et $M$ sont respectivement le minimum et le maximum de $f$ sur $[a,b]$.",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Si $f$ est continue sur $[a,b]$, alors $f$ admet forcément une primitive sur $[a,b]$.",
+          "correct": false,
+          "error_type": "confusion_thm_primitve"
+        },
+        {
+          "latex": "Si $f$ est continue sur $[a,b]$, alors $f$ est dérivable sur $]a,b[$.",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Si $f$ est continue sur $[a,b]$, alors $f$ possède une antécédent pour toute valeur entre $f(a)$ et $f(b)$.",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-04",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-04",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour appliquer le théorème des bornes atteintes à la fonction $f(x)=\\dfrac{1}{x}$, quel domaine $[a,b]$ doit être choisi ?",
+      "hints": [
+        "Le théorème nécessite que le segment soit compact et inclus dans le domaine de définition de $f$.",
+        "Cherchez un intervalle fermé qui ne contient pas le point de discontinuité $x=0$."
+      ],
+      "solution_latex": "La fonction $f(x)=\\dfrac{1}{x}$ n'est définie que sur $\\mathbb{R}\\setminus\\{0\\}$. Pour pouvoir appliquer le théorème des bornes atteintes, il faut choisir un segment $[a,b]$ tel que $0\\notin[a,b]$, par exemple $[1,3]$ ou $[-4,-2]$. Tout segment fermé ne contenant pas $0$ convient car il est compact et $f$ y est continue.",
+      "choices": [
+        {
+          "latex": "Tout segment $[a,b]$ avec $a<b$ convient, même s'il contient $0$.",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Un segment $[a,b]$ tel que $0\\notin[a,b]$, par exemple $[1,3]$.",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Un segment $[a,b]$ où $a>0$ ou $b<0$, mais il faut que $f$ soit dérivable sur $[a,b]$.",
+          "correct": false,
+          "error_type": "confusion_derivabilite"
+        },
+        {
+          "latex": "Un segment $[a,b]$ de type $[-c,c]$ avec $c>0$, car la fonction est paire.",
+          "correct": false,
+          "error_type": "confusion_symetrie"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

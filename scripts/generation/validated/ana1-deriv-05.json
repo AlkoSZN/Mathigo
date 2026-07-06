@@ -1,0 +1,457 @@
+[
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f(x) = x^3 - 6x^2 + 9x + 2$. Quel est le nombre de maxima locaux de $f$ sur $\\mathbb{R}$ ?",
+      "hints": [
+        "Trouvez les points critiques de $f$.",
+        "Étudiez le signe de $f'$ autour de ces points."
+      ],
+      "solution_latex": "La dérivée de $f$ est $f'(x) = 3x^2 - 12x + 9$. Les points critiques de $f$ sont les solutions de $f'(x) = 0$, qui sont $x = 1$ et $x = 3$. La fonction $f'$ change de signe autour de $x = 1$, donc $f$ a un maximum local en $x = 1$. La fonction $f'$ ne change pas de signe autour de $x = 3$, donc $f$ n'a pas d'extremum local en $x = 3$. Par conséquent, $f$ a un seul maximum local sur $\\mathbb{R}$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "oubli_point_critique"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "erreur_de_signe"
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "oubli_changement_de_signe"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f(x) = x^4 - 4x^3 + 3x^2 + 2x - 1$. Quel est le nombre de minima locaux de $f$ sur $[-1, 2]$ ?",
+      "hints": [
+        "Trouvez les points critiques de $f$.",
+        "Étudiez le signe de $f'$ et $f''$ autour de ces points sur l'intervalle donné."
+      ],
+      "solution_latex": "La dérivée de $f$ est $f'(x) = 4x^3 - 12x^2 + 6x + 2$ et la dérivée seconde est $f''(x) = 12x^2 - 24x + 6$. Les points critiques de $f$ sont les solutions de $f'(x) = 0$, qui sont $x = -\\frac{1}{2}$, $x = 1$ et $x = 2$. La fonction $f'$ change de signe autour de $x = -\\frac{1}{2}$ et $x = 1$ mais pas autour de $x = 2$. La fonction $f''$ est positive en $x = -\\frac{1}{2}$ et en $x = 1$. Par conséquent, $f$ a deux minima locaux sur $[-1, 2]$.",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "oubli_point_critique"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "erreur_de_signe"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "oubli_changement_de_signe"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f(x) = 3x^3 - 2x^2 - 7x + 1$. Combien de maxima locaux $f$ possède-t-elle sur l'intervalle $[0, 2]$ ?",
+      "hints": [
+        "Utilisez la dérivée pour trouver les points critiques.",
+        "Étudiez le signe de la dérivée autour de ces points pour déterminer la nature des extrema."
+      ],
+      "solution_latex": "La dérivée $f'(x) = 9x^2 - 4x - 7$. En résolvant $f'(x) = 0$, on obtient $x = \\frac{2 \\pm \\sqrt{4 + 63}}{9} = \\frac{2 \\pm \\sqrt{67}}{9}$. Seul le point critique $x = \\frac{2 + \\sqrt{67}}{9}$ est dans l'intervalle $[0, 2]$. En étudiant le signe de $f'(x)$ autour de ce point, on constate qu'il change de signe de négatif à positif, indiquant un minimum local. Ainsi, $f$ n'a pas de maximum local sur $[0, 2]$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "confusion_entre_maximum_et_minimum"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "non_identification_de_tous_les_points_critiques"
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "erreur_dans_le_denombrement_des_extrema"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f(x) = x^2 - 2x - 3$ sur l'intervalle $[-1, 3]$. Quel est le nombre de minima locaux de $f$ sur cet intervalle ?",
+      "hints": [
+        "Trouvez les points critiques en résolvant $f'(x) = 0$.",
+        "Analysez le signe de $f'(x)$ à gauche et à droite de chaque point critique pour identifier les minima locaux."
+      ],
+      "solution_latex": "La dérivée $f'(x) = 2x - 2$. En résolvant $f'(x) = 0$, on trouve $x = 1$. En étudiant le signe de $f'(x)$, on observe que $f'(x) < 0$ pour $x < 1$ et $f'(x) > 0$ pour $x > 1$, ce qui indique un minimum local en $x = 1$. Ainsi, il y a exactement un minimum local sur l'intervalle $[-1, 3]$. ",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "erreur_dans_l_identification_des_points_critiques"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "oubli_d_etudier_le_signe_de_la_derivative"
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "confusion_dans_l_interpretation_des_resultats"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 1,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Soit $f(x) = x^2 + 2x + 1$ sur $[-2, 0]$. Combien de maxima locaux $f$ possède-t-elle sur cet intervalle ?",
+      "hints": [
+        "Déterminez la dérivée de $f(x)$.",
+        "Identifiez les points critiques et étudiez le comportement de la fonction autour de ces points."
+      ],
+      "solution_latex": "La dérivée $f'(x) = 2x + 2$. En résolvant $f'(x) = 0$, on obtient $x = -1$. Puisque $f'(x) < 0$ pour $x < -1$ et $f'(x) > 0$ pour $x > -1$, il y a un minimum local en $x = -1$ mais pas de maximum local sur l'intervalle $[-2, 0]$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "erreur_d_interpretation_du_signe_de_la_derivative"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "oubli_de_verifier_les_extremites_de_l_interval"
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "erreur_de_calcul_de_la_derivative"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f(x) = x^3 - 9x^2 + 24x - 7$. Quel est le nombre de minima locaux de $f$ sur $[0, 5]$ ?",
+      "hints": [
+        "Déterminez les points critiques en annulant la dérivée de $f$.",
+        "Analysez le signe de la dérivée à gauche et à droite de chaque point critique pour identifier les minima locaux."
+      ],
+      "solution_latex": "La dérivée de $f$ est $f'(x) = 3x^2 - 18x + 24$. Les points critiques sont donnés par $3x^2 - 18x + 24 = 0$, ce qui se simplifie en $x^2 - 6x + 8 = 0$. En factorisant, on obtient $(x - 2)(x - 4) = 0$, donc les points critiques sont $x = 2$ et $x = 4$. En testant le signe de $f'(x)$ à gauche et à droite de ces points, on constate que $f'(x)$ change de signe de négatif à positif en $x = 2$ et de positif à négatif en $x = 4$. Par conséquent, $f$ a un minimum local en $x = 2$ et un maximum local en $x = 4$. Ainsi, $f$ a exactement un minimum local sur l'intervalle $[0, 5]$. ",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "underestimation_des_minima"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "surestimation_des_minima"
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "erreur_de_comptage"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f(x) = 2x^3 - 5x^2 - 4x + 1$. Combien de maxima locaux $f$ possède-t-elle sur l'intervalle $[-2, 3]$ ?",
+      "hints": [
+        "Trouvez les points critiques en résolvant $f'(x) = 0$.",
+        "Analysez la variation de $f'(x)$ autour de chaque point critique pour déterminer la nature de ces points."
+      ],
+      "solution_latex": "La dérivée de $f$ est $f'(x) = 6x^2 - 10x - 4$. Les points critiques sont donnés par $6x^2 - 10x - 4 = 0$. En divisant par $2$, on obtient $3x^2 - 5x - 2 = 0$. En factorisant, on obtient $(3x + 1)(x - 2) = 0$, donc les points critiques sont $x = -\\frac{1}{3}$ et $x = 2$. En testant le signe de $f'(x)$ à gauche et à droite de ces points, on constate que $f'(x)$ change de signe de positif à négatif en $x = 2$ et de négatif à positif en $x = -\\frac{1}{3}$. Ainsi, $f$ a un maximum local en $x = 2$ et un minimum local en $x = -\\frac{1}{3}$. Par conséquent, $f$ a exactement un maximum local sur l'intervalle $[-2, 3]$. ",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "oubli_d_un_maximum"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "double_compte_d_un_maximum"
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "erreur_de_comptage_des_maxima"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quelle est la condition nécessaire pour qu'un point $x_0$ soit un extremum local de la fonction $f$ ?",
+      "hints": [
+        "Rappeler les conditions pour les extrema locaux",
+        "Utiliser la définition d'un extremum local et la propriété de la dérivée"
+      ],
+      "solution_latex": "La condition nécessaire pour qu'un point $x_0$ soit un extremum local de la fonction $f$ est que $f'(x_0) = 0$",
+      "choices": [
+        {
+          "latex": "Si $f(x_0) = 0$",
+          "correct": false,
+          "error_type": "conclusion_hative"
+        },
+        {
+          "latex": "Si $f'(x_0) = 0$",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "Si $f''(x_0) = 0$",
+          "correct": false,
+          "error_type": "condition_inutile"
+        },
+        {
+          "latex": "Si $f(x_0)$ est un maximum ou un minimum global",
+          "correct": false,
+          "error_type": "condition_inutile"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Quelle est la condition suffisante pour qu'un point $x_0$ soit un minimum local de la fonction $f$ sur l'intervalle $[a, b]$ ?",
+      "hints": [
+        "Rappeler les conditions pour les extrema locaux",
+        "Utiliser la définition d'un minimum local et la propriété de la dérivée"
+      ],
+      "solution_latex": "La condition suffisante pour qu'un point $x_0$ soit un minimum local de la fonction $f$ sur l'intervalle $[a, b]$ est que $f'(x_0) = 0$ et $f''(x_0) > 0$",
+      "choices": [
+        {
+          "latex": "Si $f'(x_0) = 0$ et $f''(x_0) < 0$",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        },
+        {
+          "latex": "Si $f'(x_0) = 0$ et $f(x_0)$ est un minimum global",
+          "correct": false,
+          "error_type": "condition_inutile"
+        },
+        {
+          "latex": "Si $f(x_0)$ est un minimum global sur $[a, b]$",
+          "correct": false,
+          "error_type": "condition_inutile"
+        },
+        {
+          "latex": "Si $f'(x_0) = 0$ et $f''(x_0) > 0$",
+          "correct": true,
+          "error_type": null
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé de la condition nécessaire pour qu'un point $x_0$ soit un extremum local de la fonction $f$.",
+      "hints": [
+        "La condition implique la dérivée de $f$.",
+        "La valeur de la dérivée en $x_0$ est un élément clé."
+      ],
+      "solution_latex": "Un point $x_0$ est un extremum local de $f$ si $f'(x_0) = 0$.",
+      "fragments": [
+        "Un point $x_0$ est un extremum local de $f$",
+        "si",
+        "$f'(x_0)$",
+        "= 0"
+      ],
+      "distracteurs": [
+        "> 0",
+        "< 0"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-05",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé de la condition suffisante pour qu'un point $x_0$ soit un minimum local de la fonction $f$ sur l'intervalle $[a, b]$.",
+      "hints": [
+        "Cette condition implique le comportement de la dérivée autour de $x_0$.",
+        "Un changement de signe de la dérivée est un élément clé."
+      ],
+      "solution_latex": "Un point $x_0$ est un minimum local de $f$ sur $[a, b]$ si $f'(x_0) = 0$ et si $f'$ change de signe de négatif à positif en $x_0$.",
+      "fragments": [
+        "Un point $x_0$ est un minimum local de $f$ sur $[a, b]$",
+        "si $f'(x_0) = 0$",
+        "et si $f'$ change de signe de négatif à positif",
+        "en $x_0$"
+      ],
+      "distracteurs": [
+        "de positif à négatif",
+        "sans changement de signe"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

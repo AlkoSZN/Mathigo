@@ -1,0 +1,174 @@
+[
+  {
+    "skill_id": "ana1-deriv-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f(x)=x^3-3x^2+2x$. On considère la dérivée $f'(x)$. Quelle est l'ensemble des $x$ tels que $f'(x)\\ge 0$ ?",
+      "hints": [
+        "Calculer $f'(x)$ puis factoriser le résultat.",
+        "Étudier le signe du facteur dupliqué en s'appuyant sur le tableau de signes."
+      ],
+      "solution_latex": "On dérive : $f'(x)=3x^2-6x+2=3(x^2-2x)+2=3\\bigl((x-1)^2-1\\bigr)+2=3(x-1)^2-1$. On résout $3(x-1)^2-1\\ge0\\iff (x-1)^2\\ge\\frac13$. Ainsi $x\\le 1-\\frac{1}{\\sqrt3}$ ou $x\\ge 1+\\frac{1}{\\sqrt3}$. L'ensemble recherché est $\\left(-\\infty,1-\\frac{1}{\\sqrt3}\\right]\\cup\\left[1+\\frac{1}{\\sqrt3},+\\infty\\right)$.",
+      "choices": [
+        {
+          "latex": "$\\left(-\\infty,1-\\frac{1}{\\sqrt3}\\right]\\cup\\left[1+\\frac{1}{\\sqrt3},+\\infty\\right)$",
+          "sympy": "Interval(-oo,1-1/sqrt(3)) + Interval(1+1/sqrt(3),oo)",
+          "correct": true
+        },
+        {
+          "latex": "$\\left[1-\\frac{1}{\\sqrt3},1+\\frac{1}{\\sqrt3}\\right]$",
+          "sympy": "Interval(1-1/sqrt(3),1+1/sqrt(3))",
+          "correct": false,
+          "error_type": "interval_inverse"
+        },
+        {
+          "latex": "$\\left(-\\infty,1\\right)\\cup\\left(1,+\\infty\\right)$",
+          "sympy": "Interval(-oo,1) + Interval(1,oo)",
+          "correct": false,
+          "error_type": "forget_square_term"
+        },
+        {
+          "latex": "$\\emptyset$",
+          "sympy": "EmptySet",
+          "correct": false,
+          "error_type": "sign_misinterpretation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Interval(-oo,1-1/sqrt(3)) + Interval(1+1/sqrt(3),oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f(x)=x^{4}-4x^{2}$. On considère la dérivée $f'(x)$. Quel est l'ensemble des $x$ tels que $f'(x)\\ge 0$ ?",
+      "hints": [
+        "Commencez par dériver $f$ et factoriser $f'(x)$.",
+        "Étudiez le signe du produit $4x\\bigl(x^{2}-2\\bigr)$ en utilisant un tableau de signes."
+      ],
+      "solution_latex": "On a $f'(x)=4x^{3}-8x=4x\\bigl(x^{2}-2\\bigr)=4x(x-\\sqrt{2})(x+\\sqrt{2})$. Les racines sont $-\\sqrt{2},\\,0,\\,\\sqrt{2}$. Le tableau de signes montre que $f'(x)\\ge 0$ sur $[-\\sqrt{2},0]\\cup[\\sqrt{2},+\\infty)$.",
+      "choices": [
+        {
+          "latex": "$[-\\sqrt{2},0]\\cup[\\sqrt{2},+\\infty)$",
+          "sympy": "Union(Interval(-sqrt(2),0),Interval(sqrt(2),oo))",
+          "correct": true
+        },
+        {
+          "latex": "$(-\\infty,-\\sqrt{2}]\\cup[0,\\sqrt{2}]$",
+          "sympy": "Union(Interval(-oo,-sqrt(2)),Interval(0,sqrt(2)))",
+          "correct": false,
+          "error_type": "sign_inversion_between_intervals"
+        },
+        {
+          "latex": "$[-\\sqrt{2},\\sqrt{2}]$",
+          "sympy": "Interval(-sqrt(2),sqrt(2))",
+          "correct": false,
+          "error_type": "omission_of_exterior_intervals"
+        },
+        {
+          "latex": "$(-\\infty,0]\\cup[\\sqrt{2},+\\infty)$",
+          "sympy": "Union(Interval(-oo,0),Interval(sqrt(2),oo))",
+          "correct": false,
+          "error_type": "wrong_sign_on_negative_interval"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Union(Interval(-sqrt(2),0),Interval(sqrt(2),oo))"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-04",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-04",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Selon le théorème de monotonie, quelle est la condition nécessaire et suffisante sur la dérivée $f'$ pour que la fonction $f$ soit strictement croissante sur un intervalle ouvert $I$ ?",
+      "hints": [
+        "Pensez à ce que dit le théorème concernant le signe de $f'$ sur $I$.",
+        "Il faut que $f'(x)$ soit >0 pour tout $x\\in I$ ; la preuve repose sur le signe du différentiel."
+      ],
+      "solution_latex": "Le théorème de monotonie affirme que $f$ est strictement croissante sur $I$ si et seulement si $f'(x)>0$ pour tout $x\\in I$. En effet, si $f'(x)>0$ alors, pour $a<b$ dans $I$, le théorème des accroissements finis donne $f(b)-f(a)=f'(c)(b-a)>0$, donc $f(b)>f(a)$. Réciproquement, si $f$ est strictement croissante, la dérivée ne peut être négative en aucun point de $I$ et, sous les hypothèses de continuité de $f'$, on obtient $f'(x)\\ge0$; le caractère strict impose $f'(x)>0$.",
+      "choices": [
+        {
+          "latex": "$f'(x)>0$ pour tout $x\\in I$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$f'(x)\\ge 0$ pour tout $x\\in I$",
+          "correct": false,
+          "error_type": "confusion_inegalite_stricte"
+        },
+        {
+          "latex": "$f'(x)$ ne change jamais de signe sur $I$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$f$ est dérivable et $f'$ est continue sur $I$",
+          "correct": false,
+          "error_type": "condition_suffisante_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-04",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-04",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Le théorème des valeurs intermédiaires (TVI) s'applique à une fonction $f$ continue sur $[a,b]$ et à une valeur $y$ entre $f(a)$ et $f(b)$. Quelle affirmation suivante est exacte concernant l'application du TVI à la fonction dérivée $f'$ ?",
+      "hints": [
+        "Rappelez‑vous que $f'$ n'est pas forcément continue même si $f$ l'est.",
+        "Le TVI nécessite la continuité de la fonction à laquelle il s'applique."
+      ],
+      "solution_latex": "Le TVI ne peut pas être appliqué directement à $f'$ parce que $f'$ n'est en général pas continue, même si $f$ est différentiable. Ainsi, on ne peut garantir l'existence d'un $c\\in(a,b)$ tel que $f'(c)=y$ pour une valeur $y$ intermédiaire entre $f'(a)$ et $f'(b)$, sauf si $f'$ est connue continue. L'énoncé correct est donc que le TVI ne s'applique qu'aux fonctions continues, ce qui n'est pas assuré pour $f'$.",
+      "choices": [
+        {
+          "latex": "Le TVI s'applique à $f'$ dès que $f$ est dérivable sur $[a,b]$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Le TVI s'applique à $f'$ uniquement si $f'$ est continue sur $[a,b]$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Le TVI s'applique à $f'$ même si $f'$ possède des points de discontinuité",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Le TVI garantit que $f'$ garde un signe constant sur $[a,b]$",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

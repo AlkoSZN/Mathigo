@@ -1,0 +1,322 @@
+[
+  {
+    "skill_id": "ana1-etude-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-03",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f$ d\\'efinie sur $\\mathbb{R}$ par $f(x) = x^3 - 6x^2 + 9x + 2$. Quel est le point d'inflexion de la fonction $f$ ?",
+      "hints": [
+        "Utilisez la formule de dérivation pour trouver $f''(x)$.",
+        "R\\'esolvez l'\\'equation $f''(x) = 0$ pour trouver le point d'inflexion."
+      ],
+      "solution_latex": "La fonction $f$ est d\\'efinie sur $\\mathbb{R}$ par $f(x) = x^3 - 6x^2 + 9x + 2$. La d\\'eriv\\'ee seconde $f''(x)$ est donn\\'ee par $f''(x) = 6x - 12$. Le point d'inflexion est donn\\'e par $f''(x) = 0$. En r\\'esolvant l'\\'equation $6x - 12 = 0$, on trouve $x = 2$. Par cons\\'equent, le point d'inflexion est $(2, f(2))$. Pour trouver $f(2)$, on remplace $x = 2$ dans l'\\'equation de $f(x)$ : $f(2) = 2^3 - 6 \\cdot 2^2 + 9 \\cdot 2 + 2 = 8 - 24 + 18 + 2 = 4$. Le point d'inflexion est donc $(2, 4)$.",
+      "choices": [
+        {
+          "latex": "$(1, 5)$",
+          "sympy": "(1, 1**3 - 6*1**2 + 9*1 + 2)",
+          "correct": false,
+          "error_type": "point_incorrect"
+        },
+        {
+          "latex": "$(2, 4)$",
+          "sympy": "(2, 2**3 - 6*2**2 + 9*2 + 2)",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$(3, 2)$",
+          "sympy": "(3, 3**3 - 6*3**2 + 9*3 + 2)",
+          "correct": false,
+          "error_type": "point_incorrect"
+        },
+        {
+          "latex": "$(4, 1)$",
+          "sympy": "(4, 4**3 - 6*4**2 + 9*4 + 2)",
+          "correct": false,
+          "error_type": "point_incorrect"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-03",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-etude-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f$ d'efinie sur $mathbb{R}$ par $f(x) = x^3 + 3x^2 - 9x - 5$. Quel est le signe de $f''(x)$ pour $x > 1$ ?",
+      "hints": [
+        "Différenciez deux fois la fonction pour trouver $f''(x)$",
+        "Analysez le signe de $f''(x)$ pour $x > 1$"
+      ],
+      "solution_latex": "La fonction $f''(x) = 6x + 6$. Pour $x > 1$, $f''(x) > 0$ car $6x + 6 > 6 + 6$.",
+      "choices": [
+        {
+          "latex": "$f''(x) > 0$",
+          "sympy": "6*x + 6",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$f''(x) < 0$",
+          "sympy": "-(6*x + 6)",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "$f''(x) = 0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "constant_error"
+        },
+        {
+          "latex": "$f''(x)$ n'est pas d'efinie",
+          "sympy": "None",
+          "correct": false,
+          "error_type": "undefined_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "6*x + 6"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-03",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f$ d'efinie sur $mathbb{R}$ par $f(x) = 2x^4 - 5x^3 - 3x^2 + 7x + 1$. Quel est le point d'inflexion de la fonction $f$ ?",
+      "hints": [
+        "Différenciez deux fois la fonction pour trouver $f''(x)$",
+        "Résolvez l'équation $f''(x) = 0$ pour trouver le point d'inflexion"
+      ],
+      "solution_latex": "La fonction $f''(x) = 24x^2 - 30x - 6$. Le point d'inflexion est donné par $24x^2 - 30x - 6 = 0$. En résolvant cette équation, on trouve $x = \\frac{5 \\pm \\sqrt{109}}{12}$.",
+      "choices": [
+        {
+          "latex": "$x = \\frac{5 + \\sqrt{109}}{12}$",
+          "sympy": "(5 + sqrt(109))/12",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$x = \\frac{5 - \\sqrt{109}}{12}$",
+          "sympy": "(5 - sqrt(109))/12",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "$x = \\frac{5}{12}$",
+          "sympy": "5/12",
+          "correct": false,
+          "error_type": "no_sqrt_error"
+        },
+        {
+          "latex": "$x = 0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "zero_error"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-03",
+    "difficulty": 1,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-etude-03",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Soit $f$ d'efinie sur $mathbb{R}$ par $f(x) = -x^2 + 4x - 3$. Quel est le signe de $f''(x)$ pour tout $x \\in \\mathbb{R}$ ?",
+      "hints": [
+        "Différenciez deux fois la fonction pour trouver $f''(x)$",
+        "Analysez le signe de $f''(x)$ pour tout $x \\in \\mathbb{R}$"
+      ],
+      "solution_latex": "La fonction $f''(x) = -2$. Le signe de $f''(x)$ est négatif pour tout $x \\in \\mathbb{R}$.",
+      "choices": [
+        {
+          "latex": "$f''(x) < 0$",
+          "sympy": "-2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$f''(x) > 0$",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "$f''(x) = 0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "constant_error"
+        },
+        {
+          "latex": "$f''(x)$ n'est pas d'efinie",
+          "sympy": "None",
+          "correct": false,
+          "error_type": "undefined_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "-2"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-03",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Soit $f$ une fonction dérivable deux fois sur $\\mathbb{R}$, et soit $a \\in \\mathbb{R}$ un point d'inflexion de $f$. Quelle est la condition nécessaire et suffisante sur $f''$ pour que $a$ soit un point d'inflexion de $f$ ?",
+      "hints": [
+        "Rappeler la définition d'un point d'inflexion en termes de variation de la convexité",
+        "Utiliser la définition de la dérivée seconde et son lien avec la convexité/concavité de la fonction"
+      ],
+      "solution_latex": "La condition nécessaire et suffisante sur $f''$ pour que $a$ soit un point d'inflexion de $f$ est que $f''(a) = 0$.",
+      "choices": [
+        {
+          "latex": "Si $f''(a) > 0$ alors $a$ est un point d'inflexion de $f$",
+          "correct": false,
+          "error_type": "condition_inflexion_incorrecte"
+        },
+        {
+          "latex": "Si $f''(a) = 0$ alors $a$ est un point d'inflexion de $f$",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "Si $f''(a) < 0$ alors $a$ est un point d'inflexion de $f$",
+          "correct": false,
+          "error_type": "condition_inflexion_incorrecte"
+        },
+        {
+          "latex": "Si $f'(a) = 0$ alors $a$ est un point d'inflexion de $f$",
+          "correct": false,
+          "error_type": "confusion_condition_optimalite"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-03",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Soit $f$ une fonction dérivable deux fois sur $\\mathbb{R}$, et soit $a \\in \\mathbb{R}$. Si $f''(x) > 0$ pour tout $x \\in \\mathbb{R}$, quelle est la propriété de $f$ en rapport avec sa convexité ?",
+      "hints": [
+        "Rappeler la définition de la convexité d'une fonction en termes de signe de la dérivée seconde",
+        "Comprendre que la convexité est une propriété locale ou globale de la fonction"
+      ],
+      "solution_latex": "Si $f''(x) > 0$ pour tout $x \\in \\mathbb{R}$, alors $f$ est convexe sur $\\mathbb{R}$. Cela signifie que la fonction est courbée vers le haut partout, et qu'elle est toujours au-dessus de ses tangentes.",
+      "choices": [
+        {
+          "latex": "La fonction $f$ est concave sur $\\mathbb{R}$",
+          "correct": false,
+          "error_type": "erreur_convexite"
+        },
+        {
+          "latex": "La fonction $f$ est convexe sur $\\mathbb{R}$",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "La fonction $f$ est linéaire sur $\\mathbb{R}$",
+          "correct": false,
+          "error_type": "confusion_propriete"
+        },
+        {
+          "latex": "La fonction $f$ n'a pas de propriété particulière en terme de convexité",
+          "correct": false,
+          "error_type": "confusion_convexite"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-03",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé suivant : « Si $f''(x) > 0$ pour tout $x$ dans un intervalle $I$, alors $f$ est convexe sur $I$ »",
+      "hints": [
+        "Pense à la définition de la convexité d'une fonction",
+        "Utilise la définition de la convexité pour obtenir le bon ordre des fragments"
+      ],
+      "solution_latex": "Si $f''(x) > 0$ pour tout $x$ dans un intervalle $I$, alors $f$ est convexe sur $I$",
+      "fragments": [
+        "Si $f''(x) > 0$ pour tout $x$ dans un intervalle $I$",
+        "alors $f$ est convexe sur $I$",
+        "car la fonction est toujours au-dessus de ses tangentes",
+        "ce qui est la définition de la convexité d'une fonction"
+      ],
+      "distracteurs": [
+        "la fonction est toujours en dessous de ses tangentes"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-03",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé suivant : « Un point $a$ est un point d'inflexion de la fonction $f$ si et seulement si $f''(a) = 0$ et si $f''(x)$ change de signe en $a$ »",
+      "hints": [
+        "Pense à la définition d'un point d'inflexion",
+        "Utilise la définition de la dérivée seconde pour obtenir le bon ordre des fragments"
+      ],
+      "solution_latex": "Un point $a$ est un point d'inflexion de la fonction $f$ si et seulement si $f''(a) = 0$ et si $f''(x)$ change de signe en $a$",
+      "fragments": [
+        "Un point $a$ est un point d'inflexion de la fonction $f$",
+        "si et seulement si $f''(a) = 0$",
+        "et si $f''(x)$ change de signe en $a$",
+        "c'est-à-dire que la convexité de la fonction change en $a$"
+      ],
+      "distracteurs": [
+        "la fonction est toujours convexe en $a$"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

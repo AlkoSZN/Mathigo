@@ -1,0 +1,506 @@
+[
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite suivante : $\\displaystyle \\lim\\limits_{x\\to+\\infty}\\frac{\\ln x}{x^{1/3}}$.",
+      "hints": [
+        "Comparer les ordres de croissance de $\\ln x$ et $x^{1/3}$.",
+        "Utiliser le fait que $\\ln x=o\\bigl(x^{\\alpha}\\bigr)$ pour tout $\\alpha>0$ afin de conclure sur la valeur de la limite."
+      ],
+      "solution_latex": "Comme $\\ln x=o\\bigl(x^{\\alpha}\\bigr)$ pour tout $\\alpha>0$, en particulier pour $\\alpha=\\tfrac13$, on a $\\displaystyle\\frac{\\ln x}{x^{1/3}}\\xrightarrow[x\\to+\\infty]{}0$. Donc la limite vaut $0$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "confusion_log_vs_power"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "incorrect_application_of_lhopital"
+        },
+        {
+          "latex": "-\\infty",
+          "sympy": "-oo",
+          "correct": false,
+          "error_type": "sign_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(log(x)/x**(Rational(1,3)), x, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite : $\\displaystyle \\lim\\limits_{x\\to+\\infty}\\frac{e^{2x}}{x^5}$.",
+      "hints": [
+        "Comparer la vitesse de croissance de $e^{2x}$ avec celle d'une puissance polynomiale $x^5$.",
+        "Utiliser le fait que $e^{x}$ domine toute fonction de la forme $x^{\\alpha}$ pour $x\\to+\\infty$ afin d'évaluer la limite."
+      ],
+      "solution_latex": "La fonction exponentielle $e^{2x}=\\bigl(e^{x}\\bigr)^2$ croît plus rapidement que n'importe quelle puissance $x^\\alpha$. Ainsi $\\displaystyle\\frac{e^{2x}}{x^5}\\xrightarrow[x\\to+\\infty]{}+\\infty$. La limite est $+\\infty$.",
+      "choices": [
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "inverse_ratio_error"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "forget_exponential_dominance"
+        },
+        {
+          "latex": "-\\infty",
+          "sympy": "-oo",
+          "correct": false,
+          "error_type": "sign_misinterpretation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(exp(2*x)/x**5, x, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "qcm",
+      "difficulty": 4,
+      "statement_latex": "Évaluer la limite suivante : $\\displaystyle \\lim\\limits_{x\\to+\\infty}\\frac{\\ln(x^2+1)}{\\sqrt{x}}$.",
+      "hints": [
+        "Analyser la croissance de $\\ln(x^2+1)$ comparée à $\\sqrt{x}=x^{1/2}$.",
+        "Utiliser l'équivalence $\\ln(x^2+1)\\sim 2\\ln x$ quand $x\\to+\\infty$ puis comparer les puissances."
+      ],
+      "solution_latex": "Pour $x\\to+\\infty$, $\\ln(x^2+1)\\sim 2\\ln x$, et $\\ln x = o\\bigl(x^{1/2}\\bigr)$. Donc $\\displaystyle\\frac{\\ln(x^2+1)}{\\sqrt{x}}\\xrightarrow[x\\to+\\infty]{}0$. La limite vaut $0$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "overestimate_log_growth"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "incorrect_equivalence_use"
+        },
+        {
+          "latex": "-\\infty",
+          "sympy": "-oo",
+          "correct": false,
+          "error_type": "sign_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(log(x**2+1)/sqrt(x), x, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "\\displaystyle \\lim_{x\\to+\\infty}\\frac{e^{x}}{x^{\\pi}}",
+      "hints": [
+        "Comparer la vitesse de croissance de $e^{x}$ et de $x^{\\pi}$ en utilisant la hiérarchie connue.",
+        "Factoriser ou appliquer le théorème de l'Hôpital si nécessaire pour conclure. "
+      ],
+      "solution_latex": "Comme $e^{x}$ croît plus rapidement que toute puissance $x^{\\alpha}$, on a $\\displaystyle \\lim_{x\\to+\\infty}\\frac{e^{x}}{x^{\\pi}}=+\\infty$.",
+      "choices": [
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "confusing_numerator_denominator"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "incorrect_application_of_lhopital"
+        },
+        {
+          "latex": "-\\infty",
+          "sympy": "-oo",
+          "correct": false,
+          "error_type": "sign_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "oo"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "\\displaystyle \\lim_{x\\to+\\infty}\\frac{\\ln(x)^{2}}{x^{0.1}}",
+      "hints": [
+        "Utiliser la comparaison $\\ln x \\ll x^{\\alpha}$ pour un petit $\\alpha>0$.",
+        "Élever au carré ne change pas l'ordre de grandeur ; appliquer ensuite le quotient. "
+      ],
+      "solution_latex": "On a $\\ln x \\ll x^{0.05}$, donc $\\ln(x)^{2}\\ll x^{0.1}$. Le rapport tend donc vers $0$. Ainsi $\\displaystyle \\lim_{x\\to+\\infty}\\frac{\\ln(x)^{2}}{x^{0.1}}=0$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "inverse_comparison"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "forgetting_square"
+        },
+        {
+          "latex": "\\frac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "misleading_constant"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "0"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "\\displaystyle \\lim_{x\\to+\\infty}\\frac{\\sqrt{x}\\,\\ln x}{e^{\\sqrt{x}}}",
+      "hints": [
+        "Comparer $\\sqrt{x}\\,\\ln x$ avec $e^{\\sqrt{x}}$ en utilisant la hiérarchie $\\ln x \\ll x^{\\alpha} \\ll e^{x}$.",
+        "Remarquer que l'exposant de l'exponential est $\\sqrt{x}$, donc la fonction exponentielle domine largement le numérateur. "
+      ],
+      "solution_latex": "Le terme $e^{\\sqrt{x}}$ domine largement $\\sqrt{x}\\,\\ln x$, donc le quotient tend vers $0$. Ainsi $\\displaystyle \\lim_{x\\to+\\infty}\\frac{\\sqrt{x}\\,\\ln x}{e^{\\sqrt{x}}}=0$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "ignoring_exponential_dominance"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "incorrect_limit_assumption"
+        },
+        {
+          "latex": "-\\infty",
+          "sympy": "-oo",
+          "correct": false,
+          "error_type": "sign_misinterpretation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "0"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "\\displaystyle \\lim\\limits_{x\\to+\\infty}\\frac{x^{2}}{e^{x}}",
+      "hints": [
+        "Comparer la vitesse de croissance de $x^{2}$ et $e^{x}$ en utilisant la hiérarchie des fonctions.",
+        "Appliquer l\\'opération de l'Hôpital deux fois ou invoquer directement le fait que $e^{x}$ domine toute puissance polynomiale."
+      ],
+      "solution_latex": "Comme $e^{x}$ croît beaucoup plus rapidement que toute puissance $x^{k}$, le quotient tend vers $0$. On peut appliquer deux fois la règle de l\\'Hôpital : \\[\\lim_{x\\to+\\infty}\\frac{x^{2}}{e^{x}}=\\lim_{x\\to+\\infty}\\frac{2x}{e^{x}}=\\lim_{x\\to+\\infty}\\frac{2}{e^{x}}=0.\\] Ainsi la limite vaut $0$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "exponential_dominance_misunderstood"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "incorrect_application_of_lhopital_once"
+        },
+        {
+          "latex": "-\\infty",
+          "sympy": "-oo",
+          "correct": false,
+          "error_type": "sign_error_on_exponential"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(x**2/exp(x), x, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "\\displaystyle \\lim\\limits_{x\\to+\\infty}\\frac{e^{x}}{x^{10}}",
+      "hints": [
+        "Utiliser la hiérarchie $e^{x}\\gg x^{\\alpha}$ lorsque $x\\to+\\infty$.",
+        "On peut appliquer l\\'opération de l'Hôpital plusieurs fois ou rappeler que la fonction exponentielle domine toute puissance."
+      ],
+      "solution_latex": "La fonction exponentielle domine toute puissance de $x$. En appliquant la règle de l\\'Hôpital dix fois on obtient toujours un facteur $e^{x}$ au numérateur, donc le quotient tend vers $+\\infty$. On a donc \\[\\lim_{x\\to+\\infty}\\frac{e^{x}}{x^{10}}=+\\infty.\\]",
+      "choices": [
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "inverse_dominance_confusion"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "forgotten_lhopital_iterations"
+        },
+        {
+          "latex": "-\\infty",
+          "sympy": "-oo",
+          "correct": false,
+          "error_type": "sign_error_exponential"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(exp(x)/x**10, x, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel est le nom du résultat théorique qui assure que, lorsque $x\\to+\\infty$, on a $\\ln x=o(x^{\\alpha})$ pour tout $\n\nalpha>0$ ?",
+      "hints": [
+        "Pensez aux notions de domination asymptotique entre fonctions croissantes.",
+        "Le résultat s'énonce sous forme de comparaison entre une fonction logarithmique et une puissance positive de $x$ et utilise la notation $o$."
+      ],
+      "solution_latex": "Le résultat est le *théorème des croissances comparées* (ou *comparaison des fonctions usuelles*) qui stipule que, pour tout $\n\nalpha>0$, $\\ln x=o(x^{\\alpha})$ quand $x\\to+\\infty$. Ainsi, $\\displaystyle\\lim_{x\\to+\\infty}\\frac{\\ln x}{x^{\\alpha}}=0$.",
+      "choices": [
+        {
+          "latex": "Théorème des valeurs intermédiaires",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Théorème des fonctions comparées (croissances comparées)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "Théorème de la limite monotone",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Théorème de la dérivation sous le signe de limite",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour que la comparaison $e^{x}=o(x^{\\beta})$ soit vraie quand $x\\to+\\infty$, quelle condition doit vérifier $\n\nbeta$ ?",
+      "hints": [
+        "Réfléchissez à la vitesse de croissance de l'exponentielle versus les puissances.",
+        "Le résultat attendu provient du même principe de hiérarchie $\\ln x\\ll x^{\\alpha}\\ll e^{x}$."
+      ],
+      "solution_latex": "Aucune puissance positive $x^{\\beta}$ ne domine l'exponentielle $e^{x}$ en $+\\infty$ ; la relation $e^{x}=o(x^{\\beta})$ est **fausse** pour tout $\n\nbeta>0$. Donc la condition nécessaire serait $\n\nbeta<0$ (c'est‑à‑dire considérer $x^{\\beta}=1/x^{|\\beta|}$). Ainsi, pour $\n\nbeta>0$, on a $x^{\\beta}=o(e^{x})$, pas l'inverse.",
+      "choices": [
+        {
+          "latex": "Il faut que $\n\nbeta>1$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Il faut que $\n\nbeta<0$",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "Il faut que $\n\nbeta=0$",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Aucune condition, la relation est toujours vraie",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème qui compare la croissance de $\\ln x$, $x^{\\alpha}$ et $e^{x}$ lorsque $x\\to+\\infty$.",
+      "hints": [
+        "Commence par identifier la forme générale du résultat : il s'agit d'une relation de domination entre fonctions.",
+        "Rappelle que pour tout $\\alpha>0$, $\\ln x=o(x^{\\alpha})$ et que $x^{\\alpha}=o(e^{x})$ quand $x\\to+\\infty$."
+      ],
+      "solution_latex": "\\textbf{Théorème (hiérarchie des fonctions usuelles).} \\textit{Pour tout $\\alpha>0$, on a, lorsque $x\\to+\\infty$,}\\[ \\ln x = o\\bigl(x^{\\alpha}\\bigr) \\quad\\text{et}\\quad x^{\\alpha}=o\\bigl(e^{x}\\bigr). \\] \\textit{En d'autres termes, $\\ln x \\ll x^{\\alpha} \\ll e^{x}$.}",
+      "fragments": [
+        "Pour tout $\\alpha>0$,",
+        "on a, lorsque $x\\to+\\infty$,",
+        "\\ln x = o\\bigl(x^{\\alpha}\\bigr)",
+        "et",
+        "x^{\\alpha}=o\\bigl(e^{x}\\bigr)."
+      ],
+      "distracteurs": [
+        "Pour tout $\\alpha>0$, on a $\\ln x = O\\bigl(x^{\\alpha}\\bigr)$.",
+        "Lorsque $x\\to+\\infty$, $e^{x}=o\\bigl(x^{\\alpha}\\bigr)$."
+      ]
+    }
+  },
+  {
+    "skill_id": "ana1-limites-04",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-04",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé du lemme qui assure la comparaison $\\ln x = o(x^{\\alpha})$ quand $x\\to+\\infty$.",
+      "hints": [
+        "Pense à la formulation en termes de limites.",
+        "Utilise la définition de $o$ : $f=o(g)$ si $\\displaystyle\\lim_{x\\to+\\infty}\\frac{f(x)}{g(x)}=0$."
+      ],
+      "solution_latex": "\\textbf{Lemme.} \\textit{Pour tout $\\alpha>0$,}\\[ \\lim_{x\\to+\\infty}\\frac{\\ln x}{x^{\\alpha}}=0. \\] \\textit{Autrement dit, $\\ln x = o\\bigl(x^{\\alpha}\\bigr)$ lorsque $x\\to+\\infty$.}",
+      "fragments": [
+        "Pour tout $\\alpha>0$,",
+        "\\lim_{x\\to+\\infty}\\frac{\\ln x}{x^{\\alpha}}=0",
+        "Autrement dit,",
+        "$\\ln x = o\\bigl(x^{\\alpha}\\bigr)$",
+        "lorsque $x\\to+\\infty$."
+      ],
+      "distracteurs": [
+        "Pour tout $\\alpha>0$, $\\displaystyle\\lim_{x\\to+\\infty}\\frac{x^{\\alpha}}{\\ln x}=0$.",
+        "Pour tout $\\alpha>0$, $\\ln x = O\\bigl(x^{\\alpha}\\bigr)$."
+      ]
+    }
+  }
+]

@@ -1,0 +1,502 @@
+[
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Déterminez la parité de la fonction $f(x) = x^3 + 2x^2 - 5x + 1$",
+      "hints": [
+        "Déterminez si la fonction est paire, impaire ou ni paire ni impaire",
+        "Utilisez les définitions de parité et d'imparité pour analyser la fonction"
+      ],
+      "solution_latex": "La fonction $f(x)$ est impaire car $f(-x) = -x^3 + 2x^2 + 5x + 1 = -f(x)$",
+      "choices": [
+        {
+          "latex": "Fonction paire",
+          "sympy": "x**2",
+          "correct": false,
+          "error_type": "confusion_paire_impaire"
+        },
+        {
+          "latex": "Fonction impaire",
+          "sympy": "x**3",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "Fonction ni paire ni impaire",
+          "sympy": "x**2 + x",
+          "correct": false,
+          "error_type": "manque_analyse"
+        },
+        {
+          "latex": "Fonction périodique",
+          "sympy": "sin(x)",
+          "correct": false,
+          "error_type": "confusion_periode_paire"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 1,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Quel est le domaine de définition de la fonction $f(x) = \\dfrac{1}{x^2 - 4}$",
+      "hints": [
+        "Déterminez les valeurs de $x$ qui font que le dénominateur est nul",
+        "Utilisez les propriétés des fonctions rationnelles pour analyser le domaine"
+      ],
+      "solution_latex": "Le domaine de définition est $\\mathbb{R} \\setminus \\{-2, 2\\}$",
+      "choices": [
+        {
+          "latex": "$\\mathbb{R}$",
+          "sympy": "x",
+          "correct": false,
+          "error_type": "negligence_points_singuliers"
+        },
+        {
+          "latex": "$\\mathbb{R} \\setminus \\{-2, 2\\}$",
+          "sympy": "x != -2 & x != 2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$\\mathbb{R} \\setminus \\{0\\}$",
+          "sympy": "x != 0",
+          "correct": false,
+          "error_type": "confusion_zero_autre_valeur"
+        },
+        {
+          "latex": "$\\mathbb{R}^+$",
+          "sympy": "x > 0",
+          "correct": false,
+          "error_type": "restriction_domaine_inutile"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "La fonction $f(x) = \\cos(2x)$ est périodique de période $T$. Déterminez $T$",
+      "hints": [
+        "Rappellez la définition de la périodicité d'une fonction",
+        "Utilisez les propriétés des fonctions trigonométriques pour déterminer la période"
+      ],
+      "solution_latex": "La période de $f(x)$ est $T = \\dfrac{2\\pi}{2} = \\pi$",
+      "choices": [
+        {
+          "latex": "$\\dfrac{\\pi}{2}$",
+          "sympy": "pi/2",
+          "correct": false,
+          "error_type": "sous_estimation_periode"
+        },
+        {
+          "latex": "$\\pi$",
+          "sympy": "pi",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$2\\pi$",
+          "sympy": "2*pi",
+          "correct": false,
+          "error_type": "surestimation_periode"
+        },
+        {
+          "latex": "$\\dfrac{\\pi}{4}$",
+          "sympy": "pi/4",
+          "correct": false,
+          "error_type": "erreur_calcule_periode"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "La fonction $f(x) = \\dfrac{x}{\\sqrt{x^2 - 4}}$ est-elle paire ou impaire ?",
+      "hints": [
+        "Analysez le comportement de la fonction en fonction du signe de $x$",
+        "Utilisez la définition d'une fonction paire ou impaire pour prendre votre décision"
+      ],
+      "solution_latex": "La fonction $f(x)$ est impaire car $f(-x) = -f(x)$",
+      "choices": [
+        {
+          "latex": "paire",
+          "sympy": "-x",
+          "correct": false,
+          "error_type": "confusion_paire_impaire"
+        },
+        {
+          "latex": "impaire",
+          "sympy": "x",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "ni paire ni impaire",
+          "sympy": "x**2",
+          "correct": false,
+          "error_type": "manque_analyse_comportement"
+        },
+        {
+          "latex": "on ne peut pas déterminer",
+          "sympy": "sin(x)",
+          "correct": false,
+          "error_type": "manque_connaissance_definition"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 1,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Quel est le domaine de définition de la fonction $f(x) = \\sqrt{x + 2}$ ?",
+      "hints": [
+        "Analysez les restrictions sur la valeur de $x$ pour que l'expression sous la racine carrée soit non négative",
+        "Utilisez l'inégalité $x + 2 \\geq 0$ pour trouver le domaine"
+      ],
+      "solution_latex": "Le domaine de $f(x)$ est $[-2, \\infty)$",
+      "choices": [
+        {
+          "latex": "$(-\\infty, -2]$",
+          "sympy": "-x - 2",
+          "correct": false,
+          "error_type": "erreur_inegalite"
+        },
+        {
+          "latex": "$[-2, \\infty)$",
+          "sympy": "x + 2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$(-\\infty, \\infty)$",
+          "sympy": "x**2",
+          "correct": false,
+          "error_type": "oubli_restriction_racine"
+        },
+        {
+          "latex": "$(-2, \\infty)$",
+          "sympy": "x - 2",
+          "correct": false,
+          "error_type": "manque_analyse_inclusion_point"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "La fonction $f(x) = \\tan(3x)$ a une période $T$. Quelle est la valeur de $T$ ?",
+      "hints": [
+        "Rappellez-vous la définition de la période d'une fonction périodique",
+        "Utilisez la formule de la période de la fonction tangente, $T = \\dfrac{\\pi}{|b|}$, où $b$ est le coefficient de $x$ à l'intérieur de la fonction tangente"
+      ],
+      "solution_latex": "La période de $f(x)$ est $T = \\dfrac{\\pi}{3}$",
+      "choices": [
+        {
+          "latex": "$\\dfrac{\\pi}{6}$",
+          "sympy": "pi / 6",
+          "correct": false,
+          "error_type": "erreur_coefficient"
+        },
+        {
+          "latex": "$\\dfrac{\\pi}{3}$",
+          "sympy": "pi / 3",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$\\dfrac{\\pi}{2}$",
+          "sympy": "pi / 2",
+          "correct": false,
+          "error_type": "oubli_regle_période_tangente"
+        },
+        {
+          "latex": "$\\pi$",
+          "sympy": "pi",
+          "correct": false,
+          "error_type": "confusion_fonction_tangente_autre_fonction"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "pi / 3"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "La fonction $f(x) = \\dfrac{x^2 + 1}{x + 1}$ est-elle paire ou impaire ?",
+      "hints": [
+        " Une fonction paire satisfait $f(-x) = f(x)$ pour tout $x$ dans son domaine de définition.",
+        " Pour vérifier la parité, il suffit de remplacer $x$ par $-x$ dans l'expression de $f(x)$ et de simplifier."
+      ],
+      "solution_latex": "La fonction $f(x)$ est impaire, car $f(-x) = \\dfrac{(-x)^2 + 1}{-x + 1} = \\dfrac{x^2 + 1}{-x + 1} = -\\dfrac{x^2 + 1}{x - 1} = -f(x)$",
+      "choices": [
+        {
+          "latex": "paire",
+          "sympy": "False",
+          "correct": false,
+          "error_type": "confusion_paire_impaire"
+        },
+        {
+          "latex": "impaire",
+          "sympy": "True",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "ni paire ni impaire",
+          "sympy": "None",
+          "correct": false,
+          "error_type": "conclusion_hative"
+        },
+        {
+          "latex": "peut être les deux",
+          "sympy": "None",
+          "correct": false,
+          "error_type": "tertium_non_datur"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Déterminez la période $T$ de la fonction $f(x) = \\sin(\\dfrac{x}{2})$",
+      "hints": [
+        " La fonction sinusoïdale a une période connue, notée $2\\pi$. Ici, il y a un facteur $\\dfrac{1}{2}$ dans l'argument.",
+        " Pour trouver la période $T$ de $f(x)$, il faut résoudre $\\dfrac{T}{2} = 2\\pi$, qui correspond à une variation de $2\\pi$ de l'argument de la fonction sinus."
+      ],
+      "solution_latex": "La période $T$ est donnée par $\\dfrac{T}{2} = 2\\pi$, donc $T = 4\\pi$",
+      "choices": [
+        {
+          "latex": "$2\\pi$",
+          "sympy": "2*pi",
+          "correct": false,
+          "error_type": "oubli_facteur"
+        },
+        {
+          "latex": "$4\\pi$",
+          "sympy": "4*pi",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$\\dfrac{\\pi}{2}$",
+          "sympy": "pi/2",
+          "correct": false,
+          "error_type": "inversion_facteur"
+        },
+        {
+          "latex": "$\\pi$",
+          "sympy": "pi",
+          "correct": false,
+          "error_type": "approximation_grosse"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "4*pi"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Soit la fonction $f(x) = \\dfrac{x + 1}{x - 1}$. Est-elle impaire, paire, ou ni l'une ni l'autre ?",
+      "hints": [
+        "Une fonction $f(x)$ est dite paire si $f(-x) = f(x)$, et impaire si $f(-x) = -f(x)$ pour tout $x$ dans son domaine de définition.",
+        "Pour déterminer si la fonction est paire ou impaire, il faut calculer $f(-x)$ et la comparer à $f(x)$."
+      ],
+      "solution_latex": "La fonction $f(x) = \\dfrac{x + 1}{x - 1}$ est impaire car $f(-x) = \\dfrac{-x + 1}{-x - 1} = -\\dfrac{x - 1}{x + 1} = -f(x)$.",
+      "choices": [
+        {
+          "latex": "La fonction $f(x)$ est paire",
+          "correct": false,
+          "error_type": "confusion_paissance"
+        },
+        {
+          "latex": "La fonction $f(x)$ est impaire",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "La fonction $f(x)$ est ni paire ni impaire",
+          "correct": false,
+          "error_type": "definition_incomplete"
+        },
+        {
+          "latex": "La fonction $f(x)$ n'est définie que pour $x > 0$",
+          "correct": false,
+          "error_type": "domaine_incorrect"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Quelle est la condition nécessaire et suffisante pour qu'une fonction $f(x)$ soit périodique de période $T$ ?",
+      "hints": [
+        "Une fonction $f(x)$ est dite périodique de période $T$ si $f(x + T) = f(x)$ pour tout $x$ dans son domaine de définition.",
+        "La condition nécessaire et suffisante pour qu'une fonction $f(x)$ soit périodique de période $T$ est que $f(x + T) = f(x)$ pour tout $x$, et que $T$ soit le plus petit nombre positif vérifiant cette propriété."
+      ],
+      "solution_latex": "La condition nécessaire et suffisante pour qu'une fonction $f(x)$ soit périodique de période $T$ est que $f(x + T) = f(x)$ pour tout $x$ dans son domaine de définition, et que $T$ soit le plus petit nombre positif vérifiant cette propriété.",
+      "choices": [
+        {
+          "latex": "La fonction $f(x)$ est périodique si $f(x + T) = f(x)$ pour tout $x$, mais $T$ n'a pas besoin d'être le plus petit nombre positif",
+          "correct": false,
+          "error_type": "condition_necessaire_insuffisante"
+        },
+        {
+          "latex": "La fonction $f(x)$ est périodique si $f(x + T) = f(x)$ pour tout $x$, et $T$ est le plus petit nombre positif vérifiant cette propriété",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "La fonction $f(x)$ est périodique si $f(x + T) = f(x)$ pour tout $x > 0$",
+          "correct": false,
+          "error_type": "domaine_incorrect"
+        },
+        {
+          "latex": "La fonction $f(x)$ est périodique si $f(x + T) = f(x)$ pour tout $x$, mais cela n'implique pas que $T$ soit le plus petit nombre positif",
+          "correct": false,
+          "error_type": "condition_suffisante_insuffisante"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé de la définition d'une fonction paire.",
+      "hints": [
+        "Cette définition implique l'égalité de la fonction en $x$ et en $-x$.",
+        "La définition utilise l'expression $f(-x) = f(x)$ pour toutes les valeurs de $x$ dans le domaine."
+      ],
+      "solution_latex": "Une fonction $f$ est dite paire si pour tout $x$ dans son domaine, on a $f(-x) = f(x)$.",
+      "fragments": [
+        "Une fonction $f$ est dite paire si",
+        "pour tout $x$ dans son domaine, on a",
+        "$f(-x) = f(x)$"
+      ],
+      "distracteurs": [
+        "$f(-x) = -f(x)$",
+        "pour tout $x$ et $y$ dans son domaine"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-01",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-01",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Énonce de la propriété de périodicité pour une fonction $f(x)$ de période $T$.",
+      "hints": [
+        "La périodicité signifie que la fonction se répète à intervalles réguliers.",
+        "La condition de périodicité est formulée en termes d'égalité entre $f(x)$ et $f(x + T)$ pour tout $x$."
+      ],
+      "solution_latex": "Une fonction $f(x)$ est dite périodique de période $T$ si pour tout $x$ dans son domaine, on a $f(x + T) = f(x)$.",
+      "fragments": [
+        "Une fonction $f(x)$ est dite périodique de période $T$ si",
+        "pour tout $x$ dans son domaine, on a",
+        "$f(x + T) = f(x)$"
+      ],
+      "distracteurs": [
+        "$f(x - T) = f(x)$",
+        "pour tout $x$ et pour une valeur particulière de $T$"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

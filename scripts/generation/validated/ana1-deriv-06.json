@@ -1,0 +1,509 @@
+[
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f$ la fonction d\\'équation $f(x) = x^3 - 6x^2 + 9x + 2$, et $a = 1$, $b = 3$. Quel est l\\'accroissement fini de $f$ entre $a$ et $b$ ?",
+      "hints": [
+        "Rappeler la définition de l'accroissement fini d'une fonction entre deux points.",
+        "Utiliser la formule $f(b) - f(a)$ pour calculer l'accroissement fini."
+      ],
+      "solution_latex": "Il faut calculer $f(3) - f(1)$. $f(1) = 1 - 6 + 9 + 2 = 6$ et $f(3) = 27 - 54 + 27 + 2 = 2$. Donc, l'accroissement fini est $2 - 6 = -4$.",
+      "choices": [
+        {
+          "latex": "-4",
+          "sympy": "-4",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "4",
+          "sympy": "4",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "5",
+          "sympy": "5",
+          "correct": false,
+          "error_type": "calculation_error"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "zero_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "(3**3 - 6*3**2 + 9*3 + 2) - (1**3 - 6*1**2 + 9*1 + 2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f(x) = x^2 - 4x + 3$. Quel est le point $c$ dans l'intervalle $[1, 3]$ où le théorème de Rolle s'applique ?",
+      "hints": [
+        "Rappeler les conditions d'application du théorème de Rolle.",
+        "Utiliser la dérivée de la fonction pour trouver le point critique."
+      ],
+      "solution_latex": "La fonction $f$ est continue et dérivable sur $[1, 3]$. La dérivée est $f'(x) = 2x - 4$. Pour que $f'(c) = 0$, il faut $2c - 4 = 0$, donc $c = 2$. Comme $f(1) = f(3) = 0$, le théorème de Rolle s'applique bien.",
+      "choices": [
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "boundary_error"
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "boundary_error"
+        },
+        {
+          "latex": "4",
+          "sympy": "4",
+          "correct": false,
+          "error_type": "out_of_range_error"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 1,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Soit $f(x) = x^2$. Quel est l'accroissement fini de $f$ entre $0$ et $1$ ?",
+      "hints": [
+        "Rappeler la définition de l'accroissement fini.",
+        "Calculer directement l'accroissement fini."
+      ],
+      "solution_latex": "L'accroissement fini est $f(1) - f(0) = 1^2 - 0^2 = 1$.",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "-1",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "zero_error"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "calculation_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "(1**2) - (0**2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f(x) = x^2 - 2x + 1$. Quel est l'accroissement fini de $f$ entre $0$ et $2$ ?",
+      "hints": [
+        "Utilisez la définition de l'accroissement fini d'une fonction",
+        "Calculer $f(2) - f(0)$ pour obtenir la réponse"
+      ],
+      "solution_latex": "L'accroissement fini de $f$ entre $0$ et $2$ est donné par $f(2) - f(0) = (2^2 - 2*2 + 1) - (0^2 - 2*0 + 1) = 4 - 2 + 1 - 1 = 2$",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "sous_estimation"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "surestimation"
+        },
+        {
+          "latex": "4",
+          "sympy": "4",
+          "correct": false,
+          "error_type": "erreur_de_calcul"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "2"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f(x) = x^3 - 3x^2 + 2$. Quel est l'accroissement fini de $f$ entre $1$ et $2$ ?",
+      "hints": [
+        " Appliquez la formule de l'accroissement fini",
+        "Effectuez le calcul $f(2) - f(1)$"
+      ],
+      "solution_latex": "L'accroissement fini de $f$ entre $1$ et $2$ est donné par $f(2) - f(1) = (2^3 - 3*2^2 + 2) - (1^3 - 3*1^2 + 2) = 8 - 12 + 2 - 1 + 3 - 2 = 0 - 0 = 0$",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "erreur_d_arrondi"
+        },
+        {
+          "latex": "-1",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "signe_incorrect"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "surestimation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "0"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 1,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Soit $f(x) = 2x + 1$. Quel est l'accroissement fini de $f$ entre $-1$ et $1$ ?",
+      "hints": [
+        "Utilisez la définition de l'accroissement fini",
+        "Calculer $f(1) - f(-1)$"
+      ],
+      "solution_latex": "L'accroissement fini de $f$ entre $-1$ et $1$ est donné par $f(1) - f(-1) = (2*1 + 1) - (2*(-1) + 1) = 2 + 1 + 2 - 1 = 4$",
+      "choices": [
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "sous_estimation"
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "erreur_de_calcul"
+        },
+        {
+          "latex": "4",
+          "sympy": "4",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "6",
+          "sympy": "6",
+          "correct": false,
+          "error_type": "surestimation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "4"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f(x) = x^2 - 3x + 2$. Quel est l'accroissement fini de $f$ entre $0$ et $2$ ?",
+      "hints": [
+        "Utiliser la formule de l'accroissement fini.",
+        "Rappeler que l'accroissement fini est donné par $f(b) - f(a)$."
+      ],
+      "solution_latex": "L'accroissement fini de $f$ entre $0$ et $2$ est $f(2) - f(0) = (2^2 - 3 \\cdot 2 + 2) - (0^2 - 3 \\cdot 0 + 2) = 4 - 6 + 2 - 2 = -2$.",
+      "choices": [
+        {
+          "latex": "$-2$",
+          "sympy": "-2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "$4$",
+          "sympy": "4",
+          "correct": false,
+          "error_type": "omission_of_term"
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "inadequate_evaluation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "(2**2 - 3*2 + 2) - (0**2 - 3*0 + 2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f(x) = x^3 - 2x^2 - 5x + 1$. Quel est l'accroissement fini de $f$ entre $-1$ et $1$ ?",
+      "hints": [
+        " Appliquer la formule de l'accroissement fini à $f(x)$.",
+        "Évaluer soigneusement les valeurs de $f$ en $-1$ et $1$."
+      ],
+      "solution_latex": "L'accroissement fini de $f$ entre $-1$ et $1$ est $f(1) - f(-1) = (1^3 - 2 \\cdot 1^2 - 5 \\cdot 1 + 1) - ((-1)^3 - 2 \\cdot (-1)^2 - 5 \\cdot (-1) + 1) = (1 - 2 - 5 + 1) - (-1 - 2 + 5 + 1) = -5 - 3 = -8$.",
+      "choices": [
+        {
+          "latex": "$-8$",
+          "sympy": "-8",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$8$",
+          "sympy": "8",
+          "correct": false,
+          "error_type": "sign_reversal"
+        },
+        {
+          "latex": "$3$",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "insufficient_subtraction"
+        },
+        {
+          "latex": "$-3$",
+          "sympy": "-3",
+          "correct": false,
+          "error_type": "incomplete_evaluation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "(1**3 - 2*1**2 - 5*1 + 1) -((-1)**3 - 2*(-1)**2 - 5*(-1) + 1)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Soit $f$ une fonction dérivable sur $[a, b]$. Quelle est la condition nécessaire et suffisante pour que le théorème de Rolle s'applique ?",
+      "hints": [
+        "Réfléchissez aux hypothèses du théorème de Rolle",
+        "Utilisez les propriétés des fonctions continues et dérivables"
+      ],
+      "solution_latex": "La condition nécessaire et suffisante est que $f(a) = f(b)$ et que $f$ soit dérivable sur $]a, b[$ et continue sur $[a, b]$",
+      "choices": [
+        {
+          "latex": "La fonction $f$ doit être dérivable sur $]a, b[$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "La fonction $f$ doit être continue sur $[a, b]$ et $f(a) = f(b)$",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "La fonction $f$ doit être constante sur $[a, b]$",
+          "correct": false,
+          "error_type": "condition_trop_forte"
+        },
+        {
+          "latex": "La fonction $f$ doit être dérivable sur $[a, b]$",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Soit $f$ une fonction dérivable sur $[a, b]$. Quelle est la signification de l'égalité des accroissements finis ?",
+      "hints": [
+        "Réfléchissez à la définition de l'accroissement fini",
+        "Utilisez les propriétés des fonctions dérivables"
+      ],
+      "solution_latex": "L'égalité des accroissements finis signifie que la fonction $f$ est linéaire sur $[a, b]$",
+      "choices": [
+        {
+          "latex": "La fonction $f$ est constante sur $[a, b]$",
+          "correct": false,
+          "error_type": "cas_particulier"
+        },
+        {
+          "latex": "La fonction $f$ est linéaire sur $[a, b]$",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "La fonction $f$ est dérivable sur $]a, b[$",
+          "correct": false,
+          "error_type": "hypothese_insuffisante"
+        },
+        {
+          "latex": "La fonction $f$ est continue sur $[a, b]$",
+          "correct": false,
+          "error_type": "condition_necessaire_insuffisante"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème de Rolle pour une fonction $f$ dérivable sur $[a, b]$.",
+      "hints": [
+        "Le théorème de Rolle est une condition suffisante pour l'existence d'un point $c$ dans $]a, b[$ où la dérivée de $f$ s'annule.",
+        "La condition nécessaire et suffisante pour que le théorème de Rolle s'applique est que $f$ soit dérivable sur $[a, b]$ et que $f(a) = f(b)$. "
+      ],
+      "solution_latex": "Soit $f$ une fonction dérivable sur $[a, b]$ telle que $f(a) = f(b)$. Alors, il existe un point $c$ dans $]a, b[$ tel que $f'(c) = 0$. ",
+      "fragments": [
+        "Soit $f$ une fonction dérivable sur $[a, b]$",
+        "telle que $f(a) = f(b)$",
+        "Alors, il existe un point $c$ dans $]a, b[$",
+        "tel que $f'(c) = 0$"
+      ],
+      "distracteurs": [
+        "telle que $f(a)  f(b)$",
+        "Alors, il existe un point $c$ dans $[a, b]$"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-deriv-06",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-deriv-06",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé de l'égalité des accroissements finis pour deux fonctions $f$ et $g$.",
+      "hints": [
+        "L'égalité des accroissements finis est une propriété qui relie les accroissements finis de deux fonctions.",
+        "Si $f$ et $g$ sont deux fonctions telles que $f(a) = g(a)$ et $f(b) = g(b)$, alors l'égalité des accroissements finis signifie que $f(b) - f(a) = g(b) - g(a)$."
+      ],
+      "solution_latex": "Soient $f$ et $g$ deux fonctions telles que $f(a) = g(a)$ et $f(b) = g(b)$. Alors, on a l'égalité des accroissements finis : $f(b) - f(a) = g(b) - g(a)$, ce qui signifie que les accroissements finis de $f$ et $g$ entre $a$ et $b$ sont égaux. ",
+      "fragments": [
+        "Soient $f$ et $g$ deux fonctions telles que $f(a) = g(a)$",
+        "et $f(b) = g(b)$",
+        "Alors, on a l'égalité des accroissements finis :",
+        "ce qui signifie que les accroissements finis de $f$ et $g$ entre $a$ et $b$ sont égaux"
+      ],
+      "distracteurs": [
+        "Soient $f$ et $g$ deux fonctions telles que $f(a)  g(a)$",
+        "Alors, on a l'inégalité des accroissements finis :"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

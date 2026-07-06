@@ -1,0 +1,505 @@
+[
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite suivante : $\\displaystyle \\lim\\limits_{x\\to 2^-}\\frac{x^2-4}{x-2}$",
+      "hints": [
+        "Observer que le numérateur se factorise et simplifier l'expression avant de remplacer $x$.",
+        "Factoriser $x^2-4=(x-2)(x+2)$ puis annuler le facteur $(x-2)$ restant. La limite vaut alors la valeur de la fonction simplifiée en $x=2$."
+      ],
+      "solution_latex": "On factorise $x^2-4=(x-2)(x+2)$. Ainsi \\[\\frac{x^2-4}{x-1}=\\frac{(x-2)(x+2)}{x-2}=x+2\\] pour $x\\neq2$. La fonction se prolonge continûment en $x=2$ avec $f(2)=2+2=4$. Donc $\\displaystyle \\lim\\limits_{x\\to2^-}\\frac{x^2-4}{x-2}=4$.",
+      "choices": [
+        {
+          "latex": "4",
+          "sympy": "4",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "division_by_zero_without_simplification"
+        },
+        {
+          "latex": "-4",
+          "sympy": "-4",
+          "correct": false,
+          "error_type": "sign_error_after_cancellation"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "forgotten_factor"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "4"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite à l'infini de la fonction $f(x)=\\frac{3x^2-5x+2}{2x^2+7}$",
+      "hints": [
+        "Comparer le degré du numérateur et du dénominateur : les deux sont de degré 2.",
+        "Diviser le numérateur et le dénominateur par $x^2$ puis étudier la limite lorsque $x\\to\\pm\\infty$."
+      ],
+      "solution_latex": "Les deux polynômes sont de même degré (2). En divisant par $x^2$ on obtient \\[f(x)=\\frac{3-\\frac{5}{x}+\\frac{2}{x^2}}{2+\\frac{7}{x^2}}\\]. Quand $x\\to\\pm\\infty$, les termes en $\\frac1x$ et $\\frac1{x^2}$ tendent vers $0$. Ainsi $\\displaystyle \\lim\\limits_{x\\to\\pm\\infty}f(x)=\\frac{3}{2}$.",
+      "choices": [
+        {
+          "latex": "\\frac{3}{2}",
+          "sympy": "Rational(3,2)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "ignoring_denominator_leading_coefficient"
+        },
+        {
+          "latex": "\\frac{2}{3}",
+          "sympy": "Rational(2,3)",
+          "correct": false,
+          "error_type": "inverted_ratio"
+        },
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "assuming_unbounded_growth"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(3,2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "qcm",
+      "difficulty": 4,
+      "statement_latex": "Soit $g(x)=\\frac{\\sin x}{x}$ pour $x\\neq0$. Quelle est la limite $\\displaystyle \\lim\\limits_{x\\to0^+} g(x)$ ?",
+      "hints": [
+        "Rappeler la limite fondamentale $\\lim\\limits_{x\\to0}\\frac{\\sin x}{x}=1$.",
+        "Utiliser le fait que la fonction est paire et que la limite à droite vaut la même valeur que la limite globale."
+      ],
+      "solution_latex": "La limite fondamentale donne $\\displaystyle \\lim\\limits_{x\\to0}\\frac{\\sin x}{x}=1$. Elle est valable aussi bien à droite qu'à gauche car la fonction est continue sur $\\mathbb{R}\\setminus\\{0\\}$ et symétrique. Donc $\\displaystyle \\lim\\limits_{x\\to0^+}\\frac{\\sin x}{x}=1$.",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "incorrect_assumption_limit_is_zero"
+        },
+        {
+          "latex": "\\frac{\\pi}{2}",
+          "sympy": "pi/2",
+          "correct": false,
+          "error_type": "confusing_with_limit_of_arcsin"
+        },
+        {
+          "latex": "-1",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "sign_error_due_to_wrong_one-sided_limit"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "1"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite suivante : $\\displaystyle \\lim\\limits_{x\\to 1^+}\\frac{\\sqrt{x+3}-2}{x-1}$",
+      "hints": [
+        "Factoriser l'expression du numérateur en utilisant l'identité $a^2-b^2=(a-b)(a+b)$ après avoir rationalisé.",
+        "Rationaliser le numérateur, simplifier puis appliquer la règle de l'hôpital si nécessaire."
+      ],
+      "solution_latex": "On rationalise : $\\frac{\\sqrt{x+3}-2}{x-1}=\\frac{(\\sqrt{x+3}-2)(\\sqrt{x+3}+2)}{(x-1)(\\sqrt{x+3}+2)}=\\frac{x+3-4}{(x-1)(\\sqrt{x+3}+2)}=\\frac{x-1}{(x-1)(\\sqrt{x+3}+2)}=\\frac{1}{\\sqrt{x+3}+2}$. En faisant $x\\to1^+$, on obtient $\\frac{1}{\\sqrt{4}+2}=\\frac{1}{2+2}=\\frac{1}{4}$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{1}{4}",
+          "sympy": "Rational(1,4)",
+          "correct": true
+        },
+        {
+          "latex": "\\dfrac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "forgot_rationalisation"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "direct_substitution_zero_denominator"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "misinterpret_infinite_denominator"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(1,4)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite à gauche de la fonction $h(x)=\\frac{2x^2-5x-3}{x-3}$ lorsque $x\\to3^{-}$",
+      "hints": [
+        "Factoriser le numérateur pour identifier un facteur $(x-3)$.",
+        "Simplifier la fraction avant de substituer la valeur $x=3$."
+      ],
+      "solution_latex": "On factorise le numérateur : $2x^2-5x-3= (2x+1)(x-3)$. Ainsi $h(x)=\\frac{(2x+1)(x-3)}{x-3}=2x+1$ pour $x\\neq3$. En prenant la limite $x\\to3^{-}$, on trouve $2\\cdot3+1=7$.",
+      "choices": [
+        {
+          "latex": "7",
+          "sympy": "7",
+          "correct": true
+        },
+        {
+          "latex": "-7",
+          "sympy": "-7",
+          "correct": false,
+          "error_type": "sign_error_after_factorisation"
+        },
+        {
+          "latex": "\\dfrac{5}{2}",
+          "sympy": "Rational(5,2)",
+          "correct": false,
+          "error_type": "incorrect_cancellation"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "division_by_zero_misunderstanding"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "7"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Quelle est la limite lorsque $x\\to0$ de la fonction $k(x)=\\dfrac{e^{2x}-1}{x}$ ?",
+      "hints": [
+        "Utiliser le développement limité de $e^{2x}$ à l'ordre 1 autour de $0$.",
+        "Remplacer $e^{2x}$ par $1+2x+o(x)$ puis simplifier le rapport."
+      ],
+      "solution_latex": "Le développement limité de $e^{2x}$ est $e^{2x}=1+2x+o(x)$. Donc $k(x)=\\dfrac{1+2x+o(x)-1}{x}=\\dfrac{2x+o(x)}{x}=2+o(1)$. Ainsi $\\displaystyle\\lim_{x\\to0}k(x)=2$.",
+      "choices": [
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": true
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "forgot_factor_2_in_exponential"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "direct_substitution"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "misinterpret_unbounded_growth"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "2"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite suivante : $\\displaystyle \\lim\\limits_{x\\to 0}\\frac{\\sin(2x)}{x}$",
+      "hints": [
+        "Utiliser le fait connu que $\\lim_{u\\to0}\\frac{\\sin u}{u}=1$.",
+        "Mettre $\\sin(2x)$ sous la forme $2x\\cdot\\frac{\\sin(2x)}{2x}$ puis appliquer la limite classique."
+      ],
+      "solution_latex": "On écrit $\\frac{\\sin(2x)}{x}=2\\cdot\\frac{\\sin(2x)}{2x}$. En posant $u=2x$, on a $u\\to0$ lorsque $x\\to0$ et $\\frac{\\sin u}{u}\\to1$. Donc $\\lim_{x\\to0}\\frac{\\sin(2x)}{x}=2\\cdot1=2$.",
+      "choices": [
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "forgot_factor_2"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "incorrect_assumption_limit_zero"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "confused_with_unbounded_behavior"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(sin(2*x)/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite à l'infini de la fonction $f(x)=\\sqrt{x^2+3x}-x$.",
+      "hints": [
+        "Rationaliser l'expression en multipliant par le conjugué \\(\\sqrt{x^2+3x}+x\\).",
+        "Simplifier le résultat et observer le comportement dominant lorsque $x\\to+\\infty$. "
+      ],
+      "solution_latex": "On rationalise : \\[f(x)=\\frac{(\\sqrt{x^2+3x}-x)(\\sqrt{x^2+3x}+x)}{\\sqrt{x^2+3x}+x}=\\frac{x^2+3x-x^2}{\\sqrt{x^2+3x}+x}=\\frac{3x}{\\sqrt{x^2+3x}+x}.\\] On factorise $x$ dans le dénominateur : $\\sqrt{x^2+3x}=x\\sqrt{1+\\frac{3}{x}}$. Ainsi \\[f(x)=\\frac{3x}{x\\left(\\sqrt{1+\\frac{3}{x}}+1\\right)}=\\frac{3}{\\sqrt{1+\\frac{3}{x}}+1}.\\] Quand $x\\to+\\infty$, $\\frac{3}{x}\\to0$ donc $\\sqrt{1+\\frac{3}{x}}\\to1$. La limite vaut donc $\\frac{3}{1+1}=\\frac{3}{2}$.",
+      "choices": [
+        {
+          "latex": "\\frac{3}{2}",
+          "sympy": "Rational(3,2)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "forgot_division_by_2"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "canceled_numerator_mistake"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "ignored_denominator_growth"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(sqrt(x**2+3*x)-x, x, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel théorème décrit la relation entre la limite à droite et la limite à gauche d'une fonction $f$ en un point $a$ lorsque la limite globale $\\lim\\limits_{x\\to a}f(x)$ existe ?",
+      "hints": [
+        "Pensez à la condition nécessaire pour que la limite bidirectionnelle soit définie.",
+        "Le théorème indique que les limites à droite et à gauche doivent coïncider et être finies."
+      ],
+      "solution_latex": "Le théorème est le suivant : la limite $\\lim\\limits_{x\\to a}f(x)$ existe (et est finie) si et seulement si les deux limites unilatérales $\\lim\\limits_{x\\to a^-}f(x)$ et $\\lim\\limits_{x\\to a^+}f(x)$ existent, sont finies et sont égales. Ainsi, l'existence de la limite globale implique l'égalité des limites à droite et à gauche.",
+      "choices": [
+        {
+          "latex": "Théorème de la continuité des fonctions monotones",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Théorème des valeurs intermédiaires",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Théorème de la limite bidirectionnelle",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "Théorème de la dérivation terme à terme",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour la fonction $f(x)=\\dfrac{1}{x}$, quelle affirmation concernant ses limites est exacte ?",
+      "hints": [
+        "Considérez les comportements quand $x$ tend vers $0$ par la droite et par la gauche, ainsi que quand $x$ tend vers $+\\infty$ ou $-\\infty$.",
+        "Rappelez‑vous que $\\dfrac{1}{x}$ change de signe selon le côté d'approche de $0$."
+      ],
+      "solution_latex": "La bonne affirmation est : $\\displaystyle\\lim\\limits_{x\\to0^+}\\frac{1}{x}=+\\infty$, $\\displaystyle\\lim\\limits_{x\\to0^-}\\frac{1}{x}=-\\infty$, et $\\displaystyle\\lim\\limits_{x\\to+\\infty}\\frac{1}{x}=0$, $\\displaystyle\\lim\\limits_{x\\to-\\infty}\\frac{1}{x}=0$. Ainsi, la fonction n'admet pas de limite finie en $0$, mais tend vers $+\\infty$ à droite et $-\\infty$ à gauche, tandis qu'à l'infini la limite est $0$.",
+      "choices": [
+        {
+          "latex": "$\\lim\\limits_{x\\to0}\\frac{1}{x}=0$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$\\lim\\limits_{x\\to0^+}\\frac{1}{x}=+\\infty$ et $\\lim\\limits_{x\\to0^-}\\frac{1}{x}=+\\infty$",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "$\\lim\\limits_{x\\to0^+}\\frac{1}{x}=+\\infty$, $\\lim\\limits_{x\\to0^-}\\frac{1}{x}=-\\infty$, $\\lim\\limits_{x\\to\\pm\\infty}\\frac{1}{x}=0$",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$\\lim\\limits_{x\\to+\\infty}\\frac{1}{x}=+\\infty$ et $\\lim\\limits_{x\\to-\\infty}\\frac{1}{x}=-\\infty$",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème des gendarmes (squeeze theorem).",
+      "hints": [
+        "Commence par identifier les hypothèses de domination entre trois fonctions.",
+        "Ensuite, écris la conclusion sur la limite de la fonction au milieu lorsque les deux extrêmes ont la même limite."
+      ],
+      "solution_latex": "Soit $f,g,h$ trois fonctions réelles définies sur un voisinage punctuel $V$ de $a$, à l'exception éventuellement de $a$ lui‑même.\\ If, for all $x\\in V$, $f(x)\\le g(x)\\le h(x)$, and if $\\displaystyle\\lim_{x\\to a}f(x)=\\displaystyle\\lim_{x\\to a}h(x)=\\ell$, then $\\displaystyle\\lim_{x\\to a}g(x)=\\ell$.",
+      "fragments": [
+        "Soit $f,g,h$ trois fonctions réelles définies sur un voisinage punctuel $V$ de $a$, à l'exception éventuellement de $a$ lui‑même.",
+        "Pour tout $x\\in V$, on a $f(x)\\le g(x)\\le h(x)$.",
+        "Si $\\displaystyle\\lim_{x\\to a}f(x)=\\displaystyle\\lim_{x\\to a}h(x)=\\ell$,",
+        "alors $\\displaystyle\\lim_{x\\to a}g(x)=\\ell$."
+      ],
+      "distracteurs": [
+        "Si $\\displaystyle\\lim_{x\\to a}f(x)=\\ell$ et $\\displaystyle\\lim_{x\\to a}h(x)=\\ell$, alors $\\displaystyle\\lim_{x\\to a}g(x)=\\ell^2$.",
+        "Pour tout $x\\in V$, on a $f(x)\\ge g(x)\\ge h(x)$."
+      ]
+    }
+  },
+  {
+    "skill_id": "ana1-limites-01",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-01",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé du critère de convergence monotone pour les suites réelles.",
+      "hints": [
+        "Repense aux propriétés de monotonie et de majoration/minoration.",
+        "Écris la conclusion sur l'existence d'une limite finie."
+      ],
+      "solution_latex": "Soit $(u_n)_{n\\ge0}$ une suite réelle.\\ Si $(u_n)$ est croissante et majorée, alors $(u_n)$ converge et $\\displaystyle\\lim_{n\\to\\infty}u_n=\\sup\\{u_n\\;|\\;n\\in\\mathbb{N}\\}$.\\ De même, si $(u_n)$ est décroissante et minorée, alors $(u_n)$ converge et $\\displaystyle\\lim_{n\\to\\infty}u_n=\\inf\\{u_n\\;|\\;n\\in\\mathbb{N}\\}$.",
+      "fragments": [
+        "Soit $(u_n)_{n\\ge0}$ une suite réelle.",
+        "Si $(u_n)$ est croissante et majorée, alors $(u_n)$ converge.",
+        "De plus, $\\displaystyle\\lim_{n\\to\\infty}u_n=\\sup\\{u_n\\;|\\;n\\in\\mathbb{N}\\}$.",
+        "Si $(u_n)$ est décroissante et minorée, alors $(u_n)$ converge.",
+        "Et $\\displaystyle\\lim_{n\\to\\infty}u_n=\\inf\\{u_n\\;|\\;n\\in\\mathbb{N}\\}$. "
+      ],
+      "distracteurs": [
+        "Si $(u_n)$ est croissante et non majorée, alors $(u_n)$ converge vers $0$.",
+        "Si $(u_n)$ est décroissante et majorée, alors $(u_n)$ diverge."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

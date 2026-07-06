@@ -1,0 +1,462 @@
+[
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite de la suite $\\displaystyle u_n=\\left(\\frac{3}{5}\\right)^n$ lorsque $n\\to \\infty$.",
+      "hints": [
+        "Observer le facteur $\\frac{3}{5}$ : il est strictement compris entre $-1$ et $1$.",
+        "Utiliser la règle : si $|q|<1$, alors $q^n\\to 0$ lorsque $n\\to\\infty$."
+      ],
+      "solution_latex": "Comme $\\left|\\frac{3}{5}\\right|<1$, la suite géométrique $\\left(\\frac{3}{5}\\right)^n$ converge vers $0$. Ainsi $\\displaystyle\\lim_{n\\to\\infty}\\left(\\frac{3}{5}\\right)^n=0$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "confusion_avec_limite_q_n_egale_a_1"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "confusion_avec_q_greater_than_1"
+        },
+        {
+          "latex": "-\\infty",
+          "sympy": "-oo",
+          "correct": false,
+          "error_type": "confusion_avec_q_moins_un"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((Rational(3,5))**n, n, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite de la suite $\\displaystyle v_n=\\frac{1}{n^{\\frac{3}{2}}}$ quand $n\\to\\infty$.",
+      "hints": [
+        "Comparer $n^{\\frac{3}{2}}$ à une puissance positive de $n$.",
+        "Savoir que $\\frac{1}{n^\\alpha}\\to0$ dès que $\\alpha>0$."
+      ],
+      "solution_latex": "Le terme $n^{\\frac{3}{2}}$ tend vers $+\\infty$ lorsque $n\\to\\infty$. Ainsi son inverse $\\frac{1}{n^{\\frac{3}{2}}}$ tend vers $0$. On a donc $\\displaystyle\\lim_{n\\to\\infty}\\frac{1}{n^{3/2}}=0$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "confusion_avec_exposant_negatif"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "erreur_de_puissance_non_appliquée"
+        },
+        {
+          "latex": "\\frac{1}{\\sqrt{n}}",
+          "sympy": "1/sqrt(n)",
+          "correct": false,
+          "error_type": "oublie_de_la_puissance_3_sur_2"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(1/n**Rational(3,2), n, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "qcm",
+      "difficulty": 4,
+      "statement_latex": "Soit la suite $\\displaystyle w_n=2n-5\\,n^{2}$. Trouver $\\displaystyle\\lim_{n\\to\\infty} w_n$.",
+      "hints": [
+        "Identifier le terme dominant en $n$.",
+        "Factoriser $n^{2}$ et étudier le signe du coefficient principal."
+      ],
+      "solution_latex": "Le terme $-5n^{2}$ domine $2n$ quand $n\\to\\infty$. En factorisant $n^{2}$ on obtient $w_n=n^{2}\\bigl(2/n-5\\bigr)$. Or $2/n\\to0$, donc $w_n\\sim -5n^{2}\\to -\\infty$. La limite vaut $-\\infty$.",
+      "choices": [
+        {
+          "latex": "-\\infty",
+          "sympy": "-oo",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "mauvais_signe_du_terme_dominant"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "oublie_du_terme_carré"
+        },
+        {
+          "latex": "-5",
+          "sympy": "-5",
+          "correct": false,
+          "error_type": "confusion_avec_coefficient_constant"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(2*n-5*n**2, n, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "\\displaystyle\\text{Étudier la convergence de la suite }\\;a_n=\\left(-\\frac{2}{3}\\right)^n\\;\\text{ lorsque } n\\to\\infty.",
+      "hints": [
+        "Observer le module de la raison $|{-2}/{3}|$ et le signe de $(-2/3)^n$ selon la parité de $n$.",
+        "Utiliser la forme $a_n=\\left(\\frac{2}{3}\\right)^n\\times(-1)^n$ : la partie $\\left(\\frac{2}{3}\\right)^n$ tend vers $0$ tandis que $(-1)^n$ oscille entre $1$ et $-1$, ce qui empêche l'existence d'une limite unique."
+      ],
+      "solution_latex": "La suite s'écrit $a_n=\\left(\\frac{2}{3}\\right)^n(-1)^n$. Le facteur $\\left(\\frac{2}{3}\\right)^n$ tend vers $0$ quand $n\\to\\infty$, mais le facteur $(-1)^n$ alterne entre $1$ et $-1$. Ainsi les termes $a_n$ oscillent entre des valeurs proches de $0$ mais de signes opposés et ne se stabilisent pas. La suite n'a donc **pas de limite** (divergence oscillatoire).",
+      "choices": [
+        {
+          "latex": "\\displaystyle 0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "confusion_with_abs_value"
+        },
+        {
+          "latex": "\\displaystyle +\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "sign_error_assuming_positive"
+        },
+        {
+          "latex": "\\displaystyle \\text{la suite diverge (pas de limite)}",
+          "sympy": "nan",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "\\displaystyle -\\infty",
+          "sympy": "-oo",
+          "correct": false,
+          "error_type": "sign_error_assuming_negative"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "\\displaystyle\\text{Calculer }\\lim_{n\\to\\infty} \\sqrt[n]{n}.",
+      "hints": [
+        "Utiliser le logarithme : poser $L=\\lim \\sqrt[n]{n}$ et étudier $\\ln L=\\lim \\frac{\\ln n}{n}$.",
+        "Appliquer la règle de l'Hospital à $\\frac{\\ln n}{n}$ ou raisonner avec la croissance lente du logarithme comparée à $n$."
+      ],
+      "solution_latex": "Posons $L=\\lim_{n\\to\\infty}\\sqrt[n]{n}$. En prenant le logarithme, $\\ln L=\\lim_{n\\to\\infty}\\frac{\\ln n}{n}$. Cette limite vaut $0$ (par la règle de l'Hospital ou parce que $\\ln n=o(n)$). Ainsi $\\ln L=0$ donc $L=e^{0}=1$. La limite recherchée est $1$.",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "e",
+          "sympy": "E",
+          "correct": false,
+          "error_type": "confusion_ln_over_n_with_ln_n"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "thinking_root_tends_to_zero"
+        },
+        {
+          "latex": "+\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "incorrect_growth_assumption"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(n**(1/n), n, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite de la suite $\\displaystyle a_n=\\left(1+\\frac{1}{n}\\right)^{n}$ lorsque $n\\to\\infty$.",
+      "hints": [
+        "Rappelez‑vous la définition classique du nombre $e$ à travers une suite.",
+        "Utilisez la formule $\\lim_{n\\to\\infty}\\left(1+\\frac{x}{n}\\right)^{n}=e^{x}$ avec $x=1$."
+      ],
+      "solution_latex": "On reconnaît la suite définissant le nombre $e$: $\\displaystyle\\lim_{n\\to\\infty}\\left(1+\\frac{1}{n}\\right)^{n}=e^{1}=e$. La suite converge donc vers $e$.",
+      "choices": [
+        {
+          "latex": "e",
+          "sympy": "E",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "confusion_limite_vers_1"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "oublie_exposant_n"
+        },
+        {
+          "latex": "\\dfrac{1}{e}",
+          "sympy": "1/E",
+          "correct": false,
+          "error_type": "inverse_erronee"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "E"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite de la suite $\\displaystyle s_n=\\dfrac{n}{2^{\\,n}}$ quand $n\\to\\infty$.",
+      "hints": [
+        "Comparez la vitesse de croissance d'un terme polynomial à celle d'une exponentielle de base $>1$.",
+        "Utilisez le critère de comparaison ou la règle de l'Hôpital sur la fonction continue $f(x)=\\dfrac{x}{2^{x}}$."
+      ],
+      "solution_latex": "La fonction $f(x)=\\dfrac{x}{2^{x}}$ tend vers $0$ quand $x\\to+\\infty$ parce que la puissance $2^{x}$ croît beaucoup plus vite que le facteur polynomial $x$. Ainsi $\\displaystyle\\lim_{n\\to\\infty}s_n=0$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "confusion_avec_limite_de_1_sur_2^n"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "mauvaise_interpretation_croissance_exponentielle"
+        },
+        {
+          "latex": "\\dfrac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "erreur_de_facteur_constant"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "0"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "\\text{Quelle est la formulation exacte de la définition de la convergence d'une suite réelle $(u_n)_{n\\in\\mathbb{N}}$ vers une limite $\\ell$ ?}",
+      "hints": [
+        "Commencez par rappeler que la définition repose sur un quantificateur universel et un quantificateur existentiel.",
+        "Il faut exprimer que, pour tout $\\varepsilon>0$, il existe un rang $N$ à partir duquel les termes restent dans l'intervalle $(\\ell-\\varepsilon,\\ell+\\varepsilon)$. "
+      ],
+      "solution_latex": "\\text{La suite $(u_n)$ converge vers $\\ell$ s'il existe $\\ell\\in\\mathbb{R}$ tel que }\\forall\\varepsilon>0\\,\\exists N\\in\\mathbb{N},\\,\\forall n\\ge N,\\;|u_n-\\ell|<\\varepsilon.\\text{ Cette condition est à la fois nécessaire et suffisante.}",
+      "choices": [
+        {
+          "latex": "\\exists \\ell\\in\\mathbb{R},\\;\\forall \\varepsilon>0,\\;\\exists N\\in\\mathbb{N},\\;\\forall n\\ge N,\\;|u_n-\\ell|<\\varepsilon",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "\\forall \\ell\\in\\mathbb{R},\\;\\exists \\varepsilon>0,\\;\\forall N\\in\\mathbb{N},\\;\\exists n\\ge N,\\;|u_n-\\ell|\\ge \\varepsilon",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "\\exists \\ell\\in\\mathbb{R},\\;\\forall \\varepsilon>0,\\;\\forall N\\in\\mathbb{N},\\;\\exists n\\ge N,\\;|u_n-\\ell|<\\varepsilon",
+          "correct": false,
+          "error_type": "quantificateur_inversé"
+        },
+        {
+          "latex": "\\forall \\varepsilon>0,\\;\\exists \\ell\\in\\mathbb{R},\\;\\exists N\\in\\mathbb{N},\\;\\forall n\\ge N,\\;|u_n-\\ell|<\\varepsilon",
+          "correct": false,
+          "error_type": "ordre_quantificateurs"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "\\text{Parmi les propositions suivantes, laquelle décrit correctement la condition nécessaire et suffisante pour que la suite $\\displaystyle u_n=q^n$ converge lorsque $|q|<1$?}",
+      "hints": [
+        "Rappelez-vous de la limite de la suite géométrique quand le facteur est compris entre $-1$ et $1$.",
+        "Il faut identifier la valeur de la limite en fonction de $q$ et la condition sur $|q|$. "
+      ],
+      "solution_latex": "\\text{Si }|q|<1,\\text{ alors }\\displaystyle\\lim_{n\\to\\infty}q^n=0.\\text{ Cette condition }|q|<1\\text{ est à la fois nécessaire et suffisante pour que la suite converge (vers $0$).}",
+      "choices": [
+        {
+          "latex": "\\text{La suite converge vers }0\\text{ si et seulement si }|q|<1",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "\\text{La suite converge vers }1\\text{ pour tout }q\\in\\mathbb{R}",
+          "correct": false,
+          "error_type": "valeur_limite_fausse"
+        },
+        {
+          "latex": "\\text{La suite converge uniquement lorsque }q>0",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "\\text{La suite diverge vers $+\\infty$ dès que }|q|>0",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé complet de la définition de la convergence d'une suite réelle vers une limite finie.",
+      "hints": [
+        "Commence par identifier les quantificateurs qui interviennent (ε et N).",
+        "Écris la phrase en respectant l'ordre : ε>0, existence d'un rang N, puis l'inégalité |u_n-ℓ|<ε pour tout n≥N."
+      ],
+      "solution_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite de nombres r\\'eels. On dit qu'elle converge vers $\\ell\\in\\mathbb{R}$ si et seulement si, pour tout $\\varepsilon>0$, il existe un entier $N\\in\\mathbb{N}$ tel que, pour tout $n\\ge N$, on a $\\lvert u_n-\\ell\\rvert<\\varepsilon$.",
+      "fragments": [
+        "pour tout $\\varepsilon>0$",
+        "il existe un entier $N\\in\\mathbb{N}$",
+        "pour tout $n\\ge N$",
+        "on a $\\lvert u_n-\\ell\\rvert<\\varepsilon$"
+      ],
+      "distracteurs": [
+        "il existe un entier $N\\in\\mathbb{N}$ tel que $\\lvert u_n-\\ell\\rvert>\\varepsilon$ pour tout $n\\ge N$",
+        "pour tout $\\varepsilon>0$, il existe un rang $N$ tel que $\\lvert u_n-\\ell\\rvert\\le\\varepsilon$ pour tout $n\\le N$"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-03",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé du théorème des suites géométriques (cas $|q|<1$).",
+      "hints": [
+        "Rappelle que la suite est $u_n = q^n$ avec $|q|<1$.",
+        "Le résultat porte sur la limite quand $n\\to\\infty$ et la valeur de cette limite."
+      ],
+      "solution_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ définie par $u_n = q^{\\,n}$ où $q\\in\\mathbb{R}$ vérifie $|q|<1$. Alors la suite $(u_n)$ converge et $$\\lim_{n\\to\\infty}u_n=0.$$",
+      "fragments": [
+        "Soit $(u_n)_{n\\in\\mathbb{N}}$ définie par $u_n = q^{\\,n}$ où $q\\in\\mathbb{R}$ vérifie $|q|<1$",
+        "Alors la suite $(u_n)$ converge",
+        "et $$\\lim_{n\\to\\infty}u_n=0$$"
+      ],
+      "distracteurs": [
+        "Si $|q|>1$, alors $\\lim_{n\\to\\infty}u_n=0$",
+        "La suite converge vers $1$ lorsque $|q|<1$"
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

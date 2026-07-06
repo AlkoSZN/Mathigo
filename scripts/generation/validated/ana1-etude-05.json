@@ -1,0 +1,461 @@
+[
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $h$ une fonction définie sur $\\mathbb{R}^+$ et de valeur dans $\\mathbb{R}^+$, strictement décroissante et telle que $h(1) = 1$. On note $k$ la fonction réciproque de $h$. Si on a $h(x) = \\dfrac{1}{x}$, quelle est la fonction $k$ ?",
+      "hints": [
+        "Décomposons le problème et commençons par trouver la fonction réciproque de $h$ en utilisant la formule $k(x) = h^{-1}(x)$.",
+        "Ensuite, nous pouvons simplifier l'expression pour obtenir la fonction $k$."
+      ],
+      "solution_latex": "La fonction $k$ est donnée par $k(x) = \\dfrac{1}{x}$.",
+      "choices": [
+        {
+          "latex": "$k(x) = \\dfrac{1}{x}$",
+          "sympy": "1/x",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$k(x) = x$",
+          "sympy": "x",
+          "correct": false,
+          "error_type": "erreur_de_symetrie"
+        },
+        {
+          "latex": "$k(x) = x^2$",
+          "sympy": "x**2",
+          "correct": false,
+          "error_type": "erreur_de_puissance"
+        },
+        {
+          "latex": "$k(x) = \\dfrac{1}{x^2}$",
+          "sympy": "1/(x**2)",
+          "correct": false,
+          "error_type": "erreur_de_forme"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 1,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Soit $f$ une fonction biunivoque de $\\mathbb{R}$ dans $\\mathbb{R}$, telle que $f(0) = 0$. Que vaut $f^{-1}(0)$ si $f$ est strictement croissante ?",
+      "hints": [
+        "Analysons les propriétés de la fonction $f$ pour en déduire les propriétés de sa fonction réciproque $f^{-1}$.",
+        "Puisque $f$ est strictement croissante, on peut utiliser cette propriété pour trouver la valeur de $f^{-1}(0)$. "
+      ],
+      "solution_latex": "La fonction $f^{-1}$ est également strictement croissante et passe par le point $(0, 0)$. Ainsi, $f^{-1}(0) = 0$.",
+      "choices": [
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "erreur_de_valeur"
+        },
+        {
+          "latex": "$-1$",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "erreur_de_signe"
+        },
+        {
+          "latex": "$\\infty$",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "erreur_de_domaine"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f$ une fonction biunivoque de $mathbb{R}$ dans $mathbb{R}$, strictement décroissante et telle que $f(1) = -1$. On note $g$ la fonction réciproque de $f$. Quel est le domaine de $g$ ?",
+      "hints": [
+        "Rappeler que la fonction réciproque d'une fonction $f$ est définie sur l'ensemble des valeurs de $f$",
+        " Utiliser les propriétés de $f$ pour déterminer son ensemble de valeurs"
+      ],
+      "solution_latex": "Le domaine de $g$ est $\\mathbb{R}$",
+      "choices": [
+        {
+          "latex": "$\\mathbb{R}^+$",
+          "sympy": "Interval(0, oo)",
+          "correct": false,
+          "error_type": "domaine_incorrect"
+        },
+        {
+          "latex": "$\\mathbb{R}^-$",
+          "sympy": "Interval(-oo, 0)",
+          "correct": false,
+          "error_type": "domaine_incorrect"
+        },
+        {
+          "latex": "$[0, 1]$",
+          "sympy": "Interval(0, 1)",
+          "correct": false,
+          "error_type": "domaine_incorrect"
+        },
+        {
+          "latex": "$\\mathbb{R}$",
+          "sympy": "Interval(-oo, oo)",
+          "correct": true,
+          "error_type": null
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f$ une fonction définie sur $mathbb{R}$ et de valeur dans $mathbb{R}$, strictement croissante et continue. On note $g$ la fonction réciproque de $f$. Que vaut $g(f(x))$ pour tout $x$ dans $mathbb{R}$ ?",
+      "hints": [
+        "Rappeler que la fonction réciproque d'une fonction $f$ est telle que $f(g(x)) = x$ pour tout $x$ dans son domaine",
+        "Utiliser les propriétés de $f$ et $g$ pour simplifier l'expression $g(f(x))$"
+      ],
+      "solution_latex": "On a $g(f(x)) = x$ pour tout $x$ dans $mathbb{R}$",
+      "choices": [
+        {
+          "latex": "$f(g(x))$",
+          "sympy": "f(g(x))",
+          "correct": false,
+          "error_type": "confusion_fonctions"
+        },
+        {
+          "latex": "$g(x)$",
+          "sympy": "g(x)",
+          "correct": false,
+          "error_type": "fonction_incorrecte"
+        },
+        {
+          "latex": "$f(x)$",
+          "sympy": "f(x)",
+          "correct": false,
+          "error_type": "fonction_incorrecte"
+        },
+        {
+          "latex": "$x$",
+          "sympy": "x",
+          "correct": true,
+          "error_type": null
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 1,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "qcm",
+      "difficulty": 1,
+      "statement_latex": "Soit $f$ une fonction biunivoque de $mathbb{R}$ dans $mathbb{R}$, strictement croissante. On note $g$ la fonction réciproque de $f$. Que vaut $f^{-1}(f(2))$ ?",
+      "hints": [
+        "Rappeler que la fonction réciproque d'une fonction $f$ est telle que $f(g(x)) = x$ pour tout $x$ dans son domaine",
+        "Utiliser les propriétés de $f$ et $g$ pour simplifier l'expression $f^{-1}(f(2))$"
+      ],
+      "solution_latex": "On a $f^{-1}(f(2)) = 2$",
+      "choices": [
+        {
+          "latex": "$f(2)$",
+          "sympy": "f(2)",
+          "correct": false,
+          "error_type": "fonction_incorrecte"
+        },
+        {
+          "latex": "$g(2)$",
+          "sympy": "g(2)",
+          "correct": false,
+          "error_type": "fonction_incorrecte"
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "valeur_incorrecte"
+        },
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": true,
+          "error_type": null
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f$ une fonction biunivoque de $\\mathbb{R}$ dans $\\mathbb{R}$, strictement croissante et telle que $f(2) = 3$. Que vaut $f^{-1}(3)$ ?",
+      "hints": [
+        "Rappelons que $f^{-1}(y)$ est la valeur de $x$ telle que $f(x) = y$.",
+        "La fonction réciproque $f^{-1}$ est aussi strictement croissante, donc on peut trouver $f^{-1}(3)$ en trouvant $x$ tel que $f(x) = 3$."
+      ],
+      "solution_latex": "Par définition de la fonction réciproque, $f^{-1}(3)$ est la valeur de $x$ telle que $f(x) = 3$. Comme $f(2) = 3$, on a $f^{-1}(3) = 2$.",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "oubli_de_la_definition"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "confusion_avec_l_inverse"
+        },
+        {
+          "latex": "4",
+          "sympy": "4",
+          "correct": false,
+          "error_type": "mauvaise_interpretation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "2"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f$ une fonction biunivoque de $\\mathbb{R}$ dans $\\mathbb{R}$, strictement décroissante et telle que $f(1) = -1$. Que vaut $f^{-1}(-1)$ ?",
+      "hints": [
+        "La fonction réciproque $f^{-1}$ est aussi strictement décroissante.",
+        "On peut trouver $f^{-1}(-1)$ en trouvant $x$ tel que $f(x) = -1$."
+      ],
+      "solution_latex": "Par définition de la fonction réciproque, $f^{-1}(-1)$ est la valeur de $x$ telle que $f(x) = -1$. Comme $f(1) = -1$, on a $f^{-1}(-1) = 1$.",
+      "choices": [
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "oubli_de_la_definition"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "-1",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "confusion_avec_l_inverse"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "mauvaise_interpretation"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "1"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Soit $f$ une fonction biunivoque de $\\mathbb{R}$ dans $\\mathbb{R}$, strictement croissante. Quelle propriété caractérise la fonction réciproque $f^{-1}$ ?",
+      "hints": [
+        "Rappelons que $f$ est biunivoque, donc elle est injective et surjective.",
+        "Analysons la relation entre $f$ et $f^{-1}$ pour en déduire la propriété souhaitée."
+      ],
+      "solution_latex": "La fonction réciproque $f^{-1}$ est également strictement croissante.",
+      "choices": [
+        {
+          "latex": "La fonction réciproque $f^{-1}$ est également strictement croissante.",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "La fonction réciproque $f^{-1}$ est strictement décroissante.",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        },
+        {
+          "latex": "La fonction réciproque $f^{-1}$ est croissante mais non strictement.",
+          "correct": false,
+          "error_type": "definition_incomplete"
+        },
+        {
+          "latex": "La fonction réciproque $f^{-1}$ est décroissante mais non strictement.",
+          "correct": false,
+          "error_type": "definition_incomplete"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Soit $f$ une fonction biunivoque de $\\mathbb{R}$ dans $\\mathbb{R}$, strictement décroissante. Quelle relation existe entre les courbes de $f$ et $f^{-1}$ dans le plan $xy$ ?",
+      "hints": [
+        "Rappelons que $f$ est biunivoque et strictement décroissante, ce qui nous donne des informations sur $f^{-1}$.",
+        "Analysons la symétrie entre $f$ et $f^{-1}$ dans le plan $xy$."
+      ],
+      "solution_latex": "Les courbes de $f$ et $f^{-1}$ sont symétriques par rapport à la droite $y = x$.",
+      "choices": [
+        {
+          "latex": "Les courbes de $f$ et $f^{-1}$ sont symétriques par rapport à la droite $y = -x$.",
+          "correct": false,
+          "error_type": "symetrie_fausse"
+        },
+        {
+          "latex": "Les courbes de $f$ et $f^{-1}$ sont confondues.",
+          "correct": false,
+          "error_type": "confusion_entre_f_et_inverse"
+        },
+        {
+          "latex": "Les courbes de $f$ et $f^{-1}$ sont symétriques par rapport à la droite $y = x$.",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "Les courbes de $f$ et $f^{-1}$ sont asymétriques.",
+          "correct": false,
+          "error_type": "asymetrie_incorrecte"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème sur les fonctions réciproques de fonctionsstrictement monotones et continues.",
+      "hints": [
+        "Une fonction strictement monotone est soit strictement croissante, soit strictement décroissante.",
+        "La réciproque d'une fonction est obtenue en échangeant les abscisses et les ordonnées de ses points."
+      ],
+      "solution_latex": "Soit $f$ une fonction biunivoque de $mathbb{R}$ dans $mathbb{R}$, strictement monotone et continue. Alors la fonction réciproque $f^{-1}$ de $f$ est également continue et strictement monotone, et les courbes de $f$ et $f^{-1}$ sont symétriques par rapport à la droite $y = x$.",
+      "fragments": [
+        "Soit $f$ une fonction biunivoque de $mathbb{R}$ dans $mathbb{R}$,",
+        "strictement monotone et continue.",
+        "Alors la fonction réciproque $f^{-1}$ de $f$ est également continue",
+        "et strictement monotone,",
+        "et les courbes de $f$ et $f^{-1}$ sont symétriques par rapport à la droite $y = x$."
+      ],
+      "distracteurs": [
+        "Alors la fonction réciproque $f^{-1}$ de $f$ est également décroissante.",
+        "et les courbes de $f$ et $f^{-1}$ sont asymétriques par rapport à la droite $y = x$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-etude-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-etude-05",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé du lemme sur les propriétés des fonctions réciproques de fonctions strictement monotones.",
+      "hints": [
+        "Une fonction réciproque est obtenue en inversant l'ordre des coordonnées des points de la fonction d'origine.",
+        "Les propriétés de monotonie et de continuité se conservent lors de l'inversion de la fonction."
+      ],
+      "solution_latex": "Soit $f$ une fonction biunivoque de $mathbb{R}$ dans $mathbb{R}$, strictement croissante. Alors la fonction réciproque $f^{-1}$ de $f$ est également strictement croissante, et pour tout $x in mathbb{R}$, $f(f^{-1}(x)) = x$ et $f^{-1}(f(x)) = x$.",
+      "fragments": [
+        "Soit $f$ une fonction biunivoque de $mathbb{R}$ dans $mathbb{R}$,",
+        "strictement croissante.",
+        "Alors la fonction réciproque $f^{-1}$ de $f$ est également strictement croissante,",
+        "et pour tout $x in mathbb{R}$, $f(f^{-1}(x)) = x$",
+        "et $f^{-1}(f(x)) = x$."
+      ],
+      "distracteurs": [
+        "Alors la fonction réciproque $f^{-1}$ de $f$ est également décroissante.",
+        "et pour tout $x in mathbb{R}$, $f(f^{-1}(x)) \neq x$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

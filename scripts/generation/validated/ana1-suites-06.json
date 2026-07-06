@@ -1,0 +1,437 @@
+[
+  {
+    "skill_id": "ana1-suites-06",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-06",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit la suite $(u_n)_{n\\ge0}$ définie par $u_0=1$ et $u_{n+1}=\\frac{1}{2}\\left(u_n+\\frac{3}{u_n}\\right)$.\\\\\nDéterminer la limite $\\ell$ de $(u_n)$ lorsqu'elle existe.",
+      "hints": [
+        "Observer que la suite reste positive et chercher un point fixe de la fonction $f(x)=\\frac12\\left(x+\\frac{3}{x}\\right)$.",
+        "Résoudre $\\ell = f(\\ell)$, puis vérifier la monotonie de $(u_n)$ à l\\'aide de $u_{n+1}-u_n$."
+      ],
+      "solution_latex": "On cherche $\\ell$ tel que $\\ell=\\frac12\\left(\\ell+\\frac{3}{\\ell}\\right)$. En multipliant par $2\\ell$ on obtient $2\\ell^2=\\ell^2+3$, donc $\\ell^2=3$ et $\\ell=\\sqrt{3}$ (la suite étant positive).\\\\\nOn montre ensuite que $u_{n+1}-u_n=\\frac{3- u_n^2}{2u_n}$ est négatif dès $u_n>\\sqrt{3}$ et positif si $u_n<\\sqrt{3}$ ; ainsi $(u_n)$ est décroissante et minorée par $\\sqrt{3}$, ou croissante et majorée selon le cas. Avec $u_0=1<\\sqrt{3}$ la suite est croissante et bornée, donc converge vers $\\sqrt{3}$.",
+      "choices": [
+        {
+          "latex": "$\\sqrt{3}$",
+          "sympy": "sqrt(3)",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$-\\sqrt{3}$",
+          "sympy": "-sqrt(3)",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "$3$",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "missing_square_root"
+        },
+        {
+          "latex": "$\\frac{3}{2}$",
+          "sympy": "Rational(3,2)",
+          "correct": false,
+          "error_type": "algebraic_misstep"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "sqrt(3)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-06",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-06",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $f:[0,2]\\to[0,2]$, $f(x)=\\frac{x^2+1}{2}$. On définit $u_{n+1}=f(u_n)$ avec $u_0=0$.\\\\\nQuel est le comportement de la suite $(u_n)$ ?",
+      "hints": [
+        "Vérifier que $f([0,2])\\subset[0,2]$ et que $f$ est croissante sur cet intervalle. ",
+        "Comparer $u_{n+1}$ et $u_n$ en écrivant $u_{n+1}-u_n=\\frac{u_n^2- u_n+1}{2}$ et étudier le signe. "
+      ],
+      "solution_latex": "L'intervalle $[0,2]$ est stable car $0\\le x\\le2\\Rightarrow 1\\le x^2+1\\le5$ et donc $\\frac{x^2+1}{2}\\in[0,2]$. La fonction $f$ est croissante sur $[0,2]$ car $f'(x)=x>0$. On a $u_{n+1}-u_n=\\frac{u_n^2- u_n+1}{2}>0$ pour tout $u_n\\in[0,2]$ (le discriminant $(-1)^2-4<0$). Ainsi $(u_n)$ est strictement croissante et majorée par $2$, donc elle converge. Le point fixe vérifie $\\ell=\\frac{\\ell^2+1}{2}$, d'où $\\ell^2-2\\ell+1=0$, soit $\\ell=1$. La suite converge vers $1$.",
+      "choices": [
+        {
+          "latex": "$(u_n)$ converge vers $1$",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$(u_n)$ diverge vers $+\\infty$",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "ignoring_interval_bound"
+        },
+        {
+          "latex": "$(u_n)$ converge vers $0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "wrong_fixed_point"
+        },
+        {
+          "latex": "$(u_n)$ oscille sans convergence",
+          "sympy": "None",
+          "correct": false,
+          "error_type": "misinterpreting_monotonicity"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "1"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-06",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-06",
+      "format": "qcm",
+      "difficulty": 4,
+      "statement_latex": "On considère la suite récurrente $u_{n+1}=\\frac{2u_n+5}{u_n+2}$ avec $u_0=3$.\\\\\nDéterminer la limite éventuelle $\\ell$ de $(u_n)$.",
+      "hints": [
+        "Chercher les points fixes de $f(x)=\\frac{2x+5}{x+2}$ en résolvant $\\ell=f(\\ell)$.",
+        "Étudier le signe de $u_{n+1}-u_n$ pour savoir si la suite est monotone et bornée. "
+      ],
+      "solution_latex": "Les points fixes vérifient $\\ell=\\frac{2\\ell+5}{\\ell+2}\\Rightarrow \\ell(\\ell+2)=2\\ell+5\\Rightarrow \\ell^2=5$, donc $\\ell=\\sqrt{5}$ ou $\\ell=-\\sqrt{5}$. Avec $u_0=3>0$, tous les termes restent positifs, donc la limite admissible est $\\ell=\\sqrt{5}$.\\\nOn calcule $u_{n+1}-u_n=\\frac{2u_n+5}{u_n+2}-u_n=\\frac{5-u_n^2}{u_n+2}$. Pour $u_n>\\sqrt{5}$ le numérateur est négatif, le dénominateur positif, donc la suite diminue ; pour $u_n<\\sqrt{5}$ elle augmente. Ainsi la suite est monotone et bornée, elle converge vers $\\sqrt{5}$.",
+      "choices": [
+        {
+          "latex": "$\\sqrt{5}$",
+          "sympy": "sqrt(5)",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$-\\sqrt{5}$",
+          "sympy": "-sqrt(5)",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "$5$",
+          "sympy": "5",
+          "correct": false,
+          "error_type": "missing_root"
+        },
+        {
+          "latex": "$\\frac{5}{2}$",
+          "sympy": "Rational(5,2)",
+          "correct": false,
+          "error_type": "linearization_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "sqrt(5)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-06",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-06",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit la fonction $f:[0,3]\\to[0,3]$ définie par $f(x)=\\dfrac{x+4}{x+1}$ et la suite $(u_n)_{n\\ge 0}$ donnée par $u_{0}=1$, $u_{n+1}=f(u_n)$.\\\nQuel est la limite $\\ell$ de $(u_n)$ lorsque $n\\to+\\infty$ ?",
+      "hints": [
+        "On cherche les points fixes de $f$, c’est‑à‑dire les solutions de $\\ell=f(\\ell)$.",
+        "Après avoir résolu l’équation, vérifier la monotonie de la suite sur l’intervalle stable afin de choisir la bonne racine."
+      ],
+      "solution_latex": "On résout $\\ell=\\dfrac{\\ell+4}{\\ell+1}\\Longrightarrow \\ell(\\ell+1)=\\ell+4\\Longrightarrow \\ell^{2}=4\\Longrightarrow \\ell=2$ (le signe négatif est exclu car $\\ell\\ge0$).\\\nOn montre que $f$ est croissante sur $[0,3]$ et que $u_0=1\\le f(1)=\\dfrac{5}{2}$, donc la suite est croissante et majorée par $3$. Elle converge donc vers le unique point fixe $\\ell=2$.",
+      "choices": [
+        {
+          "latex": "$2$",
+          "sympy": "Rational(2,1)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$-2$",
+          "sympy": "-Rational(2,1)",
+          "correct": false,
+          "error_type": "sign_error_negative_root"
+        },
+        {
+          "latex": "$\\dfrac{4}{3}$",
+          "sympy": "Rational(4,3)",
+          "correct": false,
+          "error_type": "algebraic_simplification_error"
+        },
+        {
+          "latex": "$\\dfrac{5}{2}$",
+          "sympy": "Rational(5,2)",
+          "correct": false,
+          "error_type": "confusing_with_first_iter"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(2,1)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-06",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-06",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "On définit la suite $(u_n)_{n\\ge0}$ par $u_{0}=0$ et $u_{n+1}=\\sqrt{2+u_{n}}$.\\\nQuelle est la limite $\\ell$ de $(u_n)$ lorsque $n\\to+\\infty$ ?",
+      "hints": [
+        "Cherchez les points fixes de la fonction $g(x)=\\sqrt{2+x}$ en résolvant $\\ell=g(\\ell)$.",
+        "Vérifiez que la suite reste dans un intervalle stable et décidez de la monotonie pour choisir la bonne solution positive."
+      ],
+      "solution_latex": "On doit résoudre $\\ell=\\sqrt{2+\\ell}\\Longrightarrow \\ell^{2}=2+\\ell\\Longrightarrow \\ell^{2}-\\ell-2=0\\Longrightarrow (\\ell-2)(\\ell+1)=0$.\\\nComme $u_n\\ge0$ pour tout $n$, on ne retient que $\\ell=2$.\\\nDe plus, $g$ est croissante sur $[0,+\\infty)$, $u_{0}=0<g(0)=\\sqrt2$, et la suite est croissante et majorée par $2$, donc elle converge vers $2$.",
+      "choices": [
+        {
+          "latex": "$2$",
+          "sympy": "Rational(2,1)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$-2$",
+          "sympy": "-Rational(2,1)",
+          "correct": false,
+          "error_type": "sign_error_negative_root"
+        },
+        {
+          "latex": "$1$",
+          "sympy": "Rational(1,1)",
+          "correct": false,
+          "error_type": "forgot_square_term"
+        },
+        {
+          "latex": "$\\sqrt{2}$",
+          "sympy": "sqrt(2)",
+          "correct": false,
+          "error_type": "confusing_with_first_iter"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(2,1)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-06",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-06",
+      "format": "qcm",
+      "difficulty": 4,
+      "statement_latex": "Considérons la suite $(u_n)_{n\\ge0}$ définie par $u_{0}=2$ et $u_{n+1}=\\dfrac{3u_{n}+1}{u_{n}+3}$.\\\nDéterminez si la suite converge et, le cas échéant, donnez sa limite $\\ell$.",
+      "hints": [
+        "Résoudre l’équation $\\ell=\\dfrac{3\\ell+1}{\\ell+3}$ pour obtenir les points fixes possibles.",
+        "Étudier le signe de $u_{n+1}-u_n$ afin de connaître la monotonie et vérifier que l’intervalle contenant la suite est stable."
+      ],
+      "solution_latex": "On résout $\\ell=\\dfrac{3\\ell+1}{\\ell+3}\\Longrightarrow \\ell(\\ell+3)=3\\ell+1\\Longrightarrow \\ell^{2}=1\\Longrightarrow \\ell=\\pm1$.\\\nComme $u_0=2>0$ et que, pour $x>0$, $f(x)=\\dfrac{3x+1}{x+3}>0$, la suite reste positive ; le point fixe négatif est donc exclu.\\\nOn montre que $f$ est croissante sur $[0,+\\infty)$ et que $u_{0}=2>f(2)=\\dfrac{7}{5}$, ce qui implique que la suite est décroissante et minorée par $1$. Elle converge donc vers $\\ell=1$.",
+      "choices": [
+        {
+          "latex": "$1$",
+          "sympy": "Rational(1,1)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$-1$",
+          "sympy": "-Rational(1,1)",
+          "correct": false,
+          "error_type": "sign_error_negative_root"
+        },
+        {
+          "latex": "$\\dfrac{7}{5}$",
+          "sympy": "Rational(7,5)",
+          "correct": false,
+          "error_type": "confusing_with_first_iter"
+        },
+        {
+          "latex": "$2$",
+          "sympy": "Rational(2,1)",
+          "correct": false,
+          "error_type": "assuming_constant_sequence"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(1,1)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-06",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-06",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit la fonction $f:[0,2]\\to[0,2]$ définie par $f(x)=\\dfrac{2x+1}{x+2}$ et la suite $(u_n)_{n\\ge0}$ donnée par $u_{0}=0$, $u_{n+1}=f(u_n)$.\\\\\nQuel est la limite $\\ell$ de $(u_n)$ lorsque $n\\to+\\infty$ ?",
+      "hints": [
+        "Observer que si la suite converge, sa limite doit vérifier l'équation $\\ell=f(\\ell)$.",
+        "Résoudre l'équation $\\ell=\\dfrac{2\\ell+1}{\\ell+2}$ et retenir la solution compatible avec l'intervalle $[0,2]$."
+      ],
+      "solution_latex": "Si la suite converge, on a $\\ell=f(\\ell)$, soit $\\ell=\\dfrac{2\\ell+1}{\\ell+2}$. En multipliant par $\\ell+2$ on obtient $\\ell(\\ell+2)=2\\ell+1$, donc $\\ell^{2}-1=0$ et $\\ell=\\pm1$. L'intervalle stable étant $[0,2]$, la seule valeur admissible est $\\ell=1$. Ainsi la suite converge vers $\\ell=1$.",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true
+        },
+        {
+          "latex": "-1",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "wrong_root_negative"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "confusing_fixed_point_with_initial"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "boundary_value_error"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-06",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-06",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Considérons $f:[0,3]\\to[0,3]$ définie par $f(x)=\\dfrac{x+4}{x+2}$ et la suite $(u_n)_{n\\ge0}$ donnée par $u_{0}=0$, $u_{n+1}=f(u_n)$.\\\\\nDéterminer la limite $\\ell$ de $(u_n)$ quand $n\\to+\\infty$.",
+      "hints": [
+        "En cas de convergence, la limite $\\ell$ doit satisfaire $\\ell=f(\\ell)$.",
+        "Résoudre l'équation $\\ell=\\dfrac{\\ell+4}{\\ell+2}$ et choisir la solution qui appartient à $[0,3]$."
+      ],
+      "solution_latex": "On impose $\\ell=\\dfrac{\\ell+4}{\\ell+2}$, ce qui donne $\\ell(\\ell+2)=\\ell+4$. En développant : $\\ell^{2}+2\\ell-\\ell-4=0$, soit $\\ell^{2}+\\ell-4=0$. Les racines sont $\\ell=\\dfrac{-1\\pm\\sqrt{17}}{2}$. Parmi elles, seule $\\dfrac{-1+\\sqrt{17}}{2}\\approx1,56$ appartient à $[0,3]$. La suite converge donc vers $\\ell=\\dfrac{-1+\\sqrt{17}}{2}$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{-1+\\sqrt{17}}{2}",
+          "sympy": "(-1+sqrt(17))/2",
+          "correct": true
+        },
+        {
+          "latex": "\\dfrac{-1-\\sqrt{17}}{2}",
+          "sympy": "(-1-sqrt(17))/2",
+          "correct": false,
+          "error_type": "wrong_root_negative"
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "boundary_value_error"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "approximation_error"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-06",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-06",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel théorème garantit l'existence d'une limite pour une suite $(u_n)$ définie par $u_{n+1}=f(u_n)$ lorsqu'elle est monotone et bornée ?",
+      "hints": [
+        "Identifier les propriétés de monotonie et de borne dans le cadre des suites réelles.",
+        "Utiliser le théorème de convergence des suites monotones (théorème de la monotone convergence)."
+      ],
+      "solution_latex": "Le résultat applicable est le *théorème de convergence des suites monotones* : toute suite réelle qui est monotone (croissante ou décroissante) et majorée (ou minorée) converge. Ainsi, si $(u_n)$ est monotone et bornée, elle admet une limite finie.",
+      "choices": [
+        {
+          "latex": "Théorème des valeurs intermédiaires",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Théorème de la convergence des suites monotones",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "Théorème de la suite adjacente",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Théorème de Bolzano–Weierstrass",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-06",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-06",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du critère de convergence d'une suite récurrente monotone bornée sur un intervalle stable.",
+      "hints": [
+        "Pense d'abord à la condition sur l'image de l'intervalle par $f$.",
+        "Ensuite, rappelle le résultat qui assure la convergence lorsqu'une suite est monotone et reste dans un intervalle fermé."
+      ],
+      "solution_latex": "Soit $I=[a,b]$ un intervalle fermé de $\\mathbb{R}$ et $f:I\\to I$ une fonction continue. Si la suite $(u_n)_{n\\ge0}$ définie par $u_{n+1}=f(u_n)$ reste dans $I$ et est monotone (croissante ou décroissante), alors $(u_n)$ converge vers un point fixe $\\ell\\in I$ de $f$, c'est‑à‑dire $f(\\ell)=\\ell$.",
+      "fragments": [
+        "Soit $I=[a,b]$ un intervalle fermé de $\\mathbb{R}$.",
+        "$f:I\\to I$ est une fonction continue.",
+        "Si la suite $(u_n)_{n\\ge0}$ définie par $u_{n+1}=f(u_n)$ reste dans $I$ et est monotone,",
+        "alors $(u_n)$ converge vers un point fixe $\\ell\\in I$ de $f$,",
+        "c'est‑à‑dire $f(\\ell)=\\ell$."
+      ],
+      "distracteurs": [
+        "Si $f$ est seulement mesurable, la suite converge.",
+        "Si la suite est bornée mais non monotone, elle converge toujours."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

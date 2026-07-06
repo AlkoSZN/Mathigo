@@ -1,0 +1,338 @@
+[
+  {
+    "skill_id": "ana1-limites-05",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-05",
+      "format": "qcm",
+      "difficulty": 4,
+      "statement_latex": "La fonction $h(x)=\\dfrac{3x^2+2x-5}{x-1}$ admet-elle une asymptote oblique lorsque $x\\to +\\infty$ ? Si oui, donner son équation.",
+      "hints": [
+        "Faire la division euclidienne du numérateur par le diviseur $x-1$.",
+        "L\\'asymptote oblique est la partie polynomiale de degré 1 obtenue après la division."
+      ],
+      "solution_latex": "On effectue la division : $\\dfrac{3x^2+2x-5}{x-1}=3x+5+\\dfrac{0}{x-1}$. Ainsi, quand $x\\to+\\infty$, la partie qui reste est $3x+5$. L\\'asymptote oblique est la droite $y=3x+5$.",
+      "choices": [
+        {
+          "latex": "$y=3x+5$",
+          "sympy": "3*x+5",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$y=3x$",
+          "sympy": "3*x",
+          "correct": false,
+          "error_type": "omit_constant_term"
+        },
+        {
+          "latex": "$y=3x-5$",
+          "sympy": "3*x-5",
+          "correct": false,
+          "error_type": "sign_error_constant"
+        },
+        {
+          "latex": "$y=\\dfrac{3}{x}+5$",
+          "sympy": "3/x+5",
+          "correct": false,
+          "error_type": "confuse_division_result"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "3*x+5"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-05",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-05",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Déterminer l\\'asymptote verticale de la fonction $f(x)=\\dfrac{x+2}{(x-3)(x+1)}$ en $x=3$.",
+      "hints": [
+        "Chercher les valeurs de $x$ qui annulent le dénominateur sans annuler le numérateur.",
+        "Analyser le comportement de $f(x)$ lorsque $x$ tend vers $3$ à gauche et à droite pour conclure."
+      ],
+      "solution_latex": "Le dénominateur s annule en $x=3$ et le numérateur vaut $5\\neq0$, donc $x=3$ est une singularité. On examine la limite : $\\lim_{x\\to3^-}f(x)=-\\infty$ et $\\lim_{x\\to3^+}f(x)=+\\infty$. Ainsi, la droite $x=3$ est une asymptote verticale.",
+      "choices": [
+        {
+          "latex": "$x=3$",
+          "sympy": "3",
+          "correct": true
+        },
+        {
+          "latex": "$x=-1$",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "confusing_other_zero_of_denominator"
+        },
+        {
+          "latex": "$y=0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "mistaking_horizontal_asymptote"
+        },
+        {
+          "latex": "$y=5$",
+          "sympy": "5",
+          "correct": false,
+          "error_type": "confusing_numerator_value"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "3"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-05",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-05",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Quelle est l\\'asymptote oblique de la fonction $g(x)=\\dfrac{2x^2+3x-1}{x-2}$ lorsque $x\\to +\\infty$ ?",
+      "hints": [
+        "Effectuer la division euclidienne de $2x^2+3x-1$ par $x-2$.",
+        "L\\'asymptote oblique est le quotient obtenu, le reste étant négligeable devant $x$."
+      ],
+      "solution_latex": "En divisant $2x^2+3x-1$ par $x-2$, on obtient $2x+7$ avec un reste $13$. Le terme de reste $\\dfrac{13}{x-2}$ tend vers $0$ quand $x\\to\\infty$. Donc l\\'asymptote oblique est $y=2x+7$.",
+      "choices": [
+        {
+          "latex": "$y=2x+7$",
+          "sympy": "2*x+7",
+          "correct": true
+        },
+        {
+          "latex": "$y=2x-7$",
+          "sympy": "2*x-7",
+          "correct": false,
+          "error_type": "sign_error_in_constant"
+        },
+        {
+          "latex": "$y=x+7$",
+          "sympy": "x+7",
+          "correct": false,
+          "error_type": "coefficient_error"
+        },
+        {
+          "latex": "$y=2x+\\frac{13}{x}$",
+          "sympy": "2*x+13/x",
+          "correct": false,
+          "error_type": "including_remainder_term"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "2*x+7"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-05",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Lorsque $x\\to -\\infty$, la fonction $h(x)=\\dfrac{5x^3-2x+1}{x^2+4}$ possède une asymptote horizontale. Laquelle ?",
+      "hints": [
+        "Comparer les degrés du numérateur et du dénominateur.",
+        "Le rapport des termes de plus haut degré donne la pente éventuelle de l\\'asymptote."
+      ],
+      "solution_latex": "Le numérateur est de degré $3$ et le dénominateur de degré $2$, donc il n\\'y a pas d\\'asymptote horizontale mais une asymptote oblique. Ainsi aucune asymptote horizontale n\\'existe. La réponse attendue est \"pas d'asymptote horizontale\".",
+      "choices": [
+        {
+          "latex": "Pas d'asymptote horizontale",
+          "sympy": "None",
+          "correct": true
+        },
+        {
+          "latex": "$y=0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "confusing_with_horizontal_at_zero"
+        },
+        {
+          "latex": "$y=5$",
+          "sympy": "5",
+          "correct": false,
+          "error_type": "mistaking_leading_coefficient_ratio"
+        },
+        {
+          "latex": "$y=\\dfrac{5}{1}x$",
+          "sympy": "5*x",
+          "correct": false,
+          "error_type": "confusing_oblique_with_horizontal"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-05",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-05",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Identifier l'asymptote oblique de la fonction $p(x)=\\dfrac{x^{2}+4x+1}{x-2}$ lorsque $x\\to +\\infty$.",
+      "hints": [
+        "Effectuer la division euclidienne du numérateur par le dénominateur.",
+        "L'asymptote oblique est le quotient polynomial obtenu, le terme restant tend vers $0$ quand $x\\to\\infty$. "
+      ],
+      "solution_latex": "On effectue la division : \\[\\dfrac{x^{2}+4x+1}{x-2}=x+6+\\dfrac{13}{x-2}.\\] Le terme $\\dfrac{13}{x-2}$ tend vers $0$ lorsque $x\\to+\\infty$, ainsi l'asymptote oblique est la droite $y=x+6$.",
+      "choices": [
+        {
+          "latex": "y = x + 6",
+          "sympy": "x+6",
+          "correct": true
+        },
+        {
+          "latex": "y = x + 4",
+          "sympy": "x+4",
+          "correct": false,
+          "error_type": "constant_miscalculation"
+        },
+        {
+          "latex": "y = x",
+          "sympy": "x",
+          "correct": false,
+          "error_type": "omitted_constant"
+        },
+        {
+          "latex": "y = 6",
+          "sympy": "6",
+          "correct": false,
+          "error_type": "horizontal_confusion"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "x+6"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-05",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "\\text{Quel est le théorème qui donne la condition nécessaire et suffisante pour l'existence d'une asymptote horizontale d'une fonction $f$ lorsque $x\\to +\\infty$ ?}",
+      "hints": [
+        "Penser aux limites de $f(x)$ quand $x$ tend vers $+\\infty$.",
+        "Le résultat porte sur l'existence d'une limite finie de $f(x)$ et sur l'égalité de cette limite avec l'ordonnée de l'asymptote."
+      ],
+      "solution_latex": "Le théorème d'asymptote horizontale indique que $f$ admet une asymptote horizontale $y=L$ lorsque $\\displaystyle\\lim_{x\\to+\\infty}f(x)=L$ (limite finie). Cette condition est à la fois nécessaire et suffisante.",
+      "choices": [
+        {
+          "latex": "Théorème des valeurs intermédiaires",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Théorème de la limite finie pour l'asymptote horizontale",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Théorème de Rolle",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Théorème de la dérivation sous le signe de la limite",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-05",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "\\text{Pour une fonction rationnelle $f(x)=\\dfrac{P(x)}{Q(x)}$, quelle condition garantit l'existence d'une asymptote oblique lorsque $\\deg P=\\deg Q+1$ ?}",
+      "hints": [
+        "Regarder le rapport des degrés des polynômes.",
+        "L'asymptote oblique s'obtient par la division euclidienne du numérateur par le dénominateur."
+      ],
+      "solution_latex": "Si $\\deg P = \\deg Q + 1$, alors le quotient de la division euclidienne $P(x)=Q(x)\\,\\bigl(ax+b\\bigr)+R(x)$, avec $\\deg R<\\deg Q$, fournit l'asymptote oblique $y=ax+b$. Ainsi, l'existence d'un quotient linéaire est la condition requise.",
+      "choices": [
+        {
+          "latex": "$\\deg P \\le \\deg Q$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$\\deg P = \\deg Q+1$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$\\deg P \\ge \\deg Q+2$",
+          "correct": false,
+          "error_type": "confusion_degre"
+        },
+        {
+          "latex": "$\\deg Q = 0$",
+          "correct": false,
+          "error_type": "reciproque_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-05",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstituez l'énoncé du critère d'existence d'une asymptote verticale d'une fonction rationnelle.",
+      "hints": [
+        "Pensez aux points où le dénominateur s'annule mais le numérateur ne s'annule pas.",
+        "Il faut vérifier que la fonction tend vers $\\pm\\infty$ lorsque $x$ approche la racine du dénominateur."
+      ],
+      "solution_latex": "Soit $f(x)=\\dfrac{P(x)}{Q(x)}$ avec $P,Q$ des polynômes sans facteur commun. Si $a\\in\\mathbb{R}$ vérifie $Q(a)=0$ et $P(a)\\neq0$, alors $x=a$ est une asymptote verticale de $f$, c'est‑à‑dire $\\displaystyle\\lim_{x\\to a^{\\pm}}f(x)=\\pm\\infty$.",
+      "fragments": [
+        "Si $a\\in\\mathbb{R}$ vérifie $Q(a)=0$ et $P(a)\\neq0$,",
+        "alors $x=a$ est une asymptote verticale de $f$,",
+        "c'est‑à‑dire $\\displaystyle\\lim_{x\\to a^{\\pm}}f(x)=\\pm\\infty$.",
+        "Soit $f(x)=\\dfrac{P(x)}{Q(x)}$ avec $P,Q$ des polynômes sans facteur commun."
+      ],
+      "distracteurs": [
+        "Si $a$ est une racine double de $Q$, alors $x=a$ est toujours une asymptote verticale.",
+        "Si $\\lim_{x\\to a}f(x)=0$, alors $x=a$ est une asymptote verticale."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

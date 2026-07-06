@@ -112,10 +112,11 @@ const attendre = (ms) => new Promise((r) => setTimeout(r, ms))
 async function fetchAvecRetries(url, options) {
   for (let tentative = 1; ; tentative++) {
     const reponse = await fetch(url, options)
-    if (reponse.status !== 429 || tentative >= 6) return reponse
+    if (reponse.status !== 429 || tentative >= 8) return reponse
     const corps = await reponse.text()
-    const suggere = corps.match(/try again in ([\d.]+)s/)?.[1]
-    const delai = suggere ? Math.ceil(parseFloat(suggere) + 2) : 30
+    // Formats observés : "try again in 31.2s" et "try again in 16m34.03s"
+    const m = corps.match(/try again in (?:(\d+)m)?([\d.]+)s/)
+    const delai = m ? Math.ceil((parseInt(m[1] ?? '0', 10) * 60 + parseFloat(m[2])) + 2) : 30
     console.log(`  rate limit — nouvelle tentative dans ${delai}s`)
     await attendre(delai * 1000)
   }
@@ -135,7 +136,9 @@ async function genererLot(skill, format, nb, dejaGeneres) {
     body: JSON.stringify({
       model: MODELE,
       response_format: { type: 'json_object' },
-      reasoning_effort: 'low', // le raisonnement compte dans le budget completion
+      // reasoning_effort n'existe que sur les modèles à raisonnement (gpt-oss) ;
+      // low, car le raisonnement compte dans le budget de complétion
+      ...(MODELE.includes('gpt-oss') ? { reasoning_effort: 'low' } : {}),
       max_completion_tokens: 4000,
       messages: [
         { role: 'system', content: PROMPTS[format] },

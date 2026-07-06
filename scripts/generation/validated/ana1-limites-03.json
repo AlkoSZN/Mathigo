@@ -1,0 +1,510 @@
+[
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin(3x)}{x}$.",
+      "hints": [
+        "Utiliser la limite fondamentale $\\lim_{u\\to0}\\frac{\\sin u}{u}=1$ en faisant apparaître un facteur $3x$ dans le numérateur.",
+        "Réécrire le rapport sous la forme $3\\,\\frac{\\sin(3x)}{3x}$ puis appliquer la limite connue."
+      ],
+      "solution_latex": "On écrit $\\displaystyle\\frac{\\sin(3x)}{x}=3\\,\\frac{\\sin(3x)}{3x}$. En posant $u=3x$, on a $u\\to0$ lorsque $x\\to0$ et $\\lim_{u\\to0}\\frac{\\sin u}{u}=1$. Ainsi $\\displaystyle\\lim_{x\\to0}\\frac{\\sin(3x)}{x}=3\\times1=3$.",
+      "choices": [
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "missing_factor"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "numerator_zero"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "division_by_zero"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(sin(3*x)/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Calculer la limite $\\displaystyle\\lim_{x\\to 0}\\frac{e^{2x}-1}{x}$.",
+      "hints": [
+        "Rappelez‑vous la limite fondamentale $\\lim_{u\\to0}\\frac{e^{u}-1}{u}=1$.",
+        "Mettez le numérateur sous la forme $e^{2x}-1$ et faites apparaître le facteur $2x$."
+      ],
+      "solution_latex": "On factorise $e^{2x}-1=(e^{2x}-1)$. En écrivant $\\frac{e^{2x}-1}{x}=2\\,\\frac{e^{2x}-1}{2x}$, on pose $u=2x$ qui tend vers $0$ quand $x\\to0$. La limite fondamentale donne $\\lim_{u\\to0}\\frac{e^{u}-1}{u}=1$, donc $\\displaystyle\\lim_{x\\to0}\\frac{e^{2x}-1}{x}=2\\times1=2$.",
+      "choices": [
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "derivative_mistake"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "numerator_zero"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "division_by_zero"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((exp(2*x)-1)/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite $\\displaystyle\\lim_{x\\to 0}\\frac{\\sqrt{x+4}-2}{x}$.",
+      "hints": [
+        "Rationalisez le numérateur en le multipliant par son conjugué $\\sqrt{x+4}+2$.",
+        "Simplifiez ensuite l’expression obtenue avant de prendre la limite."
+      ],
+      "solution_latex": "On multiplie numérateur et dénominateur par $\\sqrt{x+4}+2$ :\n$$\\frac{\\sqrt{x+4}-2}{x}=\\frac{(\\sqrt{x+4}-2)(\\sqrt{x+4}+2)}{x(\\sqrt{x+4}+2)}=\\frac{x}{x(\\sqrt{x+4}+2)}=\\frac{1}{\\sqrt{x+4}+2}.$$ En faisant $x\\to0$, on obtient $\\displaystyle\\frac{1}{\\sqrt{4}+2}=\\frac{1}{2+2}=\\frac14$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{1}{4}",
+          "sympy": "Rational(1,4)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\dfrac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "miscalc_factor"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "numerator_zero"
+        },
+        {
+          "latex": "-\\dfrac{1}{4}",
+          "sympy": "-Rational(1,4)",
+          "correct": false,
+          "error_type": "sign_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((sqrt(x+4)-2)/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite \\[\\lim_{x\\to 0}\\frac{\\ln(1+5x)}{\\tan(3x)}\\] en utilisant un encadrement.",
+      "hints": [
+        "Utilise les développements limités classiques de \\ln(1+u) et de \\tan u près de 0.",
+        "Encadre chaque fonction par son équivalent linéaire et applique le théorème d'encadrement pour obtenir la limite."
+      ],
+      "solution_latex": "Lorsque $x\\to0$, on a $\\ln(1+5x)=5x+o(x)$ et $\\tan(3x)=3x+o(x)$. Ainsi \\[\\frac{\\ln(1+5x)}{\\tan(3x)}=\\frac{5x+o(x)}{3x+o(x)}\\longrightarrow\\frac{5}{3}.\\] La limite vaut donc $\\displaystyle\\frac{5}{3}$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{5}{3}",
+          "sympy": "Rational(5,3)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\dfrac{5}{9}",
+          "sympy": "Rational(5,9)",
+          "correct": false,
+          "error_type": "incorrect_denominator_square"
+        },
+        {
+          "latex": "\\dfrac{15}{3}",
+          "sympy": "Rational(15,3)",
+          "correct": false,
+          "error_type": "forgetting_simplification"
+        },
+        {
+          "latex": "\\dfrac{1}{3}",
+          "sympy": "Rational(1,3)",
+          "correct": false,
+          "error_type": "using_only_denominator"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(log(1+5*x)/tan(3*x), x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite \\[\\lim_{x\\to 0}\\frac{\\sqrt{1+2x}-\\sqrt{1-x}}{x}\\] en encadrant la différence de racines.",
+      "hints": [
+        "Rationalise le numérateur en multipliant par le conjugué.",
+        "Après rationalisation, utilise les limites simples $\\sqrt{1+u}=1+\\frac{u}{2}+o(u)$. "
+      ],
+      "solution_latex": "On rationalise : \\[\\frac{\\sqrt{1+2x}-\\sqrt{1-x}}{x}=\\frac{(\\sqrt{1+2x}-\\sqrt{1-x})(\\sqrt{1+2x}+\\sqrt{1-x})}{x(\\sqrt{1+2x}+\\sqrt{1-x})}=\\frac{(1+2x)-(1-x)}{x(\\sqrt{1+2x}+\\sqrt{1-x})}=\\frac{3x}{x(\\sqrt{1+2x}+\\sqrt{1-x})}.\\] Ainsi \\[\\frac{3}{\\sqrt{1+2x}+\\sqrt{1-x}}\\xrightarrow{x\\to0}\\frac{3}{1+1}=\\frac{3}{2}.\\] La limite est $\\displaystyle\\frac{3}{2}$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{3}{2}",
+          "sympy": "Rational(3,2)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\dfrac{3}{4}",
+          "sympy": "Rational(3,4)",
+          "correct": false,
+          "error_type": "missing_factor_2_in_denominator"
+        },
+        {
+          "latex": "\\dfrac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "cancelling_x_twice"
+        },
+        {
+          "latex": "\\dfrac{6}{2}",
+          "sympy": "Rational(6,2)",
+          "correct": false,
+          "error_type": "forgetting_to_divide_by_sum"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((sqrt(1+2*x)-sqrt(1-x))/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Trouver la limite \\[\\lim_{x\\to 0}\\frac{e^{\\sin x}-1}{x}\\] en utilisant un encadrement de $\\sin x$ et la continuité de $e^u$.",
+      "hints": [
+        "Entoure $\\sin x$ entre $x-\\frac{x^3}{6}$ et $x$ pour $x$ proche de 0.",
+        "Applique ensuite $e^{u}=1+u+o(u)$ pour les bornes afin de borner le quotient. "
+      ],
+      "solution_latex": "Pour $|x|$ petit, $x-\\frac{x^3}{6}\\le \\sin x\\le x$. En appliquant $e^{u}=1+u+o(u)$ on obtient \\[1+(x-\\frac{x^3}{6})\\le e^{\\sin x}\\le 1+x .\\] Donc \\[\\frac{x-\\frac{x^3}{6}}{x}\\le \\frac{e^{\\sin x}-1}{x}\\le \\frac{x}{x}=1.\\] En faisant tendre $x$ vers 0, le membre de gauche tend vers 1, d'où par le théorème d'encadrement la limite vaut $1$.",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "ignoring_exponential_term"
+        },
+        {
+          "latex": "\\dfrac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "using_linear_approx_of_sin_only"
+        },
+        {
+          "latex": "e",
+          "sympy": "E",
+          "correct": false,
+          "error_type": "misreading_expression"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((exp(sin(x))-1)/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite $\\displaystyle\\lim_{x\\to 0}\\frac{\\ln(1+4x)-2\\sin(2x)}{x}$ en utilisant un encadrement adapté.",
+      "hints": [
+        "Encadrer chaque terme du numérateur à l'ordre $x$ grâce aux développements usuels ou aux inégalités classiques.",
+        "Utiliser $\\ln(1+u)=u+o(u)$ et $\\sin u = u+o(u)$ lorsque $u\\to0$, puis simplifier le rapport."
+      ],
+      "solution_latex": "On a, pour $x\\to0$, $\\ln(1+4x)=4x+o(x)$ et $\\sin(2x)=2x+o(x)$. Ainsi $2\\sin(2x)=4x+o(x)$. Le numérateur devient $\\bigl(4x+o(x)\\bigr)-\\bigl(4x+o(x)\\bigr)=o(x)$. Donc \\[\\frac{\\ln(1+4x)-2\\sin(2x)}{x}=\\frac{o(x)}{x}\\to0.\\] La limite vaut $0$.",
+      "choices": [
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "forgetting_o_term"
+        },
+        {
+          "latex": "$4$",
+          "sympy": "4",
+          "correct": false,
+          "error_type": "taking_only_first_term_of_ln"
+        },
+        {
+          "latex": "$-4$",
+          "sympy": "-4",
+          "correct": false,
+          "error_type": "sign_error_in_sin"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((log(1+4*x)-2*sin(2*x))/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Évaluer $\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{1+3x}\\,\\cos(2x)-1}{x}$ en encadrant chaque fonction autour de $0$.",
+      "hints": [
+        "Rappeler les développements limités de $\\sqrt{1+u}$ et de $\\cos u$ à l'ordre $u$ ou $u^2$.",
+        "Multiplier les deux développements puis simplifier le numérateur avant de diviser par $x$. "
+      ],
+      "solution_latex": "Pour $x\\to0$, on a $\\sqrt{1+3x}=1+\\frac{3}{2}x+o(x)$ et $\\cos(2x)=1-2x^{2}+o(x^{2})$. Ainsi \\[\\sqrt{1+3x}\\,\\cos(2x)=\\bigl(1+\\frac{3}{2}x+o(x)\\bigr)\\bigl(1-2x^{2}+o(x^{2})\\bigr)=1+\\frac{3}{2}x+o(x).\\] Le numérateur devient $(1+\\frac{3}{2}x+o(x))-1=\\frac{3}{2}x+o(x)$. Donc \\[\\frac{\\sqrt{1+3x}\\,\\cos(2x)-1}{x}=\\frac{\\frac{3}{2}x+o(x)}{x}\\to\\frac{3}{2}.\\] La limite vaut $\\dfrac{3}{2}$.",
+      "choices": [
+        {
+          "latex": "$\\dfrac{3}{2}$",
+          "sympy": "Rational(3,2)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$3$",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "missing_factor_1_over_2"
+        },
+        {
+          "latex": "$\\dfrac{1}{2}$",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "keeping_only_cos_development"
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "cancelling_all_terms"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((sqrt(1+3*x)*cos(2*x)-1)/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel est le résultat du théorème d'encadrement (ou « squeeze theorem ») appliqué à des fonctions $f,g,h$ définies sur un intervalle contenant $a$ tel que $\\forall x\\neq a,\\;f(x)\\leq g(x)\\leq h(x)$ et $\\lim_{x\\to a}f(x)=\\lim_{x\\to a}h(x)=\\ell$ ?",
+      "hints": [
+        "Pensez à ce que l’on doit montrer pour que la fonction prise au milieu hérite de la même limite.",
+        "Utilisez le fait que $g$ est coincée entre deux fonctions dont les limites existent et sont égales."
+      ],
+      "solution_latex": "Le théorème d'encadrement affirme que, sous les hypothèses $f(x)\\leq g(x)\\leq h(x)$ pour $x\\neq a$ et $\\lim_{x\\to a}f(x)=\\lim_{x\\to a}h(x)=\\ell$, alors $\\lim_{x\\to a}g(x)=\\ell$. En d’autres termes, $g$ hérite de la même limite que les fonctions qui l’encadrent.",
+      "choices": [
+        {
+          "latex": "$\\displaystyle\\lim_{x\\to a}g(x)=\\ell$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$\\displaystyle\\lim_{x\\to a}g(x)$ existe mais n’est pas forcément égal à $\\ell$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$\\displaystyle\\lim_{x\\to a}g(x)=\\frac{\\lim f+\\lim h}{2}$",
+          "correct": false,
+          "error_type": "confusion_moyenne"
+        },
+        {
+          "latex": "$\\displaystyle\\lim_{x\\to a}g(x)=0$ uniquement si $\\ell=0$",
+          "correct": false,
+          "error_type": "condition_nulle_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Soit $u:\\mathbb{R}\\to\\mathbb{R}$ continue en $0$ et $v:\\mathbb{R}\\to\\mathbb{R}$ telle que $\\displaystyle\\lim_{x\\to 0}v(x)=0$. Lequel des énoncés suivants décrit correctement la limite de la composée $w(x)=u\\bigl(v(x)\\bigr)$ quand $x\\to 0$ ?",
+      "hints": [
+        "Commencez par identifier la limite de l’intérieur de la composée.",
+        "Ensuite, utilisez la continuité de $u$ au point où $v(x)$ tend."
+      ],
+      "solution_latex": "Comme $\\displaystyle\\lim_{x\\to 0}v(x)=0$ et que $u$ est continue en $0$, on a $\\displaystyle\\lim_{x\\to 0}u\\bigl(v(x)\\bigr)=u\\bigl(\\lim_{x\\to 0}v(x)\\bigr)=u(0)$. Ainsi la limite de la composée vaut $u(0)$.",
+      "choices": [
+        {
+          "latex": "$\\displaystyle\\lim_{x\\to 0}u\\bigl(v(x)\\bigr)=u(0)$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$\\displaystyle\\lim_{x\\to 0}u\\bigl(v(x)\\bigr)=\\lim_{x\\to 0}u(x)$",
+          "correct": false,
+          "error_type": "confusion_composition_limite"
+        },
+        {
+          "latex": "$\\displaystyle\\lim_{x\\to 0}u\\bigl(v(x)\\bigr)$ n’existe pas nécessairement même si $u$ est continue",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$\\displaystyle\\lim_{x\\to 0}u\\bigl(v(x)\\bigr)=0$ si $u(0)=0$, sinon la limite est indéterminée",
+          "correct": false,
+          "error_type": "condition_nulle_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé du théorème d'encadrement (squeeze theorem) pour la limite d'une fonction en un point $a$.",
+      "hints": [
+        "Commence par identifier les fonctions qui encadrent $f$ et les conditions sur leurs limites.",
+        "Rappelle que si $g(x)\\le f(x)\\le h(x)$ près de $a$ et que $\\lim_{x\\to a}g(x)=\\lim_{x\\to a}h(x)=\\ell$, alors $\\lim_{x\\to a}f(x)=\\ell$."
+      ],
+      "solution_latex": "Soient $f,g,h$ des fonctions définies sur un intervalle $I$ contenant $a$, à l'exception éventuellement de $a$ lui-même. Supposons que, pour tout $x\\in I\\setminus\\{a\\}$ suffisamment proche de $a$, on ait $g(x)\\le f(x)\\le h(x)$. Si de plus $\\displaystyle\\lim_{x\\to a}g(x)=\\displaystyle\\lim_{x\\to a}h(x)=\\ell$, alors $\\displaystyle\\lim_{x\\to a}f(x)=\\ell$.",
+      "fragments": [
+        "Soient $f,g,h$ des fonctions définies sur un intervalle $I$ contenant $a$, à l'exception éventuellement de $a$ lui-même.",
+        "Supposons que, pour tout $x\\in I\\setminus\\{a\\}$ suffisamment proche de $a$, on ait $g(x)\\le f(x)\\le h(x)$.",
+        "Si de plus $\\displaystyle\\lim_{x\\to a}g(x)=\\displaystyle\\lim_{x\\to a}h(x)=\\ell$,",
+        "alors $\\displaystyle\\lim_{x\\to a}f(x)=\\ell$."
+      ],
+      "distracteurs": [
+        "Si $\\displaystyle\\lim_{x\\to a}g(x)=\\ell$ et $\\displaystyle\\lim_{x\\to a}h(x)\\neq\\ell$, alors $\\displaystyle\\lim_{x\\to a}f(x)=\\ell$.",
+        "On suppose seulement $g(x)\\le h(x)$ pour $x$ près de $a$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-03",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-limites-03",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé du théorème de limite d'une composée : si $u$ est continue en $a$ et $\\lim_{x\\to a}v(x)=L$, alors $\\lim_{x\\to a}u\\bigl(v(x)\\bigr)=u(L)$.",
+      "hints": [
+        "Identifie d'abord les hypothèses de continuité et d'existence de limite.",
+        "Ensuite, rappelle que la continuité de $u$ permet de passer la limite à l'intérieur de $u$."
+      ],
+      "solution_latex": "Soit $u:\\mathbb{R}\\to\\mathbb{R}$ continue en $L\\in\\mathbb{R}$ et $v:\\mathbb{R}\\to\\mathbb{R}$ telle que $\\displaystyle\\lim_{x\\to a}v(x)=L$. Alors la fonction composée $x\\mapsto u\\bigl(v(x)\\bigr)$ admet une limite en $a$ et on a $\\displaystyle\\lim_{x\\to a}u\\bigl(v(x)\\bigr)=u(L)$.",
+      "fragments": [
+        "Soit $u:\\mathbb{R}\\to\\mathbb{R}$ continue en $L\\in\\mathbb{R}$ et $v:\\mathbb{R}\\to\\mathbb{R}$ telle que $\\displaystyle\\lim_{x\\to a}v(x)=L$.",
+        "Alors la fonction composée $x\\mapsto u\\bigl(v(x)\\bigr)$ admet une limite en $a$.",
+        "De plus, on a $\\displaystyle\\lim_{x\\to a}u\\bigl(v(x)\\bigr)=u(L)$.",
+        "(Aucun autre terme n'est nécessaire pour compléter l'énoncé)."
+      ],
+      "distracteurs": [
+        "Si $u$ n'est pas continue en $L$, on a quand même $\\displaystyle\\lim_{x\\to a}u\\bigl(v(x)\\bigr)=u(L)$.",
+        "On ne nécessite que $\\displaystyle\\lim_{x\\to a}v(x)=L$ sans aucune hypothèse sur $u$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

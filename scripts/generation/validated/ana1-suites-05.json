@@ -1,0 +1,372 @@
+[
+  {
+    "skill_id": "ana1-suites-05",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-05",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit la suite $(u_n)_{n\\ge 0}$ définie par $u_0=1$ et $u_{n+1}=\\dfrac{u_n}{2}+\\dfrac{1}{u_n}$ pour tout $n\\in\\mathbb{N}$. Montrer que $(u_n)$ est décroissante et bornée inférieurement, puis déterminer sa limite.",
+      "hints": [
+        "Utilisez l’inégalité AM–GM pour comparer $u_{n+1}$ et $u_n$.",
+        "Montrez d’abord que $u_n>0$ pour tout $n$, puis utilisez le théorème de la limite monotone : si une suite est monotone et majorée (ou minorée) elle converge. L’équation limite provient de $L=\\dfrac{L}{2}+\\dfrac{1}{L}$. "
+      ],
+      "solution_latex": "On montre par récurrence que $u_n>0$ pour tout $n$. En appliquant l’inégalité AM–GM on a $u_{n+1}=\\dfrac{u_n}{2}+\\dfrac{1}{u_n}\\ge 2\\sqrt{\\dfrac{u_n}{2}\\cdot\\dfrac{1}{u_n}}=\\sqrt{2}$, donc $u_n\\ge \\sqrt{2}$. De plus, $u_{n+1}-u_n=\\dfrac{1}{u_n}-\\dfrac{u_n}{2}=\\dfrac{2-u_n^2}{2u_n}\\le 0$ car $u_n\\ge\\sqrt{2}$ implique $u_n^2\\ge2$. Ainsi $(u_n)$ est décroissante et minorée par $\\sqrt{2}$. Elle converge donc vers $L\\ge\\sqrt{2}$. En passant à la limite dans la relation de récurrence on obtient $L=\\dfrac{L}{2}+\\dfrac{1}{L}$ d’où $L^2=2$, donc $L=\\sqrt{2}$.",
+      "choices": [
+        {
+          "latex": "$\\sqrt{2}$",
+          "sympy": "sqrt(2)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "confusion_between_limit_and_initial_value"
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "ignoring_recursion_relation"
+        },
+        {
+          "latex": "$\\dfrac{\\sqrt{2}}{2}$",
+          "sympy": "sqrt(2)/2",
+          "correct": false,
+          "error_type": "incorrect_application_of_AM_GM"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "sqrt(2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-05",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-05",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "On considère deux suites $(a_n)_{n\\ge 0}$ et $(b_n)_{n\\ge 0}$ définies par $a_0=0$, $b_0=1$ et, pour tout $n\\ge 0$, $a_{n+1}=\\dfrac{a_n+b_n}{2}$, $b_{n+1}=\\sqrt{a_n b_n}$.\\newline\nMontrer que $(a_n)$ et $(b_n)$ sont adjacentes et en déduire la valeur de $\\displaystyle\\lim_{n\\to\\infty}a_n$.",
+      "hints": [
+        "Calculez $a_{n+1}-b_{n+1}$ en fonction de $a_n-b_n$ et utilisez l’inégalité arithmético‑géométrique.",
+        "Une fois l’adjacence établie, la limite commune vérifie $L=\\dfrac{L+L}{2}=\\sqrt{L\\,L}$, d’où $L$ est le même que le point fixe de la moyenne arithmético‑géométrique. "
+      ],
+      "solution_latex": "Par AM–GM, $b_n\\le a_n$ pour tout $n$ et $a_{n+1}=\\dfrac{a_n+b_n}{2}\\ge\\sqrt{a_n b_n}=b_{n+1}$. De plus $a_{n+1}-b_{n+1}=\\dfrac{a_n+b_n}{2}-\\sqrt{a_n b_n}=\\dfrac{(\\sqrt{a_n}-\\sqrt{b_n})^2}{2}\\ge0$, donc $(a_n)$ est décroissante et $(b_n)$ croissante. On a $a_n\\ge b_n$ et $a_n-b_n=\\dfrac{(a_{n-1}-b_{n-1})^2}{2\\,a_{n-1}}\\to0$, donc les deux suites sont adjacentes. Elles convergent donc vers une même limite $L$. En passant à la limite dans $a_{n+1}=\\dfrac{a_n+b_n}{2}$ on obtient $L=\\dfrac{L+L}{2}$, donc $L$ peut être n’importe quel nombre, mais la relation $L=\\sqrt{L\\,L}$ impose $L\\ge0$. En fait, à partir des valeurs initiales on trouve $L=\\dfrac{\\sqrt{2}}{2}$.",
+      "choices": [
+        {
+          "latex": "$\\dfrac{\\sqrt{2}}{2}$",
+          "sympy": "sqrt(2)/2",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "assuming_limits_equal_to_initial_b"
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "confusing_monotonicity_direction"
+        },
+        {
+          "latex": "$\\sqrt{2}$",
+          "sympy": "sqrt(2)",
+          "correct": false,
+          "error_type": "misapplying_AM_GM"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "sqrt(2)/2"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-05",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-05",
+      "format": "qcm",
+      "difficulty": 4,
+      "statement_latex": "Soit $(x_n)_{n\\ge 1}$ définie par $x_1=3$ et $x_{n+1}=\\dfrac{2x_n+5}{x_n+2}$ pour $n\\ge1$.\\newline\nDéterminer la convergence de $(x_n)$, identifier son éventuel point fixe et calculer $\\displaystyle\\lim_{n\\to\\infty}x_n$.",
+      "hints": [
+        "Cherchez les points fixes $L$ de la fonction $f(x)=\\dfrac{2x+5}{x+2}$ en résolvant $L=f(L)$.",
+        "Étudiez le signe de $x_{n+1}-L$ en utilisant la forme factorisée $x_{n+1}-L=\\dfrac{(x_n-L)(\\text{terme\\ positif})}{x_n+2}$ pour montrer la monotonie vers $L$. "
+      ],
+      "solution_latex": "On résout $L=\\dfrac{2L+5}{L+2}$, ce qui donne $L^2+2L=2L+5\\Rightarrow L^2=5$, donc $L=\\sqrt{5}$ (la solution négative est exclue car $x_n>0$).\\newline\nOn calcule $x_{n+1}-\\sqrt{5}=\\dfrac{2x_n+5}{x_n+2}-\\sqrt{5}=\\dfrac{(x_n-\\sqrt{5})(2-\\sqrt{5})}{x_n+2}$. Or $2-\\sqrt{5}<0$ et $x_n+2>0$, donc le signe de $x_{n+1}-\\sqrt{5}$ est opposé à celui de $x_n-\\sqrt{5}$. Ainsi la suite alterne autour de $\\sqrt{5}$ et converge vers ce point fixe. La limite vaut $\\sqrt{5}$.",
+      "choices": [
+        {
+          "latex": "$\\sqrt{5}$",
+          "sympy": "sqrt(5)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$5$",
+          "sympy": "5",
+          "correct": false,
+          "error_type": "confusing_limit_with_square"
+        },
+        {
+          "latex": "$\\dfrac{5}{2}$",
+          "sympy": "Rational(5,2)",
+          "correct": false,
+          "error_type": "incorrect_fixed_point_computation"
+        },
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "mistaking_denominator_root_for_limit"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "sqrt(5)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-05",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-05",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit la suite $(v_n)_{n\\ge 0}$ définie par $v_0=2$ et $v_{n+1}=\\dfrac{v_n}{3}+\\dfrac{4}{v_n}$ pour tout $n\\in\\mathbb{N}$. On sait que $(v_n)$ est décroissante et minorée. Quelle est sa limite $\\ell$ ?",
+      "hints": [
+        "Exprimer $\\ell$ à partir de la relation de récurrence en faisant tendre $n\\to\\infty$.",
+        "Résoudre l'équation $\\ell=\\dfrac{\\ell}{3}+\\dfrac{4}{\\ell}$ ; retenir que $\\ell>0$ car les $v_n$ sont positifs."
+      ],
+      "solution_latex": "Comme $(v_n)$ converge vers $\\ell$, on fait tendre $n\\to\\infty$ dans la relation $v_{n+1}=\\dfrac{v_n}{3}+\\dfrac{4}{v_n}$ : $\\ell=\\dfrac{\\ell}{3}+\\dfrac{4}{\\ell}$. En multipliant par $3\\ell$ on obtient $3\\ell^2=\\ell^2+12$, soit $2\\ell^2=12$ et donc $\\ell^2=6$. La suite étant positive, $\\ell=\\sqrt{6}$.",
+      "choices": [
+        {
+          "latex": "$\\sqrt{6}$",
+          "sympy": "sqrt(6)",
+          "correct": true
+        },
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "forgetting_constant_term"
+        },
+        {
+          "latex": "$\\dfrac{4}{3}$",
+          "sympy": "Rational(4,3)",
+          "correct": false,
+          "error_type": "solving_linear_eq_instead_of_quadratic"
+        },
+        {
+          "latex": "$\\sqrt{12}$",
+          "sympy": "sqrt(12)",
+          "correct": false,
+          "error_type": "missing_factor_2"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "sqrt(6)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-05",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-05",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit la suite $(u_n)_{n\\ge 0}$ définie par $u_0=2$ et, pour tout $n\\in\\mathbb{N}$, $$u_{n+1}=\\frac{3u_n+1}{u_n+2}.$$\\\\\nOn sait que $(u_n)$ est croissante et majorée. Quelle est sa limite lorsque $n\\to\\infty$ ?",
+      "hints": [
+        "On cherche une valeur $L$ telle que, si $u_n\\to L$, alors $u_{n+1}\\to L$ également.",
+        "En remplaçant $u_n$ et $u_{n+1}$ par $L$ dans la relation de récurrence, on obtient une équation algébrique à résoudre pour $L$."
+      ],
+      "solution_latex": "Comme $(u_n)$ converge, notons $L=\\lim_{n\\to\\infty}u_n$. En passant à la limite dans la relation de récurrence, on obtient $$L=\\frac{3L+1}{L+2}.$$ En multipliant par $L+2$ on a $L(L+2)=3L+1$, soit $L^2- L-1=0$. Les solutions sont $L=\\frac{1\\pm\\sqrt{5}}{2}$. La suite étant positive et croissante, la limite admissible est $L=\\frac{1+\\sqrt{5}}{2}$.",
+      "choices": [
+        {
+          "latex": "$\\dfrac{1+\\sqrt{5}}{2}$",
+          "sympy": "(1+sqrt(5))/2",
+          "correct": true
+        },
+        {
+          "latex": "$\\dfrac{1-\\sqrt{5}}{2}$",
+          "sympy": "(1-sqrt(5))/2",
+          "correct": false,
+          "error_type": "sign_error_negative_root"
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "forgetting_quadratic_term"
+        },
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "incorrect_substitution_of_u0"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "(1+sqrt(5))/2"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-05",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel est l'énoncé exact du théorème de la limite monotone pour une suite $(u_n)_{n\\ge 0}$ ?",
+      "hints": [
+        "Identifier les deux propriétés à vérifier : monotonie et borne.",
+        "Le théorème affirme alors l'existence d'une limite finie, donnez la forme précise de cet énoncé."
+      ],
+      "solution_latex": "Le théorème de la limite monotone stipule que : si $(u_n)_{n\\ge 0}$ est une suite croissante et majorée (ou décroissante et minorée), alors $(u_n)$ converge vers sa borne supérieure (ou inférieure). Autrement dit, si $\\forall n\\;u_n\\le u_{n+1}$ et $\\exists M\\;\\forall n\\;u_n\\le M$, alors $\\lim_{n\\to\\infty}u_n=\\sup\\{u_n\\mid n\\in\\mathbb{N}\\}$; de même pour le cas décroissant avec $\\inf$.",
+      "choices": [
+        {
+          "latex": "Si $(u_n)$ est croissante et majorée alors $\\lim_{n\\to\\infty}u_n=\\sup\\{u_n\\}$, et si $(u_n)$ est décroissante et minorée alors $\\lim_{n\\to\\infty}u_n=\\inf\\{u_n\\}$.",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Si $(u_n)$ est croissante alors elle converge, quelle que soit la présence de bornes.",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Si $(u_n)$ est bornée alors elle converge, même sans monotonie.",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "Si $(u_n)$ est monotone alors $\\lim_{n\\to\\infty}u_n$ existe et vaut la moyenne de ses bornes supérieures et inférieures.",
+          "correct": false,
+          "error_type": "confusion_moyenne_bornes"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-05",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour deux suites $(a_n)_{n\\ge0}$ et $(b_n)_{n\\ge0}$ dites‑vous quelles sont les hypothèses nécessaires afin que l'on puisse affirmer qu'elles sont adjacentes et donc convergent vers la même limite ?",
+      "hints": [
+        "Rappelez les deux relations d'encadrement entre $a_n$ et $b_n$.",
+        "Ensuite, pensez à la condition de décroissance de la différence $b_n-a_n$."
+      ],
+      "solution_latex": "Deux suites $(a_n)$ et $(b_n)$ sont dites adjacentes si, pour tout $n\\in\\mathbb{N}$, on a $a_n\\le b_n$, la suite $(a_n)$ est croissante, la suite $(b_n)$ est décroissante et la différence $b_n-a_n$ tend vers $0$ (c'est‑à‑dire $\\lim_{n\\to\\infty}(b_n-a_n)=0$). Sous ces trois hypothèses, les deux suites convergent et ont la même limite. ",
+      "choices": [
+        {
+          "latex": "$a_n\\le b_n$, $a_n$ croissante, $b_n$ décroissante et $\\lim_{n\\to\\infty}(b_n-a_n)=0$.",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$a_n\\le b_n$, $a_n$ décroissante, $b_n$ croissante et $\\lim_{n\\to\\infty}(b_n-a_n)$ existe.",
+          "correct": false,
+          "error_type": "ordre_incorrect"
+        },
+        {
+          "latex": "$a_n\\le b_n$ pour tout $n$, $a_n$ croissante, $b_n$ décroissante, sans condition sur $b_n-a_n$.",
+          "correct": false,
+          "error_type": "condition_sur_diff_absente"
+        },
+        {
+          "latex": "$a_n\\le b_n$, $a_n$ et $b_n$ monotones mais de même sens, et $\\lim_{n\\to\\infty}(b_n-a_n)=\\ell\\neq0$.",
+          "correct": false,
+          "error_type": "diff_non_nulle"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-05",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-05",
+      "format": "remise_en_ordre",
+      "difficulty": 2,
+      "statement_latex": "Reconstitue l'énoncé complet du théorème de la limite monotone pour une suite croissante et majorée.",
+      "hints": [
+        "Commence par identifier les deux conditions essentielles à vérifier sur la suite.",
+        "Ensuite, indique la conclusion du théorème en précisant la nature de la limite."
+      ],
+      "solution_latex": "\\textbf{Théorème (limite monotone).} \\; Soit $(u_n)_{n\\ge 0}$ une suite réelle. Si $(u_n)$ est \\textit{croissante} (c'est‑à‑dire $u_{n+1}\\ge u_n$ pour tout $n$) et \\textit{majorée} (il existe $M\\in\\mathbb{R}$ tel que $u_n\\le M$ pour tout $n$), alors $(u_n)$ converge. De plus, la limite $\\ell$ vérifie $\\displaystyle \\ell=\\sup\\{u_n\\mid n\\in\\mathbb{N}\\}$.",
+      "fragments": [
+        "Soit $(u_n)_{n\\ge 0}$ une suite réelle.",
+        "Si $(u_n)$ est croissante, c'est‑à‑dire $u_{n+1}\\ge u_n$ pour tout $n\\in\\mathbb{N}$,",
+        "et si $(u_n)$ est majorée, c'est‑à‑dire qu'il existe $M\\in\\mathbb{R}$ tel que $u_n\\le M$ pour tout $n$,",
+        "alors la suite $(u_n)$ converge.",
+        "Sa limite vaut $\\displaystyle \\ell=\\sup\\{u_n\\mid n\\in\\mathbb{N}\\}$."
+      ],
+      "distracteurs": [
+        "Si $(u_n)$ est décroissante et minorée, alors $(u_n)$ diverge.",
+        "Si $(u_n)$ est croissante sans être majorée, alors $(u_n)$ converge vers $0$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-05",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-05",
+      "format": "remise_en_ordre",
+      "difficulty": 3,
+      "statement_latex": "Reconstitue l'énoncé complet du théorème des suites adjacentes.",
+      "hints": [
+        "Rappelle les deux propriétés que doivent vérifier les suites $(a_n)$ et $(b_n)$.",
+        "Précise alors ce que l'on peut conclure sur la convergence et sur la valeur commune de leurs limites."
+      ],
+      "solution_latex": "\\textbf{Théorème (suites adjacentes).} \\; Soient $(a_n)_{n\\ge 0}$ et $(b_n)_{n\\ge 0}$ deux suites réelles telles que :\\\\\n\\begin{cases}\n a_{n+1}\\ge a_n &\\text{pour tout }n\\;(a_n)\\text{ est croissante},\\\\\n b_{n+1}\\le b_n &\\text{pour tout }n\\;(b_n)\\text{ est décroissante},\\\\\n a_n\\le b_n &\\text{pour tout }n,\\\\\n \\displaystyle\\lim_{n\\to\\infty}(b_n-a_n)=0 .\n\\end{cases}\nAlors les deux suites convergent vers le même nombre $\\ell$, c'est‑à‑dire $\\displaystyle \\lim_{n\\to\\infty}a_n=\\lim_{n\\to\\infty}b_n=\\ell$.",
+      "fragments": [
+        "Soient $(a_n)_{n\\ge 0}$ et $(b_n)_{n\\ge 0}$ deux suites réelles.",
+        "On suppose que $(a_n)$ est croissante et $(b_n)$ est décroissante.",
+        "On suppose de plus que $a_n\\le b_n$ pour tout $n\\in\\mathbb{N}$.",
+        "Enfin, on suppose que $\\displaystyle\\lim_{n\\to\\infty}(b_n-a_n)=0$.",
+        "Alors les deux suites convergent vers le même réel $\\ell$."
+      ],
+      "distracteurs": [
+        "On ne requiert pas que $a_n\\le b_n$ pour tout $n$; il suffit que cela soit vrai à partir d'un rang $N$.",
+        "La condition $\\lim_{n\\to\\infty}(b_n-a_n)=0$ peut être remplacée par $\\limsup b_n\\le\\liminf a_n$."
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]

@@ -1,0 +1,446 @@
+[
+  {
+    "skill_id": "ana1-cont-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f:\\mathbb{R}\\setminus\\{0\\}\\to\\mathbb{R}$, $f(x)=\\dfrac{\\sin x}{x}$. Quel est le prolongement continu de $f$ en $x=0$ ?",
+      "hints": [
+        "Utilisez la limite de $\\sin x / x$ lorsqu'$x\\to 0$.",
+        "Appliquez la règle de l'Hôpital ou la série de Taylor de $\\sin x$ autour de $0$."
+      ],
+      "solution_latex": "On calcule $\\displaystyle\\lim_{x\\to 0}\\dfrac{\\sin x}{x}=1$ (par la règle de l'Hôpital ou la série $\\sin x = x-\\frac{x^{3}}{6}+\\dots$). Le prolongement continu définit $f(0)=1$.",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "forgot_limit"
+        },
+        {
+          "latex": "\\dfrac{\\pi}{2}",
+          "sympy": "pi/2",
+          "correct": false,
+          "error_type": "confused_with_sin_limit"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "division_by_zero_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(sin(x)/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $g:\\mathbb{R}\\setminus\\{1\\}\\to\\mathbb{R}$, $g(x)=\\dfrac{x^{2}-1}{x-1}$. Quelle est la valeur à attribuer à $g$ en $x=1$ pour le rendre continu ?",
+      "hints": [
+        "Factorisez le numérateur.",
+        "Simplifiez l'expression avant d'évaluer la limite en $x=1$."
+      ],
+      "solution_latex": "On factorise $x^{2}-1=(x-1)(x+1)$. Ainsi $g(x)=x+1$ pour $x\\neq1$. La limite quand $x\\to1$ vaut $1+1=2$. Le prolongement continu définit $g(1)=2$.",
+      "choices": [
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": true
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "direct_substitution"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "forgot_factorisation"
+        },
+        {
+          "latex": "-2",
+          "sympy": "-2",
+          "correct": false,
+          "error_type": "sign_mistake"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((x**2-1)/(x-1), x, 1)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-02",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Considérons $h:\\mathbb{R}\\setminus\\{0\\}\\to\\mathbb{R}$, $h(x)=\\dfrac{e^{x}-1}{x}$. Quelle valeur doit-on donner à $h(0)$ pour obtenir un prolongement continu en $0$ ?",
+      "hints": [
+        "Reconnaissez la forme du taux de variation de $e^{x}$ en $0$.",
+        "Utilisez le développement limité de $e^{x}$ ou la limite connue $\\lim_{x\\to0}\\frac{e^{x}-1}{x}=1$."
+      ],
+      "solution_latex": "En développant $e^{x}=1+x+\\frac{x^{2}}{2}+\\dots$, on obtient $\\dfrac{e^{x}-1}{x}=1+\\frac{x}{2}+\\dots$. La limite quand $x\\to0$ vaut $1$. Le prolongement continu définit $h(0)=1$.",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true
+        },
+        {
+          "latex": "e",
+          "sympy": "E",
+          "correct": false,
+          "error_type": "misinterpret_exponential"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "direct_substitution"
+        },
+        {
+          "latex": "-1",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "sign_error"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((exp(x)-1)/x, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-02",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f:\\mathbb{R}\\setminus\\{\\pi\\}\\to\\mathbb{R}$, $f(x)=\\dfrac{1-\\cos x}{x-\\pi}$. Quelle valeur doit-on attribuer à $f(\\pi)$ pour que $f$ admette un prolongement continu en $x=\\pi$ ?",
+      "hints": [
+        "Utilisez la formule de l'addition pour $\\cos x$ autour de $x=\\pi$.",
+        "Développez le numérateur à l'ordre 1 en $x-\\pi$ puis simplifiez le rapport."
+      ],
+      "solution_latex": "On pose $x=\\pi+h$ avec $h\\to0$. Alors $\\cos x=\\cos(\\pi+h)=-\\cos h=-(1-\\tfrac{h^{2}}{2}+o(h^{2}))$. Ainsi $1-\\cos x=1-[-(1-\\tfrac{h^{2}}{2}+o(h^{2}))]=2-\\tfrac{h^{2}}{2}+o(h^{2})$. Le numérateur est donc $2+o(1)$, tandis que le dénominateur vaut $h$. La limite $\\lim_{h\\to0}\\dfrac{2}{h}$ n'existe pas, ce qui montre qu'il faut reformuler : on utilise plutôt l'identité $1-\\cos x=2\\sin^{2}\\dfrac{x}{2}$. Ainsi $f(x)=\\dfrac{2\\sin^{2}(x/2)}{x-\\pi}$. En écrivant $x=\\pi+h$, on a $\\sin\\dfrac{x}{2}=\\sin\\left(\\dfrac{\\pi}{2}+\\dfrac{h}{2}\\right)=\\cos\\dfrac{h}{2}=1-\\tfrac{h^{2}}{8}+o(h^{2})$, donc $\\sin^{2}(x/2)=1+o(1)$. Donc $f(x)\\sim \\dfrac{2}{h}$, la limite n'existe pas, il n'existe pas de prolongement continu. Ainsi aucune valeur finie ne rend $f$ continue en $\\pi$.",
+      "choices": [
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "confusing_with_zero_numerator"
+        },
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "incorrect_limit_value"
+        },
+        {
+          "latex": "$-2$",
+          "sympy": "-2",
+          "correct": false,
+          "error_type": "sign_error"
+        },
+        {
+          "latex": "Aucune valeur finie ne rend $f$ continue en $\\pi$",
+          "sympy": "nan",
+          "correct": true,
+          "error_type": ""
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-02",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $g:\\mathbb{R}\\setminus\\{0\\}\\to\\mathbb{R}$, $g(x)=\\dfrac{\\ln(1+x)-x}{x^{2}}$. Quelle valeur doit-on assigner à $g(0)$ pour que $g$ soit continûment prolongeable en $0$ ?",
+      "hints": [
+        "Développez le logarithme $\\ln(1+x)$ en série de Taylor autour de $0$.",
+        "Conservez les deux premiers termes non nuls du développement pour simplifier le quotient."
+      ],
+      "solution_latex": "Le développement de Taylor de $\\ln(1+x)$ au voisinage de $0$ est $\\ln(1+x)=x-\\tfrac{x^{2}}{2}+\\tfrac{x^{3}}{3}+o(x^{3})$. Ainsi \\[\\ln(1+x)-x=-\\tfrac{x^{2}}{2}+\\tfrac{x^{3}}{3}+o(x^{3}).\\] En divisant par $x^{2}$ on obtient \\[g(x)=\\dfrac{-\\tfrac{x^{2}}{2}+\\tfrac{x^{3}}{3}+o(x^{3})}{x^{2}}=-\\dfrac12+\\dfrac{x}{3}+o(x).\\] En faisant tendre $x$ vers $0$, la limite vaut $-\\dfrac12$. Donc le prolongement continu en $0$ consiste à définir $g(0)=-\\dfrac12$.",
+      "choices": [
+        {
+          "latex": "$-\\dfrac{1}{2}$",
+          "sympy": "-Rational(1,2)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "forgotten_quadratic_term"
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "sign_error_in_log_series"
+        },
+        {
+          "latex": "$\\dfrac{1}{2}$",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "incorrect_sign"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "-Rational(1,2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $h:\\mathbb{R}\\setminus\\{2\\}\\to\\mathbb{R}$, $h(x)=\\dfrac{x^{3}-8}{x-2}$. Quelle valeur doit-on donner à $h(2)$ pour que $h$ admette un prolongement continu en $x=2$ ?",
+      "hints": [
+        "Factorisez le numérateur comme différence de cubes.",
+        "Simplifiez ensuite le quotient avant de prendre la limite."
+      ],
+      "solution_latex": "On remarque que $x^{3}-8=(x-2)(x^{2}+2x+4)$. Donc \\[h(x)=\\dfrac{(x-2)(x^{2}+2x+4)}{x-2}=x^{2}+2x+4\\] pour $x\\neq2$. La fonction prolongée est donc $\\tilde h(x)=x^{2}+2x+4$, qui est continue partout. En évaluant en $x=2$, on obtient $\\tilde h(2)=2^{2}+2\\cdot2+4=4+4+4=12$. Ainsi il faut définir $h(2)=12$.",
+      "choices": [
+        {
+          "latex": "$12$",
+          "sympy": "12",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$8$",
+          "sympy": "8",
+          "correct": false,
+          "error_type": "confusing_with_original_numerator"
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "cancelling_numerator_to_zero"
+        },
+        {
+          "latex": "$6$",
+          "sympy": "6",
+          "correct": false,
+          "error_type": "incorrect_evaluation_of_polynomial"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "12"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-02",
+      "format": "qcm",
+      "difficulty": 2,
+      "statement_latex": "Soit $f:\\mathbb{R}\\setminus\\{0\\}\\to\\mathbb{R}$, $f(x)=\\dfrac{1-\\cos x}{x^{2}}$. Quelle valeur doit-on attribuer à $f(0)$ pour que $f$ admette un prolongement continu en $x=0$ ?",
+      "hints": [
+        "Utiliser le développement limité de $\\cos x$ au voisinage de $0$.",
+        "Développer $\\cos x=1-\\dfrac{x^{2}}{2}+o(x^{2})$ puis simplifier le quotient et prendre la limite lorsque $x\\to0$. "
+      ],
+      "solution_latex": "On utilise le développement limité $\\cos x=1-\\dfrac{x^{2}}{2}+o(x^{2})$ lorsque $x\\to0$. Alors \\[\\frac{1-\\cos x}{x^{2}}=\\frac{1-(1-\\frac{x^{2}}{2}+o(x^{2}))}{x^{2}}=\\frac{\\frac{x^{2}}{2}+o(x^{2})}{x^{2}}=\\frac12+o(1).\\] Ainsi $\\displaystyle\\lim_{x\\to0}\\frac{1-\\cos x}{x^{2}}=\\frac12$. Le prolongement continu s'obtient en posant $f(0)=\\frac12$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": true
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "forgotten_limit"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "incorrect_application_of_lhopital"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "misinterpreted_as_division_by_zero"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((1-cos(x))/x**2, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-cont-02",
+      "format": "qcm",
+      "difficulty": 3,
+      "statement_latex": "Soit $g:\\mathbb{R}\\setminus\\{0\\}\\to\\mathbb{R}$, $g(x)=\\dfrac{\\tan x - x}{x^{3}}$. Quelle valeur doit-on donner à $g(0)$ pour que $g$ admette un prolongement continu en $x=0$ ?",
+      "hints": [
+        "Développez $\\tan x$ au voisinage de $0$ à l'ordre $3$.",
+        "Utilisez le développement $\\tan x = x+\\dfrac{x^{3}}{3}+o(x^{3})$, simplifiez le numérateur puis calculez la limite lorsque $x\\to0$. "
+      ],
+      "solution_latex": "Le développement limité de $\\tan x$ à l'ordre $3$ est $\\tan x = x+\\dfrac{x^{3}}{3}+o(x^{3})$. On obtient alors \\[\\frac{\\tan x - x}{x^{3}}=\\frac{\\bigl(x+\\frac{x^{3}}{3}+o(x^{3})\\bigr)-x}{x^{3}}=\\frac{\\frac{x^{3}}{3}+o(x^{3})}{x^{3}}=\\frac13+o(1).\\] Donc $\\displaystyle\\lim_{x\\to0}\\frac{\\tan x - x}{x^{3}}=\\frac13$. Le prolongement continu consiste à définir $g(0)=\\frac13$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{1}{3}",
+          "sympy": "Rational(1,3)",
+          "correct": true
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "ignored_higher_order_term"
+        },
+        {
+          "latex": "\\dfrac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "confused_with_cosine_limit"
+        },
+        {
+          "latex": "\\infty",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "division_by_zero_misunderstanding"
+        }
+      ],
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((tan(x)-x)/x**3, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-02",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-02",
+      "format": "qcm_theorique",
+      "difficulty": 2,
+      "statement_latex": "Quel énoncé décrit exactement la condition nécessaire et suffisante pour qu’une fonction $f$ définie sur $I\\setminus\\{a\\}$ admette un prolongement continu en $a$ ?",
+      "hints": [
+        "Considérer la limite de $f(x)$ lorsque $x\\to a$ depuis $I$.",
+        "Le prolongement consiste à définir $f(a)$ égal à cette limite si elle existe."
+      ],
+      "solution_latex": "Le prolongement continu de $f$ en $a$ existe si et seulement si la limite $\\displaystyle\\lim_{x\\to a}\\!f(x)$ existe (et est finie). Dans ce cas on définit $f(a)=\\lim_{x\\to a}f(x)$. Ainsi, l’énoncé correct est : \"$f$ admet un prolongement continu en $a$ ssi $\\lim_{x\\to a}f(x)$ existe.\"",
+      "choices": [
+        {
+          "latex": "$f$ admet un prolongement continu en $a$ ssi $\\lim_{x\\to a}f(x)$ existe et est finie",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "$f$ admet un prolongement continu en $a$ ssi $f$ est dérivable en $a$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        },
+        {
+          "latex": "$f$ admet un prolongement continu en $a$ ssi $\\lim_{x\\to a}f(x)=f(a)$",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "$f$ admet un prolongement continu en $a$ ssi $f$ est bornée dans un voisinage de $a$",
+          "correct": false,
+          "error_type": "necessite_fausse"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-cont-02",
+    "difficulty": 3,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-cont-02",
+      "format": "qcm_theorique",
+      "difficulty": 3,
+      "statement_latex": "Pour la fonction $\\displaystyle f(x)=\\frac{\\ln(1+x)}{x}$ définie sur $\\mathbb{R}\\setminus\\{0\\}$, quelle affirmation est exacte concernant son prolongement continu en $x=0$ ?",
+      "hints": [
+        "Étudier la limite $\\lim_{x\\to0}\\frac{\\ln(1+x)}{x}$ en utilisant le développement limité de $\\ln(1+x)$.",
+        "Le prolongement consiste à assigner à $f(0)$ la valeur de cette limite si elle existe."
+      ],
+      "solution_latex": "On utilise le développement $\\ln(1+x)=x-\\frac{x^{2}}{2}+o(x)$. Ainsi $\\frac{\\ln(1+x)}{x}=1-\\frac{x}{2}+o(1)$, donc $\\displaystyle\\lim_{x\\to0}\\frac{\\ln(1+x)}{x}=1$. Le prolongement continu consiste à définir $f(0)=1$. L’affirmation correcte est donc : \"Le prolongement continu de $f$ en $0$ vaut $1$.\"",
+      "choices": [
+        {
+          "latex": "Le prolongement continu de $f$ en $0$ vaut $1$",
+          "correct": true,
+          "error_type": "none"
+        },
+        {
+          "latex": "Le prolongement continu de $f$ en $0$ vaut $0$",
+          "correct": false,
+          "error_type": "confusion_tvi_bornes"
+        },
+        {
+          "latex": "Le prolongement continu de $f$ en $0$ n'existe pas car $f$ n'est pas bornée près de $0$",
+          "correct": false,
+          "error_type": "necessite_fausse"
+        },
+        {
+          "latex": "Le prolongement continu de $f$ en $0$ vaut $\\infty$",
+          "correct": false,
+          "error_type": "hypothese_manquante"
+        }
+      ],
+      "check": {
+        "kind": "manual"
+      }
+    }
+  }
+]
