@@ -705,15 +705,14 @@
         "Commencez par repérer les deux données essentielles d'une suite arithmétique : le premier terme $u_0$ et la raison $r$.",
         "L'énoncé doit exprimer $u_n$ en fonction de $n$, $u_0$ et $r$ sous la forme $u_n = u_0 + n\\,r$."
       ],
-      "solution_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite arithmétique de premier terme $u_0$ et de raison $r$. Alors, pour tout entier $n\\ge 0$, on a $$u_n = u_0 + n\\,r.$$",
+      "solution_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite arithmétique de premier terme $u_0$ et de raison $r$. Alors, pour tout entier $n\\ge 0$, on a $u_n = u_0 + n\\,r$.",
       "fragments": [
-        "Alors, pour tout entier $n\\ge 0$, on a $$u_n = u_0 + n\\,r.$$",
         "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite arithmétique de premier terme $u_0$ et de raison $r$.",
-        "Cette suite est dite arithmétique.",
-        "Le premier terme de la suite est $u_0$ et la différence constante entre deux termes consécutifs est $r$."
+        "Alors, pour tout entier $n\\ge 0$,",
+        "on a $u_n = u_0 + n\\,r$."
       ],
       "distracteurs": [
-        "Alors, pour tout entier $n\\ge 0$, on a $$u_n = u_0\\,r^{,n}.$$",
+        "on a $u_n = u_0\\,r^{n}$.",
         "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite géométrique de premier terme $u_0$ et de raison $r$."
       ],
       "check": {
@@ -734,15 +733,14 @@
         "Repérez les deux parties de la formule : la partie géométrique en $q^{n}$ et la partie arithmétique en $n$.",
         "L'énoncé doit contenir le terme initial $u_0$, le coefficient $d$ et la raison $q$ sous la forme $u_n = q^{n}u_0 + d\\dfrac{q^{n}-1}{q-1}$."
       ],
-      "solution_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite définie par la relation $$u_{n+1}=q\\,u_n+d,$$ avec $q\\neq1$, $d\\in\\mathbb{R}$ et un terme initial $u_0$. Alors, pour tout $n\\ge0$, on a $$u_n = q^{\\,n}u_0 + d\\,\\dfrac{q^{\\,n}-1}{q-1}.$$",
+      "solution_latex": "Soit $(u_n)_{n\\in\\mathbb{N}}$ définie par $u_{n+1}=q\\,u_n+d$ avec $q\\neq1$. Alors, pour tout $n\\ge0$, $u_n = q^{n}u_0 + d\\,\\dfrac{q^{n}-1}{q-1}$.",
       "fragments": [
-        "Alors, pour tout $n\\ge0$, on a $$u_n = q^{\\,n}u_0 + d\\,\\dfrac{q^{\\,n}-1}{q-1}.$$",
-        "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite définie par la relation $$u_{n+1}=q\\,u_n+d,$$ avec $q\\neq1$, $d\\in\\mathbb{R}$ et un terme initial $u_0$.",
-        "La suite est dite arithmético-géométrique.",
-        "La constante $d$ représente la différence ajoutée à chaque itération."
+        "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite définie par $u_{n+1}=q\\,u_n+d$, avec $q\\neq1$, $d\\in\\mathbb{R}$ et un terme initial $u_0$.",
+        "Alors, pour tout $n\\ge0$,",
+        "on a $u_n = q^{n}u_0 + d\\,\\dfrac{q^{n}-1}{q-1}$."
       ],
       "distracteurs": [
-        "Alors, pour tout $n\\ge0$, on a $$u_n = q^{\\,n}u_0 + d\\,n.$$",
+        "on a $u_n = q^{n}u_0 + d\\,n$.",
         "Soit $(u_n)_{n\\in\\mathbb{N}}$ une suite définie par $u_n = q^{n}+d$."
       ],
       "check": {

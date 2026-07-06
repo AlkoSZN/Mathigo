@@ -377,7 +377,7 @@
         "Pensez à la condition nécessaire pour que la limite bidirectionnelle soit définie.",
         "Le théorème indique que les limites à droite et à gauche doivent coïncider et être finies."
       ],
-      "solution_latex": "Le théorème est le suivant : la limite $\\lim\\limits_{x\\to a}f(x)$ existe (et est finie) si et seulement si les deux limites unilatérales $\\lim\\limits_{x\\to a^-}f(x)$ et $\\lim\\limits_{x\\to a^+}f(x)$ existent, sont finies et sont égales. Ainsi, l'existence de la limite globale implique l'égalité des limites à droite et à gauche.",
+      "solution_latex": "La limite $\\lim\\limits_{x\\to a}f(x)$ existe et vaut $\\ell$ si et seulement si les deux limites unilatérales $\\lim\\limits_{x\\to a^-}f(x)$ et $\\lim\\limits_{x\\to a^+}f(x)$ existent et valent toutes les deux $\\ell$. C'est la caractérisation de la limite par les limites à gauche et à droite.",
       "choices": [
         {
           "latex": "Théorème de la continuité des fonctions monotones",
@@ -390,7 +390,7 @@
           "error_type": "hypothese_manquante"
         },
         {
-          "latex": "Théorème de la limite bidirectionnelle",
+          "latex": "La caractérisation de la limite par les limites unilatérales (gauche et droite)",
           "correct": true,
           "error_type": ""
         },
@@ -459,7 +459,7 @@
         "Commence par identifier les hypothèses de domination entre trois fonctions.",
         "Ensuite, écris la conclusion sur la limite de la fonction au milieu lorsque les deux extrêmes ont la même limite."
       ],
-      "solution_latex": "Soit $f,g,h$ trois fonctions réelles définies sur un voisinage punctuel $V$ de $a$, à l'exception éventuellement de $a$ lui‑même.\\ If, for all $x\\in V$, $f(x)\\le g(x)\\le h(x)$, and if $\\displaystyle\\lim_{x\\to a}f(x)=\\displaystyle\\lim_{x\\to a}h(x)=\\ell$, then $\\displaystyle\\lim_{x\\to a}g(x)=\\ell$.",
+      "solution_latex": "Soit $f,g,h$ trois fonctions définies au voisinage de $a$ (sauf éventuellement en $a$). Si $f(x)\\le g(x)\\le h(x)$ pour tout $x$ de ce voisinage et si $\\lim\\limits_{x\\to a}f(x)=\\lim\\limits_{x\\to a}h(x)=\\ell$, alors $\\lim\\limits_{x\\to a}g(x)=\\ell$ : c'est le théorème des gendarmes.",
       "fragments": [
         "Soit $f,g,h$ trois fonctions réelles définies sur un voisinage punctuel $V$ de $a$, à l'exception éventuellement de $a$ lui‑même.",
         "Pour tout $x\\in V$, on a $f(x)\\le g(x)\\le h(x)$.",

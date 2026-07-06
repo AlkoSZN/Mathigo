@@ -143,7 +143,7 @@
       "skill_id": "ana1-limites-05",
       "format": "qcm",
       "difficulty": 2,
-      "statement_latex": "Lorsque $x\\to -\\infty$, la fonction $h(x)=\\dfrac{5x^3-2x+1}{x^2+4}$ possède une asymptote horizontale. Laquelle ?",
+      "statement_latex": "Lorsque $x\\to -\\infty$, la fonction $h(x)=\\dfrac{5x^3-2x+1}{x^2+4}$ admet-elle une asymptote horizontale ? Si oui, laquelle ?",
       "hints": [
         "Comparer les degrés du numérateur et du dénominateur.",
         "Le rapport des termes de plus haut degré donne la pente éventuelle de l\\'asymptote."
@@ -232,7 +232,7 @@
       "skill_id": "ana1-limites-05",
       "format": "qcm_theorique",
       "difficulty": 2,
-      "statement_latex": "\\text{Quel est le théorème qui donne la condition nécessaire et suffisante pour l'existence d'une asymptote horizontale d'une fonction $f$ lorsque $x\\to +\\infty$ ?}",
+      "statement_latex": "Quel est le théorème qui donne la condition nécessaire et suffisante pour l'existence d'une asymptote horizontale d'une fonction $f$ lorsque $x\\to +\\infty$ ?",
       "hints": [
         "Penser aux limites de $f(x)$ quand $x$ tend vers $+\\infty$.",
         "Le résultat porte sur l'existence d'une limite finie de $f(x)$ et sur l'égalité de cette limite avec l'ordonnée de l'asymptote."
@@ -267,47 +267,6 @@
   },
   {
     "skill_id": "ana1-limites-05",
-    "difficulty": 3,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-limites-05",
-      "format": "qcm_theorique",
-      "difficulty": 3,
-      "statement_latex": "\\text{Pour une fonction rationnelle $f(x)=\\dfrac{P(x)}{Q(x)}$, quelle condition garantit l'existence d'une asymptote oblique lorsque $\\deg P=\\deg Q+1$ ?}",
-      "hints": [
-        "Regarder le rapport des degrés des polynômes.",
-        "L'asymptote oblique s'obtient par la division euclidienne du numérateur par le dénominateur."
-      ],
-      "solution_latex": "Si $\\deg P = \\deg Q + 1$, alors le quotient de la division euclidienne $P(x)=Q(x)\\,\\bigl(ax+b\\bigr)+R(x)$, avec $\\deg R<\\deg Q$, fournit l'asymptote oblique $y=ax+b$. Ainsi, l'existence d'un quotient linéaire est la condition requise.",
-      "choices": [
-        {
-          "latex": "$\\deg P \\le \\deg Q$",
-          "correct": false,
-          "error_type": "hypothese_manquante"
-        },
-        {
-          "latex": "$\\deg P = \\deg Q+1$",
-          "correct": true,
-          "error_type": "none"
-        },
-        {
-          "latex": "$\\deg P \\ge \\deg Q+2$",
-          "correct": false,
-          "error_type": "confusion_degre"
-        },
-        {
-          "latex": "$\\deg Q = 0$",
-          "correct": false,
-          "error_type": "reciproque_fausse"
-        }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-limites-05",
     "difficulty": 2,
     "validation": "manual",
     "payload": {
@@ -321,10 +280,10 @@
       ],
       "solution_latex": "Soit $f(x)=\\dfrac{P(x)}{Q(x)}$ avec $P,Q$ des polynômes sans facteur commun. Si $a\\in\\mathbb{R}$ vérifie $Q(a)=0$ et $P(a)\\neq0$, alors $x=a$ est une asymptote verticale de $f$, c'est‑à‑dire $\\displaystyle\\lim_{x\\to a^{\\pm}}f(x)=\\pm\\infty$.",
       "fragments": [
+        "Soit $f(x)=\\dfrac{P(x)}{Q(x)}$ avec $P,Q$ des polynômes sans facteur commun.",
         "Si $a\\in\\mathbb{R}$ vérifie $Q(a)=0$ et $P(a)\\neq0$,",
         "alors $x=a$ est une asymptote verticale de $f$,",
-        "c'est‑à‑dire $\\displaystyle\\lim_{x\\to a^{\\pm}}f(x)=\\pm\\infty$.",
-        "Soit $f(x)=\\dfrac{P(x)}{Q(x)}$ avec $P,Q$ des polynômes sans facteur commun."
+        "c'est‑à‑dire $\\displaystyle\\lim_{x\\to a^{\\pm}}f(x)=\\pm\\infty$."
       ],
       "distracteurs": [
         "Si $a$ est une racine double de $Q$, alors $x=a$ est toujours une asymptote verticale.",

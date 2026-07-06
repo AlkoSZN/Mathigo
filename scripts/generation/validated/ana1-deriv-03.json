@@ -622,7 +622,7 @@
       "skill_id": "ana1-deriv-03",
       "format": "qcm_theorique",
       "difficulty": 3,
-      "statement_latex": "Pour deux fonctions $u$ et $v$ non nulles, quelle condition supplémentaire est indispensable pour appliquer la règle de dérivation du quotient $\\bigl(\\frac{u}{v}\\bigr)'$?",
+      "statement_latex": "Pour deux fonctions $u$ et $v$ dérivables sur un intervalle, quelle condition supplémentaire est indispensable pour appliquer la règle de dérivation du quotient $\\bigl(\\frac{u}{v}\\bigr)'$ ?",
       "hints": [
         "Regarde le dénominateur dans la formule du quotient.",
         "Il faut garantir que l'expression reste définie sur l'intervalle considéré."
@@ -714,7 +714,7 @@
         "Soient $u$ et $v$ deux fonctions réelles définies sur un intervalle $I$ et supposées dérivables sur $I$.",
         "Alors le produit $uv$ est dérivable sur $I$.",
         "Pour tout $x\\in I$, on a",
-        "$(uv)'(x)=u'(x)v(x)+u(x)v'(x)."
+        "$(uv)'(x)=u'(x)v(x)+u(x)v'(x)$."
       ],
       "distracteurs": [
         "Si $u$ et $v$ sont continues sur $I$, alors $(uv)'=u'v'+uv$.",
@@ -741,9 +741,9 @@
       "solution_latex": "\\textbf{Théorème (règle du quotient).}\\quad Soient $u$ et $v$ deux fonctions réelles dérivables sur un intervalle $I$ et supposées vérifient $v(x)\\neq0$ pour tout $x\\in I$. Alors la fonction $\\frac{u}{v}$ est dérivable sur $I$ et, pour tout $x\\in I$, \\[\\left(\\frac{u}{v}\\right)'(x)=\\frac{u'(x)v(x)-u(x)v'(x)}{\\bigl(v(x)\\bigr)^{2}}.\\]",
       "fragments": [
         "Soient $u$ et $v$ deux fonctions réelles dérivables sur un intervalle $I$",
-        "et supposées vérifient $v(x)\\neq0$ pour tout $x\\in I$.",
+        "telles que $v(x)\\neq0$ pour tout $x\\in I$.",
         "Alors la fonction $\\frac{u}{v}$ est dérivable sur $I$ et, pour tout $x\\in I$,",
-        "\\[\\left(\\frac{u}{v}\\right)'(x)=\\frac{u'(x)v(x)-u(x)v'(x)}{\\bigl(v(x)\\bigr)^{2}}.\\]"
+        "$\\left(\\frac{u}{v}\\right)'(x)=\\dfrac{u'(x)v(x)-u(x)v'(x)}{\\bigl(v(x)\\bigr)^{2}}$."
       ],
       "distracteurs": [
         "Si $v$ s'annule en un point, la règle du quotient reste valable.",

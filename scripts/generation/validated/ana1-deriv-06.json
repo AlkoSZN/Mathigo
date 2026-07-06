@@ -409,47 +409,6 @@
   },
   {
     "skill_id": "ana1-deriv-06",
-    "difficulty": 3,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-deriv-06",
-      "format": "qcm_theorique",
-      "difficulty": 3,
-      "statement_latex": "Soit $f$ une fonction dérivable sur $[a, b]$. Quelle est la signification de l'égalité des accroissements finis ?",
-      "hints": [
-        "Réfléchissez à la définition de l'accroissement fini",
-        "Utilisez les propriétés des fonctions dérivables"
-      ],
-      "solution_latex": "L'égalité des accroissements finis signifie que la fonction $f$ est linéaire sur $[a, b]$",
-      "choices": [
-        {
-          "latex": "La fonction $f$ est constante sur $[a, b]$",
-          "correct": false,
-          "error_type": "cas_particulier"
-        },
-        {
-          "latex": "La fonction $f$ est linéaire sur $[a, b]$",
-          "correct": true,
-          "error_type": null
-        },
-        {
-          "latex": "La fonction $f$ est dérivable sur $]a, b[$",
-          "correct": false,
-          "error_type": "hypothese_insuffisante"
-        },
-        {
-          "latex": "La fonction $f$ est continue sur $[a, b]$",
-          "correct": false,
-          "error_type": "condition_necessaire_insuffisante"
-        }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-deriv-06",
     "difficulty": 2,
     "validation": "manual",
     "payload": {

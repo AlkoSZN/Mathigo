@@ -92,51 +92,6 @@
   },
   {
     "skill_id": "ana1-etude-03",
-    "difficulty": 3,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-etude-03",
-      "format": "qcm",
-      "difficulty": 3,
-      "statement_latex": "Soit $f$ d'efinie sur $mathbb{R}$ par $f(x) = 2x^4 - 5x^3 - 3x^2 + 7x + 1$. Quel est le point d'inflexion de la fonction $f$ ?",
-      "hints": [
-        "Différenciez deux fois la fonction pour trouver $f''(x)$",
-        "Résolvez l'équation $f''(x) = 0$ pour trouver le point d'inflexion"
-      ],
-      "solution_latex": "La fonction $f''(x) = 24x^2 - 30x - 6$. Le point d'inflexion est donné par $24x^2 - 30x - 6 = 0$. En résolvant cette équation, on trouve $x = \\frac{5 \\pm \\sqrt{109}}{12}$.",
-      "choices": [
-        {
-          "latex": "$x = \\frac{5 + \\sqrt{109}}{12}$",
-          "sympy": "(5 + sqrt(109))/12",
-          "correct": true,
-          "error_type": null
-        },
-        {
-          "latex": "$x = \\frac{5 - \\sqrt{109}}{12}$",
-          "sympy": "(5 - sqrt(109))/12",
-          "correct": false,
-          "error_type": "sign_error"
-        },
-        {
-          "latex": "$x = \\frac{5}{12}$",
-          "sympy": "5/12",
-          "correct": false,
-          "error_type": "no_sqrt_error"
-        },
-        {
-          "latex": "$x = 0$",
-          "sympy": "0",
-          "correct": false,
-          "error_type": "zero_error"
-        }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-etude-03",
     "difficulty": 1,
     "validation": "auto",
     "payload": {
@@ -178,47 +133,6 @@
       "check": {
         "kind": "value",
         "expected_sympy": "-2"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-etude-03",
-    "difficulty": 2,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-etude-03",
-      "format": "qcm_theorique",
-      "difficulty": 2,
-      "statement_latex": "Soit $f$ une fonction dérivable deux fois sur $\\mathbb{R}$, et soit $a \\in \\mathbb{R}$ un point d'inflexion de $f$. Quelle est la condition nécessaire et suffisante sur $f''$ pour que $a$ soit un point d'inflexion de $f$ ?",
-      "hints": [
-        "Rappeler la définition d'un point d'inflexion en termes de variation de la convexité",
-        "Utiliser la définition de la dérivée seconde et son lien avec la convexité/concavité de la fonction"
-      ],
-      "solution_latex": "La condition nécessaire et suffisante sur $f''$ pour que $a$ soit un point d'inflexion de $f$ est que $f''(a) = 0$.",
-      "choices": [
-        {
-          "latex": "Si $f''(a) > 0$ alors $a$ est un point d'inflexion de $f$",
-          "correct": false,
-          "error_type": "condition_inflexion_incorrecte"
-        },
-        {
-          "latex": "Si $f''(a) = 0$ alors $a$ est un point d'inflexion de $f$",
-          "correct": true,
-          "error_type": null
-        },
-        {
-          "latex": "Si $f''(a) < 0$ alors $a$ est un point d'inflexion de $f$",
-          "correct": false,
-          "error_type": "condition_inflexion_incorrecte"
-        },
-        {
-          "latex": "Si $f'(a) = 0$ alors $a$ est un point d'inflexion de $f$",
-          "correct": false,
-          "error_type": "confusion_condition_optimalite"
-        }
-      ],
-      "check": {
-        "kind": "manual"
       }
     }
   },

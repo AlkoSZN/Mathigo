@@ -190,7 +190,7 @@
       "skill_id": "ana1-suites-02",
       "format": "qcm_theorique",
       "difficulty": 2,
-      "statement_latex": "Quel est le critère nécessaire et suffisant pour qu'une fonction $f$ définie sur un intervalle $I$ soit monotone croissante sur $I$ ?",
+      "statement_latex": "Quel est le critère nécessaire et suffisant pour qu'une fonction $f$ dérivable sur un intervalle $I$ soit monotone croissante sur $I$ ?",
       "hints": [
         "Pensez aux variations locales de $f$ entre deux points quelconques de $I$.",
         "Utilisez la définition de la monotonie : $\\forall x,y\\in I,\\;x<y \\implies f(x)\\le f(y)$. Cela conduit à la condition sur le signe de la dérivée lorsque $f$ est dérivable."
@@ -225,47 +225,6 @@
   },
   {
     "skill_id": "ana1-suites-02",
-    "difficulty": 3,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-suites-02",
-      "format": "qcm_theorique",
-      "difficulty": 3,
-      "statement_latex": "Soit $(u_n)$ une suite réelle. Parmi les propositions suivantes, laquelle caractérise exactement la borne supérieure $\\sup\\{u_n\\}$ de la suite ?",
-      "hints": [
-        "Rappelez la définition formelle de la borne supérieure d'un ensemble de réels.",
-        "Cherchez la condition qui doit être satisfaite à la fois par toutes les valeurs de la suite et par les valeurs arbitrairement proches de la borne supérieure."
-      ],
-      "solution_latex": "La borne supérieure $M=\\sup\\{u_n\\}$ vérifie deux propriétés : (i) $\\forall n\\in\\mathbb{N},\\;u_n\\le M$ (c'est un majorant) et (ii) $\\forall \\varepsilon>0,\\;\\exists n\\in\\mathbb{N}$ tel que $u_n> M-\\varepsilon$ (aucun nombre strictement plus petit que $M$ n'est un majorant). Cette double condition caractérise exactement $\\sup\\{u_n\\}$.",
-      "choices": [
-        {
-          "latex": "$M$ est un majorant de la suite et, pour tout $\\varepsilon>0$, il existe $n$ tel que $u_n> M-\\varepsilon$",
-          "correct": true,
-          "error_type": "none"
-        },
-        {
-          "latex": "$M$ est un majorant de la suite et, pour tout $\\varepsilon>0$, il existe $n$ tel que $u_n\\ge M-\\varepsilon$",
-          "correct": false,
-          "error_type": "confusion_inegalite_faible"
-        },
-        {
-          "latex": "$M$ est un majorant strict de la suite, c'est‑à‑dire $u_n<M$ pour tout $n$",
-          "correct": false,
-          "error_type": "hypothese_manquante"
-        },
-        {
-          "latex": "$M$ vérifie $\\forall n,\\;u_n\\le M$ et $\\exists N$ tel que $\\forall n\\ge N,\\;u_n\\ge M$",
-          "correct": false,
-          "error_type": "condition_non_suffisante"
-        }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-suites-02",
     "difficulty": 2,
     "validation": "manual",
     "payload": {
@@ -287,35 +246,6 @@
       "distracteurs": [
         "$f$ est croissante sur $I$ si $\\exists x<y$ tels que $f(x)<f(y)$.",
         "$f$ est croissante sur $I$ si $\\forall x,y\\in I$, $f(x)\\le f(y)$."
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-suites-02",
-    "difficulty": 3,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-suites-02",
-      "format": "remise_en_ordre",
-      "difficulty": 3,
-      "statement_latex": "Reconstitue l'énoncé du théorème donnant les bornes d'une suite définie par récurrence contractive.",
-      "hints": [
-        "Regarde la forme $u_{n+1}=\\phi(u_n)$ avec $\\phi$ croissante et bornée.",
-        "Le théorème affirme l'existence d'une limite qui sert de borne supérieure et inférieure."
-      ],
-      "solution_latex": "Soit $(u_n)_{n\\ge 1}$ une suite définie par $u_{n+1}=\\phi(u_n)$ où $\\phi\\colon [a,b]\\to[a,b]$ est croissante. Alors $(u_n)$ est bornée, croissante (ou décroissante) et converge vers le point fixe $\\ell\\in[a,b]$ de $\\phi$, qui constitue à la fois la borne supérieure et la borne inférieure de la suite.\\newline En particulier, $\\forall n\\ge 1$, $a\\le u_n\\le b$ et $\\lim_{n\\to\\infty}u_n=\\ell$.",
-      "fragments": [
-        "Soit $(u_n)_{n\\ge 1}$ une suite définie par $u_{n+1}=\\phi(u_n)$ où $\\phi\\colon [a,b]\\to[a,b]$ est croissante.",
-        "Alors $(u_n)$ est bornée, croissante (ou décroissante) et converge vers le point fixe $\\ell\\in[a,b]$ de $\\phi$,",
-        "qui constitue à la fois la borne supérieure et la borne inférieure de la suite.",
-        "En particulier, $\\forall n\\ge 1$, $a\\le u_n\\le b$ et $\\lim_{n\\to\\infty}u_n=\\ell$."
-      ],
-      "distracteurs": [
-        "Si $\\phi$ est contractive alors $(u_n)$ diverge vers $+\\infty$.",
-        "Le point fixe $\\ell$ n'est pas nécessairement une borne de la suite."
       ],
       "check": {
         "kind": "manual"

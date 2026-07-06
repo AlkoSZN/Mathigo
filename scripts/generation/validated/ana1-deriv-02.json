@@ -420,7 +420,7 @@
         "Soit $n\\in\\mathbb{R}$ et $f$ la fonction $f\\colon x\\mapsto x^{n}$ définie sur l'intervalle $I$ approprié.",
         "Si $n$ n'est pas entier, $I$ est $(0,+\\infty)$ ; si $n$ est entier positif, $I$ peut contenir $0$.",
         "Alors $f$ est de classe $C^{1}$ sur $I$.",
-        "Pour tout $x\\in I$, on a $f'(x)=n\\,x^{,n-1}\\,$."
+        "Pour tout $x\\in I$, on a $f'(x)=n\\,x^{n-1}\\,$."
       ],
       "distracteurs": [
         "Le théorème vaut uniquement pour $n\\in\\mathbb{N}$.",

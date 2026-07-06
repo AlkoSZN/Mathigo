@@ -12,7 +12,7 @@
         "Déterminez si la fonction est paire, impaire ou ni paire ni impaire",
         "Utilisez les définitions de parité et d'imparité pour analyser la fonction"
       ],
-      "solution_latex": "La fonction $f(x)$ est impaire car $f(-x) = -x^3 + 2x^2 + 5x + 1 = -f(x)$",
+      "solution_latex": "On calcule $f(-x) = -x^3 + 2x^2 + 5x + 1$. Or $f(x) = x^3 + 2x^2 - 5x + 1$ et $-f(x) = -x^3 - 2x^2 + 5x - 1$ : $f(-x)$ ne coïncide ni avec $f(x)$ ni avec $-f(x)$ (le terme $2x^2$ est pair, le terme $x^3$ est impair). La fonction n'est donc ni paire ni impaire.",
       "choices": [
         {
           "latex": "Fonction paire",
@@ -23,14 +23,13 @@
         {
           "latex": "Fonction impaire",
           "sympy": "x**3",
-          "correct": true,
-          "error_type": null
+          "correct": false,
+          "error_type": "parite_mal_verifiee"
         },
         {
           "latex": "Fonction ni paire ni impaire",
           "sympy": "x**2 + x",
-          "correct": false,
-          "error_type": "manque_analyse"
+          "correct": true
         },
         {
           "latex": "Fonction périodique",
@@ -283,7 +282,7 @@
         " Une fonction paire satisfait $f(-x) = f(x)$ pour tout $x$ dans son domaine de définition.",
         " Pour vérifier la parité, il suffit de remplacer $x$ par $-x$ dans l'expression de $f(x)$ et de simplifier."
       ],
-      "solution_latex": "La fonction $f(x)$ est impaire, car $f(-x) = \\dfrac{(-x)^2 + 1}{-x + 1} = \\dfrac{x^2 + 1}{-x + 1} = -\\dfrac{x^2 + 1}{x - 1} = -f(x)$",
+      "solution_latex": "On calcule $f(-x) = \\dfrac{x^2+1}{1-x}$, alors que $-f(x) = -\\dfrac{x^2+1}{x+1}$. Ces deux expressions diffèrent (leurs dénominateurs $1-x$ et $-(x+1)$ ne sont pas égaux), et $f(-x)\\neq f(x)$. La fonction n'est donc ni paire ni impaire.",
       "choices": [
         {
           "latex": "paire",
@@ -294,14 +293,13 @@
         {
           "latex": "impaire",
           "sympy": "True",
-          "correct": true,
-          "error_type": null
+          "correct": false,
+          "error_type": "parite_mal_verifiee"
         },
         {
           "latex": "ni paire ni impaire",
           "sympy": "None",
-          "correct": false,
-          "error_type": "conclusion_hative"
+          "correct": true
         },
         {
           "latex": "peut être les deux",
@@ -374,7 +372,7 @@
         "Une fonction $f(x)$ est dite paire si $f(-x) = f(x)$, et impaire si $f(-x) = -f(x)$ pour tout $x$ dans son domaine de définition.",
         "Pour déterminer si la fonction est paire ou impaire, il faut calculer $f(-x)$ et la comparer à $f(x)$."
       ],
-      "solution_latex": "La fonction $f(x) = \\dfrac{x + 1}{x - 1}$ est impaire car $f(-x) = \\dfrac{-x + 1}{-x - 1} = -\\dfrac{x - 1}{x + 1} = -f(x)$.",
+      "solution_latex": "On calcule $f(-x) = \\dfrac{1-x}{-x-1} = \\dfrac{x-1}{x+1}$, alors que $-f(x) = -\\dfrac{x+1}{x-1}$. Ces expressions ne sont pas égales (on a en fait $f(-x)=1/f(x)$). La fonction n'est donc ni paire ni impaire.",
       "choices": [
         {
           "latex": "La fonction $f(x)$ est paire",
@@ -383,59 +381,17 @@
         },
         {
           "latex": "La fonction $f(x)$ est impaire",
-          "correct": true,
-          "error_type": null
+          "correct": false,
+          "error_type": "parite_mal_verifiee"
         },
         {
           "latex": "La fonction $f(x)$ est ni paire ni impaire",
-          "correct": false,
-          "error_type": "definition_incomplete"
+          "correct": true
         },
         {
           "latex": "La fonction $f(x)$ n'est définie que pour $x > 0$",
           "correct": false,
           "error_type": "domaine_incorrect"
-        }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-etude-01",
-    "difficulty": 3,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-etude-01",
-      "format": "qcm_theorique",
-      "difficulty": 3,
-      "statement_latex": "Quelle est la condition nécessaire et suffisante pour qu'une fonction $f(x)$ soit périodique de période $T$ ?",
-      "hints": [
-        "Une fonction $f(x)$ est dite périodique de période $T$ si $f(x + T) = f(x)$ pour tout $x$ dans son domaine de définition.",
-        "La condition nécessaire et suffisante pour qu'une fonction $f(x)$ soit périodique de période $T$ est que $f(x + T) = f(x)$ pour tout $x$, et que $T$ soit le plus petit nombre positif vérifiant cette propriété."
-      ],
-      "solution_latex": "La condition nécessaire et suffisante pour qu'une fonction $f(x)$ soit périodique de période $T$ est que $f(x + T) = f(x)$ pour tout $x$ dans son domaine de définition, et que $T$ soit le plus petit nombre positif vérifiant cette propriété.",
-      "choices": [
-        {
-          "latex": "La fonction $f(x)$ est périodique si $f(x + T) = f(x)$ pour tout $x$, mais $T$ n'a pas besoin d'être le plus petit nombre positif",
-          "correct": false,
-          "error_type": "condition_necessaire_insuffisante"
-        },
-        {
-          "latex": "La fonction $f(x)$ est périodique si $f(x + T) = f(x)$ pour tout $x$, et $T$ est le plus petit nombre positif vérifiant cette propriété",
-          "correct": true,
-          "error_type": null
-        },
-        {
-          "latex": "La fonction $f(x)$ est périodique si $f(x + T) = f(x)$ pour tout $x > 0$",
-          "correct": false,
-          "error_type": "domaine_incorrect"
-        },
-        {
-          "latex": "La fonction $f(x)$ est périodique si $f(x + T) = f(x)$ pour tout $x$, mais cela n'implique pas que $T$ soit le plus petit nombre positif",
-          "correct": false,
-          "error_type": "condition_suffisante_insuffisante"
         }
       ],
       "check": {

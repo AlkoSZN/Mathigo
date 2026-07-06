@@ -375,12 +375,12 @@
       "skill_id": "ana1-limites-04",
       "format": "qcm_theorique",
       "difficulty": 2,
-      "statement_latex": "Quel est le nom du résultat théorique qui assure que, lorsque $x\\to+\\infty$, on a $\\ln x=o(x^{\\alpha})$ pour tout $\n\nalpha>0$ ?",
+      "statement_latex": "Quel est le nom du résultat théorique qui assure que, lorsque $x\\to+\\infty$, on a $\\ln x=o(x^{\\alpha})$ pour tout $\\alpha>0$ ?",
       "hints": [
         "Pensez aux notions de domination asymptotique entre fonctions croissantes.",
         "Le résultat s'énonce sous forme de comparaison entre une fonction logarithmique et une puissance positive de $x$ et utilise la notation $o$."
       ],
-      "solution_latex": "Le résultat est le *théorème des croissances comparées* (ou *comparaison des fonctions usuelles*) qui stipule que, pour tout $\n\nalpha>0$, $\\ln x=o(x^{\\alpha})$ quand $x\\to+\\infty$. Ainsi, $\\displaystyle\\lim_{x\\to+\\infty}\\frac{\\ln x}{x^{\\alpha}}=0$.",
+      "solution_latex": "Le résultat est le *théorème des croissances comparées* (ou *comparaison des fonctions usuelles*) qui stipule que, pour tout $\\alpha>0$, $\\ln x=o(x^{\\alpha})$ quand $x\\to+\\infty$. Ainsi, $\\displaystyle\\lim_{x\\to+\\infty}\\frac{\\ln x}{x^{\\alpha}}=0$.",
       "choices": [
         {
           "latex": "Théorème des valeurs intermédiaires",
@@ -410,47 +410,6 @@
   },
   {
     "skill_id": "ana1-limites-04",
-    "difficulty": 3,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-limites-04",
-      "format": "qcm_theorique",
-      "difficulty": 3,
-      "statement_latex": "Pour que la comparaison $e^{x}=o(x^{\\beta})$ soit vraie quand $x\\to+\\infty$, quelle condition doit vérifier $\n\nbeta$ ?",
-      "hints": [
-        "Réfléchissez à la vitesse de croissance de l'exponentielle versus les puissances.",
-        "Le résultat attendu provient du même principe de hiérarchie $\\ln x\\ll x^{\\alpha}\\ll e^{x}$."
-      ],
-      "solution_latex": "Aucune puissance positive $x^{\\beta}$ ne domine l'exponentielle $e^{x}$ en $+\\infty$ ; la relation $e^{x}=o(x^{\\beta})$ est **fausse** pour tout $\n\nbeta>0$. Donc la condition nécessaire serait $\n\nbeta<0$ (c'est‑à‑dire considérer $x^{\\beta}=1/x^{|\\beta|}$). Ainsi, pour $\n\nbeta>0$, on a $x^{\\beta}=o(e^{x})$, pas l'inverse.",
-      "choices": [
-        {
-          "latex": "Il faut que $\n\nbeta>1$",
-          "correct": false,
-          "error_type": "hypothese_manquante"
-        },
-        {
-          "latex": "Il faut que $\n\nbeta<0$",
-          "correct": true,
-          "error_type": ""
-        },
-        {
-          "latex": "Il faut que $\n\nbeta=0$",
-          "correct": false,
-          "error_type": "confusion_tvi_bornes"
-        },
-        {
-          "latex": "Aucune condition, la relation est toujours vraie",
-          "correct": false,
-          "error_type": "reciproque_fausse"
-        }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-limites-04",
     "difficulty": 2,
     "validation": "manual",
     "payload": {
@@ -466,9 +425,9 @@
       "fragments": [
         "Pour tout $\\alpha>0$,",
         "on a, lorsque $x\\to+\\infty$,",
-        "\\ln x = o\\bigl(x^{\\alpha}\\bigr)",
+        "$\\ln x = o\\bigl(x^{\\alpha}\\bigr)$",
         "et",
-        "x^{\\alpha}=o\\bigl(e^{x}\\bigr)."
+        "$x^{\\alpha}=o\\bigl(e^{x}\\bigr)$."
       ],
       "distracteurs": [
         "Pour tout $\\alpha>0$, on a $\\ln x = O\\bigl(x^{\\alpha}\\bigr)$.",
@@ -492,7 +451,7 @@
       "solution_latex": "\\textbf{Lemme.} \\textit{Pour tout $\\alpha>0$,}\\[ \\lim_{x\\to+\\infty}\\frac{\\ln x}{x^{\\alpha}}=0. \\] \\textit{Autrement dit, $\\ln x = o\\bigl(x^{\\alpha}\\bigr)$ lorsque $x\\to+\\infty$.}",
       "fragments": [
         "Pour tout $\\alpha>0$,",
-        "\\lim_{x\\to+\\infty}\\frac{\\ln x}{x^{\\alpha}}=0",
+        "$\\displaystyle\\lim_{x\\to+\\infty}\\frac{\\ln x}{x^{\\alpha}}=0$.",
         "Autrement dit,",
         "$\\ln x = o\\bigl(x^{\\alpha}\\bigr)$",
         "lorsque $x\\to+\\infty$."

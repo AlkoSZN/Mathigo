@@ -145,12 +145,12 @@
       "skill_id": "ana1-etude-04",
       "format": "qcm",
       "difficulty": 2,
-      "statement_latex": "Soit $f(x) = \\dfrac{x^3-2x^2+x-2}{x^2-4}$. Quelle est l'asymptote horizontale de $f$ ?",
+      "statement_latex": "Soit $f(x) = \\dfrac{x^3-2x^2+x-2}{x^2-4}$. Quelle est l'asymptote oblique de $f$ en $\\pm\\infty$ ?",
       "hints": [
         "Étudiez le comportement de la fonction lorsque $x$ tend vers l'infini.",
         "Effectuez une division longue ou utilisez les règles de puissances pour simplifier l'expression de $f(x)$."
       ],
-      "solution_latex": "L'asymptote horizontale est $y = x - 2$.",
+      "solution_latex": "La division euclidienne donne $f(x) = x-2 + \\dfrac{5}{x+2}$ (après simplification par $x-2$). Comme $\\dfrac{5}{x+2}\\to0$ en $\\pm\\infty$, la droite $y = x-2$ est asymptote oblique.",
       "choices": [
         {
           "latex": "y = x + 2",
@@ -225,96 +225,6 @@
       "check": {
         "kind": "value",
         "expected_sympy": "limit(1/x**2, x, oo)"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-etude-04",
-    "difficulty": 2,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-etude-04",
-      "format": "qcm",
-      "difficulty": 2,
-      "statement_latex": "Soit $f(x) = \\dfrac{x^3+2x^2+x+2}{x^2+4}$. Quelle est l'asymptote horizontale de $f$ ?",
-      "hints": [
-        "Lorsque la variable $x$ tend vers $\\pm \\infty$, les termes les plus importants dans le num\\'erateur et le d\\'enominateur sont les termes de plus haut degr\\'e.",
-        "Il faut comparer les degr\\'es du num\\'erateur et du d\\'enominateur pour d\\'eterminer l'asymptote horizontale."
-      ],
-      "solution_latex": "L'asymptote horizontale de $f$ est $y = \\dfrac{1}{1} = 1$.",
-      "choices": [
-        {
-          "latex": "$y = 0$",
-          "sympy": "0",
-          "correct": false,
-          "error_type": "oubli_de_division"
-        },
-        {
-          "latex": "$y = 1$",
-          "sympy": "1",
-          "correct": true,
-          "error_type": null
-        },
-        {
-          "latex": "$y = x$",
-          "sympy": "x",
-          "correct": false,
-          "error_type": "confusion_avec_tangente"
-        },
-        {
-          "latex": "$y = -1$",
-          "sympy": "-1",
-          "correct": false,
-          "error_type": "signe_incorrect"
-        }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-etude-04",
-    "difficulty": 3,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-etude-04",
-      "format": "qcm",
-      "difficulty": 3,
-      "statement_latex": "Soit $f(x) = \\dfrac{x^2-4}{x-2}$. Quelle est l'asymptote verticale de $f$ ?",
-      "hints": [
-        "Il faut factoriser le num\\'erateur pour simplifier la fonction.",
-        "L'asymptote verticale correspond aux valeurs de $x$ qui font que le d\\'enominateur est nul."
-      ],
-      "solution_latex": "L'asymptote verticale de $f$ est $x = 2$.",
-      "choices": [
-        {
-          "latex": "$x = 0$",
-          "sympy": "0",
-          "correct": false,
-          "error_type": "origine_confondue_avec_asymptote"
-        },
-        {
-          "latex": "$x = 1$",
-          "sympy": "1",
-          "correct": false,
-          "error_type": "valeur_arbitraire"
-        },
-        {
-          "latex": "$x = 2$",
-          "sympy": "2",
-          "correct": true,
-          "error_type": null
-        },
-        {
-          "latex": "$x = -2$",
-          "sympy": "-2",
-          "correct": false,
-          "error_type": "signe_incorrect"
-        }
-      ],
-      "check": {
-        "kind": "manual"
       }
     }
   },
@@ -413,17 +323,15 @@
         "Il faut comparer les degrés des polynômes $P(x)$ et $Q(x)$.",
         "Si le degré de $P(x)$ est inférieur à celui de $Q(x)$, alors l'asymptote horizontale est $y=0$. Sinon, il faut considérer le quotient de la division euclidienne de $P(x)$ par $Q(x)$."
       ],
-      "solution_latex": "Soit $f(x) = \\dfrac{P(x)}{Q(x)}$. Si le degré de $P(x)$ est inférieur à celui de $Q(x)$, alors $f(x)$ a pour asymptote horizontale $y=0$. Sinon, si le degré de $P(x)$ est égal à celui de $Q(x)$, alors $f(x)$ a pour asymptote horizontale $y=\\dfrac{a}{b}$, où $a$ et $b$ sont les coefficients dominants de $P(x)$ et $Q(x)$ respectivement.",
+      "solution_latex": "Si $\\deg P < \\deg Q$ : asymptote horizontale $y=0$. Si $\\deg P = \\deg Q$ : asymptote horizontale $y = a/b$ (rapport des coefficients dominants). Si $\\deg P > \\deg Q$ : pas d'asymptote horizontale (branche infinie, éventuellement une asymptote oblique si $\\deg P = \\deg Q + 1$).",
       "fragments": [
-        "Soit $f(x) = \\dfrac{P(x)}{Q(x)}$.",
-        "Si le degré de $P(x)$ est inférieur à celui de $Q(x)$, alors $f(x)$ a pour asymptote horizontale $y=0$.",
-        "Sinon, si le degré de $P(x)$ est égal à celui de $Q(x)$, alors $f(x)$ a pour asymptote horizontale $y=\\dfrac{a}{b}$, où $a$ et $b$ sont les coefficients dominants de $P(x)$ et $Q(x)$ respectivement.",
-        " Dans le cas où le degré de $P(x)$ est supérieur à celui de $Q(x)$, il faut considérer le quotient de la division euclidienne de $P(x)$ par $Q(x)$.",
-        "Le quotient ainsi obtenu donne l'asymptote horizontale de $f(x)$."
+        "Soit $f(x) = \\dfrac{P(x)}{Q(x)}$ une fonction rationnelle.",
+        "Si le degré de $P$ est inférieur à celui de $Q$, alors $f$ a pour asymptote horizontale $y=0$.",
+        "Si le degré de $P$ est égal à celui de $Q$, alors $f$ a pour asymptote horizontale $y=\\dfrac{a}{b}$, où $a$ et $b$ sont les coefficients dominants de $P$ et $Q$.",
+        "Si le degré de $P$ est strictement supérieur à celui de $Q$, alors $f$ n'a pas d'asymptote horizontale."
       ],
       "distracteurs": [
-        "Si le degré de $P(x)$ est supérieur à celui de $Q(x)$, alors $f(x)$ a pour asymptote horizontale $y=0$.",
-        "L'asymptote horizontale de $f(x)$ est toujours $y=1$."
+        "Si le degré de $P$ est supérieur à celui de $Q$, alors $f$ a pour asymptote horizontale $y=0$."
       ],
       "check": {
         "kind": "manual"

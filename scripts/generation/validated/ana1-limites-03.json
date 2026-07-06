@@ -495,8 +495,7 @@
       "fragments": [
         "Soit $u:\\mathbb{R}\\to\\mathbb{R}$ continue en $L\\in\\mathbb{R}$ et $v:\\mathbb{R}\\to\\mathbb{R}$ telle que $\\displaystyle\\lim_{x\\to a}v(x)=L$.",
         "Alors la fonction composée $x\\mapsto u\\bigl(v(x)\\bigr)$ admet une limite en $a$.",
-        "De plus, on a $\\displaystyle\\lim_{x\\to a}u\\bigl(v(x)\\bigr)=u(L)$.",
-        "(Aucun autre terme n'est nécessaire pour compléter l'énoncé)."
+        "De plus, on a $\\displaystyle\\lim_{x\\to a}u\\bigl(v(x)\\bigr)=u(L)$."
       ],
       "distracteurs": [
         "Si $u$ n'est pas continue en $L$, on a quand même $\\displaystyle\\lim_{x\\to a}u\\bigl(v(x)\\bigr)=u(L)$.",

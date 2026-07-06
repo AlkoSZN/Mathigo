@@ -227,47 +227,6 @@
   },
   {
     "skill_id": "ana1-cont-01",
-    "difficulty": 2,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-cont-01",
-      "format": "qcm_theorique",
-      "difficulty": 2,
-      "statement_latex": "Quelle est la condition nécessaire et suffisante pour que la somme $f+g$ de deux fonctions $f$ et $g$ soit continue en un point $a$ ?",
-      "hints": [
-        "Rappeler la définition de continuité en un point pour chaque fonction.",
-        "Utiliser le fait que la limite de la somme est la somme des limites lorsque les deux limites existent."
-      ],
-      "solution_latex": "Pour que $f+g$ soit continue en $a$, il faut et il suffit que $f$ soit continue en $a$ et que $g$ soit continue en $a$. En effet, si $\\lim\\limits_{x\\to a}f(x)=f(a)$ et $\\lim\\limits_{x\\to a}g(x)=g(a)$, alors $\\lim\\limits_{x\\to a}(f+g)(x)=\\lim\\limits_{x\\to a}f(x)+\\lim\\limits_{x\\to a}g(x)=f(a)+g(a)=(f+g)(a)$. La réciproque est immédiate : si $f+g$ est continue en $a$, alors les limites de $f$ et $g$ existent et coïncident avec leurs valeurs en $a$, ce qui impose la continuité de chacune.",
-      "choices": [
-        {
-          "latex": "$f$ et $g$ sont continues en $a$",
-          "correct": true,
-          "error_type": "none"
-        },
-        {
-          "latex": "$f$ est continue en $a$ ou $g$ est continue en $a$",
-          "correct": false,
-          "error_type": "hypothese_manquante"
-        },
-        {
-          "latex": "$\\lim\\limits_{x\\to a}f(x)$ et $\\lim\\limits_{x\\to a}g(x)$ existent (sans égale à leurs valeurs)",
-          "correct": false,
-          "error_type": "confusion_limite_valeur"
-        },
-        {
-          "latex": "$f\\cdot g$ est continue en $a$",
-          "correct": false,
-          "error_type": "distracteur_operateur"
-        }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-cont-01",
     "difficulty": 3,
     "validation": "manual",
     "payload": {
@@ -322,13 +281,13 @@
       ],
       "solution_latex": "\\textbf{Théorème (continuité de la somme).}\\quad Soient $f$ et $g$ deux fonctions définies sur un voisinage de $a$ (ou sur un intervalle contenant $a$). Si $f$ est continue en $a$ et $g$ est continue en $a$, alors la fonction $h$ définie par $h(x)=f(x)+g(x)$ est continue en $a$.",
       "fragments": [
+        "Soient $f$ et $g$ deux fonctions définies sur un voisinage de $a$ (ou sur un intervalle contenant $a$).",
         "Si $f$ est continue en $a$ et $g$ est continue en $a$,",
-        "alors la fonction $h$ définie par $h(x)=f(x)+g(x)$ est continue en $a$.",
-        "Soient $f$ et $g$ deux fonctions définies sur un voisinage de $a$ (ou sur un intervalle contenant $a$)."
+        "alors la fonction $h$ définie par $h(x)=f(x)+g(x)$ est continue en $a$."
       ],
       "distracteurs": [
         "Si $f$ est continue en $a$ ou $g$ est continue en $a$, alors $h$ est continue en $a$.",
-        "Si $f$ et $g$ sont continues sur $mathbb{R}$, alors $h$ est continue sur $mathbb{R}$ sans condition supplémentaire."
+        "Si $f$ et $g$ sont continues sur $\\mathbb{R}$, alors $h$ est continue sur $\\mathbb{R}$ sans condition supplémentaire."
       ],
       "check": {
         "kind": "manual"
@@ -350,9 +309,9 @@
       ],
       "solution_latex": "\\textbf{Théorème (continuité de la composition).}\\quad Soient $f$ et $g$ deux fonctions telles que $f$ soit continue en $a$ et $g$ soit continue en $f(a)$. Alors la fonction $h$ définie par $h(x)=g\\bigl(f(x)\\bigr)$ est continue en $a$.",
       "fragments": [
-        "Soient $f$ et $g$ deux fonctions telles que $f$ soit continue en $a$ et $g$ soit continue en $f(a)$.",
-        "Alors la fonction $h$ définie par $h(x)=g\\bigl(f(x)\\bigr)$ est continue en $a$.",
-        "\\textbf{Théorème (continuité de la composition).}"
+        "Soient $f$ et $g$ deux fonctions telles que $f$ soit continue en $a$",
+        "et $g$ soit continue en $f(a)$.",
+        "Alors la fonction $h$ définie par $h(x)=g\\bigl(f(x)\\bigr)$ est continue en $a$."
       ],
       "distracteurs": [
         "Si $f$ est continue en $a$ et $g$ est continue en $a$, alors $g\\circ f$ est continue en $a$.",

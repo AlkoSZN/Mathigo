@@ -536,47 +536,6 @@
   },
   {
     "skill_id": "ana1-limites-02",
-    "difficulty": 2,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-limites-02",
-      "format": "qcm_theorique",
-      "difficulty": 2,
-      "statement_latex": "Quel théorème permet de transformer une limite du type $\\displaystyle\\lim_{x\\to a}\\dfrac{f(x)-f(a)}{x-a}$ afin d'éviter la forme indéterminée $\\frac{0}{0}$ ?",
-      "hints": [
-        "Identifier la forme $\\frac{0}{0}$ typique d'un quotient de différences.",
-        "Utiliser le théorème qui relie le quotient de différences à la dérivée de $f$ en $a$."
-      ],
-      "solution_latex": "Le théorème utilisé est le **théorème de la limite du quotient de différences**, qui affirme que si $f$ est dérivable en $a$, alors $\\displaystyle\\lim_{x\\to a}\\dfrac{f(x)-f(a)}{x-a}=f'(a)$.",
-      "choices": [
-        {
-          "latex": "Théorème des valeurs intermédiaires",
-          "correct": false,
-          "error_type": "confusion_tvi_bornes"
-        },
-        {
-          "latex": "Théorème de l'Hôpital",
-          "correct": false,
-          "error_type": "hypothese_manquante"
-        },
-        {
-          "latex": "Théorème de la limite du quotient de différences",
-          "correct": true,
-          "error_type": "none"
-        },
-        {
-          "latex": "Théorème de la dérivée d'un produit",
-          "correct": false,
-          "error_type": "reciproque_fausse"
-        }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-limites-02",
     "difficulty": 3,
     "validation": "manual",
     "payload": {
@@ -624,7 +583,7 @@
       "skill_id": "ana1-limites-02",
       "format": "qcm_theorique",
       "difficulty": 4,
-      "statement_latex": "Dans le cadre du théorème d l'Hôpital, laquelle des assertions suivantes est **fausse** concernant les hypothèses nécessaires ?",
+      "statement_latex": "Dans le cadre du théorème de l'Hôpital, laquelle des assertions suivantes est **fausse** concernant les hypothèses nécessaires ?",
       "hints": [
         "Relire les conditions de validité du théorème d l'Hôpital pour les formes $\\frac{0}{0}$ ou $\\frac{\\infty}{\\infty}$.",
         "Comparer chaque affirmation avec les exigences sur la différentiabilité et les limites des dérivées."

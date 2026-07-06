@@ -46,51 +46,6 @@
   },
   {
     "skill_id": "ana1-deriv-05",
-    "difficulty": 3,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-deriv-05",
-      "format": "qcm",
-      "difficulty": 3,
-      "statement_latex": "Soit $f(x) = x^4 - 4x^3 + 3x^2 + 2x - 1$. Quel est le nombre de minima locaux de $f$ sur $[-1, 2]$ ?",
-      "hints": [
-        "Trouvez les points critiques de $f$.",
-        "Étudiez le signe de $f'$ et $f''$ autour de ces points sur l'intervalle donné."
-      ],
-      "solution_latex": "La dérivée de $f$ est $f'(x) = 4x^3 - 12x^2 + 6x + 2$ et la dérivée seconde est $f''(x) = 12x^2 - 24x + 6$. Les points critiques de $f$ sont les solutions de $f'(x) = 0$, qui sont $x = -\\frac{1}{2}$, $x = 1$ et $x = 2$. La fonction $f'$ change de signe autour de $x = -\\frac{1}{2}$ et $x = 1$ mais pas autour de $x = 2$. La fonction $f''$ est positive en $x = -\\frac{1}{2}$ et en $x = 1$. Par conséquent, $f$ a deux minima locaux sur $[-1, 2]$.",
-      "choices": [
-        {
-          "latex": "1",
-          "sympy": "1",
-          "correct": false,
-          "error_type": "oubli_point_critique"
-        },
-        {
-          "latex": "2",
-          "sympy": "2",
-          "correct": true,
-          "error_type": null
-        },
-        {
-          "latex": "3",
-          "sympy": "3",
-          "correct": false,
-          "error_type": "erreur_de_signe"
-        },
-        {
-          "latex": "0",
-          "sympy": "0",
-          "correct": false,
-          "error_type": "oubli_changement_de_signe"
-        }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-deriv-05",
     "difficulty": 2,
     "validation": "manual",
     "payload": {
@@ -322,7 +277,7 @@
       "skill_id": "ana1-deriv-05",
       "format": "qcm_theorique",
       "difficulty": 2,
-      "statement_latex": "Quelle est la condition nécessaire pour qu'un point $x_0$ soit un extremum local de la fonction $f$ ?",
+      "statement_latex": "Soit $f$ une fonction dérivable sur un intervalle ouvert $I$. Quelle est la condition nécessaire pour qu'un point $x_0\\in I$ soit un extremum local de $f$ ?",
       "hints": [
         "Rappeler les conditions pour les extrema locaux",
         "Utiliser la définition d'un extremum local et la propriété de la dérivée"
@@ -390,35 +345,6 @@
           "correct": true,
           "error_type": null
         }
-      ],
-      "check": {
-        "kind": "manual"
-      }
-    }
-  },
-  {
-    "skill_id": "ana1-deriv-05",
-    "difficulty": 2,
-    "validation": "manual",
-    "payload": {
-      "skill_id": "ana1-deriv-05",
-      "format": "remise_en_ordre",
-      "difficulty": 2,
-      "statement_latex": "Reconstitue l'énoncé de la condition nécessaire pour qu'un point $x_0$ soit un extremum local de la fonction $f$.",
-      "hints": [
-        "La condition implique la dérivée de $f$.",
-        "La valeur de la dérivée en $x_0$ est un élément clé."
-      ],
-      "solution_latex": "Un point $x_0$ est un extremum local de $f$ si $f'(x_0) = 0$.",
-      "fragments": [
-        "Un point $x_0$ est un extremum local de $f$",
-        "si",
-        "$f'(x_0)$",
-        "= 0"
-      ],
-      "distracteurs": [
-        "> 0",
-        "< 0"
       ],
       "check": {
         "kind": "manual"
