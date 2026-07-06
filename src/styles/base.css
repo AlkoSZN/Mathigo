@@ -193,6 +193,23 @@ a {
   font-size: var(--taille-petit);
 }
 
+.connexion-bascule {
+  margin-top: var(--pas);
+  background: none;
+  border: none;
+  color: var(--encre-70);
+  font-family: var(--fonte-corps);
+  font-size: var(--taille-petit);
+  text-decoration: underline;
+  text-decoration-color: var(--menthe);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.connexion-bascule:hover {
+  color: var(--encre);
+}
+
 /* --- Éléments communs ------------------------------------------------------ */
 
 .btn {

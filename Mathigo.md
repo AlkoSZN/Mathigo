@@ -225,7 +225,7 @@ supabase/
 
 ## Phases
 
-1. **Fondations** : Vite + React 19, Supabase (schéma + RLS + auth email/magic link),
+1. **Fondations** : Vite + React 19, Supabase (schéma + RLS + auth pseudo/mot de passe),
    routing, composant `<Math/>` KaTeX, design tokens et layout de base.
 2. **Arbre Analyse 1** : `skill-tree.json` complet (~25 compétences : suites,
    limites, continuité, dérivation, études de fonctions), rendu de l'arbre avec

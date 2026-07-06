@@ -4,26 +4,59 @@ import { supabase } from '../../lib/supabase'
 import { useAuth } from '../../store/auth'
 import { MathText } from '../../lib/katex'
 
-/** Page de connexion par lien magique (aucun mot de passe). */
+const REGEX_PSEUDO = /^[a-zA-Z0-9_]{3,20}$/
+// Pas un vrai domaine : Supabase Auth exige un e-mail, mais aucun message n'y
+// est jamais envoyé (confirmations désactivées). L'unicité de cet e-mail
+// technique dans auth.users assure l'unicité du pseudo.
+const DOMAINE_INTERNE = 'mathigo.local'
+
+const emailDepuisPseudo = (pseudo) => `${pseudo.toLowerCase()}@${DOMAINE_INTERNE}`
+
+/** Page de connexion par pseudo + mot de passe (aucune adresse e-mail réelle). */
 export default function PageConnexion() {
   const session = useAuth((s) => s.session)
-  const [email, setEmail] = useState('')
+  const [mode, setMode] = useState('connexion') // 'connexion' | 'inscription'
+  const [pseudo, setPseudo] = useState('')
+  const [motDePasse, setMotDePasse] = useState('')
   const [etat, setEtat] = useState({ statut: 'repos' })
 
   if (session) return <Navigate to="/" replace />
 
-  async function envoyerLien(e) {
+  async function valider(e) {
     e.preventDefault()
-    setEtat({ statut: 'envoi' })
-    const { error } = await supabase.auth.signInWithOtp({
-      email,
-      options: { emailRedirectTo: window.location.origin },
-    })
-    if (error) {
-      setEtat({ statut: 'erreur', message: error.message })
-    } else {
-      setEtat({ statut: 'envoye' })
+    if (!REGEX_PSEUDO.test(pseudo)) {
+      setEtat({
+        statut: 'erreur',
+        message: 'Le pseudo doit faire 3 à 20 caractères : lettres, chiffres ou _ uniquement.',
+      })
+      return
     }
+
+    setEtat({ statut: 'envoi' })
+    const email = emailDepuisPseudo(pseudo)
+    const { error } =
+      mode === 'inscription'
+        ? await supabase.auth.signUp({
+            email,
+            password: motDePasse,
+            options: { data: { username: pseudo } },
+          })
+        : await supabase.auth.signInWithPassword({ email, password: motDePasse })
+
+    if (!error) {
+      setEtat({ statut: 'repos' })
+      return
+    }
+
+    const msg = error.message.toLowerCase()
+    setEtat({
+      statut: 'erreur',
+      message: msg.includes('already registered')
+        ? 'Ce pseudo est déjà pris.'
+        : msg.includes('invalid login')
+          ? 'Pseudo ou mot de passe incorrect.'
+          : error.message,
+    })
   }
 
   return (
@@ -35,33 +68,55 @@ export default function PageConnexion() {
         L'entraînement quotidien d'analyse, de $(u_n)$ jusqu'à $f'(x)$.
       </MathText>
 
-      <form className="carte connexion-carte" onSubmit={envoyerLien}>
-        <label htmlFor="email">Adresse e-mail</label>
+      <form className="carte connexion-carte" onSubmit={valider}>
+        <label htmlFor="pseudo">Pseudo</label>
         <input
-          id="email"
+          id="pseudo"
           className="champ"
-          type="email"
+          type="text"
           required
-          placeholder="prenom@exemple.fr"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          disabled={etat.statut === 'envoi' || etat.statut === 'envoye'}
+          placeholder="ton_pseudo"
+          value={pseudo}
+          onChange={(e) => setPseudo(e.target.value)}
+          disabled={etat.statut === 'envoi'}
+          autoComplete="username"
         />
-        {etat.statut === 'envoye' ? (
-          <p className="note-succes">
-            Lien envoyé à {email}. Ouvre-le pour te connecter.
-          </p>
-        ) : (
-          <button className="btn" type="submit" disabled={etat.statut === 'envoi'}>
-            {etat.statut === 'envoi' ? 'Envoi en cours…' : 'Recevoir le lien de connexion'}
-          </button>
-        )}
-        {etat.statut === 'erreur' && (
-          <p className="note-erreur">
-            L'envoi a échoué ({etat.message}). Vérifie l'adresse et réessaie.
-          </p>
-        )}
+
+        <label htmlFor="mot-de-passe">Mot de passe</label>
+        <input
+          id="mot-de-passe"
+          className="champ"
+          type="password"
+          required
+          minLength={6}
+          placeholder="••••••••"
+          value={motDePasse}
+          onChange={(e) => setMotDePasse(e.target.value)}
+          disabled={etat.statut === 'envoi'}
+          autoComplete={mode === 'inscription' ? 'new-password' : 'current-password'}
+        />
+
+        <button className="btn" type="submit" disabled={etat.statut === 'envoi'}>
+          {etat.statut === 'envoi'
+            ? 'Un instant…'
+            : mode === 'inscription'
+              ? 'Créer mon compte'
+              : 'Se connecter'}
+        </button>
+
+        {etat.statut === 'erreur' && <p className="note-erreur">{etat.message}</p>}
       </form>
+
+      <button
+        type="button"
+        className="connexion-bascule"
+        onClick={() => {
+          setMode(mode === 'connexion' ? 'inscription' : 'connexion')
+          setEtat({ statut: 'repos' })
+        }}
+      >
+        {mode === 'connexion' ? "Pas de compte ? Créer un pseudo" : 'Déjà un compte ? Se connecter'}
+      </button>
     </div>
   )
 }
