@@ -12,6 +12,7 @@ export default function AppLayout() {
           <NavLink to="/" end>
             Arbre
           </NavLink>
+          <NavLink to="/revisions">Révisions</NavLink>
           <NavLink to="/classement">Classement</NavLink>
           <NavLink to="/profil">Profil</NavLink>
         </nav>

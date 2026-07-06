@@ -24,15 +24,17 @@ export function melanger(tableau) {
 
 /**
  * Crée l'état initial d'une session.
- * @param {Array<{id: string, payload: object}>} banque exercices de la compétence
+ * @param {Array<{id: string, payload: object}>} banque exercices de la compétence,
+ *   déjà ordonnés par priorité (ratés, puis jamais vus, puis le reste) : la
+ *   session prend les TAILLE_SESSION premiers, la réserve sert au rattrapage.
  * @returns l'état initial de la machine
  */
 export function creerSession(banque) {
-  const tires = melanger(banque).slice(0, TAILLE_SESSION)
+  const tires = melanger(banque.slice(0, TAILLE_SESSION))
   return {
     phase: 'question', // 'question' | 'feedback' | 'fin'
     file: tires.map((ex) => ({ ...ex, choixMelanges: melanger(ex.payload.choices) })),
-    reserve: banque.filter((ex) => !tires.includes(ex)), // variantes pour le rattrapage
+    reserve: banque.slice(TAILLE_SESSION), // variantes pour le rattrapage
     index: 0,
     indicesOuverts: 0, // indices consommés sur la question courante
     choisi: null, // choix cliqué pendant la phase feedback

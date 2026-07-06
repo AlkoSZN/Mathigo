@@ -28,5 +28,5 @@ magiques) sont capturés par Mailpit : http://127.0.0.1:54324.
 - [x] Phase 2 — Arbre Analyse 1 (skill-tree.json, seed, rendu avec états)
 - [x] Phase 3 — Pipeline de contenu (génération Groq + validation SymPy, 38 exercices pilotes)
 - [x] Phase 4 — Boucle de session (QCM, indices, feedback, rattrapage, XP, streak)
-- [ ] Phase 5 — FSRS
+- [x] Phase 5 — FSRS (reviews, maîtrise vivante avec décroissance, révisions du jour)
 - [ ] Phase 6 — Polish + social

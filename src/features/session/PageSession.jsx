@@ -2,9 +2,11 @@ import { useEffect, useReducer, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { supabase } from '../../lib/supabase'
+import { maitriseCourante, noteDepuisSession, reviser } from '../../lib/fsrs'
 import arbre from '../../../content/skill-tree.json'
 import {
   creerSession,
+  melanger,
   questionCourante,
   reducteur,
   xpSession,
@@ -21,12 +23,52 @@ function dateLocale(d = new Date()) {
 }
 
 /**
- * Met à jour XP, streak et date d'activité du profil à la fin d'une session.
- * @returns {Promise<number>} le streak après mise à jour
+ * Ordonne la banque par priorité pédagogique : exercices ratés à la dernière
+ * tentative, puis jamais vus, puis le reste — chaque groupe mélangé.
  */
-async function terminerSession(xpGagne) {
+async function ordonnerBanque(banque, userId) {
+  const { data: tentatives } = await supabase
+    .from('attempts')
+    .select('exercise_id, correct, created_at')
+    .eq('user_id', userId)
+    .in('exercise_id', banque.map((e) => e.id))
+    .order('created_at', { ascending: true })
+
+  const dernierResultat = new Map()
+  for (const t of tentatives ?? []) dernierResultat.set(t.exercise_id, t.correct)
+
+  const rates = banque.filter((e) => dernierResultat.get(e.id) === false)
+  const jamaisVus = banque.filter((e) => !dernierResultat.has(e.id))
+  const reussis = banque.filter((e) => dernierResultat.get(e.id) === true)
+  return [...melanger(rates), ...melanger(jamaisVus), ...melanger(reussis)]
+}
+
+/**
+ * Fin de session : révise la carte FSRS de la compétence (upsert reviews)
+ * puis met à jour XP, streak et date d'activité du profil.
+ * @returns {Promise<{streak: number, maitrise: number}>}
+ */
+async function terminerSession(xpGagne, skillId, reponses) {
   const { data: auth } = await supabase.auth.getUser()
   const userId = auth.user.id
+
+  // Carte FSRS : notée sur les questions initiales (rattrapage exclu)
+  const note = noteDepuisSession(reponses.slice(0, TAILLE_SESSION))
+  const { data: revue } = await supabase
+    .from('reviews')
+    .select('fsrs_state')
+    .eq('user_id', userId)
+    .eq('skill_id', skillId)
+    .maybeSingle()
+  const { carte, dueAt, maitrise } = reviser(revue?.fsrs_state ?? null, note)
+  const { error: erreurRevue } = await supabase.from('reviews').upsert({
+    user_id: userId,
+    skill_id: skillId,
+    fsrs_state: carte,
+    due_at: dueAt,
+    mastery: maitrise,
+  })
+  if (erreurRevue) throw erreurRevue
   const { data: profil, error } = await supabase
     .from('profiles')
     .select('xp, streak_days, last_activity_date')
@@ -46,7 +88,7 @@ async function terminerSession(xpGagne) {
     .update({ xp: profil.xp + xpGagne, streak_days: streak, last_activity_date: aujourdhui })
     .eq('user_id', userId)
   if (erreurMaj) throw erreurMaj
-  return streak
+  return { streak, maitrise }
 }
 
 /** Page de session : charge la banque d'exercices, déroule la machine à états. */
@@ -58,15 +100,15 @@ export default function PageSession() {
 
   useEffect(() => {
     let annule = false
-    supabase
-      .from('exercises')
-      .select('id, difficulty, payload')
-      .eq('skill_id', skillId)
-      .then(({ data, error }) => {
-        if (annule) return
-        if (error) setErreur(error.message)
-        else setBanque(data)
-      })
+    Promise.all([
+      supabase.from('exercises').select('id, difficulty, payload').eq('skill_id', skillId),
+      supabase.auth.getUser(),
+    ]).then(async ([{ data, error }, { data: auth }]) => {
+      if (annule) return
+      if (error) return setErreur(error.message)
+      const ordonnee = await ordonnerBanque(data, auth.user.id)
+      if (!annule) setBanque(ordonnee)
+    })
     return () => {
       annule = true
     }
@@ -93,6 +135,7 @@ function Session({ skill, banque }) {
   const mouvementReduit = useReducedMotion()
   const [etat, envoyer] = useReducer(reducteur, banque, creerSession)
   const [streak, setStreak] = useState(null)
+  const [maitrise, setMaitrise] = useState(null)
   const finPersistee = useRef(false)
 
   const question = questionCourante(etat)
@@ -116,14 +159,17 @@ function Session({ skill, banque }) {
     )
   }, [etat.reponses])
 
-  // Fin de session : XP + streak persistés une seule fois
+  // Fin de session : carte FSRS + XP + streak persistés une seule fois
   useEffect(() => {
     if (etat.phase !== 'fin' || finPersistee.current) return
     finPersistee.current = true
-    terminerSession(xp)
-      .then(setStreak)
-      .catch((e) => console.error('profil non mis à jour :', e.message))
-  }, [etat.phase, xp])
+    terminerSession(xp, skill.id, etat.reponses)
+      .then(({ streak, maitrise }) => {
+        setStreak(streak)
+        setMaitrise(maitrise)
+      })
+      .catch((e) => console.error('fin de session non persistée :', e.message))
+  }, [etat.phase, xp, skill.id, etat.reponses])
 
   if (etat.phase === 'fin') {
     const nbBonnes = etat.reponses.filter((r) => r.correct).length
@@ -134,6 +180,7 @@ function Session({ skill, banque }) {
         nbQuestions={etat.reponses.length}
         sansFaute={nbBonnes === etat.reponses.length}
         streak={streak}
+        maitrise={maitrise}
       />
     )
   }

@@ -5,6 +5,7 @@ import PageConnexion from './features/profile/PageConnexion'
 import PageProfil from './features/profile/PageProfil'
 import PageArbre from './features/tree/PageArbre'
 import PageSession from './features/session/PageSession'
+import PageRevisions from './features/session/PageRevisions'
 import PageClassement from './features/leaderboard/PageClassement'
 import { useAuth } from './store/auth'
 
@@ -25,6 +26,7 @@ export default function App() {
         <Route element={<RoutesProtegees />}>
           <Route index element={<PageArbre />} />
           <Route path="/session/:skillId" element={<PageSession />} />
+          <Route path="/revisions" element={<PageRevisions />} />
           <Route path="/classement" element={<PageClassement />} />
           <Route path="/profil" element={<PageProfil />} />
         </Route>

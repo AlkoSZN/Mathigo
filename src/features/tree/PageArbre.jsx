@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabase'
+import { maitriseCourante } from '../../lib/fsrs'
 import arbre from '../../../content/skill-tree.json'
 import NoeudCompetence from './NoeudCompetence'
 
@@ -15,11 +16,15 @@ export default function PageArbre() {
     let annule = false
     supabase
       .from('reviews')
-      .select('skill_id, mastery')
+      .select('skill_id, fsrs_state')
       .then(({ data, error }) => {
         if (annule) return
         if (error) setErreur(error.message)
-        setMaitrises(new Map((data ?? []).map((r) => [r.skill_id, r.mastery])))
+        // Maîtrise vivante : rétrievabilité FSRS à maintenant, qui décroît
+        // avec le temps sans révision (les compétences « se fissurent »).
+        setMaitrises(
+          new Map((data ?? []).map((r) => [r.skill_id, maitriseCourante(r.fsrs_state)])),
+        )
       })
     return () => {
       annule = true

@@ -10,10 +10,11 @@ import { motion, useReducedMotion } from 'motion/react'
  *   nbBonnes: number,
  *   nbQuestions: number,
  *   sansFaute: boolean,
- *   streak: number | null,  // streak après mise à jour, null tant que non persisté
+ *   streak: number | null,   // streak après mise à jour, null tant que non persisté
+ *   maitrise: number | null, // maîtrise FSRS 0..1 après révision
  * }} props
  */
-export default function FinSession({ xp, nbBonnes, nbQuestions, sansFaute, streak }) {
+export default function FinSession({ xp, nbBonnes, nbQuestions, sansFaute, streak, maitrise }) {
   const mouvementReduit = useReducedMotion()
   const [xpAffiche, setXpAffiche] = useState(mouvementReduit ? xp : 0)
 
@@ -53,6 +54,12 @@ export default function FinSession({ xp, nbBonnes, nbQuestions, sansFaute, strea
         {nbQuestions}
         {sansFaute && ' — sans faute, bravo.'}
       </motion.p>
+
+      {maitrise !== null && (
+        <motion.p className="fin-detail" {...apparition(0.4)}>
+          Maîtrise de la compétence : {Math.round(maitrise * 100)} %
+        </motion.p>
+      )}
 
       {streak !== null && (
         <motion.p className="fin-streak" {...apparition(0.45)}>
