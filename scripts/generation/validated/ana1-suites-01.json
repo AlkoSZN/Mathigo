@@ -1,0 +1,572 @@
+[
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 1,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 1,
+      "statement_latex": "Soit la suite $(u_n)$ définie explicitement par $u_n = 3n + 2$. Quelle est la valeur de $u_5$ ?",
+      "choices": [
+        {
+          "latex": "$17$",
+          "sympy": "17",
+          "correct": true
+        },
+        {
+          "latex": "$15$",
+          "sympy": "15",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "$13$",
+          "sympy": "13",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "$16$",
+          "sympy": "16",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        }
+      ],
+      "hints": [
+        "Remplacez $n$ par $5$ dans la formule donnée.",
+        "Calculez $3\\times 5$ puis ajoutez $2$. "
+      ],
+      "solution_latex": "En substituant $n=5$, on obtient $u_5 = 3\\times5 + 2 = 15 + 2 = 17$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "3*5+2"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 2,
+      "statement_latex": "La suite $(u_n)$ est définie par récurrence $u_{n+1}=2u_n-3$ avec $u_0=4$. Quelle est $u_3$ ?",
+      "choices": [
+        {
+          "latex": "$11$",
+          "sympy": "11",
+          "correct": true
+        },
+        {
+          "latex": "$10$",
+          "sympy": "10",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "$9$",
+          "sympy": "9",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "$13$",
+          "sympy": "13",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        }
+      ],
+      "hints": [
+        "Calculez successivement $u_1$, $u_2$, $u_3$ à l'aide de la relation de récurrence.",
+        "Utilisez $u_{k+1}=2u_k-3$ à chaque étape. "
+      ],
+      "solution_latex": "On a $u_1=2\\times4-3=5$, $u_2=2\\times5-3=7$, $u_3=2\\times7-3=11$. Ainsi $u_3=11$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "11"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 3,
+      "statement_latex": "La suite $(u_n)$ est définie par récurrence $u_{n+1}=3u_n+1$ avec $u_0=2$. Quelle est $u_4$ ?",
+      "choices": [
+        {
+          "latex": "202",
+          "sympy": "202",
+          "correct": true
+        },
+        {
+          "latex": "201",
+          "sympy": "201",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "\\dfrac{202}{3}",
+          "sympy": "Rational(202,3)",
+          "correct": false,
+          "error_type": "quotient_inverse"
+        },
+        {
+          "latex": "203",
+          "sympy": "203",
+          "correct": false,
+          "error_type": "erreur_signe"
+        }
+      ],
+      "hints": [
+        "Calcule successivement les premiers termes en partant de $u_0$.",
+        "Utilise la relation $u_{n+1}=3u_n+1$ trois fois de suite pour atteindre $u_4$."
+      ],
+      "solution_latex": "$u_1=3\\times2+1=7$, $u_2=3\\times7+1=22$, $u_3=3\\times22+1=67$, $u_4=3\\times67+1=202$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "202"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 1,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 1,
+      "statement_latex": "Parmi les définitions suivantes, laquelle décrit une suite de façon explicite ?",
+      "choices": [
+        {
+          "latex": "$u_n = 3n-4$",
+          "sympy": "3*n-4",
+          "correct": true
+        },
+        {
+          "latex": "$u_{n+1}=3u_n-4$",
+          "sympy": "3*u_n-4",
+          "correct": false,
+          "error_type": "confusion_derivee_primitive"
+        },
+        {
+          "latex": "$u_n = u_{n-1}+n$",
+          "sympy": "u_{n-1}+n",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "$u_n = \\dfrac{u_{n-1}}{2}+1$",
+          "sympy": "u_{n-1}/2+1",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        }
+      ],
+      "hints": [
+        "Une définition explicite exprime $u_n$ directement en fonction de $n$.",
+        "Cherche la formule qui ne contient aucun terme $u_{k}$ avec $k<n$."
+      ],
+      "solution_latex": "L'expression $u_n = 3n-4$ donne directement $u_n$ en fonction de $n$, c'est donc une définition explicite.",
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 3,
+      "statement_latex": "La suite $(u_n)$ est définie par $u_n = \\dfrac{2n^2 - n}{n+1}$. Quelle est la valeur exacte de $u_{10}$ ?",
+      "choices": [
+        {
+          "latex": "\\dfrac{190}{11}",
+          "sympy": "Rational(190,11)",
+          "correct": true
+        },
+        {
+          "latex": "190",
+          "sympy": "190",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        },
+        {
+          "latex": "\\dfrac{200}{11}",
+          "sympy": "Rational(200,11)",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "-\\dfrac{190}{11}",
+          "sympy": "-Rational(190,11)",
+          "correct": false,
+          "error_type": "erreur_signe"
+        }
+      ],
+      "hints": [
+        "Calcule le numérateur $2n^2-n$ puis le dénominateur $n+1$ séparément pour $n=10$.",
+        "Effectue la division de deux entiers pour obtenir la fraction irréductible."
+      ],
+      "solution_latex": "Pour $n=10$, le numérateur vaut $2\\times10^2-10=200-10=190$ et le dénominateur $10+1=11$, donc $u_{10}=\\dfrac{190}{11}$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(190,11)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 4,
+      "statement_latex": "La suite $(u_n)$ est définie par la récurrence $u_{n+2}=u_{n+1}+u_n$ avec $u_0=0$, $u_1=1$. Quelle est la valeur de $u_5$ ?",
+      "choices": [
+        {
+          "latex": "5",
+          "sympy": "5",
+          "correct": true
+        },
+        {
+          "latex": "8",
+          "sympy": "8",
+          "correct": false,
+          "error_type": "croisement_limites"
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "-5",
+          "sympy": "-5",
+          "correct": false,
+          "error_type": "erreur_signe"
+        }
+      ],
+      "hints": [
+        "Reconnais qu'il s'agit de la suite de Fibonacci et calcule les premiers termes.",
+        "Continue la récurrence jusqu'à obtenir $u_5$."
+      ],
+      "solution_latex": "On obtient successivement $u_2=1$, $u_3=2$, $u_4=3$, $u_5=5$. Donc $u_5=5$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "5"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 1,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 1,
+      "statement_latex": "On considère la suite définie explicitement par $u_n = 4-3n$. Quelle est la valeur de $u_{8}$ ?",
+      "choices": [
+        {
+          "latex": "-20",
+          "sympy": "-20",
+          "correct": true
+        },
+        {
+          "latex": "28",
+          "sympy": "28",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "8",
+          "sympy": "8",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "-5",
+          "sympy": "-5",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        }
+      ],
+      "hints": [
+        "Remplacez $n$ par $8$ dans l’expression de $u_n$.",
+        "Effectuez d’abord la multiplication $3\\times8$ puis soustrayez le résultat de $4$."
+      ],
+      "solution_latex": "On a $u_{8}=4-3\\times8=4-24=-20$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "4-3*8"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 2,
+      "statement_latex": "La suite $(u_n)$ est définie par $u_0=5$ et $u_{n+1}=u_n+2n+1$. Quelle est la valeur de $u_{3}$ ?",
+      "choices": [
+        {
+          "latex": "14",
+          "sympy": "14",
+          "correct": true
+        },
+        {
+          "latex": "8",
+          "sympy": "8",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "12",
+          "sympy": "12",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        },
+        {
+          "latex": "4",
+          "sympy": "4",
+          "correct": false,
+          "error_type": "erreur_signe"
+        }
+      ],
+      "hints": [
+        "Calculez successivement $u_1$, $u_2$ puis $u_3$ en utilisant la relation de récurrence.",
+        "À chaque étape, ajoutez $2n+1$ avec la valeur de $n$ correspondant à l’indice du terme connu."
+      ],
+      "solution_latex": "\\begin{aligned}\n u_1&=5+2\\times0+1=6,\\\\\n u_2&=6+2\\times1+1=9,\\\\\n u_3&=9+2\\times2+1=14.\n\\end{aligned} Ainsi $u_3=14$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "14"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 2,
+    "validation": "manual",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 2,
+      "statement_latex": "Parmi les définitions suivantes, laquelle décrit une suite de façon récursive ?",
+      "choices": [
+        {
+          "latex": "$u_n = 2n + 3$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "confusion_explicit_recursive"
+        },
+        {
+          "latex": "$u_{n+1}=3u_n - 1$",
+          "sympy": "0",
+          "correct": true
+        },
+        {
+          "latex": "$u_n = \\dfrac{n^2}{n+1}$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "confusion_explicit_recursive"
+        },
+        {
+          "latex": "$u_{n}=5$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "confusion_explicit_recursive"
+        }
+      ],
+      "hints": [
+        "Regardez la forme de la définition : y a‑t‑il un indice $n+1$ ou $n-1$ ?",
+        "Une définition récursive exprime $u_{n+1}$ (ou $u_{n+2}$) en fonction d’un ou plusieurs termes précédents."
+      ],
+      "solution_latex": "La définition $u_{n+1}=3u_n-1$ exprime le terme d’indice $n+1$ en fonction du terme précédent $u_n$, ce qui est la caractéristique d’une définition récursive. Les trois autres sont des formules explicites, où $u_n$ est donné directement en fonction de $n$.",
+      "check": {
+        "kind": "manual"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 3,
+      "statement_latex": "La suite $(u_n)$ est définie par $u_n = \\dfrac{3n^{2}+n}{n+2}$. Quelle est la valeur exacte de $u_{5}$ ?",
+      "choices": [
+        {
+          "latex": "\\dfrac{80}{7}",
+          "sympy": "Rational(80,7)",
+          "correct": true
+        },
+        {
+          "latex": "\\dfrac{80}{5}",
+          "sympy": "Rational(80,5)",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "\\dfrac{75}{7}",
+          "sympy": "Rational(75,7)",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        },
+        {
+          "latex": "\\dfrac{80}{9}",
+          "sympy": "Rational(80,9)",
+          "correct": false,
+          "error_type": "erreur_signe"
+        }
+      ],
+      "hints": [
+        "Remplacez $n$ par $5$ puis calculez séparément numérateur et dénominateur.",
+        "Simplifiez la fraction obtenue en réduisant au maximum."
+      ],
+      "solution_latex": "En substituant $n=5$ : $u_{5}=\\dfrac{3\\times5^{2}+5}{5+2}=\\dfrac{3\\times25+5}{7}=\\dfrac{75+5}{7}=\\dfrac{80}{7}$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "(3*5**2+5)/(5+2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 2,
+      "statement_latex": "Soit la suite $(u_n)$ définie explicitement par $u_n = \\dfrac{5n-3}{n+2}$. Quelle est la valeur exacte de $u_{6}$ ?",
+      "choices": [
+        {
+          "latex": "\\dfrac{27}{8}",
+          "sympy": "Rational(27,8)",
+          "correct": true
+        },
+        {
+          "latex": "\\dfrac{33}{8}",
+          "sympy": "Rational(33,8)",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "\\dfrac{237}{8}",
+          "sympy": "Rational(237,8)",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "\\dfrac{27}{4}",
+          "sympy": "Rational(27,4)",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        }
+      ],
+      "hints": [
+        "Remplace $n$ par $6$ dans l'expression de $u_n$.",
+        "Calcule d'abord le numérateur $5\\times6-3$, puis divise par le dénominateur $6+2$. "
+      ],
+      "solution_latex": "On a $u_6=\\dfrac{5\\cdot6-3}{6+2}=\\dfrac{30-3}{8}=\\dfrac{27}{8}$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(27,8)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 3,
+      "statement_latex": "La suite $(u_n)$ est définie par $u_0=1$ et la relation de récurrence $u_{n+1}=3u_n+2$. Quelle est la valeur de $u_{3}$ ?",
+      "choices": [
+        {
+          "latex": "53",
+          "sympy": "53",
+          "correct": true
+        },
+        {
+          "latex": "27",
+          "sympy": "27",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "45",
+          "sympy": "45",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        },
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "quotient_inverse"
+        }
+      ],
+      "hints": [
+        "Écris les premiers termes à l'aide de la relation de récurrence.",
+        "Applique successivement $u_{k+1}=3u_k+2$ pour $k=0,1,2$ afin d’obtenir $u_3$. "
+      ],
+      "solution_latex": "On calcule : $u_1=3\\cdot1+2=5$, $u_2=3\\cdot5+2=17$, $u_3=3\\cdot17+2=53$. Donc $u_3=53$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "53"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-suites-01",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-suites-01",
+      "difficulty": 2,
+      "statement_latex": "Soit la suite explicite $u_n = 2n^{2}-5n+3$. Quel est le plus petit entier $n$ tel que $u_n=0$ ?",
+      "choices": [
+        {
+          "latex": "1",
+          "sympy": "1",
+          "correct": true
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "3",
+          "sympy": "3",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "quotient_inverse"
+        }
+      ],
+      "hints": [
+        "Résous l'équation $2n^{2}-5n+3=0$.",
+        "Utilise la formule quadratique $n=\\dfrac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$ et recherche la solution entière la plus petite. "
+      ],
+      "solution_latex": "Le discriminant est $\\Delta=(-5)^{2}-4\\times2\\times3=25-24=1$. Les solutions sont $n=\\dfrac{5\\pm1}{4}$, donc $n=1$ ou $n=\\dfrac{3}{2}$. Le plus petit entier solution est $n=1$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "1"
+      }
+    }
+  }
+]

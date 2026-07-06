@@ -24,3 +24,4 @@ Thumbs.db
 # Pipeline de génération
 scripts/generation/rejected.jsonl
 scripts/generation/__pycache__/
+scripts/generation/out/

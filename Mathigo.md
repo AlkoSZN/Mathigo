@@ -67,8 +67,8 @@ Deux modes, tous deux hors de l'app React :
 
 Script Node (`generate.js`) qui :
 1. Lit l'arbre de compétences (`content/skill-tree.json`)
-2. Pour chaque compétence, appelle l'API Anthropic (batch de 10-15 exercices,
-   réponse en JSON strict conforme au schéma ci-dessus)
+2. Pour chaque compétence, appelle l'API Groq (lots courts, réponse en JSON
+   strict conforme au schéma ci-dessus ; clé dans `scripts/generation/.env`)
 3. Passe chaque exercice au validateur (`scripts/generation/validate.py`, Python + SymPy) :
    - Re-résout l'énoncé indépendamment et vérifie que la réponse marquée `correct` est correcte
    - Vérifie que les 3 distracteurs sont mathématiquement DIFFÉRENTS de la bonne réponse

@@ -1,0 +1,537 @@
+[
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite suivante : $\\displaystyle\\lim\\limits_{x\\to 2}\\dfrac{x^{2}-4}{x-2}$.",
+      "choices": [
+        {
+          "latex": "4",
+          "sympy": "4",
+          "correct": true
+        },
+        {
+          "latex": "-4",
+          "sympy": "-4",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "\\dfrac{0}{0}",
+          "sympy": "nan",
+          "correct": false,
+          "error_type": "forme_indeterminee_non_trouvee"
+        }
+      ],
+      "hints": [
+        "Factorisez le numérateur pour annuler le facteur $(x-2)$.",
+        "Après factorisation, remplacez $x$ par $2$ dans l'expression simplifiée et calculez la valeur."
+      ],
+      "solution_latex": "On factorise $x^{2}-4=(x-2)(x+2)$. La fraction devient $\\dfrac{(x-2)(x+2)}{x-2}=x+2$ pour $x\\neq2$. La limite en $x\\to2$ de $x+2$ vaut $2+2=4$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((x**2-4)/(x-2), x, 2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 4,
+      "statement_latex": "Évaluer la limite suivante : $\\displaystyle\\lim\\limits_{x\\to 3}\\dfrac{x^{2}-9}{x-3}$.",
+      "choices": [
+        {
+          "latex": "6",
+          "sympy": "6",
+          "correct": true
+        },
+        {
+          "latex": "-6",
+          "sympy": "-6",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "\\dfrac{9-9}{3-3}",
+          "sympy": "nan",
+          "correct": false,
+          "error_type": "forme_indeterminee_non_trouvee"
+        },
+        {
+          "latex": "\\dfrac{1}{0}",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "quotient_inverse"
+        }
+      ],
+      "hints": [
+        "Factorisez le numérateur comme différence de carrés.",
+        "Après simplification, remplacez $x$ par $3$ dans l'expression obtenue."
+      ],
+      "solution_latex": "On remarque que $x^{2}-9=(x-3)(x+3)$. La fraction devient $\\dfrac{(x-3)(x+3)}{x-3}=x+3$ pour $x\\neq3$. En faisant $x\\to3$, on obtient $3+3=6$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((x**2-9)/(x-3), x, 3)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite suivante : $\\displaystyle\\lim\\limits_{x\\to 1}\\dfrac{x^{3}-1}{x-1}$.",
+      "choices": [
+        {
+          "latex": "$3$",
+          "sympy": "3",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "$\\dfrac{1}{3}$",
+          "sympy": "Rational(1,3)",
+          "correct": false,
+          "error_type": "quotient_inverse"
+        },
+        {
+          "latex": "$-3$",
+          "sympy": "-3",
+          "correct": false,
+          "error_type": "erreur_signe"
+        }
+      ],
+      "hints": [
+        "Factoriser le numérateur en utilisant la différence de cubes.",
+        "Après factorisation, simplifier et évaluer la fonction résiduelle en $x=1$. "
+      ],
+      "solution_latex": "On factorise $x^{3}-1=(x-1)(x^{2}+x+1)$. La fraction devient $x^{2}+x+1$, donc $\\lim_{x\\to1}(x^{2}+x+1)=1^{2}+1+1=3$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((x**3-1)/(x-1),x,1)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite suivante : $\\displaystyle\\lim\\limits_{x\\to 0}\\dfrac{\\sqrt{1+2x}-1}{x}$.",
+      "choices": [
+        {
+          "latex": "$1$",
+          "sympy": "1",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$2$",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "$\\dfrac{1}{2}$",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        }
+      ],
+      "hints": [
+        "Rationalisez le numérateur en le multipliant par le conjugué $\\sqrt{1+2x}+1$.",
+        "Après simplification, il reste $\\dfrac{2}{\\sqrt{1+2x}+1}$ ; évaluez en $x=0$. "
+      ],
+      "solution_latex": "On multiplie numérateur et dénominateur par $\\sqrt{1+2x}+1$ : $\\dfrac{\\sqrt{1+2x}-1}{x}=\\dfrac{(1+2x)-1}{x\\bigl(\\sqrt{1+2x}+1\\bigr)}=\\dfrac{2}{\\sqrt{1+2x}+1}$. En $x\\to0$, $\\sqrt{1+2x}\\to1$, donc la limite vaut $\\dfrac{2}{1+1}=1$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((sqrt(1+2*x)-1)/x,x,0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 4,
+      "statement_latex": "Évaluer la limite suivante : $\\displaystyle\\lim\\limits_{x\\to \\infty}\\dfrac{3x^{2}-5x}{2x^{2}+x}$.",
+      "choices": [
+        {
+          "latex": "$\\dfrac{3}{2}$",
+          "sympy": "Rational(3,2)",
+          "correct": true,
+          "error_type": null
+        },
+        {
+          "latex": "$\\dfrac{2}{3}$",
+          "sympy": "Rational(2,3)",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "$\\infty$",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        }
+      ],
+      "hints": [
+        "Divisez numérateur et dénominateur par $x^{2}$, le plus haut degré présent.",
+        "Après division, prenez la limite en $x\\to\\infty$ des coefficients dominants. "
+      ],
+      "solution_latex": "En divisant chaque terme par $x^{2}$ on obtient $\\dfrac{3-5/x}{2+1/x}$. Quand $x\\to\\infty$, les termes $5/x$ et $1/x$ tendent vers $0$, donc la limite vaut $\\dfrac{3}{2}$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((3*x**2-5*x)/(2*x**2+x),x,oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite : $\\displaystyle\\lim\\limits_{x\\to 0}\\dfrac{1-\\cos(3x)}{x^{2}}$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{9}{2}",
+          "sympy": "Rational(9,2)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "\\dfrac{3}{2}",
+          "sympy": "Rational(3,2)",
+          "correct": false,
+          "error_type": "exposant_faux"
+        },
+        {
+          "latex": "9",
+          "sympy": "9",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "\\dfrac{1}{2}",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "confusion_derivee_primitive"
+        }
+      ],
+      "hints": [
+        "Utilisez l'identité trigonométrique $1-\\cos u=2\\sin^{2}(u/2)$.",
+        "Après substitution, simplifiez le rapport et appliquez la limite connue $\\lim_{t\\to0}\\dfrac{\\sin t}{t}=1$."
+      ],
+      "solution_latex": "On écrit $1-\\cos(3x)=2\\sin^{2}\\left(\\frac{3x}{2}\\right)$. Ainsi \\[\\frac{1-\\cos(3x)}{x^{2}}=2\\frac{\\sin^{2}(\\frac{3x}{2})}{x^{2}}=2\\left(\\frac{\\sin(\\frac{3x}{2})}{\\frac{3x}{2}}\\right)^{2}\\left(\\frac{3}{2}\\right)^{2}.\\] En faisant $x\\to0$, le facteur $\\frac{\\sin(\\frac{3x}{2})}{\\frac{3x}{2}}\\to1$. Donc la limite vaut $2\\times\\left(\\frac{3}{2}\\right)^{2}=\\frac{9}{2}$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((1-cos(3*x))/x**2, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 4,
+      "statement_latex": "Évaluer la limite suivante : $\\displaystyle\\lim\\limits_{x\\to +\\infty}\\dfrac{\\sqrt{x^{2}+4x}-x}{1}$.",
+      "choices": [
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "-2",
+          "sympy": "-2",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "4",
+          "sympy": "4",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "croisement_limites"
+        }
+      ],
+      "hints": [
+        "Rationalisez l'expression en multipliant numérateur et dénominateur par le conjugué $\\sqrt{x^{2}+4x}+x$.",
+        "Après simplification, factorisez $x$ dans la racine et observez le comportement lorsque $x\\to\\infty$."
+      ],
+      "solution_latex": "On rationalise : \\[\\sqrt{x^{2}+4x}-x=\\frac{(\\sqrt{x^{2}+4x}-x)(\\sqrt{x^{2}+4x}+x)}{\\sqrt{x^{2}+4x}+x}=\\frac{x^{2}+4x-x^{2}}{\\sqrt{x^{2}+4x}+x}=\\frac{4x}{\\sqrt{x^{2}+4x}+x}.\\] En factorisant $x$ dans le radical, $\\sqrt{x^{2}+4x}=x\\sqrt{1+\\frac{4}{x}}$. Donc \\[\\frac{4x}{x\\sqrt{1+\\frac{4}{x}}+x}=\\frac{4}{\\sqrt{1+\\frac{4}{x}}+1}.\\] Quand $x\\to+\\infty$, $\\frac{4}{x}\\to0$, donc la limite vaut $\\frac{4}{1+1}=2$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit(sqrt(x**2+4*x)-x, x, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite : $\\displaystyle\\lim\\limits_{x\\to +\\infty}\\dfrac{\\sqrt{x^{2}+6x}-x}{\\ln x}$.",
+      "choices": [
+        {
+          "latex": "$0$",
+          "sympy": "0",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$\\infty$",
+          "sympy": "oo",
+          "correct": false,
+          "error_type": "croisement_limites"
+        },
+        {
+          "latex": "$\\dfrac{3}{2}$",
+          "sympy": "Rational(3,2)",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        },
+        {
+          "latex": "$\\dfrac{6}{\\ln x}$",
+          "sympy": "6/log(x)",
+          "correct": false,
+          "error_type": "produit_oublie"
+        }
+      ],
+      "hints": [
+        "Rationalisez le numérateur en le multipliant par son conjugué.",
+        "Après rationalisation, simplifiez l'expression et utilisez que $\\sqrt{x^{2}+6x}=x\\sqrt{1+6/x}=x\\left(1+\\dfrac{3}{x}+o\\left(\\dfrac1x\\right)\\right)$."
+      ],
+      "solution_latex": "On rationalise : $\\dfrac{\\sqrt{x^{2}+6x}-x}{\\ln x}=\\dfrac{6x}{\\ln x\\,(\\sqrt{x^{2}+6x}+x)}$. Or $\\sqrt{x^{2}+6x}+x\\sim 2x$, donc l'expression se réduit à $\\dfrac{6x}{2x\\ln x}=\\dfrac{3}{\\ln x}\\to 0$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((sqrt(x**2+6*x)-x)/log(x), x, oo)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 2,
+      "statement_latex": "Évaluer la limite suivante : $\\displaystyle\\lim\\limits_{x\\to 0}\\dfrac{\\tan x - x}{x^{3}}$.",
+      "choices": [
+        {
+          "latex": "$\\dfrac{1}{3}$",
+          "sympy": "Rational(1,3)",
+          "correct": true,
+          "error_type": ""
+        },
+        {
+          "latex": "$\\dfrac{1}{2}$",
+          "sympy": "Rational(1,2)",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "$\\dfrac{2}{3}$",
+          "sympy": "Rational(2,3)",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "$\\dfrac{1}{6}$",
+          "sympy": "Rational(1,6)",
+          "correct": false,
+          "error_type": "confusion_derivee_primitive"
+        }
+      ],
+      "hints": [
+        "Développez $\tan x$ en série de Taylor autour de $0$ jusqu'au terme $x^{3}$.",
+        "On a $\tan x = x + \\dfrac{x^{3}}{3}+o(x^{3})$, donc $\tfrac{\tan x - x}{x^{3}}\\to \\dfrac{1}{3}$."
+      ],
+      "solution_latex": "Le développement de Taylor donne $\tan x = x + \\frac{x^{3}}{3}+o(x^{3})$. Ainsi $dfrac{\tan x - x}{x^{3}}=\\dfrac{\\frac{x^{3}}{3}+o(x^{3})}{x^{3}}\\to \\frac{1}{3}$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "limit((tan(x)-x)/x**3, x, 0)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 2,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 2,
+      "statement_latex": "Calculer la limite suivante : $\\displaystyle\\lim\\limits_{x\\to 0}\\dfrac{e^{3x}-1-3x}{x^{2}}$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{9}{2}",
+          "sympy": "Rational(9,2)",
+          "correct": true
+        },
+        {
+          "latex": "\\dfrac{3}{2}",
+          "sympy": "Rational(3,2)",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        },
+        {
+          "latex": "9",
+          "sympy": "9",
+          "correct": false,
+          "error_type": "exposant_faux"
+        },
+        {
+          "latex": "\\dfrac{3}{2}x",
+          "sympy": "Rational(3,2)*x",
+          "correct": false,
+          "error_type": "produit_oublie"
+        }
+      ],
+      "hints": [
+        "Utilisez le développement limité de $e^{3x}$ à l'ordre 2.",
+        "Développez $e^{3x}=1+3x+\\frac{(3x)^2}{2}+o(x^2)$ puis simplifiez le numérateur."
+      ],
+      "solution_latex": "En développant $e^{3x}$ à l'ordre $2$ : $e^{3x}=1+3x+\\frac{9x^{2}}{2}+o(x^{2})$. Ainsi $e^{3x}-1-3x=\\frac{9x^{2}}{2}+o(x^{2})$ et la fraction vaut $\\dfrac{\\frac{9x^{2}}{2}+o(x^{2})}{x^{2}}\\to\\frac{9}{2}$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(9,2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 3,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 3,
+      "statement_latex": "Déterminer la limite : $\\displaystyle\\lim\\limits_{x\\to +\\infty}\\dfrac{\\sqrt{x^{2}+5x}-x}{\\ln x}$.",
+      "choices": [
+        {
+          "latex": "\\dfrac{5}{2}",
+          "sympy": "Rational(5,2)",
+          "correct": true
+        },
+        {
+          "latex": "\\dfrac{5}{4}",
+          "sympy": "Rational(5,4)",
+          "correct": false,
+          "error_type": "quotient_inverse"
+        },
+        {
+          "latex": "\\dfrac{5}{2} \\ln x",
+          "sympy": "Rational(5,2)*log(x)",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "\\dfrac{5}{2}x",
+          "sympy": "Rational(5,2)*x",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        }
+      ],
+      "hints": [
+        "Rationalisez le numérateur en le multipliant par son conjugué.",
+        "Après simplification, utilisez le développement $\\sqrt{x^{2}+5x}=x\\sqrt{1+\\frac{5}{x}}=x\\left(1+\\frac{5}{2x}+o\\left(\\frac{1}{x}\\right)\\right)$."
+      ],
+      "solution_latex": "On rationalise : $\\dfrac{\\sqrt{x^{2}+5x}-x}{\\ln x}=\\dfrac{5x}{(\\sqrt{x^{2}+5x}+x)\\ln x}$. En factorisant $x$ dans le radical, $\\sqrt{x^{2}+5x}=x\\sqrt{1+\\frac{5}{x}}=x\\left(1+\\frac{5}{2x}+o\\left(\\frac{1}{x}\\right)\\right)$. Donc $\\sqrt{x^{2}+5x}+x=2x+\\frac{5}{2}+o(1)$. Ainsi $\\dfrac{5x}{(2x+\\frac{5}{2}+o(1))\\ln x}\\sim \\dfrac{5}{2}\\,\\dfrac{1}{\\ln x}\\to \\dfrac{5}{2}$ quand $x\\to+\\infty$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "Rational(5,2)"
+      }
+    }
+  },
+  {
+    "skill_id": "ana1-limites-02",
+    "difficulty": 4,
+    "validation": "auto",
+    "payload": {
+      "skill_id": "ana1-limites-02",
+      "difficulty": 4,
+      "statement_latex": "Évaluer la limite suivante : $\\displaystyle\\lim\\limits_{x\\to 0}\\dfrac{\\ln(1+2x)-2x}{x^{2}}$.",
+      "choices": [
+        {
+          "latex": "-2",
+          "sympy": "-2",
+          "correct": true
+        },
+        {
+          "latex": "2",
+          "sympy": "2",
+          "correct": false,
+          "error_type": "erreur_signe"
+        },
+        {
+          "latex": "-1",
+          "sympy": "-1",
+          "correct": false,
+          "error_type": "produit_oublie"
+        },
+        {
+          "latex": "0",
+          "sympy": "0",
+          "correct": false,
+          "error_type": "terme_croise_oublie"
+        }
+      ],
+      "hints": [
+        "Utilisez le développement limité de $\\ln(1+u)$ à l'ordre 2 avec $u=2x$.",
+        "Le développement donne $\\ln(1+2x)=2x-\\frac{(2x)^{2}}{2}+o(x^{2})=2x-2x^{2}+o(x^{2})$ puis simplifiez."
+      ],
+      "solution_latex": "Le développement limité de $\\ln(1+u)$ est $\\ln(1+u)=u-\\frac{u^{2}}{2}+o(u^{2})$. En posant $u=2x$, on obtient $\\ln(1+2x)=2x-\\frac{(2x)^{2}}{2}+o(x^{2})=2x-2x^{2}+o(x^{2})$. Ainsi $\\ln(1+2x)-2x=-2x^{2}+o(x^{2})$ et la fraction vaut $\\dfrac{-2x^{2}+o(x^{2})}{x^{2}}\\to -2$.",
+      "check": {
+        "kind": "value",
+        "expected_sympy": "-2"
+      }
+    }
+  }
+]

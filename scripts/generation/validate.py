@@ -1,0 +1,164 @@
+# Validation SymPy des exercices générés par generate.js.
+# Usage : python scripts/generation/validate.py [out/ana1-xxx.json ...]
+#   Sans argument : valide tous les fichiers de scripts/generation/out/.
+# Sorties :
+#   scripts/generation/validated/<skill_id>.json  (exercices acceptés, prêts pour insert.js)
+#   scripts/generation/rejected.jsonl             (exercices rejetés + motif, pour revue)
+
+import json
+import sys
+from pathlib import Path
+
+import sympy
+from sympy import (
+    E, Abs, Rational, Sum, cos, diff, exp, factorial, integrate, limit, log,
+    oo, pi, simplify, sin, sqrt, symbols, tan,
+)
+
+RACINE = Path(__file__).resolve().parent
+DOSSIER_OUT = RACINE / "out"
+DOSSIER_VALIDE = RACINE / "validated"
+FICHIER_REJETS = RACINE / "rejected.jsonl"
+
+x, n = symbols("x n")
+
+# Espace de noms fermé pour sympify : uniquement ce que le prompt autorise.
+ESPACE = {
+    "x": x, "n": n,
+    "exp": exp, "log": log, "ln": log, "sqrt": sqrt,
+    "sin": sin, "cos": cos, "tan": tan, "Abs": Abs,
+    "pi": pi, "oo": oo, "E": E,
+    "Rational": Rational, "factorial": factorial,
+    # autorisés uniquement dans expected_sympy, inoffensifs dans les choix
+    "diff": diff, "limit": limit, "Sum": Sum, "integrate": integrate,
+}
+
+ERREURS_TYPES_REQUIS = 3  # nombre de distracteurs devant porter un error_type
+
+
+def parser(expression):
+    """Parse une expression SymPy dans l'espace de noms fermé."""
+    return sympy.sympify(expression, locals=ESPACE, evaluate=True)
+
+
+def egaux(a, b):
+    """Égalité symbolique robuste : equals() puis simplify de la différence."""
+    try:
+        r = a.equals(b)
+        if r is not None:
+            return r
+    except Exception:
+        pass
+    try:
+        return simplify(a - b) == 0
+    except Exception:
+        return False
+
+
+def valider_exercice(ex):
+    """Renvoie (verdict, motif) : verdict 'auto', 'manual' ou None si rejet."""
+    choix = ex.get("choices", [])
+    if len(choix) != 4:
+        return None, f"{len(choix)} choix au lieu de 4"
+    corrects = [c for c in choix if c.get("correct") is True]
+    if len(corrects) != 1:
+        return None, f"{len(corrects)} choix corrects au lieu de 1"
+    incorrects = [c for c in choix if not c.get("correct")]
+    if sum(1 for c in incorrects if c.get("error_type")) < ERREURS_TYPES_REQUIS:
+        return None, "error_type manquant sur un distracteur"
+    if len(ex.get("hints", [])) != 2:
+        return None, "il faut exactement 2 indices"
+    if not ex.get("statement_latex") or not ex.get("solution_latex"):
+        return None, "énoncé ou solution vide"
+    if not isinstance(ex.get("difficulty"), int) or not 1 <= ex["difficulty"] <= 5:
+        return None, "difficulty hors de [1, 5]"
+
+    # Unicité visuelle : deux choix affichant le même LaTeX rendent le QCM ambigu
+    for i in range(4):
+        for j in range(i + 1, 4):
+            li = choix[i]["latex"].replace("$", "").replace(" ", "")
+            lj = choix[j]["latex"].replace("$", "").replace(" ", "")
+            if li == lj:
+                return None, f"deux choix affichent le même LaTeX : {choix[i]['latex']}"
+
+    check = ex.get("check") or {}
+    if check.get("kind") != "value":
+        # Question de cours / conceptuelle : les champs sympy n'ont pas de sens,
+        # l'exercice part en file de relecture humaine.
+        return "manual", None
+
+    # Parse des 4 choix
+    exprs = []
+    for c in choix:
+        try:
+            exprs.append(parser(c["sympy"]))
+        except Exception as err:
+            return None, f"sympy imparsable « {c.get('sympy')} » : {err}"
+
+    bonne = exprs[choix.index(corrects[0])]
+
+    # Unicité symbolique : un distracteur égal à la bonne réponse (ou à un
+    # autre distracteur) est un distracteur raté.
+    for i in range(4):
+        for j in range(i + 1, 4):
+            if egaux(exprs[i], exprs[j]):
+                return None, (
+                    f"deux choix symboliquement égaux : {choix[i]['latex']} et {choix[j]['latex']}"
+                )
+
+    try:
+        attendu = parser(check["expected_sympy"])
+        attendu = attendu.doit() if hasattr(attendu, "doit") else attendu
+    except Exception as err:
+        return None, f"expected_sympy imparsable : {err}"
+    if not egaux(attendu, bonne):
+        return None, (
+            f"la réponse recalculée {attendu} ne correspond pas au choix correct {bonne}"
+        )
+    return "auto", None
+
+
+def valider_fichier(chemin, rejets):
+    donnees = json.loads(chemin.read_text(encoding="utf-8"))
+    skill_id = donnees["skill_id"]
+    acceptes = []
+    for ex in donnees["exercises"]:
+        verdict, motif = valider_exercice(ex)
+        if verdict is None:
+            rejets.append({"skill_id": skill_id, "motif": motif, "exercise": ex})
+            continue
+        acceptes.append(
+            {
+                "skill_id": skill_id,
+                "difficulty": ex["difficulty"],
+                "validation": verdict,
+                "payload": ex,
+            }
+        )
+    sortie = DOSSIER_VALIDE / f"{skill_id}.json"
+    sortie.write_text(json.dumps(acceptes, ensure_ascii=False, indent=2), encoding="utf-8")
+    n_auto = sum(1 for e in acceptes if e["validation"] == "auto")
+    n_manuel = len(acceptes) - n_auto
+    print(
+        f"{skill_id} : {len(acceptes)} acceptés ({n_auto} auto, {n_manuel} manual), "
+        f"{len(donnees['exercises']) - len(acceptes)} rejetés"
+    )
+
+
+def principal():
+    DOSSIER_VALIDE.mkdir(exist_ok=True)
+    fichiers = [Path(a) for a in sys.argv[1:]] or sorted(DOSSIER_OUT.glob("*.json"))
+    if not fichiers:
+        raise SystemExit("aucun fichier à valider dans scripts/generation/out/")
+    rejets = []
+    for chemin in fichiers:
+        valider_fichier(chemin, rejets)
+    if rejets:
+        with FICHIER_REJETS.open("a", encoding="utf-8") as f:
+            for r in rejets:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        print(f"{len(rejets)} rejet(s) ajoutés à rejected.jsonl")
+
+
+if __name__ == "__main__":
+    principal()
